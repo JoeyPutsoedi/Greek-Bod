@@ -1,0 +1,71 @@
+.login {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #52a811;
+  display: flex;
+  justify-content: center;
+  transform: translate(0%, 15%);
+}
+.loginCont {
+  width: 25em;
+  height: 35em;
+  background-color: #e3e3e3;
+  font-family: mier;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 1fr;
+}
+.loginCont h1 {
+  padding-top: 1.6em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2em;
+}
+.loginCont form {
+  margin-top: 3.5em;
+  text-align: center;
+}
+.loginCont input {
+  padding: 0.5em;
+  width: 16em;
+  height: 2em;
+  border: 1px solid grey;
+  border-radius: 0.25em;
+}
+.loginCont .label {
+  margin-top: 2em;
+}
+.loginCont button {
+  background-color: black;
+  color: #e3e3e3;
+  width: 7em;
+  padding: 0.2em 0.8em;
+  border-radius: 1.75em;
+}
+.signAcc {
+  margin-top: 1em;
+  text-align: center;
+}
+.logbtn {
+  color: black;
+  width: 19em;
+  height: 3em;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.signAcc button {
+  color: black;
+  width: 19em;
+  height: 3em;
+  border-radius: 6px;
+  background-color: greenyellow;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.signAcc i {
+  padding-left: 0.3em;
+}
+.signAcc p {
+  color: blueviolet;
+  text-decoration: underline;
+  padding-top: 1em;
+}

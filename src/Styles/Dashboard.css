@@ -1,0 +1,80 @@
+/* * {
+  outline: 1px solid black;
+} */
+.dashCont {
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.dashTools {
+  height: 100vh;
+  width: 10em;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+.logoSec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.logoBox {
+  font-family: moligo;
+  font-size: 2.3em;
+  color: #254b07;
+  border-radius: 0.75rem;
+}
+.logoBox i {
+  font-size: 0.4em;
+}
+.navSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.navSec i {
+  font-size: 1.4em;
+  color: #254b07;
+  padding: 0.7em 3em;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.navSec i:hover {
+  background-color: #7fc54a;
+  color: #bef395;
+}
+.logout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logout i {
+  font-size: 1.4em;
+  padding: 0.5em 0.5em;
+  border-radius: 0.5em;
+  color: #254b07;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.logout i:hover {
+  background-color: #7fc54a;
+  color: #bef395;
+}
+.dashInfo {
+  /* outline: 1px solid black; */
+  width: 100%;
+  height: 100vh;
+  background-color: #e3e3e3;
+  border-bottom-left-radius: 5em;
+  border-top-left-radius: 5em;
+}
+.dashHome {
+  position: inherit;
+  width: 100%;
+  height: 100vh;
+}

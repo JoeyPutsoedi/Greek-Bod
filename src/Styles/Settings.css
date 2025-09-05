@@ -1,0 +1,147 @@
+/* * {
+  outline: 1px solid black;
+} */
+.settingCont {
+  padding: 1.5em;
+  /* outline: 2px solid blueviolet; */
+  /* background-color: green; */
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+}
+/*Left Column-------------------*/
+
+.imgSet {
+  /* background-color: aqua; */
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+.imgSet h1 {
+  /* background-color: red; */
+  text-align: center;
+  align-content: end;
+  font-weight: bolder;
+  font-size: 2.6em;
+}
+.imgSet .imgPLH {
+  height: 100%;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgSet .imagePlaceholder {
+  background-color: rgba(128, 128, 128, 0.079);
+  height: 20em;
+  width: 20em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageSett img {
+  height: 18em;
+  width: 18em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.imgSet .saveImg {
+  height: 100%;
+  padding-top: 1em;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.saveImg input {
+  width: 15em;
+  height: 4em;
+  /* outline: 1px solid black; */
+}
+.saveImg button {
+  height: 2.6em;
+  width: 8.4em;
+  background-color: #7fc54a;
+  color: #254b07;
+  border-radius: 075em;
+  font-family: mier;
+  transition: 0.5s;
+}
+.saveImg button:hover {
+  outline: 1px solid #254b07;
+  background-color: #7fc54a;
+  color: #192b0b;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+/*Right Column-----------------*/
+.editInfo {
+  /* background-color: orange; */
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  padding: 1.5em;
+  border-left: 1px solid rgba(128, 128, 128, 0.303);
+}
+.editInfo h1 {
+  /* background-color: aqua; */
+  font-size: 1.2em;
+  padding: 1em 0 0 1em;
+  align-content: end;
+  font-weight: 700;
+}
+/* .editInfo .formSett {
+  background-color: red;
+} */
+
+.editInfo form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1.5em;
+  font-weight: 500;
+}
+
+.editInfo input {
+  margin-top: 0.6em;
+  margin-bottom: 1.6em;
+  padding-left: 0.4em;
+  width: 14em;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+  transition: 0.3s;
+}
+.editInfo input:focus {
+  outline: none;
+  background-color: #7fc54a60;
+  color: black;
+  border-bottom: 3px solid #254b07;
+}
+.editInfo input:hover {
+  background-color: #7fc54a60;
+  color: black;
+}
+.editInfo label {
+  font-weight: 700;
+}
+.editInfo select {
+  border-radius: 0.25em;
+  width: 15em;
+  height: 2em;
+  color: white;
+  background-color: #254b07;
+}
+.editInfo button {
+  border-radius: 2em;
+  height: 2.5em;
+  width: 6em;
+  margin-top: 9em;
+
+  font-weight: 400;
+  color: white;
+  background-color: #244b07f4;
+  transition: 0.3s;
+}
+.editInfo button:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  background-color: #244b079d;
+}
