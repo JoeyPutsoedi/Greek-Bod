@@ -5,6 +5,7 @@ import { useAuth } from "../Context/AuthContext";
 import { db, storage } from "./firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import axios from "axios";
 
 const Settings = () => {
   /*Access to current user information--------------- */
@@ -12,8 +13,10 @@ const Settings = () => {
   /*state to store user first & last names--------------- */
   const [userProfile, setUserProfile] = useState(null);
   /*state to store new images when user changes their profile picture-------------- */
-  const [newImage, setNewImage] = useState(null);
+  const [image, setImage] = useState(null);
   /* The editable version of user inputs should the user choose to change their information.*/
+  const [preview, setPreview] = useState(null);
+
   const [formData, setFormData] = useState({
     firstName: userProfile?.firstName || "",
     lastName: userProfile?.lastName || "",
@@ -27,28 +30,33 @@ const Settings = () => {
   //FUNCTIONALITY/ FUNCTIONS-----------------------------------------
   const handleImageChange = (e) => {
     const file = e.target.files?.[0]; //get the first selected file
-    if (file) setNewImage(file); //Call setNewImage and store slected file in react state
+    setImage(file); //Call setImage and store slected file in react state
+    setPreview(URL.createObjectURL(file)); //preview before upload
   };
 
-  const handleSaveImage = async () => {
-    if (newImage || !user) return; //if no user is logged or no file is selcted return nothing
+  const handleUpload = async () => {
+    if (!image) return alert("Please select an image first");
 
-    // 1) Create a Storage path unique to this user
-    const imageRef = ref(storage, `profileImages/${user.uid}`);
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "unsigned_preset"); // your preset name
 
-    // 2) Upload the raw bytes to that path
-    await uploadBytes(imageRef, newImage);
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dwnsz5sga/image/upload",
+        formData
+      );
 
-    // 3) Get a public URL for the uploaded file
-    const photoURL = await getDownloadURL(imageRef);
+      console.log("Uploaded Image URL:", response.data.secure_url);
 
-    // 4) Save that URL on the user document in Firestore
-    const userRef = doc(db, "Users", user.uid);
-    await updateDoc(userRef, { photoURL });
+      // Save this URL to Firestore as the user's profile picture
+      // Example: await updateDoc(doc(db, "Users", userId), { photoURL: response.data.secure_url });
 
-    // 5) Reflect the change immediately in local UI state
-    setUserProfile((prev) => ({ prev, photoURL }));
-    console.log("image saved succesfully.");
+      alert("Image uploaded successfully!");
+    } catch (error) {
+      console.error("Upload Error:", error);
+      alert("Image upload failed!");
+    }
   };
 
   const handleChange = (e) => {
@@ -74,19 +82,6 @@ const Settings = () => {
       console.error("Failed to save profile:", err);
       // optional: revert optimistic update or show error toast
     }
-
-    // await updateDoc(userRef, {
-    //   firstName: formData.firstName,
-    //   lastName: formData.lastName,
-    //   email: formData.email,
-    //   weight: formData.weight,
-    //   height: formData.height,
-    //   age: formData.age,
-    //   goal: formData.goal,
-    // });
-
-    // // keep on-screen profile in sync with what we saved
-    // setUserProfile((prev) => ({ ...prev, ...formData }));
   };
 
   useEffect(() => {
@@ -121,14 +116,14 @@ const Settings = () => {
           <div className="imgPLH">
             {/* Image Section--------------------------------------- */}
             <div className="imagePlaceholder">
-              <img src={userProfile?.photoURL} alt={user?.displayName} />
+              <img src={preview} alt={user?.displayName} />
             </div>
           </div>
           {/*Buttons Section-------------------------------------------------*/}
           <div className="saveImg">
             <input type="file" accept="image/*" onChange={handleImageChange} />
             {/* <button htmlFor="imgPicker ">Change Image</button> */}
-            <button onClick={handleSaveImage}>Save Changes</button>
+            <button onClick={handleUpload}>Save Changes</button>
           </div>
         </div>
       </div>
