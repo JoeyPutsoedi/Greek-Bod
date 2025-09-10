@@ -9,12 +9,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAoW7bgNW82nGQG2eadOvuLCRcNmjcQKsE",
-  authDomain: "greek-bod.firebaseapp.com",
-  projectId: "greek-bod",
-  storageBucket: "greek-bod.firebasestorage.app",
-  messagingSenderId: "24438686256",
-  appId: "1:24438686256:web:d926c59fcfbdc25ddd23f5",
+  apiKey: "AIzaSyAptMflfGjla54GH8ETJ4HvMsAvSujB7fk",
+  authDomain: "greek-bod1.firebaseapp.com",
+  projectId: "greek-bod1",
+  storageBucket: "greek-bod1.firebasestorage.app",
+  messagingSenderId: "529072838813",
+  appId: "1:529072838813:web:2c96594220a20d31ba9c74",
 };
 
 // Initialize Firebase

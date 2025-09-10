@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../Context/AuthContext";
+import "../Styles/DashboardHome.css";
 const DashboardHome = () => {
   const { user, profile } = useAuth();
   const { userProfile } = useAuth();
@@ -8,7 +9,7 @@ const DashboardHome = () => {
       {/* TOP: Welcome + Profile */}
       <div className="profile-summary card">
         <div>
-          <h2>User Data: {user?.displayName}</h2>
+          <h2>User Data: {user?.displayName || profile?.firstName}</h2>
           <br />
           <p>
             Height: {profile?.height}cm <br />
