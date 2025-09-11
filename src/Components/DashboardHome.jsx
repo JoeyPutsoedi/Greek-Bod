@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../Context/AuthContext";
+import "../Styles/DashboardHome.css";
 const DashboardHome = () => {
   const { user, profile } = useAuth();
   const { userProfile } = useAuth();
@@ -8,13 +9,14 @@ const DashboardHome = () => {
       {/* TOP: Welcome + Profile */}
       <div className="profile-summary card">
         <div>
-          <h2>User Data: {user?.displayName}</h2>
+          <h2>User Data: {user?.displayName || profile?.firstName}</h2>
           <br />
+
           <p>
-            Height: {profile.height}cm <br />
-            Current Weight: {profile.weight}kg <br />
-            Age: {profile.age}yrs <br />
-            Weight Goal: {profile.goal}
+            Height: {profile?.height}cm <br />
+            Current Weight: {profile?.weight}kg <br />
+            Age: {profile?.age}yrs <br />
+            Weight Goal: {profile?.goal}
           </p>
         </div>
       </div>
@@ -25,7 +27,7 @@ const DashboardHome = () => {
         <div className="progress-bar">
           <div
             className="progress-fill"
-            style={{ width: `${user.progress}%` }}
+            style={{ width: `${user?.progress}%` }}
           ></div>
         </div>
         <p>{user.progress}% complete</p>
@@ -35,13 +37,15 @@ const DashboardHome = () => {
       <div className="nutrition-summary card">
         <h3>Daily Nutrition</h3>
         <p>
-          {user.consumedCalories} / {user.targetCalories} kcal
+          {user?.consumedCalories} / {user?.targetCalories} kcal
         </p>
         <div className="progress-bar">
           <div
             className="progress-fill"
             style={{
-              width: `${(user.consumedCalories / user.targetCalories) * 100}%`,
+              width: `${
+                (user?.consumedCalories / user?.targetCalories) * 100
+              }%`,
             }}
           ></div>
         </div>
