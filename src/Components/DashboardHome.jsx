@@ -9,9 +9,9 @@ const DashboardHome = () => {
       {/* TOP: Welcome + Profile */}
       <div className="profile-summary card">
         <div>
-          <h2>User Data: {user?.displayName || profile?.firstName}</h2>
+          <h2>User Data: {profile?.firstName}</h2>
           <br />
-
+          <img src={profile.photoURL} width="100px" />
           <p>
             Height: {profile?.height}cm <br />
             Current Weight: {profile?.weight}kg <br />

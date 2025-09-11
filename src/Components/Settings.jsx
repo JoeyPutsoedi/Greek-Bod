@@ -184,8 +184,9 @@ const Settings = () => {
               <input
                 name="email"
                 type="text"
-                placeholder={user?.email}
-                readOnly
+                placeholder={formData?.email}
+                value={formData?.email}
+                onChange={handleChange}
               />
               <br />
               <label htmlFor=""> Weight Goal</label>
