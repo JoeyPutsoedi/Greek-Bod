@@ -11,6 +11,7 @@ const DashboardHome = () => {
         <div>
           <h2>User Data: {user?.displayName || profile?.firstName}</h2>
           <br />
+
           <p>
             Height: {profile?.height}cm <br />
             Current Weight: {profile?.weight}kg <br />

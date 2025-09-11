@@ -1,10 +1,8 @@
-import defaultImg from "../assets/images/default.jpg";
 import { React, useState, useEffect } from "react";
 import "../Styles/Settings.css";
 import { useAuth } from "../Context/AuthContext";
-import { db, storage } from "./firebase";
+import { db } from "./firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import axios from "axios";
 
 const Settings = () => {
@@ -35,7 +33,7 @@ const Settings = () => {
   };
 
   const handleUpload = async () => {
-    if (!image) return alert("Please select an image first");
+    if (!image) return alert("Please select an image first"); //If No image is selected return message
 
     const formData = new FormData();
     formData.append("file", image);
@@ -50,7 +48,9 @@ const Settings = () => {
       console.log("Uploaded Image URL:", response.data.secure_url);
 
       // Save this URL to Firestore as the user's profile picture
-      // Example: await updateDoc(doc(db, "Users", userId), { photoURL: response.data.secure_url });
+      await updateDoc(doc(db, "Users", user.uid), {
+        photoURL: response.data.secure_url,
+      });
 
       alert("Image uploaded successfully!");
     } catch (error) {
@@ -67,7 +67,7 @@ const Settings = () => {
   const handleSaveProfile = async () => {
     if (!user) return;
 
-    const userRef = doc(db, "Users", user.uid);
+    const userRef = doc(db, "users", user.uid);
 
     try {
       // 1) write to Firestore (source of truth)
@@ -76,7 +76,6 @@ const Settings = () => {
       // 2) update context immediately so the UI reflects changes
       setUserProfile((prev) => ({ ...(prev || {}), ...formData }));
 
-      // optional: show success toast
       // toast.success("Profile saved");
     } catch (err) {
       console.error("Failed to save profile:", err);
@@ -85,12 +84,18 @@ const Settings = () => {
   };
 
   useEffect(() => {
+    if (userProfile?.photoURL) {
+      setPreview(userProfile.photoURL);
+    }
+  }, [userProfile]);
+
+  useEffect(() => {
     const fetchProfile = async () => {
       if (!user) return; /*if there's no user logged in return nothing; */
 
       try {
         /*create a reference of a firestore document, Collection "Users" with the uid "user.uid"*/
-        const docRef = doc(db, "Users", user.uid);
+        const docRef = doc(db, "users", user.uid);
 
         /*getDoc gets the actual data from the reference */
         const docSnap = await getDoc(docRef);
