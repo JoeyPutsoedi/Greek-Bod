@@ -7,23 +7,38 @@ import axios from "axios";
 
 const Settings = () => {
   /*Access to current user information--------------- */
-  const { user, profile } = useAuth();
-  /*state to store user first & last names--------------- */
-  const [userProfile, setUserProfile] = useState(null);
+  const { user, profile, setProfile } = useAuth();
   /*state to store new images when user changes their profile picture-------------- */
   const [image, setImage] = useState(null);
   /* The editable version of user inputs should the user choose to change their information.*/
   const [preview, setPreview] = useState(null);
 
   const [formData, setFormData] = useState({
-    firstName: userProfile?.firstName || "",
-    lastName: userProfile?.lastName || "",
-    email: userProfile?.email || "",
-    weight: userProfile?.weight || "",
-    height: userProfile?.height || "",
-    age: userProfile?.age || "",
-    goal: userProfile?.goal || "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    weight: "",
+    height: "",
+    age: "",
+    goal: "",
+    photoURL: "",
   });
+
+  // Load data from AuthContext or Firestore into formData
+  useEffect(() => {
+    if (profile) {
+      setFormData({
+        firstName: profile.firstName || "",
+        lastName: profile.lastName || "",
+        email: profile.email || "",
+        weight: profile.weight || "",
+        height: profile.height || "",
+        age: profile.age || "",
+        goal: profile.goal || "",
+        photoURL: profile.photoURL || "",
+      });
+    }
+  }, [profile]);
 
   //FUNCTIONALITY/ FUNCTIONS-----------------------------------------
   const handleImageChange = (e) => {
@@ -48,9 +63,11 @@ const Settings = () => {
       console.log("Uploaded Image URL:", response.data.secure_url);
 
       // Save this URL to Firestore as the user's profile picture
-      await updateDoc(doc(db, "Users", user.uid), {
+      await updateDoc(doc(db, "users", user.uid), {
         photoURL: response.data.secure_url,
       });
+
+      setProfile((prev) => ({ ...prev, photoURL: response.data.secure_url }));
 
       alert("Image uploaded successfully!");
     } catch (error) {
@@ -74,20 +91,19 @@ const Settings = () => {
       await updateDoc(userRef, { ...formData });
 
       // 2) update context immediately so the UI reflects changes
-      setUserProfile((prev) => ({ ...(prev || {}), ...formData }));
+      setProfile((prev) => ({ ...(prev || {}), ...formData }));
 
-      // toast.success("Profile saved");
+      setProfile((prev) => ({ ...prev, ...formData }));
     } catch (err) {
       console.error("Failed to save profile:", err);
-      // optional: revert optimistic update or show error toast
     }
   };
 
   useEffect(() => {
-    if (userProfile?.photoURL) {
-      setPreview(userProfile.photoURL);
+    if (formData?.photoURL) {
+      setPreview(formData.photoURL);
     }
-  }, [userProfile]);
+  }, [formData]);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -117,7 +133,7 @@ const Settings = () => {
       <div className="imageSett">
         <div className="imgSet">
           {/*Header For User Name-------------------------------------------------*/}
-          <h1> {userProfile?.firstName + " " + userProfile?.lastName}</h1>
+          <h1> {formData?.firstName + " " + formData?.lastName}</h1>
           <div className="imgPLH">
             {/* Image Section--------------------------------------- */}
             <div className="imagePlaceholder">
@@ -148,7 +164,7 @@ const Settings = () => {
               <input
                 name="firstName"
                 type="text"
-                placeholder={userProfile?.firstName}
+                placeholder={formData?.firstName}
                 value={formData.firstName}
                 onChange={handleChange}
               />
@@ -158,7 +174,7 @@ const Settings = () => {
               <input
                 name="lastName"
                 type="text"
-                placeholder={userProfile?.lastName}
+                placeholder={formData?.lastName}
                 value={formData.lastName}
                 onChange={handleChange}
               />
@@ -180,7 +196,7 @@ const Settings = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="lose">{profile?.goal}</option>
+                <option>{profile?.goal}</option>
                 <option value="lose">Lose Weight</option>
                 <option value="gain">Gain Muscle</option>
                 <option value="maintain">Maintain </option>
