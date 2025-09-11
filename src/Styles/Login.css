@@ -31,9 +31,6 @@
   border: 1px solid grey;
   border-radius: 0.25em;
 }
-.loginCont .label {
-  margin-top: 2em;
-}
 .loginCont button {
   background-color: black;
   color: #e3e3e3;
@@ -68,4 +65,8 @@
   color: blueviolet;
   text-decoration: underline;
   padding-top: 1em;
+}
+.error {
+  color: red;
+  margin-bottom: -3em;
 }
