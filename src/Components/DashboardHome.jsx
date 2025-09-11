@@ -3,7 +3,7 @@ import { useAuth } from "../Context/AuthContext";
 import "../Styles/DashboardHome.css";
 const DashboardHome = () => {
   const { user, profile } = useAuth();
-  const { userProfile } = useAuth();
+
   return (
     <div className="dashboard-container">
       {/* TOP: Welcome + Profile */}
