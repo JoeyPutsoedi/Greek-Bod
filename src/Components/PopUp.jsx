@@ -36,7 +36,17 @@ const PopUp = () => {
   const handleSave = async () => {
     if (!user) return;
     const userRef = doc(db, "users", user.uid);
-    await setDoc(userRef, { profile, profileComplete: true }, { merge: true });
+    await setDoc(
+      userRef,
+      {
+        height: profile.height || "",
+        weight: profile.weight || "",
+        age: profile.age || "",
+        goal: profile.goal || "",
+        profileComplete: true,
+      },
+      { merge: true }
+    );
     setOpen(false);
   };
 

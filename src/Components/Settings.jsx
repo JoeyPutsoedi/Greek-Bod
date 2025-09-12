@@ -118,7 +118,7 @@ const Settings = () => {
 
         /*if document exists call setUserProfile and save user's info in react state */
         if (docSnap.exists()) {
-          setUserProfile(docSnap.data());
+          setProfile(docSnap.data());
         }
       } catch (error) {
         console.error("Error fetchingProfile");
