@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  //When Firebase auth state changes, Fetch Firestore profile
+  //When Firebase auth state changes, Fetch Firestore profile----------------------
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser || null);
@@ -19,7 +19,8 @@ export const AuthProvider = ({ children }) => {
         const userRef = doc(db, "users", firebaseUser.uid);
         const snap = await getDoc(userRef);
         if (snap.exists()) {
-          setProfile(snap.data() || null); // store full user doc, including photoURL, goal, etc.
+          setProfile(snap.data() || null);
+          // store full user doc, including photoURL, goal, etc.
         }
       } else {
         setProfile(null);

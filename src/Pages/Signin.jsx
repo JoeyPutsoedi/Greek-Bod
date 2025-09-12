@@ -60,7 +60,7 @@ const Signin = () => {
       const user = auth.currentUser;
       console.log(user);
       if (user) {
-        await setDoc(doc(db, "Users", user.uid), {
+        await setDoc(doc(db, "users", user.uid), {
           email: user.email,
           firstName: firstName,
           lastName: lastName,
