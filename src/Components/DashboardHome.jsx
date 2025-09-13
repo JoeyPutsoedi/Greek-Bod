@@ -6,8 +6,59 @@ const DashboardHome = () => {
 
   return (
     <div className="dashboard-container">
-      {/* TOP: Welcome + Profile */}
-      <div className="profile-summary card">
+      {/*,Left column----------------------------------------------------------------------------*/}
+      <section className="leftDash">
+        <div className="upperLeftDash">
+          <h1>Dashboard</h1>
+          {/*Top left column----------------------------------------------------------------------------*/}
+          <div className="dashBanner">
+            <h2>Hello{", " + profile?.firstName}</h2>
+            <p>The Best way to get consistency is to track your stats</p>
+          </div>
+        </div>
+        <div className="activityDash">
+          <div className="upperActivity"></div>
+          <div className="lowerActivity"></div>
+        </div>
+      </section>
+      {/*Right column----------------------------------------------------------------------------*/}
+      <section className="rightDash">
+        {/*Top right column----------------------------------------------------------------------------*/}
+        <div className="top-rightdash">
+          <div className="imgplacehld">
+            {/*if there is no profile picture return a placeholder of the first letter of user's name*/}
+            {!profile?.photoURL ? (
+              <p>{profile?.firstName.substring(0, 1)}</p>
+            ) : (
+              <img
+                src={profile?.photoURL}
+                alt={profile?.firstName.substring(0, 1)}
+              />
+            )}
+          </div>
+          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>
+        </div>
+        {/*below right column----------------------------------------------------------------------------*/}
+        <div className="bottom-rightDash">
+          <div className="popupStats">
+            <div className="height">
+              <p className="popupLabel">{profile?.height + " cm"}</p>
+              <p>Height</p>
+            </div>
+            <div className="weight">
+              <p className="popupLabel">{profile?.weight + " kg"}</p>
+              <p>Weight</p>
+            </div>
+            <div className="age">
+              <p className="popupLabel">{profile?.age + " yrs"}</p>
+
+              <p>Age</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <div className="profile-summary card">
         <div>
           <h2>User Data: {user?.displayName || profile?.firstName}</h2>
           <br />
@@ -19,71 +70,9 @@ const DashboardHome = () => {
             Weight Goal: {profile?.goal}
           </p>
         </div>
-      </div>
-
-      {/* MIDDLE: Goal Progress */}
-      <div className="goal-progress card">
-        <h3>Progress Toward Goal</h3>
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${user?.progress}%` }}
-          ></div>
-        </div>
-        <p>{user.progress}% complete</p>
-      </div>
-
-      {/* MIDDLE: Daily Nutrition */}
-      <div className="nutrition-summary card">
-        <h3>Daily Nutrition</h3>
-        <p>
-          {user?.consumedCalories} / {user?.targetCalories} kcal
-        </p>
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{
-              width: `${
-                (user?.consumedCalories / user?.targetCalories) * 100
-              }%`,
-            }}
-          ></div>
-        </div>
-      </div>
-
-      {/* BOTTOM: Quick Actions */}
-      <div className="quick-actions card">
-        <h3>Quick Actions</h3>
-        <div className="buttons">
-          <button>Log Meal</button>
-          <button>Scan Food</button>
-          <button>Log Workout</button>
-        </div>
-      </div>
-
-      {/* BOTTOM: Motivation */}
-      <div className="motivation card">
-        <p>💪 "Every rep brings you closer to your best self!"</p>
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default DashboardHome;
-<div className="dashHead"></div>;
-
-{
-  /* MIDDLE: Daily Check------------------------------ */
-}
-<div className="dailycheck">
-  {/* MIDDLE: Goal Progress------------------------------- */}
-
-  {/* MIDDLE: Daily Nutrition */}
-</div>;
-{
-  /* overview----------------------------------------------*/
-}
-<div className="overview">Overview</div>;
-{
-  /* overview----------------------------------------------*/
-}

@@ -1,3 +1,84 @@
 .dashboard-container {
-  padding: 2em;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.leftDash {
+  padding: 1em 2em 1em 2em;
+  width: 70%;
+  /* background-color: yellowgreen; */
+}
+.leftDash h1 {
+  font-weight: 700;
+  font-size: 1.8em;
+  font-family: mier;
+}
+.leftDash .dashBanner {
+  width: 100%;
+  height: 8em;
+  margin-top: 3em;
+  border-radius: 0.75em;
+  background-color: #4ac57748;
+  padding: 1em;
+  align-content: end;
+}
+.dashBanner h2 {
+  font-weight: 500;
+  font-size: 1.3em;
+}
+.dashBanner p {
+  margin-top: 1em;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  color: #509367ef;
+}
+.rightDash {
+  width: 30%;
+  background-color: #4ac57748;
+}
+.top-rightdash {
+  /* background-color: blue; */
+  height: 18em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.imgplacehld {
+  margin-top: 3.5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10em;
+  height: 10em;
+  border-radius: 0.75em;
+  background-color: rgb(33, 89, 33);
+}
+.top-rightdash h1 {
+  font-family: mier;
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+.imgplacehld img {
+  width: 10em;
+  height: 10em;
+  border-radius: 0.75em;
+  object-fit: cover;
+}
+.imgplacehld p {
+  margin-top: 1em;
+  color: white;
+  font-weight: 600;
+  font-size: 3em;
+}
+.bottom-rightDash .popupStats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+  text-align: center;
+  line-height: 2.3em;
+}
+.popupLabel {
+  font-size: 1.3em;
+  color: #254b07;
+  font-weight: 700;
 }
