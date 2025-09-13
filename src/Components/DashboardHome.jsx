@@ -1,8 +1,12 @@
 import React from "react";
 import { useAuth } from "../Context/AuthContext";
+import Bmr from "./Bmr";
 import "../Styles/DashboardHome.css";
+import DailyCalories from "./DailyCalories";
 const DashboardHome = () => {
-  const { user, profile } = useAuth();
+  const { profile } = useAuth();
+
+  //BMR CALULATIONS----------------------------------------------------------------
 
   return (
     <div className="dashboard-container">
@@ -17,7 +21,77 @@ const DashboardHome = () => {
           </div>
         </div>
         <div className="activityDash">
-          <div className="upperActivity"></div>
+          <div className="upperActivity">
+            <div className="bmrCont">
+              {/*Activity---------------------------------- */}
+              <div
+                className="upperBmr"
+                style={{ backgroundColor: "#4ac577ad" }}
+              >
+                <div className="upperBmrUpper">
+                  <div className="blok">{profile?.activityLevel || 0}</div>
+                  <p>
+                    Weekly Exercise Level <br />
+                  </p>
+                </div>
+
+                <div className="white-lines">
+                  <div className="line"></div>
+                  <div className="line" style={{ opacity: "0.5" }}></div>
+                </div>
+              </div>
+              {/*BMR---------------------------------- */}
+              <div className="upperBmr" style={{ backgroundColor: "#4ac577" }}>
+                <div className="upperBmrUpper">
+                  <div className="blok">
+                    {(
+                      <Bmr
+                        weight={profile?.weight}
+                        height={profile?.height}
+                        age={profile?.age}
+                        gender={profile?.gender}
+                      />
+                    ) || 0}
+                  </div>
+                  <p>Your Basal Metabolic Rate (kcal)</p>
+                </div>
+
+                <div className="white-lines">
+                  <div className="line"></div>
+                  <div className="line" style={{ opacity: "0.5" }}></div>
+                </div>
+              </div>
+              {/*Calorie Target---------------------------------- */}
+              <div className="upperBmr" style={{ backgroundColor: "#31a35b" }}>
+                <div className="upperBmrUpper">
+                  <div className="blok">
+                    {(
+                      <DailyCalories
+                        weight={profile?.weight}
+                        height={profile?.height}
+                        age={profile?.age}
+                        gender={profile?.gender}
+                        goal={profile?.goal}
+                        activityLevel={profile?.activityLevel}
+                      />
+                    ) || 0}
+                  </div>
+                  <p>
+                    {" "}
+                    Daily Calorie Target <br />
+                    (kcal)
+                  </p>
+                </div>
+
+                <div className="white-lines">
+                  <div className="line"></div>
+                  <div className="line" style={{ opacity: "0.5" }}></div>
+                </div>
+              </div>
+            </div>
+            {/*Calender Section------------------------------------------*/}
+            <div className="calCont"></div>
+          </div>
           <div className="lowerActivity"></div>
         </div>
       </section>
@@ -36,8 +110,10 @@ const DashboardHome = () => {
               />
             )}
           </div>
-          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>
+          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>{" "}
+          <p>{profile?.gender}</p>
         </div>
+
         {/*below right column----------------------------------------------------------------------------*/}
         <div className="bottom-rightDash">
           <div className="popupStats">

@@ -32,6 +32,69 @@
   margin-bottom: 0.5em;
   color: #509367ef;
 }
+.activityDash {
+  margin-top: 2em;
+}
+.upperActivity {
+  height: 20em;
+  display: flex;
+  gap: 2.4em;
+}
+
+.upperActivity .bmrCont {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: white;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bmrCont .upperBmr {
+  border-radius: 0.75em;
+  background-color: #fffb00;
+  padding: 0.6em 1em 0.5em 1em;
+}
+.upperBmrUpper {
+  display: flex;
+}
+.upperBmr .blok {
+  font-family: mier;
+  background: linear-gradient(45deg, white, rgb(204, 245, 127));
+  border-radius: 0.25em;
+  width: 4em;
+  height: 4em;
+  text-align: center;
+  align-content: center;
+  color: black;
+  font-size: 0.8em;
+}
+.upperBmr p {
+  color: rgba(0, 0, 0, 0.803);
+  margin-left: 1em;
+  font-size: 14px;
+  line-height: 1.3em;
+  font-weight: 500;
+}
+.white-lines {
+  padding-top: 0.4em;
+  display: flex;
+  gap: 0.5em;
+}
+.white-lines .line {
+  width: 4em;
+  height: 0.3em;
+  background-color: white;
+  border-top-right-radius: 0.75em;
+}
+.upperActivity .calCont {
+  border-radius: 0.75em;
+  background-color: white;
+  width: 55%;
+}
+/*---------------------right column----------------------------------*/
+
 .rightDash {
   width: 30%;
   background-color: #4ac57748;
@@ -77,8 +140,29 @@
   text-align: center;
   line-height: 2.3em;
 }
+.genderDisplay {
+  padding: 1em;
+  margin-top: 1.7em;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.genderDisplay p {
+  font-weight: 400;
+}
 .popupLabel {
   font-size: 1.3em;
   color: #254b07;
   font-weight: 700;
+}
+@keyframes bkgswirl {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(200deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

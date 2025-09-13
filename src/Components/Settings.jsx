@@ -22,6 +22,7 @@ const Settings = () => {
     age: "",
     goal: "",
     gender: "",
+    activityLevel: "",
     photoURL: "",
   });
 
@@ -37,6 +38,7 @@ const Settings = () => {
         age: profile.age || "",
         goal: profile.goal || "",
         gender: profile.gender || "",
+        activityLevel: profile.activityLevel || "",
         photoURL: profile.photoURL || "",
       });
     }
@@ -205,6 +207,21 @@ const Settings = () => {
                 <option value="maintain">Maintain </option>
               </select>
               <br />
+              <br />
+              <label htmlFor=""> Weekly Excersise</label>
+              <br />
+              <select
+                name="activityLevel"
+                value={profile.activityLevel}
+                onChange={handleChange}
+                required
+              >
+                <option>{profile?.activityLevel}</option>
+                <option value="N/A">No exercise</option>
+                <option value="light">1-3 Days</option>
+                <option value="medium">3-5 Days</option>
+                <option value="heavy">6-7 Days</option>
+              </select>
             </div>
             {/*Right Column-------------------------------------------------*/}
             <div className="rightForm">
