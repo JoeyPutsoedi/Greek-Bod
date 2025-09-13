@@ -12,6 +12,7 @@ const PopUp = () => {
     weight: "",
     age: "",
     goal: "",
+    gender: "",
   });
 
   const handleChange = (e) => {
@@ -43,6 +44,7 @@ const PopUp = () => {
         weight: profile.weight || "",
         age: profile.age || "",
         goal: profile.goal || "",
+        gender: profile.gender || "",
         profileComplete: true,
       },
       { merge: true }
@@ -96,6 +98,16 @@ const PopUp = () => {
             <option value="lose">Lose Weight</option>
             <option value="gain">Gain Muscle</option>
             <option value="maintain">Maintain</option>
+          </select>
+          <select
+            name="gender"
+            value={profile.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="">What is your Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
 
           <div className="actions">

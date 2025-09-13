@@ -42,35 +42,21 @@ const DashboardHome = () => {
         <div className="bottom-rightDash">
           <div className="popupStats">
             <div className="height">
-              <p className="popupLabel">{profile?.height + " cm"}</p>
+              <p className="popupLabel">{profile?.height || " 0 "} cm</p>
               <p>Height</p>
             </div>
             <div className="weight">
-              <p className="popupLabel">{profile?.weight + " kg"}</p>
+              <p className="popupLabel">{profile?.weight || " 0 "} kg</p>
               <p>Weight</p>
             </div>
             <div className="age">
-              <p className="popupLabel">{profile?.age + " yrs"}</p>
+              <p className="popupLabel">{profile?.age || " 0 "} yrs</p>
 
               <p>Age</p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* <div className="profile-summary card">
-        <div>
-          <h2>User Data: {user?.displayName || profile?.firstName}</h2>
-          <br />
-
-          <p>
-            Height: {profile?.height}cm <br />
-            Current Weight: {profile?.weight}kg <br />
-            Age: {profile?.age}yrs <br />
-            Weight Goal: {profile?.goal}
-          </p>
-        </div>
-      </div> */}
     </div>
   );
 };

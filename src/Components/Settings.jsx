@@ -21,6 +21,7 @@ const Settings = () => {
     height: "",
     age: "",
     goal: "",
+    gender: "",
     photoURL: "",
   });
 
@@ -35,6 +36,7 @@ const Settings = () => {
         height: profile.height || "",
         age: profile.age || "",
         goal: profile.goal || "",
+        gender: profile.gender || "",
         photoURL: profile.photoURL || "",
       });
     }
@@ -94,6 +96,7 @@ const Settings = () => {
       setProfile((prev) => ({ ...(prev || {}), ...formData }));
 
       setProfile((prev) => ({ ...prev, ...formData }));
+      alert("Details Updated successfully!");
     } catch (err) {
       console.error("Failed to save profile:", err);
     }
@@ -235,6 +238,18 @@ const Settings = () => {
                 onChange={handleChange}
               />
               <br />
+              <label htmlFor=""> Gender</label>
+              <br />
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
+                <option value="">What is your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
               <button type="submit">Save</button>
             </div>
           </form>
