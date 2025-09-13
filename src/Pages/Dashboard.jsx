@@ -35,7 +35,7 @@ const Dashboard = () => {
       <PopUp />
       <section className="dashCont">
         <div className="dashTools">
-          {/*---------logo--------*/}
+          {/*--------------logo----------------------*/}
           <div className="logoSec">
             <div className="logoBox">
               <Link to="/">
@@ -43,7 +43,7 @@ const Dashboard = () => {
               </Link>
             </div>
           </div>
-          {/*---------tools--------*/}
+          {/*-----------tools-----------------------*/}
           <div className="navSec">
             <i
               onClick={() => setActiveTab("home")}
@@ -57,7 +57,7 @@ const Dashboard = () => {
               class="fa-solid fa-gear"
             ></i>
           </div>
-          {/*---------logout--------*/}
+          {/*------------------logout-------------------*/}
           <div className="logout">
             <button onClick={signOutUser}>
               <i className="fas fa-sign-out-alt"></i>

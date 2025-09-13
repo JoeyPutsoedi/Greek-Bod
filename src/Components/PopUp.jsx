@@ -13,6 +13,7 @@ const PopUp = () => {
     age: "",
     goal: "",
     gender: "",
+    activityLevel: "",
   });
 
   const handleChange = (e) => {
@@ -45,6 +46,7 @@ const PopUp = () => {
         age: profile.age || "",
         goal: profile.goal || "",
         gender: profile.gender || "",
+        activityLevel: profile.activityLevel || "",
         profileComplete: true,
       },
       { merge: true }
@@ -64,6 +66,7 @@ const PopUp = () => {
             handleSave();
           }}
         >
+          {/*Height-------------------------------------*/}
           <input
             type="number"
             name="height"
@@ -72,6 +75,8 @@ const PopUp = () => {
             onChange={handleChange}
             required
           />
+
+          {/*Weight-------------------------------------*/}
           <input
             type="number"
             name="weight"
@@ -80,6 +85,8 @@ const PopUp = () => {
             onChange={handleChange}
             required
           />
+
+          {/*Age-------------------------------------*/}
           <input
             type="number"
             name="age"
@@ -88,6 +95,8 @@ const PopUp = () => {
             onChange={handleChange}
             required
           />
+
+          {/*Goal-------------------------------------*/}
           <select
             name="goal"
             value={profile.goal}
@@ -99,6 +108,8 @@ const PopUp = () => {
             <option value="gain">Gain Muscle</option>
             <option value="maintain">Maintain</option>
           </select>
+
+          {/*Gender-------------------------------------*/}
           <select
             name="gender"
             value={profile.gender}
@@ -108,6 +119,20 @@ const PopUp = () => {
             <option value="">What is your Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
+          </select>
+
+          {/*Activity level-------------------------------------*/}
+          <select
+            name="activityLevel"
+            value={profile.activityLevel}
+            onChange={handleChange}
+            required
+          >
+            <option value="">How often do you exercise weekly?</option>
+            <option value="N/A">No exercise</option>
+            <option value="light">1-3 Days</option>
+            <option value="medium">3-5 Days</option>
+            <option value="heavy">6-7 Days</option>
           </select>
 
           <div className="actions">
