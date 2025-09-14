@@ -1,0 +1,104 @@
+.mealsCont {
+  padding: 2em 2em;
+}
+.upperMeals h2 {
+  font-weight: bold;
+  font-size: 1.7em;
+}
+.upperMeals p {
+  margin-top: 1.2em;
+  height: 2.5em;
+  align-content: center;
+  width: 10em;
+  font-size: 0.7em;
+  border-radius: 5.75em;
+  text-align: center;
+  background-color: #4ac577;
+}
+
+/*Mid row------------------------------------------------------------*/
+
+.midMeals h2 {
+  margin-top: 1.2em;
+  font-weight: 700;
+  font-size: 1.6em;
+}
+.mealGrid {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 1em;
+}
+
+.mealType {
+  width: 18em;
+  padding: 0.6em 0 0.6em 1em;
+  color: #31a35b;
+  border: 1px solid #31a35b;
+  font-size: 1.1em;
+  border-radius: 0.75em;
+}
+.mealHold {
+  display: grid;
+  grid-template-rows: 3fr 2fr 1.2fr;
+  margin-top: 1em;
+  width: 20em;
+  height: 22em;
+  background-color: #bcf3d048;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.067);
+  border-radius: 0.75em;
+}
+.mealHold img {
+  width: 100%;
+  height: 15em;
+  padding: 0.5em;
+  object-fit: cover;
+  border-bottom-left-radius: 0.75em;
+  border-bottom-right-radius: 0.75em;
+}
+.mealHold h3 {
+  padding-left: 0.6em;
+  margin-top: 0.3em;
+  font-weight: 500;
+}
+.mealHold .linkHold {
+  /* background-color: orange; */
+  padding-left: 1em;
+}
+.mealHold a {
+  font-size: 12px;
+  width: 2em;
+  color: white;
+  border-radius: 0.75em;
+  background-color: #31a35b;
+  padding: 0.6em 0.8em;
+  transition: 0.5s;
+}
+.mealHold a:hover {
+  background-color: #185e32;
+}
+/*Mid row------------------------------------------------------------*/
+.lowerMeals h2 {
+  margin-top: 2em;
+  font-weight: 700;
+  font-size: 1.6em;
+}
+.lowerGrid {
+  display: flex;
+  gap: 6em;
+  margin-top: 1em;
+}
+/*----------------------Scroller-----------------------*/
+::-webkit-scrollbar {
+  z-index: 0;
+  width: 0.7em;
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 2px;
+  border-radius: 0.75em;
+  opacity: 0;
+
+  background-color: #31a35b;
+}
