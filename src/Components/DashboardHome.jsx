@@ -3,6 +3,7 @@ import { useAuth } from "../Context/AuthContext";
 import Bmr from "./Bmr";
 import "../Styles/DashboardHome.css";
 import DailyCalories from "./DailyCalories";
+import Calendar from "react-calendar";
 const DashboardHome = () => {
   const { profile } = useAuth();
 
@@ -90,7 +91,9 @@ const DashboardHome = () => {
               </div>
             </div>
             {/*Calender Section------------------------------------------*/}
-            <div className="calCont"></div>
+            <div className="calCont">
+              <Calendar tileClassName={{ Date }} />
+            </div>
           </div>
           <div className="lowerActivity"></div>
         </div>
