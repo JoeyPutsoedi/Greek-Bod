@@ -212,7 +212,7 @@ const Settings = () => {
               <br />
               <select
                 name="activityLevel"
-                value={profile.activityLevel}
+                value={profile?.activityLevel}
                 onChange={handleChange}
                 required
               >

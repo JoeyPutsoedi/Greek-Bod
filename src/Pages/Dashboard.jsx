@@ -7,6 +7,7 @@ import { useAuth } from "../Context/AuthContext";
 import PopUp from "../Components/PopUp";
 import Settings from "../Components/Settings";
 import DashboardHome from "../Components/DashboardHome";
+import DashboardMeals from "../Components/DashboardMeals";
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState();
   /*Sign out function-------------- */
@@ -24,7 +25,8 @@ const Dashboard = () => {
         return <DashboardHome />;
       case "settings":
         return <Settings />;
-
+      case "meals":
+        return <DashboardMeals />;
       default:
         return <DashboardHome />;
     }
@@ -49,7 +51,10 @@ const Dashboard = () => {
               onClick={() => setActiveTab("home")}
               class="fa-solid fa-house"
             ></i>
-            <i class="fa-solid fa-utensils"></i>
+            <i
+              onClick={() => setActiveTab("meals")}
+              class="fa-solid fa-utensils"
+            ></i>
             <i class="fa-solid fa-camera"></i>
             <i class="fa-solid fa-envelope"></i>
             <i
