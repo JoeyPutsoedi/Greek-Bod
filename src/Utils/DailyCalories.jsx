@@ -1,4 +1,4 @@
-const DailyCalories = ({
+const calculateDailyCalories = ({
   weight,
   height,
   age,
@@ -37,4 +37,4 @@ const DailyCalories = ({
   return Math.round(dailycalories);
 };
 
-export default DailyCalories;
+export default calculateDailyCalories;

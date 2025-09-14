@@ -6,7 +6,7 @@ const Bmr = ({ weight, height, age, gender }) => {
   } else {
     bmr = 10 * weight + 6.25 * height - 5 * age - 161;
   }
-  console.log(bmr);
+  // console.log(bmr);
   return Math.round(bmr);
 };
 

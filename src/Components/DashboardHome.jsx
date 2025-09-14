@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../Context/AuthContext";
 import Bmr from "../Utils/Bmr";
 import "../Styles/DashboardHome.css";
-import DailyCalories from "../Utils/DailyCalories";
+import calculateDailyCalories from "../Utils/DailyCalories";
 import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates";
@@ -10,6 +10,14 @@ import { getLoginDates } from "../Utils/LogDates";
 const DashboardHome = () => {
   const { user, profile } = useAuth();
   const [loginDates, setLoginDates] = useState([]);
+  const dailyCalories = calculateDailyCalories({
+    weight: profile?.weight,
+    height: profile?.height,
+    age: profile?.age,
+    gender: profile?.gender,
+    goal: profile?.goal,
+    activityLevel: profile?.activityLevel,
+  });
 
   //get user log-in log to display on calendar
   useEffect(() => {
@@ -83,18 +91,7 @@ const DashboardHome = () => {
               {/*Calorie Target---------------------------------- */}
               <div className="upperBmr" style={{ backgroundColor: "#31a35b" }}>
                 <div className="upperBmrUpper">
-                  <div className="blok">
-                    {(
-                      <DailyCalories
-                        weight={profile?.weight}
-                        height={profile?.height}
-                        age={profile?.age}
-                        gender={profile?.gender}
-                        goal={profile?.goal}
-                        activityLevel={profile?.activityLevel}
-                      />
-                    ) || 0}
-                  </div>
+                  <div className="blok">{dailyCalories || 0}</div>
                   <p>
                     {" "}
                     Daily Calorie Target <br />
