@@ -1,0 +1,59 @@
+/* Calendar container */
+.react-calendar {
+  font-family: mier;
+}
+
+/* Navigation (month/year at top) */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-calendar__navigation button {
+  color: #2e7d32;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: background 0.3s;
+}
+
+.react-calendar__navigation button:hover {
+  background: #d9f2d9;
+}
+
+/* Weekday labels (Mon, Tue, etc.) */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Days (default look) */
+.react-calendar__tile {
+  font-size: 12px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Highlight login days */
+.highlight {
+  background: #77c84e !important;
+  color: white !important;
+  border-radius: 50% !important;
+}
+
+/* Today */
+.react-calendar__tile--now {
+  /* background: #f0f7eb !important; */
+  background: transparent !important;
+  border: 1px solid #2e7d32 !important;
+  color: #2e7d32 !important;
+}
+
+/* Hover effect */
+.react-calendar__tile:hover {
+  background: #e6f5e6;
+  cursor: pointer;
+}

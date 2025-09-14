@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../Context/AuthContext";
-import Bmr from "./Bmr";
+import Bmr from "../Utils/Bmr";
 import "../Styles/DashboardHome.css";
-import DailyCalories from "./DailyCalories";
+import DailyCalories from "../Utils/DailyCalories";
 import Calendar from "react-calendar";
-const DashboardHome = () => {
-  const { profile } = useAuth();
+import "../Styles/Calendar.css";
+import { getLoginDates } from "../Utils/LogDates";
 
-  //BMR CALULATIONS----------------------------------------------------------------
+const DashboardHome = () => {
+  const { user, profile } = useAuth();
+  const [loginDates, setLoginDates] = useState([]);
+
+  //get user log-in log to display on calendar
+  useEffect(() => {
+    const fetchLogins = async () => {
+      if (user) {
+        const dates = await getLoginDates(user.uid);
+        setLoginDates(dates);
+      }
+    };
+    fetchLogins();
+  }, [user]);
+
+  const highlightedDates = loginDates.map((date) => new Date(date));
 
   return (
     <div className="dashboard-container">
@@ -16,11 +31,13 @@ const DashboardHome = () => {
         <div className="upperLeftDash">
           <h1>Dashboard</h1>
           {/*Top left column----------------------------------------------------------------------------*/}
+
           <div className="dashBanner">
             <h2>Hello{", " + profile?.firstName}</h2>
             <p>The Best way to get consistency is to track your stats</p>
           </div>
         </div>
+
         <div className="activityDash">
           <div className="upperActivity">
             <div className="bmrCont">
@@ -62,6 +79,7 @@ const DashboardHome = () => {
                   <div className="line" style={{ opacity: "0.5" }}></div>
                 </div>
               </div>
+
               {/*Calorie Target---------------------------------- */}
               <div className="upperBmr" style={{ backgroundColor: "#31a35b" }}>
                 <div className="upperBmrUpper">
@@ -90,14 +108,27 @@ const DashboardHome = () => {
                 </div>
               </div>
             </div>
+
             {/*Calender Section------------------------------------------*/}
             <div className="calCont">
-              <Calendar tileClassName={{ Date }} />
+              <Calendar
+                tileClassName={({ date }) => {
+                  if (
+                    highlightedDates.find(
+                      (d) => d.toDateString() === date.toDateString()
+                    )
+                  ) {
+                    return "highlight";
+                  }
+                  return null;
+                }}
+              />
             </div>
           </div>
           <div className="lowerActivity"></div>
         </div>
       </section>
+
       {/*Right column----------------------------------------------------------------------------*/}
       <section className="rightDash">
         {/*Top right column----------------------------------------------------------------------------*/}
