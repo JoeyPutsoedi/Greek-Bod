@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "../Components/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-
+import { logUserLogin } from "../Utils/LogDates";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -30,6 +30,13 @@ export const AuthProvider = ({ children }) => {
 
     return () => unsubscribe();
   }, []);
+
+  //When a user is logged in successfully log their date
+  useEffect(() => {
+    if (user) {
+      logUserLogin(user.uid);
+    }
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{ user, profile, setProfile }}>
