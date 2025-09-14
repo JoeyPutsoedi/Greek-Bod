@@ -89,6 +89,7 @@
   border-top-right-radius: 0.75em;
 }
 .upperActivity .calCont {
+  padding: 1em;
   border-radius: 0.75em;
   background-color: white;
   width: 55%;
@@ -154,15 +155,4 @@
   font-size: 1.3em;
   color: #254b07;
   font-weight: 700;
-}
-@keyframes bkgswirl {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(200deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
