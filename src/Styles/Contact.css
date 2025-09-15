@@ -1,0 +1,114 @@
+.contactCont {
+  width: 100%;
+  height: 100vh;
+
+  /* background-color: skyblue; */
+}
+.bkgCircles {
+  position: absolute;
+  top: 17%;
+  left: 57%;
+  /* z-index: 1;
+  width: 60em;
+  height: 55em;
+  border-radius: 50%;
+  background-color: #73ab48; */
+  /* background-color: navajowhite; */
+}
+.bkgCircles img {
+  transform: scale(0.9);
+}
+.contactInfo {
+  z-index: 3;
+  padding: 1em;
+  /* outline: 1px solid black; */
+  height: 100vh;
+}
+.headerTxt {
+  display: flex;
+  margin-top: 4em;
+  margin-left: 2em;
+}
+.contactInfo h1 {
+  line-height: 0.8em;
+  font-family: helvetica;
+  font-weight: 800;
+  font-size: 3.5em;
+  color: #cdf7ad;
+  word-spacing: 0.9em;
+}
+.contactInfo p {
+  margin: 2.5em 0 0 6em;
+  font-family: mier;
+  color: #cdf7ad;
+  font-weight: bold;
+  line-height: 1em;
+  font-size: 14px;
+}
+.contactInfo form {
+  margin-top: 7.3em;
+  background-color: #cdf7ad;
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0.75em;
+  width: 38em;
+  height: 30em;
+  padding: 1.7em;
+}
+.contactInfo > form > input {
+  padding-left: 1em;
+  font-family: mier;
+  background-color: #aada85;
+  width: 17em;
+  height: 3.3em;
+  border-radius: 0.25em;
+}
+
+.contactInfo > form > input::placeholder {
+  font-size: 14px;
+  font-family: mier;
+  color: #32511b;
+}
+form > #email {
+  margin-top: 1em;
+  width: 100%;
+}
+form > #textarea {
+  margin-top: 1em;
+  padding-left: 1em;
+  font-family: mier;
+  background-color: #aada85;
+  width: 100%;
+  height: 10em;
+  border-radius: 0.25em;
+  resize: NONE;
+}
+form > #textarea::placeholder {
+  font-size: 14px;
+  font-family: mier;
+  color: #32511b;
+}
+.madens {
+  display: flex;
+  justify-content: space-between;
+}
+.madens input {
+  padding-left: 1em;
+  font-family: mier;
+  background-color: #aada85;
+  width: 17em;
+  height: 3.3em;
+  border-radius: 0.25em;
+}
+.madens input::placeholder {
+  font-size: 14px;
+  font-family: mier;
+  color: #32511b;
+}
+form > button {
+  margin-top: 1em;
+  background-color: #34551b;
+  border-radius: 2.75em;
+  padding: 0.4em 1.8em;
+  color: white;
+  font-family: mier;
+}
