@@ -8,6 +8,7 @@ import PopUp from "../Components/PopUp";
 import Settings from "../Components/Settings";
 import DashboardHome from "../Components/DashboardHome";
 import DashboardMeals from "../Components/DashboardMeals";
+import DashboardUpload from "../Components/DashboardComponens/DashboardUpload";
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState();
   /*Sign out function-------------- */
@@ -27,6 +28,8 @@ const Dashboard = () => {
         return <Settings />;
       case "meals":
         return <DashboardMeals />;
+      case "upload":
+        return <DashboardUpload />;
       default:
         return <DashboardHome />;
     }
@@ -55,7 +58,10 @@ const Dashboard = () => {
               onClick={() => setActiveTab("meals")}
               class="fa-solid fa-utensils"
             ></i>
-            <i class="fa-solid fa-camera"></i>
+            <i
+              onClick={() => setActiveTab("upload")}
+              class="fa-solid fa-camera"
+            ></i>
             <Link to="/Contact">
               <i class="fa-solid fa-envelope"></i>
             </Link>

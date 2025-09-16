@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../Components/firebase";
+import { db } from "./firebase";
 import calculateDailyCalories from "./DailyCalories";
 
 const API_KEY = import.meta.env.VITE_SPOONACULAR_KEY;

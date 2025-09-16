@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "../Styles/Settings.css";
-import { useAuth } from "../Context/AuthContext";
-import { db } from "./firebase";
+import { useAuth } from "../../Context/AuthContext";
+import { db } from "../../Utils/firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import axios from "axios";
 

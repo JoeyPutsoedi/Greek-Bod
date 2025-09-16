@@ -1,6 +1,6 @@
 import React from "react";
 import { setDoc, doc, collection, getDocs } from "firebase/firestore";
-import { db } from "../Components/firebase";
+import { db } from "./firebase";
 
 /*Function To store the days in which a user logged in to show them on the calendar*/
 export const logUserLogin = async (userId) => {
