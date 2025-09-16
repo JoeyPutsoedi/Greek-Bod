@@ -37,6 +37,10 @@
   color: #cdf7ad;
   word-spacing: 0.9em;
 }
+h1 .fa-solid {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
 .contactInfo p {
   margin: 2.5em 0 0 6em;
   font-family: mier;
@@ -106,9 +110,13 @@ form > #textarea::placeholder {
 }
 form > button {
   margin-top: 1em;
-  background-color: #34551b;
+  background-color: #5c8939;
   border-radius: 2.75em;
   padding: 0.4em 1.8em;
   color: white;
   font-family: mier;
+  transition: 0.2s;
+}
+form > button:hover {
+  background-color: #34551b;
 }
