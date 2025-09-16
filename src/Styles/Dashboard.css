@@ -80,7 +80,7 @@
   height: 100vh;
 }
 /*----------------------Scroller-----------------------*/
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   z-index: 0;
   width: 0.7em;
   background-color: transparent !important;
@@ -92,4 +92,4 @@
   opacity: 0;
 
   background-color: #31a35b;
-}
+} */
