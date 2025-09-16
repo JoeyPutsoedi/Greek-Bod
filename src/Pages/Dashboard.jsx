@@ -56,7 +56,9 @@ const Dashboard = () => {
               class="fa-solid fa-utensils"
             ></i>
             <i class="fa-solid fa-camera"></i>
-            <i class="fa-solid fa-envelope"></i>
+            <Link to="/Contact">
+              <i class="fa-solid fa-envelope"></i>
+            </Link>
             <i
               onClick={() => setActiveTab("settings")}
               class="fa-solid fa-gear"
