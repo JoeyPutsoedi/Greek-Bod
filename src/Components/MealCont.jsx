@@ -4,34 +4,14 @@ import { getMealRecommendations } from "../Utils/mealsServics";
 import "../Styles/DashboardMeals.css";
 
 const MealCont = ({ num, type, cl, bkg }) => {
-  const { profile } = useAuth();
+  const { profile, user } = useAuth();
   const [meals, setMeals] = useState([]);
 
-  //if profile exists return meals
   useEffect(() => {
-    if (!profile) return;
-
-    const today = new Date().toISOString().split("T")[0]; //stores today's date
-    const storedPlan = JSON.parse(localStorage.getItem("dailyMealPlan")); //stores today's meals
-
-    //if there is a meal stored in "storedPlan" & the date it was stored matches the date stored in "today"
-    //then set meals to today's meals
-    if (storedPlan && storedPlan.Date === today) {
-      setMeals(storedPlan.meals);
-      return;
-    } else {
-      //fetch meals from the Api and store them in item "dailyMealPlan" in localStorag.
-      // store them with the date inside variable "today".
-      getMealRecommendations(profile).then((fetchedMeals) => {
-        setMeals(fetchedMeals);
-        localStorage.setItem(
-          "dailyMealPlan",
-          JSON.stringify({ date: today, meals: fetchedMeals })
-        );
-      });
+    if (profile && profile.id) {
+      getMealRecommendations(profile, user.uid).then(setMeals);
     }
   }, [profile]);
-
   //Menu image------------------------------------------------------------------
   const MealCard = ({ meal }) => {
     if (!meal) return null;
