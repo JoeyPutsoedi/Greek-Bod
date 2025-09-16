@@ -14,7 +14,7 @@ const Contact = () => {
           <div className="headerTxt">
             <h1>
               LET'S GET
-              <br /> IN TOUCH
+              <br /> IN<i class="fa-solid fa-arrow-right"></i>TOUCH
             </h1>
             <p>
               We care about more than just you keeping up with your weight goals
