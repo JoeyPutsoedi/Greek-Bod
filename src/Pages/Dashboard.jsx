@@ -3,11 +3,11 @@ import "../Styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../Components/firebase";
-import { useAuth } from "../Context/AuthContext";
 import PopUp from "../Components/PopUp";
 import Settings from "../Components/Settings";
 import DashboardHome from "../Components/DashboardHome";
 import DashboardMeals from "../Components/DashboardMeals";
+import DashboardUpload from "../Components/DashboardUpload";
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState();
   /*Sign out function-------------- */
@@ -17,7 +17,6 @@ const Dashboard = () => {
   };
 
   /*Access to user information--------------- */
-  const { user, profile } = useAuth();
 
   const renderContent = () => {
     switch (activeTab) {
@@ -27,6 +26,8 @@ const Dashboard = () => {
         return <Settings />;
       case "meals":
         return <DashboardMeals />;
+      case "upload":
+        return <DashboardUpload />;
       default:
         return <DashboardHome />;
     }
@@ -55,7 +56,10 @@ const Dashboard = () => {
               onClick={() => setActiveTab("meals")}
               class="fa-solid fa-utensils"
             ></i>
-            <i class="fa-solid fa-camera"></i>
+            <i
+              onClick={() => setActiveTab("upload")}
+              class="fa-solid fa-camera"
+            ></i>
             <Link to="/Contact">
               <i class="fa-solid fa-envelope"></i>
             </Link>
