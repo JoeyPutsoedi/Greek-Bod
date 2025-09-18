@@ -56,7 +56,7 @@ const Settings = () => {
 
     const formData = new FormData();
     formData.append("file", image);
-    formData.append("upload_preset", "unsigned_preset"); // your preset name
+    formData.append("upload_preset", "unsigned_preset"); // my preset name
 
     try {
       const response = await axios.post(
@@ -149,7 +149,7 @@ const Settings = () => {
           <div className="saveImg">
             <input type="file" accept="image/*" onChange={handleImageChange} />
             {/* <button htmlFor="imgPicker ">Change Image</button> */}
-            <button onClick={handleUpload}>Save Changes</button>
+            <button onClick={handleUpload}>Upload Image</button>
           </div>
         </div>
       </div>
