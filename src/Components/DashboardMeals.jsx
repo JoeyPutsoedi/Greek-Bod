@@ -41,5 +41,6 @@ const DashboardMeals = () => {
     //
   );
 };
+``;
 
 export default DashboardMeals;

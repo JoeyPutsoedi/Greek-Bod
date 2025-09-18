@@ -4,12 +4,12 @@ import { getMealRecommendations } from "../Utils/mealsServics";
 import "../Styles/DashboardMeals.css";
 
 const MealCont = ({ num, type, cl, bkg }) => {
-  const { profile, user } = useAuth();
+  const { profile } = useAuth();
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
-    if (profile && profile.id) {
-      getMealRecommendations(profile, user.uid).then(setMeals);
+    if (profile) {
+      getMealRecommendations(profile).then(setMeals);
     }
   }, [profile]);
   //Menu image------------------------------------------------------------------
