@@ -68,18 +68,13 @@ const DashboardUpload = () => {
     const formData = new FormData();
     formData.append("file", image);
     try {
-      const response = await fetch(
-        `https://api.spoonacular.com/food/images/analyze?apiKey=${
-          import.meta.env.VITE_SPOONACULAR_KEY
-        }`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const res = await fetch("http://localhost:5000/api/scan", {
+        method: "POST",
+        body: formData,
+      });
 
-      const data = await response.json();
-      setResult(data);
+      const json = await res.json();
+      console.log("Spoonacular analysis:", json);
     } catch (error) {
       alert("Failed to retrieve food data");
     }
