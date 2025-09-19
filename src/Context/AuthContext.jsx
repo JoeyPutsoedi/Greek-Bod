@@ -3,8 +3,8 @@ import { auth, db } from "../Components/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { logUserLogin } from "../Utils/LogDates";
-const AuthContext = createContext();
 
+const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
