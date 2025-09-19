@@ -1,4 +1,3 @@
-import React from "react";
 import { setDoc, doc, collection, getDocs } from "firebase/firestore";
 import { db } from "../Components/firebase";
 
@@ -6,7 +5,6 @@ import { db } from "../Components/firebase";
 export const logUserLogin = async (userId) => {
   const today = new Date().toISOString().split("T")[0];
   const ref = doc(db, "users", userId, "logins", today);
-
   await setDoc(ref, { loggedIn: true, timestamp: new Date() }, { merge: true });
 };
 
