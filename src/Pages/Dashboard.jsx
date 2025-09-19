@@ -32,7 +32,6 @@ const Dashboard = () => {
         return <DashboardHome />;
     }
   };
-
   return (
     <>
       <PopUp />
@@ -77,10 +76,7 @@ const Dashboard = () => {
         </div>
         {/*DASHBOARD MAIN INFO--------------------------- */}
         <div className="dashInfo">
-          <section className="dashHome">
-            {/* <Settings /> */}
-            {renderContent()}
-          </section>
+          <section className="dashHome">{renderContent()}</section>
         </div>
       </section>
     </>
