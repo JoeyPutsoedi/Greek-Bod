@@ -10,6 +10,7 @@ import { getLoginDates } from "../Utils/LogDates";
 const DashboardHome = () => {
   const { user, profile } = useAuth();
   const [loginDates, setLoginDates] = useState([]);
+
   const dailyCalories = calculateDailyCalories({
     weight: profile?.weight,
     height: profile?.height,
@@ -31,6 +32,23 @@ const DashboardHome = () => {
   }, [user]);
 
   const highlightedDates = loginDates.map((date) => new Date(date));
+
+  const ActivityQuantity = () => {
+    let activityStatus;
+
+    if (!profile?.activityLevel) return;
+
+    if (profile?.activityLevel === "N/A") {
+      activityStatus = "0 Days Of exercise weekly";
+    } else if (profile?.activityLevel === "light") {
+      activityStatus = "1-3 Days of exercise weekly";
+    } else if (profile?.activityLevel === "medium") {
+      activityStatus = "3-5 Days of exercise weekly";
+    } else {
+      activityStatus = "5-6 Days of exercise weekly";
+    }
+    return activityStatus;
+  };
 
   return (
     <div className="dashboard-container">
@@ -162,6 +180,11 @@ const DashboardHome = () => {
               <p>Age</p>
             </div>
           </div>
+          <div className="exerciseQuant">
+            <p>Activity </p>
+            <p id="activityQuant">{ActivityQuantity()}</p>
+          </div>
+          <div className="chart"></div>
         </div>
       </section>
     </div>
