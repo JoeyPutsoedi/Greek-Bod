@@ -160,3 +160,32 @@
   color: #254b07;
   font-weight: 700;
 }
+.exerciseQuant {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.3em;
+  color: #254b07;
+  font-weight: 700;
+}
+.exerciseQuant #activityQuant {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2em;
+  font-weight: 500;
+  font-size: 0.8em;
+  border-radius: 5rem;
+  width: 15em;
+  color: white;
+  font-family: mier;
+  background-color: #254b07;
+  padding: 0.7em 0;
+}
+.chart {
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4ac57740;
+  border-radius: 0.75em;
+  height: 14em;
+  width: 20em;
+}
