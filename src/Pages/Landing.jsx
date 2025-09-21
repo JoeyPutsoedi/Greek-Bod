@@ -6,6 +6,7 @@ import Cards from "../Components/Cards";
 import Banner from "../Components/Banner";
 import Onboard from "../Components/Onboard";
 import Footer from "../Components/Footer";
+import Testimonials from "../Components/Testimonials";
 const Landing = () => {
   return (
     <>
@@ -22,7 +23,7 @@ const Landing = () => {
 
         <Cards />
         <Banner />
-
+        <Testimonials />
         <Onboard
           marqueeText="Now✦ Is ✦ Always ✦ The Best ✦ Time ✦"
           speed={3}
