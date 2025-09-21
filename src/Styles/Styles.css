@@ -237,8 +237,87 @@ body {
   /* font-family: mier; */
   padding: 0.4em;
 }
+/*Testimonials------------------------*/
+.testimonial-wrapper {
+  margin-top: -9em;
+  height: 30em;
+  width: 100%;
+  font-family: mier;
+  /* background-color: red; */
+}
+.testimonial-wrapper h1 {
+  padding-top: 3.3em;
+  line-height: 0.9em;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.9em;
+}
+.testimonial-cont {
+  margin-top: 4em;
+  display: flex;
+  padding: 0 1em;
+  gap: 3em;
+  height: 100%;
+}
+.testimonial-cont .Testimonial-cards {
+  position: relative;
+  padding: 1em;
+  background-color: #e3e3e3;
+  border-radius: 0.75em;
+  width: 25em;
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+}
+.Testimonial-cards::before,
+.Testimonial-cards::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff
+  );
+  border-radius: inherit;
+  padding: 2px;
+  z-index: -2;
+}
+.Testimonial-cards::after {
+  filter: blur(10px);
+}
+.test-imgPlh {
+  border-radius: 0.25em;
+  background-color: grey;
+  height: 8em;
+  width: 8em;
+}
+.test-imgPlh img {
+  border-radius: 0.25em;
+  object-fit: cover;
+  height: 8em;
+  width: 8em;
+}
+.imginfo {
+  display: flex;
+  gap: 1.4em;
+}
+.imginfo p {
+  line-height: 1.3em;
+}
+.written-testimonial {
+  margin-top: 1em;
+  line-height: 1.1em;
+}
 /*OnBoard------------------------*/
 .onboard {
+  margin-top: 6em;
   min-width: 100%;
   height: 15rem;
 }
@@ -247,7 +326,6 @@ body {
   line-height: 0.9em;
   color: white;
   font-size: 11em;
-  /* font-weight: 700; */
   text-align: center;
   transform: rotate(-7deg);
   stroke: 6px solid black;
@@ -358,36 +436,3 @@ body {
   width: 4px;
   background-color: #002bff;
 } */
-
-/* .card2 {
-    width: 26em;
-    height: 35em;
-    border-radius: 5%;
-    background-color: #449be8;
-  }
-  .card2 p {
-    padding-top: 1.5em;
-    color: white;
-    font-weight: 700;
-    text-align: center;
-    font-size: 1.5em;
-    line-height: 0.9em;
-  }
-  .card3 {
-    width: 26em;
-    height: 35em;
-    background-color: #44e852;
-    border-radius: 5%;
-  }
-  .card3 img {
-    padding-top: 7em;
-    transform: scale(0.7);
-  }
-  .card3 p {
-    padding-top: 1.5em;
-    color: white;
-    font-weight: 700;
-    text-align: center;
-    font-size: 1.5em;
-    line-height: 0.9em;
-  } */
