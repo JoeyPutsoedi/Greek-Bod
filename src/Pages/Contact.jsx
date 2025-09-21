@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../Styles/Contact.css";
+import emailjs from "@emailjs/browser";
 import NavBar from "../Components/NavBar";
 import img1 from "../assets/images/-business-communication.png";
+
 const Contact = () => {
+  const form = useRef();
+
+  const SendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_gs0okgw",
+        "template_bsnuy2k",
+        form.current,
+        "IvGDtCx0_oj--EA4l"
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Failed to send message, please try again.", error.text);
+        }
+      );
+  };
+
   return (
     <>
       <NavBar />
@@ -25,7 +49,7 @@ const Contact = () => {
               we'll make sure to contact you.
             </p>
           </div>
-          <form>
+          <form ref={form} onSubmit={SendEmail}>
             <div className="madens">
               <input
                 type="text"
@@ -35,9 +59,9 @@ const Contact = () => {
               />
               <input
                 type="text"
-                name="lastname"
-                id="lastname"
-                placeholder="Lastname"
+                name="subject"
+                id="subject"
+                placeholder="Subject"
               />
             </div>
             <input
