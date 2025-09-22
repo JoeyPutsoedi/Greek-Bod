@@ -113,7 +113,7 @@
   text-align: center;
 }
 .imgplacehld {
-  margin-top: 3.5em;
+  margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
   width: 10em;
@@ -141,7 +141,7 @@
 .bottom-rightDash .popupStats {
   display: flex;
   justify-content: space-around;
-  margin-top: 2em;
+  margin-top: 0.3em;
   text-align: center;
   line-height: 2.3em;
 }
@@ -161,7 +161,7 @@
   font-weight: 700;
 }
 .exerciseQuant {
-  margin-top: 1em;
+  margin-top: 0.2em;
   text-align: center;
   font-size: 1.3em;
   color: #254b07;
@@ -177,15 +177,37 @@
   width: 15em;
   color: white;
   font-family: mier;
-  background-color: #254b07;
+  /* outline: 1px solid #bae4ca; */
+  background: linear-gradient(-23deg, #254b07, #4ac577);
+
   padding: 0.7em 0;
 }
 .chart {
   margin-top: 1em;
   margin-left: auto;
   margin-right: auto;
-  background-color: #4ac57740;
+  /* background-color: #4ac57740; */
+  background-color: #e3e3e3bb;
   border-radius: 0.75em;
-  height: 14em;
+  height: 13em;
   width: 20em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chart P {
+  font-family: mier;
+}
+
+circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  z-index: 4;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 0;
+}
+svg {
+  transform: scale(0.8);
 }
