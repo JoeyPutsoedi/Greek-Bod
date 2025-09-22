@@ -184,7 +184,25 @@ const DashboardHome = () => {
             <p>Activity </p>
             <p id="activityQuant">{ActivityQuantity()}</p>
           </div>
-          <div className="chart"></div>
+          <div className="chart">
+            <svg
+              xmlns="https://www.w3.0rg/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="GradientColor">
+                  <stop offset="0%" stopColor="#4ac577" />
+                  <stop offset="100%" stopColor="#0f5d6fcc" />
+                </linearGradient>
+              </defs>
+
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+
+            <p>Daily Tasks: Incomplete !</p>
+          </div>
         </div>
       </section>
     </div>
