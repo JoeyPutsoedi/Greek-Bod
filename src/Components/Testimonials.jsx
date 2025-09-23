@@ -3,6 +3,7 @@ import TestimonialCard from "./TestimonialCard";
 import img1 from "../assets/images/caleb.jpg";
 import img2 from "../assets/images/deborah.jpeg";
 import img3 from "../assets/images/black.jpeg";
+
 const Testimonials = () => {
   return (
     <div className="testimonial-wrapper">
