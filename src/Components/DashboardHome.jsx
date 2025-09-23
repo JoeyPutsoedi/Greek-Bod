@@ -8,6 +8,7 @@ import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates";
 
 const DashboardHome = () => {
+  const { user, profile } = useAuth();
   const [breakfastStatus, setBreakfastStatus] = useState(false);
   const [lunchStatus, setLunchStatus] = useState(false);
   const [dinnerStatus, setDinnerStatus] = useState(false);
@@ -21,8 +22,7 @@ const DashboardHome = () => {
   // each meal toggle = 150
   //example: 1 meal done  = 450 - 150 whih equates to a quarter circle
   const strokeDashoffset = circumference - mealsDone * 150;
-
-  const { user, profile } = useAuth();
+  const overallTasksStatus = strokeDashoffset === 0 ? "Complete" : "Incomplete";
   const [loginDates, setLoginDates] = useState([]);
   //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
@@ -179,7 +179,10 @@ const DashboardHome = () => {
             </div>
 
             <div className="dinnerCont lowerCont">
-              <div className="LInfo">Dinner Status: Incomplete</div>
+              <div className="LInfo">
+                Dinner Status: <br />
+                {dinnerStatus ? "complete" : "Incomplete"}
+              </div>
               <button className="Lbutton" onClick={() => setDinnerStatus(true)}>
                 Done
               </button>
@@ -250,11 +253,11 @@ const DashboardHome = () => {
                 strokeWidth="20px"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}
-                style={{ transition: "stroke-dashoffset 0.5s ease" }}
+                style={{ transition: "stroke-dashoffset 1s ease" }}
               />
             </svg>
 
-            <p>Daily Tasks: Incomplete !</p>
+            <p>Daily Tasks: {overallTasksStatus} !</p>
           </div>
         </div>
       </section>
