@@ -92,7 +92,6 @@
   padding: 2.5em 01.1em 0 1.1em;
   display: flex;
   border-radius: 0.75em;
-  /* background-color: rgba(255, 255, 255, 0.71); */
   background: linear-gradient(rgba(255, 255, 255, 0.791), #4ac57767);
   width: 55%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -105,7 +104,6 @@
   background-color: #4ac57748;
 }
 .top-rightdash {
-  /* background-color: blue; */
   height: 18em;
   display: flex;
   justify-content: center;
