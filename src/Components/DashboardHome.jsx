@@ -11,6 +11,7 @@ const DashboardHome = () => {
   const [breakfastStatus, setBreakfastStatus] = useState(false);
   const { user, profile } = useAuth();
   const [loginDates, setLoginDates] = useState([]);
+  //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
     weight: profile?.weight,
     height: profile?.height,
@@ -19,6 +20,8 @@ const DashboardHome = () => {
     goal: profile?.goal,
     activityLevel: profile?.activityLevel,
   });
+
+  //fuction to handle whether user has completed breakfast or not
   const handleBreakfastDone = () => {
     setBreakfastStatus(true);
   };
