@@ -242,8 +242,6 @@ circle {
   stroke: url(#GradientColor);
   stroke-width: 20px;
   z-index: 4;
-  stroke-dasharray: 450;
-  stroke-dashoffset: 0;
 }
 svg {
   transform: scale(0.8);
