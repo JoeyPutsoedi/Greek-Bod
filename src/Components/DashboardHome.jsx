@@ -8,9 +8,23 @@ import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates";
 
 const DashboardHome = () => {
+  const [breakfastStatus, setBreakfastStatus] = useState(false);
+  const [lunchStatus, setLunchStatus] = useState(false);
+  const [dinnerStatus, setDinnerStatus] = useState(false);
+
+  const circumference = 450;
+  //counts how many meals are true.
+  //each ternary returns 1 for true or 0 for false
+  const mealsDone =
+    (breakfastStatus ? 1 : 0) + (lunchStatus ? 1 : 0) + (dinnerStatus ? 1 : 0);
+  //cirumference = 450 for an empty progress bar/0 for a full progress bar
+  // each meal toggle = 150
+  //example: 1 meal done  = 450 - 150 whih equates to a quarter circle
+  const strokeDashoffset = circumference - mealsDone * 150;
+
   const { user, profile } = useAuth();
   const [loginDates, setLoginDates] = useState([]);
-
+  //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
     weight: profile?.weight,
     height: profile?.height,
@@ -49,7 +63,7 @@ const DashboardHome = () => {
     }
     return activityStatus;
   };
-
+  //Return-----------------------------------------------------------------------------------------------
   return (
     <div className="dashboard-container">
       {/*,Left column----------------------------------------------------------------------------*/}
@@ -140,7 +154,37 @@ const DashboardHome = () => {
               />
             </div>
           </div>
-          <div className="lowerActivity"></div>
+          <div className="lowerActivity">
+            <div className="breakfastCont lowerCont">
+              <div className="LInfo">
+                Breakfast Status:
+                <br />
+                {breakfastStatus ? "complete" : "Incomplete"}
+              </div>
+              <button
+                className="Lbutton"
+                onClick={() => setBreakfastStatus(true)}
+              >
+                Done
+              </button>
+            </div>
+            <div className="lunchCont lowerCont">
+              <div className="LInfo">
+                Lunch Status: <br />
+                {lunchStatus ? "complete" : "Incomplete"}
+              </div>
+              <button className="Lbutton" onClick={() => setLunchStatus(true)}>
+                Done
+              </button>
+            </div>
+
+            <div className="dinnerCont lowerCont">
+              <div className="LInfo">Dinner Status: Incomplete</div>
+              <button className="Lbutton" onClick={() => setDinnerStatus(true)}>
+                Done
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -159,7 +203,7 @@ const DashboardHome = () => {
               />
             )}
           </div>
-          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>{" "}
+          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>
           <p>{profile?.gender}</p>
         </div>
 
@@ -198,7 +242,16 @@ const DashboardHome = () => {
                 </linearGradient>
               </defs>
 
-              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+              <circle
+                cx="80"
+                cy="80"
+                r="70"
+                strokeLinecap="round"
+                strokeWidth="20px"
+                strokeDasharray={circumference}
+                strokeDashoffset={strokeDashoffset}
+                style={{ transition: "stroke-dashoffset 0.5s ease" }}
+              />
             </svg>
 
             <p>Daily Tasks: Incomplete !</p>
