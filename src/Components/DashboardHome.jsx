@@ -8,9 +8,9 @@ import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates";
 
 const DashboardHome = () => {
+  const [breakfastStatus, setBreakfastStatus] = useState(false);
   const { user, profile } = useAuth();
   const [loginDates, setLoginDates] = useState([]);
-
   const dailyCalories = calculateDailyCalories({
     weight: profile?.weight,
     height: profile?.height,
@@ -19,7 +19,9 @@ const DashboardHome = () => {
     goal: profile?.goal,
     activityLevel: profile?.activityLevel,
   });
-
+  const handleBreakfastDone = () => {
+    setBreakfastStatus(true);
+  };
   //get user log-in log to display on calendar
   useEffect(() => {
     const fetchLogins = async () => {
@@ -140,7 +142,27 @@ const DashboardHome = () => {
               />
             </div>
           </div>
-          <div className="lowerActivity"></div>
+          <div className="lowerActivity">
+            <div className="breakfastCont lowerCont">
+              <div className="LInfo">
+                Breakfast Status:
+                <br />
+                {breakfastStatus ? "complete" : "Incomplete"}
+              </div>
+              <button className="Lbutton" onClick={handleBreakfastDone}>
+                Done
+              </button>
+            </div>
+            <div className="lunchCont lowerCont">
+              <div className="LInfo">Lunch Status: Incomplete</div>
+              <button className="Lbutton">Done</button>
+            </div>
+
+            <div className="dinnerCont lowerCont">
+              <div className="LInfo">Dinner Status: Incomplete</div>
+              <button className="Lbutton">Done</button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -159,7 +181,7 @@ const DashboardHome = () => {
               />
             )}
           </div>
-          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>{" "}
+          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>
           <p>{profile?.gender}</p>
         </div>
 

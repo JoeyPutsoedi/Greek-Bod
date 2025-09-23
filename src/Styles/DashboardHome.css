@@ -6,7 +6,6 @@
 .leftDash {
   padding: 1em 2em 1em 2em;
   width: 70%;
-  /* background-color: yellowgreen; */
 }
 .leftDash h1 {
   font-weight: 700;
@@ -16,7 +15,7 @@
 .leftDash .dashBanner {
   width: 100%;
   height: 8em;
-  margin-top: 3em;
+  margin-top: 1.5em;
   border-radius: 0.75em;
   background-color: #4ac57748;
   padding: 1em;
@@ -53,7 +52,6 @@
 
 .bmrCont .upperBmr {
   border-radius: 0.75em;
-  background-color: #fffb00;
   padding: 0.6em 1em 0.5em 1em;
 }
 .upperBmrUpper {
@@ -92,12 +90,52 @@
   padding: 2.5em 01.1em 0 1.1em;
   display: flex;
   border-radius: 0.75em;
-  /* background-color: rgba(255, 255, 255, 0.71); */
   background: linear-gradient(rgba(255, 255, 255, 0.791), #4ac57767);
   width: 55%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 0 0 1px white, 0 0 30px #fff;
 }
+/*------------Lower Ativity-----------------------------------------*/
+.lowerActivity {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+.lowerActivity .lowerCont {
+  padding: 0.5em 0.8em;
+  height: 4em;
+  width: 15em;
+  background: linear-gradient(-23deg, #13572c5c, #4ac577);
+  border-radius: 0.5em;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+.lowerActivity .LInfo {
+  font-family: mier;
+  padding: 0.3em;
+  font-size: 14px;
+  width: 11em;
+  height: 3.4em;
+  line-height: 0.9em;
+  border-radius: 0.75rem;
+}
+.lowerActivity button {
+  background-color: white;
+  opacity: 0.6;
+  font-size: 0.8em;
+  height: 2em;
+  color: black;
+  font-family: mier;
+  border-radius: 5rem;
+  width: 5em;
+  transition: 0.6s;
+}
+.lowerActivity button:hover {
+  background-color: rgb(113, 220, 113);
+  opacity: 1;
+}
+
 /*---------------------right column----------------------------------*/
 
 .rightDash {
@@ -105,7 +143,6 @@
   background-color: #4ac57748;
 }
 .top-rightdash {
-  /* background-color: blue; */
   height: 18em;
   display: flex;
   justify-content: center;
@@ -178,7 +215,7 @@
   color: white;
   font-family: mier;
   /* outline: 1px solid #bae4ca; */
-  background: linear-gradient(-23deg, #254b07, #4ac577);
+  background: linear-gradient(-23deg, #244b07c0, #4ac577);
 
   padding: 0.7em 0;
 }
