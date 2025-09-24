@@ -6,6 +6,8 @@ import calculateDailyCalories from "../Utils/DailyCalories";
 import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates";
+import { db } from "./firebase";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 const DashboardHome = () => {
   const { user, profile } = useAuth();
@@ -13,17 +15,27 @@ const DashboardHome = () => {
   const [lunchStatus, setLunchStatus] = useState(false);
   const [dinnerStatus, setDinnerStatus] = useState(false);
 
+  const today = new Date().toISOString().split("T")[0];
+
   const circumference = 450;
   //counts how many meals are true.
   //each ternary returns 1 for true or 0 for false
+
   const mealsDone =
     (breakfastStatus ? 1 : 0) + (lunchStatus ? 1 : 0) + (dinnerStatus ? 1 : 0);
+
   //cirumference = 450 for an empty progress bar/0 for a full progress bar
   // each meal toggle = 150
   //example: 1 meal done  = 450 - 150 whih equates to a quarter circle
   const strokeDashoffset = circumference - mealsDone * 150;
+
+  //variable that displays complete if all tasks are done and Incomplete
   const overallTasksStatus = strokeDashoffset === 0 ? "Complete" : "Incomplete";
   const [loginDates, setLoginDates] = useState([]);
+
+  //Variable that displays the days a user was logged-in on the calendar
+  const highlightedDates = loginDates.map((date) => new Date(date));
+
   //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
     weight: profile?.weight,
@@ -34,6 +46,53 @@ const DashboardHome = () => {
     activityLevel: profile?.activityLevel,
   });
 
+  //FUNCTIONS------------------------------------------------------------------------------------------
+  //Function to store meal task status on firebase
+  useEffect(() => {
+    const loadMeals = async () => {
+      const mealStatusRef = doc(db, "users", user.uid);
+      const mealStatusSnap = await getDoc(mealStatusRef);
+      if (mealStatusSnap.exists()) {
+        const data = mealStatusSnap.data().mealStatus?.[today];
+        if (data) {
+          setBreakfastStatus(data.breakfast);
+          setLunchStatus(data.lunch);
+          setDinnerStatus(data.dinner);
+        } else {
+          await updateDoc(mealStatusRef, {
+            [`mealStatus.${today}`]: {
+              breakfast: false,
+              lunch: false,
+              dinner: false,
+            },
+          });
+        }
+      } else {
+        await setDoc(mealStatusRef, {
+          mealStatus: {
+            [today]: {
+              breakfast: false,
+              lunch: false,
+              dinner: false,
+            },
+          },
+        });
+      }
+    };
+
+    loadMeals();
+  }, [user.uid, today]);
+
+  //Function to handle the change when a task button is clicked
+  const handleStatusUpdate = async (meal, value) => {
+    const ref = doc(db, "users", user.uid);
+    await updateDoc(ref, {
+      [`mealStatus.${today}.${meal}`]: value,
+    });
+    if (meal === "breakfast") setBreakfastStatus(value);
+    if (meal === "lunch") setLunchStatus(value);
+    if (meal === "dinner") setDinnerStatus(value);
+  };
   //get user log-in log to display on calendar
   useEffect(() => {
     const fetchLogins = async () => {
@@ -45,8 +104,7 @@ const DashboardHome = () => {
     fetchLogins();
   }, [user]);
 
-  const highlightedDates = loginDates.map((date) => new Date(date));
-
+  //Function to display the amount of exercise weekly----------------------------
   const ActivityQuantity = () => {
     let activityStatus;
 
@@ -163,17 +221,21 @@ const DashboardHome = () => {
               </div>
               <button
                 className="Lbutton"
-                onClick={() => setBreakfastStatus(true)}
+                onClick={() => handleStatusUpdate("breakfast", true)}
               >
                 Done
               </button>
             </div>
+
             <div className="lunchCont lowerCont">
               <div className="LInfo">
                 Lunch Status: <br />
                 {lunchStatus ? "complete" : "Incomplete"}
               </div>
-              <button className="Lbutton" onClick={() => setLunchStatus(true)}>
+              <button
+                className="Lbutton"
+                onClick={() => handleStatusUpdate("lunch", true)}
+              >
                 Done
               </button>
             </div>
@@ -183,7 +245,10 @@ const DashboardHome = () => {
                 Dinner Status: <br />
                 {dinnerStatus ? "complete" : "Incomplete"}
               </div>
-              <button className="Lbutton" onClick={() => setDinnerStatus(true)}>
+              <button
+                className="Lbutton"
+                onClick={() => handleStatusUpdate("dinner", true)}
+              >
                 Done
               </button>
             </div>
@@ -232,6 +297,7 @@ const DashboardHome = () => {
             <p id="activityQuant">{ActivityQuantity()}</p>
           </div>
           <div className="chart">
+            {/*-------------------Circular Progress bar-------------------------*/}
             <svg
               xmlns="https://www.w3.0rg/2000/svg"
               version="1.1"
