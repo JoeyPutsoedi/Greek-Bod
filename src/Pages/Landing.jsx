@@ -9,11 +9,11 @@ import Footer from "../Components/Footer";
 import Testimonials from "../Components/Testimonials";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 const Landing = () => {
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-  });
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   console.log("Page scroll: ", latest);
+  // });
   return (
     <div className="wrapper">
       <NavBar />
