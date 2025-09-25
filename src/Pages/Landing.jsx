@@ -7,6 +7,7 @@ import Banner from "../Components/Banner";
 import Onboard from "../Components/Onboard";
 import Footer from "../Components/Footer";
 import Testimonials from "../Components/Testimonials";
+import { motion } from "motion/react";
 const Landing = () => {
   return (
     <>
