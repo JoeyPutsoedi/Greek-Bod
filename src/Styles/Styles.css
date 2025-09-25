@@ -134,7 +134,7 @@ body {
 
   top: -42%;
   transform: scale(0.17) translate(123%);
-  filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.4));
+  /* filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.4)); */
 }
 .subtextsMain {
   display: flex;
