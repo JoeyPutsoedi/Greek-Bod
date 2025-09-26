@@ -226,7 +226,7 @@ body {
 .bannerCont {
   width: 100%;
   height: inherit;
-  background: linear-gradient(15deg, #52a811, #52a811, #c3e956, #f4fffc);
+  background: linear-gradient(15deg, #b5d19f, #52a811, #c3e956, #f4fffc);
   border-radius: 0.75em;
   padding: 0.6em;
   z-index: 4;
