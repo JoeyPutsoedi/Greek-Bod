@@ -8,12 +8,12 @@ import {
 } from "motion/react";
 
 const hero = () => {
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
   const { scrollYProgress } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-  });
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   console.log("Page scroll: ", latest);
+  // });
 
   const x = useTransform(scrollYProgress, [0, 0.2], [280, -455]);
   const y = useTransform(scrollYProgress, [0, 0.2], [-45, 775]);
