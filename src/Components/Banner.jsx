@@ -1,20 +1,35 @@
 import React from "react";
+import chocw from "../assets/images/chocolate2.png";
 
 const Banner = () => {
   return (
     <section className="banner">
-      <p>Our Features</p>
-      <div className="bannerCont">
-        <div className="bannerImg"></div>
-        <div className="bannerText">
-          Find Out How Many Calories You Need
-          <br /> To Meet Your Goals
-          <br />
-          Get Daily Meal Recipes & Structure
-          <br />
-          It's Easier This Way, All You Have To Do
-          <br />
-          Is Stick To The Plan.
+      <div className="banner-wrapper">
+        <div className="bannerCont">
+          <p id="bText1">Calculate your BMR</p>
+          <p id="bText2">
+            Find the amount of calories
+            <br />
+            you need daily
+          </p>
+          <p id="bText3">
+            Get Meal Recommendations & Recipes
+            <br />
+            tailored for your weight goals
+          </p>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star star2"></i>
+          <i className="fa-solid fa-star star3"></i>
+          <i className="fa-solid fa-star star4"></i>
+          <i className="fa-solid fa-star star5"></i>
+          <p id="features">
+            Some
+            <br />
+            Features
+          </p>
+          <div className="imageBkg">
+            <img src={chocw} alt="" />
+          </div>
         </div>
       </div>
     </section>
