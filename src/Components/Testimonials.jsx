@@ -12,12 +12,8 @@ import {
 const MotionCard = motion.create(TestimonialCard, { forwardMotionProps: true });
 
 const Testimonials = () => {
-  const { scrollY } = useScroll();
   const { scrollYProgress } = useScroll();
 
-  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
-  //   console.log("Page scroll: ", latest);
-  // });
   const opacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
 
   const xA = useTransform(scrollYProgress, [0.6, 0.674, 0.73], [450, 450, 0]);
@@ -79,3 +75,8 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+//const { scrollY } = useScroll();
+// useMotionValueEvent(scrollYProgress, "change", (latest) => {
+//   console.log("Page scroll: ", latest);
+// });

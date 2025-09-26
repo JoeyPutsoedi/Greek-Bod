@@ -35,7 +35,7 @@ const Cards = () => {
         <Card slogan="Whether you're looking to lose weight" bkg={colors1} />
         <Card
           slogan="Even if you're looking to gain some weight"
-          img={choc}
+          // img={choc}
           bkg={colors2}
         />
         <Card
