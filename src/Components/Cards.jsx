@@ -5,8 +5,6 @@ import Card from "./Card";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 
 const Cards = () => {
-  const headline = "";
-  const words = headline.split(" ");
   const colors1 = "#e84457";
   const colors2 = "#449be8";
   const colors3 = "#44e852";
