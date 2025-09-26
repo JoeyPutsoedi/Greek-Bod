@@ -131,7 +131,7 @@ body {
 
 .appleRed {
   position: absolute;
-
+  z-index: 3;
   top: -42%;
   transform: scale(0.17) translate(123%);
   /* filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.4)); */
@@ -158,6 +158,10 @@ body {
   text-align: center;
   font-weight: 700;
   font-size: 1.9em;
+  width: 14em;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 .cards {
   padding-top: 2em;
@@ -167,7 +171,7 @@ body {
 }
 .card1 {
   width: 26em;
-  height: 35em;
+  height: 32em;
   display: grid;
   grid-template-rows: auto 1fr auto; /* slogan, image, stars */
   border-radius: 5%;
@@ -266,6 +270,7 @@ body {
   flex-direction: column;
   position: relative;
   box-shadow: 0 0 20px #fff;
+  z-index: 1;
 }
 
 .Testimonial-cards:hover {
