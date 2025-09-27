@@ -6,13 +6,14 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../Components/firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 const Signin = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   //FUNCTION FOR VALIDATION---------------------------------------------------
   const handleValidation = () => {
@@ -67,11 +68,10 @@ const Signin = () => {
         });
       }
       console.log("User Registered successfully");
-      toast
-        .success("User registered successfully!!!!", {
-          position: "top-left",
-        })
-        .then((window.location.href = "/LoginPage"));
+      toast.success("User registered successfully!!!!", {
+        position: "top-left",
+      });
+      navigate("/LoginPage");
     } catch (error) {
       console.log(error.message);
       toast.success(error.message, {

@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext.jsx";
+import { useAuth } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 const NavBar = () => {
   const { user } = useAuth();
-  const onClickEvent = () => {
-    window.location.href = "/LoginPage";
+  const navigate = useNavigate();
+  const onClickEvent = (userLog) => {
+    if (userLog) {
+      navigate("/Dashboard");
+    } else if (!userLog) {
+      navigate("/LoginPage");
+    }
   };
   return (
     <nav className="navBox">
