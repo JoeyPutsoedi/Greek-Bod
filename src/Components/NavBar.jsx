@@ -7,7 +7,7 @@ const NavBar = () => {
     if (userLog) {
       window.location.href = "/Dashboard";
     } else if (!userLog) {
-      window.location.href = "/Login";
+      window.location.href = "/LoginPage";
     }
   };
   return (
