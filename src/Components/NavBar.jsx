@@ -19,9 +19,11 @@ const NavBar = () => {
           <Link to="/Contact">
             <li>CONTACT</li>
           </Link>
-          <button onClick={() => onClickEvent(user)}>
-            <p>GET STARTED</p>
-          </button>
+          <Link to={"/LoginPage"}>
+            <button>
+              <p>GET STARTED</p>
+            </button>
+          </Link>
         </ul>
       </div>
     </nav>
