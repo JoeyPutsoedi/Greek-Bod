@@ -35,9 +35,11 @@ const NavBar = () => {
           <Link to="/Contact">
             <li>CONTACT</li>
           </Link>
+
           <button onClick={onClickEvent}>
             <p>GET STARTED</p>
           </button>
+
         </ul>
       </div>
     </nav>
