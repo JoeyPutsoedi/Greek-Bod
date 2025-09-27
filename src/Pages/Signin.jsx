@@ -71,7 +71,7 @@ const Signin = () => {
         .success("User registered successfully!!!!", {
           position: "top-left",
         })
-        .then((window.location.href = "/Login"));
+        .then((window.location.href = "/LoginPage"));
     } catch (error) {
       console.log(error.message);
       toast.success(error.message, {
