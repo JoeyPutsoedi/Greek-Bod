@@ -3,7 +3,7 @@ Greekbod Meal Planner
 <h1>Description</h1>
 <p>A Meal planner designed to for inclusitivity.<br>
 This easy too use planner catores for people in different walks of life looking to <br/>
-accomplish different things. Wheter you're looking to Gain Weight, Lose it or Even Maintain <br>
+accomplish different things. Whether you're looking to Gain Weight, Lose it or Even Maintain <br>
 your current weight. Greekbod alleviate  the stress of wondering what to eat and when.<br>
 It does all this while maintaining a charming design.<br>
 
@@ -12,7 +12,10 @@ It does all this while maintaining a charming design.<br>
 <ul>
   <li>ReactJs</li>
   <li>CSS</li>
-  <li>JavaScript</li>
+  <li>Framer Motion Javascript Library</li>
+    <li>Spoonacular API</li>
+    <li>Firebase</li>
+    <li>Cloudinary</li>
 </ul>
 <h1>Environment Used</h1>
 <ul>
