@@ -1,7 +1,7 @@
 import React from "react";
 import oatmeal from "../assets/images/oatmeal.png";
 import choc from "../assets/images/chocolate.png";
-import Card from "./Card";
+import Card from "./Card.jsx";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 
 const Cards = () => {

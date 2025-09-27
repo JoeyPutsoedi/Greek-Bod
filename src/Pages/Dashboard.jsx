@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "../Styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth } from "../Components/firebase";
-import PopUp from "../Components/PopUp";
-import Settings from "../Components/Settings";
-import DashboardHome from "../Components/DashboardHome";
-import DashboardMeals from "../Components/DashboardMeals";
-import DashboardUpload from "../Components/DashboardUpload";
+import { auth } from "../Components/firebase.jsx";
+import PopUp from "../Components/PopUp.jsx";
+import Settings from "../Components/Settings.jsx";
+import DashboardHome from "../Components/DashboardHome.jsx";
+import DashboardMeals from "../Components/DashboardMeals.jsx";
+import DashboardUpload from "../Components/DashboardUpload.jsx";
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState();
   /*Sign out function-------------- */

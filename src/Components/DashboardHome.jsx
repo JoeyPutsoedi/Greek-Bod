@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext";
-import Bmr from "../Utils/Bmr";
+import { useAuth } from "../Context/AuthContext.jsx";
+import Bmr from "../Utils/Bmr.jsx";
 import "../Styles/DashboardHome.css";
-import calculateDailyCalories from "../Utils/DailyCalories";
+import calculateDailyCalories from "../Utils/DailyCalories.jsx";
 import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
-import { getLoginDates } from "../Utils/LogDates";
+import { getLoginDates } from "../Utils/LogDates.jsx";
 import { db } from "./firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 

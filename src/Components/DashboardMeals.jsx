@@ -1,4 +1,4 @@
-import MealCont from "./MealCont";
+import MealCont from "./MealCont.jsx";
 import "../Styles/DashboardMeals.css";
 
 const DashboardMeals = () => {
