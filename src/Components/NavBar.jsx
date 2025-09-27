@@ -3,12 +3,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext.jsx";
 const NavBar = () => {
   const { user } = useAuth();
-  const onClickEvent = (userLog) => {
-    if (userLog) {
-      window.location.href = "/Dashboard";
-    } else if (!userLog) {
-      window.location.href = "/LoginPage";
-    }
+  const onClickEvent = () => {
+    window.location.href = "/LoginPage";
   };
   return (
     <nav className="navBox">
