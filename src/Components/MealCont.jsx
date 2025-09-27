@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext";
-import { getMealRecommendations } from "../Utils/mealsServics";
+import { useAuth } from "../Context/AuthContext.jsx";
+import { getMealRecommendations } from "../Utils/mealsServics.jsx";
 import "../Styles/DashboardMeals.css";
 
 const MealCont = ({ num, type, cl, bkg }) => {

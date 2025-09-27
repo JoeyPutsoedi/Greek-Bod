@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "../Styles/Contact.css";
 import emailjs from "@emailjs/browser";
-import NavBar from "../Components/NavBar";
+import NavBar from "../Components/NavBar.jsx";
 import img1 from "../assets/images/-business-communication.png";
 
 const Contact = () => {

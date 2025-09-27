@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "../Components/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { logUserLogin } from "../Utils/LogDates";
+import { logUserLogin } from "../Utils/LogDates.jsx";
 
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {

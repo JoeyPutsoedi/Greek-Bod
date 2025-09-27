@@ -1,11 +1,11 @@
 import "./Styles/Styles.css";
 import "../src/assets/fontawesome/css/all.css";
 import "../src/assets/boxicons/css/boxicons.css";
-import Landing from "./Pages/Landing";
-import Signin from "./Pages/signin";
-import Login from "./Pages/Login";
-import Dashboard from "./Pages/Dashboard";
-import Contact from "./Pages/Contact";
+import Landing from "./Pages/Landing.jsx";
+import Signin from "./Pages/Signin.jsx";
+import Login from "./Pages/Login.jsx";
+import Dashboard from "./Pages/Dashboard.jsx";
+import Contact from "./Pages/Contact.jsx";
 import {
   Route,
   createBrowserRouter,
