@@ -16,6 +16,7 @@ It does all this while maintaining a charming design.<br>
     <li>Spoonacular API</li>
     <li>Firebase</li>
     <li>Cloudinary</li>
+    <li>EmailJs Library</li>
 </ul>
 <h1>Features</h1>
 <ul>
