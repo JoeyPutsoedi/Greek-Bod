@@ -1,16 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../Components/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const NavBar = () => {
-  const user = auth.currentUser;
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const onClickEvent = (userLog) => {
-    if (userLog) {
+
+  // Track Firebase auth state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const onClickEvent = () => {
+    if (user) {
       navigate("/Dashboard");
-    } else if (!userLog) {
+    } else if (!user) {
       navigate("/LoginPage");
     }
   };
@@ -27,11 +35,11 @@ const NavBar = () => {
           <Link to="/Contact">
             <li>CONTACT</li>
           </Link>
-          <Link to={"/LoginPage"}>
-            <button>
-              <p>GET STARTED</p>
-            </button>
-          </Link>
+
+          <button onClick={onClickEvent}>
+            <p>GET STARTED</p>
+          </button>
+
         </ul>
       </div>
     </nav>
