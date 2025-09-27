@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../Context/AuthContext.jsx";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase";
-import "../styles/popup.css";
+
+import "../Styles/popup";
 
 const PopUp = () => {
   const { user } = useAuth();
