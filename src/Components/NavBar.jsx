@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../Components/firebase";
 
 const NavBar = () => {
-  const { user } = useAuth();
+  const user = auth.currentUser;
   const navigate = useNavigate();
   const onClickEvent = (userLog) => {
     if (userLog) {
