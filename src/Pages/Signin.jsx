@@ -159,7 +159,7 @@ const Signin = () => {
               <Link to="/Login">Sign In</Link>
             </button> */}
 
-            <Link to="/Login">
+            <Link to="/LoginPage">
               <p>Already have an account?</p>
             </Link>
           </div>
