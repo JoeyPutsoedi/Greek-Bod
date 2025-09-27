@@ -1,5 +1,5 @@
 import React from "react";
-import oatmeal from "../assets/images/oatmeal.png";
+import oatmeal from "../assets/images/Oatmeal.png";
 import choc from "../assets/images/chocolate.png";
 import Card from "./Card.jsx";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
