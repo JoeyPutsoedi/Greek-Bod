@@ -24,7 +24,7 @@ It does all this while maintaining a charming design.<br>
     <li>Daily Meal & Recipe Recommendations</li>
 </ul>
 <h2> Live Demo: </h2>
-https://fivestarquestionnairee.netlify.app/
+https://greekbod.netlify.app/Dashboard
 <br/><p> Not Yet Responsive To Mobile, will Be By 0ctober 20th 2025</p>
 <h2>Complete Walkthrough On Youtube:</h2>
 <h3 font-size="30px"><a href="https://youtu.be/_rxXGFvCNhY">CLICK ME :)</a></h3>
