@@ -5,10 +5,13 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Components/firebase";
 import { toast } from "react-toastify";
 import Google from "../Components/signInWithGoogle";
+import { useNavigate } from "react-router-dom";
 
 /*FUNCTIONS---------------------------------------------------------------------- */
 
 const Login = () => {
+  const navigate = useNavigate();
+
   /*USE STATE DEFINING------------------------------- */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +54,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User login successful");
-      window.location.href = "/Dashboard";
+      navigate("/Dashboard");
       toast.success("User Logged in successfully!!!!", {
         position: "top-left",
       });
