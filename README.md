@@ -32,11 +32,3 @@ https://fivestarquestionnairee.netlify.app/
 <h2>DISCLAIMER: </h2>
 <p>NO AI OR TEMPLATES WERE USED IN THE CREATION OF THIS PROJECT</p>
 <p align="center"> SCREENSHOTS: </p>
-
-<img width="1366" height="768" alt="Screenshot (66)" src="https://github.com/user-attachments/assets/98b5b029-dddd-474e-b201-eaada9e751af" />
-<img width="1366" height="768" alt="Screenshot (65)" src="https://github.com/user-attachments/assets/020c993f-0ff2-42a3-996b-4ec3cb6a41a6" />
-<img width="1366" height="768" alt="Screenshot (64)" src="https://github.com/user-attachments/assets/fbba9943-fe42-481e-907e-d7b0f9453951" />
-# Greek-Bod
- Meal Planner For Every Weight Goal 
-
- Status: Ongoing Development
