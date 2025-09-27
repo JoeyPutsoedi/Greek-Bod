@@ -55,10 +55,10 @@ const Dashboard = () => {
               onClick={() => setActiveTab("meals")}
               class="fa-solid fa-utensils"
             ></i>
-            <i
+            {/* <i
               onClick={() => setActiveTab("upload")}
               class="fa-solid fa-camera"
-            ></i>
+            ></i> */}
             <Link to="/Contact">
               <i class="fa-solid fa-envelope"></i>
             </Link>

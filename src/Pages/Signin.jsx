@@ -67,9 +67,11 @@ const Signin = () => {
         });
       }
       console.log("User Registered successfully");
-      toast.success("User registered successfully!!!!", {
-        position: "top-left",
-      });
+      toast
+        .success("User registered successfully!!!!", {
+          position: "top-left",
+        })
+        .then((window.location.href = "/Login"));
     } catch (error) {
       console.log(error.message);
       toast.success(error.message, {

@@ -37,7 +37,7 @@ body {
 }
 
 .navBox {
-  z-index: 5;
+  z-index: 8;
   position: fixed;
   font-size: 12px;
   font-weight: 700;
@@ -61,7 +61,7 @@ body {
 }
 
 .navItems p {
-  margin-right: -6.8em;
+  margin-right: -3.4em;
   font-weight: 700;
   padding: 0.5em 1em;
   border-radius: 1.75em;
@@ -537,6 +537,11 @@ body {
   }
   100% {
     background-position: 0 0;
+  }
+}
+@media (min-height: 685px) {
+  .appleRed {
+    top: -37%;
   }
 }
 /*Scroller----------*/
