@@ -63,8 +63,8 @@
 .saveImg button {
   height: 2.6em;
   width: 8.4em;
-  background-color: #7fc54a;
-  color: #254b07;
+  background: linear-gradient(-23deg, #244b07c0, #4ac577);
+  color: white;
   border-radius: 075em;
   font-family: mier;
   transition: 0.5s;
@@ -128,20 +128,23 @@
   width: 15em;
   height: 2em;
   color: white;
-  background-color: #254b07;
+  background-color: #31a35b;
 }
 .editInfo button {
   border-radius: 2em;
   height: 2.5em;
   width: 6em;
   margin-top: 5.5em;
-
+  font-family: mier;
   font-weight: 400;
   color: white;
-  background-color: #244b07f4;
+  background: linear-gradient(-23deg, #244b07c0, #4ac577);
+
   transition: 0.3s;
 }
 .editInfo button:hover {
+  outline: 1px solid #254b07;
+  background-color: #7fc54a;
+  color: #192b0b;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  background-color: #244b079d;
 }

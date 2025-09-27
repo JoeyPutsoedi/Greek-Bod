@@ -36,6 +36,13 @@ const DashboardHome = () => {
   //Variable that displays the days a user was logged-in on the calendar
   const highlightedDates = loginDates.map((date) => new Date(date));
 
+  //Call BMR Function
+  const bmr = Bmr({
+    weight: profile?.weight,
+    height: profile?.height,
+    age: profile?.age,
+    gender: profile?.gender,
+  });
   //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
     weight: profile?.weight,
@@ -159,16 +166,7 @@ const DashboardHome = () => {
               {/*BMR---------------------------------- */}
               <div className="upperBmr" style={{ backgroundColor: "#4ac577" }}>
                 <div className="upperBmrUpper">
-                  <div className="blok">
-                    {(
-                      <Bmr
-                        weight={profile?.weight}
-                        height={profile?.height}
-                        age={profile?.age}
-                        gender={profile?.gender}
-                      />
-                    ) || 0}
-                  </div>
+                  <div className="blok">{bmr || 0}</div>
                   <p>Your Basal Metabolic Rate (kcal)</p>
                 </div>
 
@@ -294,7 +292,9 @@ const DashboardHome = () => {
           </div>
           <div className="exerciseQuant">
             <p>Activity </p>
-            <p id="activityQuant">{ActivityQuantity()}</p>
+            <p id="activityQuant">
+              {ActivityQuantity() || "N/A Days of Exercise weekly"}
+            </p>
           </div>
           <div className="chart">
             {/*-------------------Circular Progress bar-------------------------*/}
