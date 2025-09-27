@@ -17,14 +17,15 @@ It does all this while maintaining a charming design.<br>
     <li>Firebase</li>
     <li>Cloudinary</li>
 </ul>
-<h1>Environment Used</h1>
+<h1>Features</h1>
 <ul>
-  <li>Windows 10</li>
-  <li>Visual Studio Code</li>
+  <li>Bmr Calculations</li>
+  <li>Daily Calories Target Calculations</li>
+    <li>Daily Meal & Recipe Recommendations</li>
 </ul>
 <h2> Live Demo: </h2>
 https://fivestarquestionnairee.netlify.app/
-<p> Not Yet Responsive To Mobile, will Be By 0ctober 20th 2025</p>
+<br/><p> Not Yet Responsive To Mobile, will Be By 0ctober 20th 2025</p>
 <h2>Complete Walkthrough On Youtube:</h2>
 <h3 font-size="30px"><a href="https://youtu.be/_rxXGFvCNhY">CLICK ME :)</a></h3>
 
