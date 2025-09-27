@@ -1,16 +1,16 @@
 # GrrekBod
-Greekbod
+Greekbod Meal Planner
 <h1>Description</h1>
-<p>A Fun small project created entirely in 48 hours as a challenge to see how much i can do with such little time.<br>
-This Questionnaire with 9 general knowledge questions and a scoring system
-was made from scratch using just html, css and Javascript. <br>
-Everytime you use a hint you lose 1 point.<br>
-you cannot change your answer once you have answered.<br>
-the game awards two titles "Novice" for bad or average perfomance and "Golden Wanderer" for good performance.
+<p>A Meal planner designed to for inclusitivity.<br>
+This easy too use planner catores for people in different walks of life looking to <br/>
+accomplish different things. Wheter you're looking to Gain Weight, Lose it or Even Maintain <br>
+your current weight. Greekbod alleviate  the stress of wondering what to eat and when.<br>
+It does all this while maintaining a charming design.<br>
+
 </p>
 <h1>Languages and Utilities</h1>
 <ul>
-  <li>Html</li>
+  <li>ReactJs</li>
   <li>CSS</li>
   <li>JavaScript</li>
 </ul>
