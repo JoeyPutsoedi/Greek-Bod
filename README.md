@@ -32,3 +32,7 @@ https://greekbod.netlify.app/
 <h2>DISCLAIMER: </h2>
 <p>NO AI OR TEMPLATES WERE USED IN THE CREATION OF THIS PROJECT</p>
 <p align="center"> SCREENSHOTS: </p>
+<img width="1365" height="768" alt="Screenshot (103)" src="https://github.com/user-attachments/assets/ecc8cd3c-700b-472c-affa-0d943f218bbe" />
+<img width="1365" height="768" alt="Screenshot (104)" src="https://github.com/user-attachments/assets/85e1511e-9b2f-4836-a88e-db7f904d108e" />
+<img width="1359" height="764" alt="Screenshot (105)" src="https://github.com/user-attachments/assets/e9f06e38-1b24-4f46-8ce4-a64d385c0da9" />
+
