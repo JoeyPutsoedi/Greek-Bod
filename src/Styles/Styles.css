@@ -539,16 +539,37 @@ body {
     background-position: 0 0;
   }
 }
+
+/*------------------Media Queries----------------------------*/
 @media (min-height: 685px) {
   .appleRed {
     top: -37%;
   }
 }
-/*Scroller----------*/
-/* ::-webkit-scrollbar {
-  width: 0;
+@media (max-width: 450px) {
+  .navBox {
+    left: -5%;
+    transform: scale(0.7);
+  }
+  .mainText {
+    margin-top: 1.4em;
+    font-size: 6em;
+    letter-spacing: -1px;
+  }
+  .organic {
+    top: 16%;
+    left: 15%;
+    transform: scale(0.5) rotate(23deg);
+  }
+  .badge2 {
+    transform: scale(0.5);
+  }
+  .appleRed {
+    top: 77px;
+    left: -185px;
+    transform: scale(0.1) translate(110%);
+  }
+  .subtextsMain {
+    font-size: 8px;
+  }
 }
-::-webkit-scrollbar-thumb {
-  width: 4px;
-  background-color: #002bff;
-} */
