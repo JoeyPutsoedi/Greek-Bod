@@ -187,7 +187,7 @@ body {
 }
 .card1 img {
   padding-top: 1.3em;
-  /* transform: scale(0.8); */
+
   align-self: center;
   max-width: 80%; /* keeps images uniform but responsive */
   max-height: 390px; /* fixes image area height */
@@ -571,5 +571,27 @@ body {
   }
   .subtextsMain {
     font-size: 8px;
+  }
+  /*CARD SECTION--------------------------------------------------*/
+  .cardsSection {
+    margin-top: 10em;
+    border-top-left-radius: 10rem;
+  }
+  .cardsHeader {
+    font-size: 1.2em;
+  }
+  .cards {
+    gap: 0.5em;
+  }
+  .card1 {
+    height: 16em;
+  }
+  .card1 p {
+    font-size: 0.9em;
+  }
+  /*BANNER SECTION----------------------------------------------*/
+
+  .bannerCont #features {
+    font-size: 2em;
   }
 }
