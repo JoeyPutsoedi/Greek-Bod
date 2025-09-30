@@ -68,7 +68,7 @@ body {
   color: #e3e3e3;
   background-color: black;
   cursor: pointer;
-  font-family: Roboto;
+  font-family: Roboto, Helvetica;
 }
 .navItems p::before {
   content: "";
