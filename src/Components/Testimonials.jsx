@@ -45,7 +45,7 @@ const Testimonials = () => {
           age={"27"}
           goal={"Gain weight"}
           testimony={
-            "Thank You greek For changing my life, Now I'm healthy enough to become the Athlete I've Always wanted to be"
+            "Thank You Greek for changing my life, Now I'm strong enough to carry my wife"
           }
           img={img1}
         />
@@ -53,7 +53,7 @@ const Testimonials = () => {
           style={{ y: yA, opacity: oA, boxShadow: dA }}
           name={"Odessa Carlton"}
           age={"24"}
-          goal={"lose weight"}
+          goal={"Lose weight"}
           testimony={
             "For the longest time i've felt insecure about my body struggling to lose weight but Greek bod made it all easy for me and now i've lost 10kg."
           }
@@ -65,7 +65,7 @@ const Testimonials = () => {
           age={"31"}
           goal={"Maintain Weight"}
           testimony={
-            "As a working man it's hard to maintain your weight it fluctuates all the time. greekbod helps me maintain my weight it's tuff."
+            "As a working man it's hard to maintain your weight it fluctuates all the time. Greekbod helps me maintain my weight it's tough."
           }
           img={img3}
         />
