@@ -16,7 +16,6 @@
 .contactInfo {
   z-index: 3;
   padding: 1em 1em 0 1em;
-
   height: 100vh;
 }
 .headerTxt {
@@ -47,7 +46,6 @@ h1 .fa-solid {
 .contactInfo form {
   margin-top: 5.7em;
   background-color: #cdf7ad;
-
   border-radius: 0.75em;
   width: 38em;
   height: auto;
@@ -79,7 +77,7 @@ form > #textarea {
   width: 100%;
   height: 10em;
   border-radius: 0.25em;
-  resize: NONE;
+  resize: none;
 }
 form > #textarea::placeholder {
   font-size: 14px;
@@ -114,4 +112,55 @@ form > button {
 }
 form > button:hover {
   background-color: #34551b;
+}
+
+/*-----------------Media Queries--------------*/
+@media (max-width: 430px) {
+  .contactInfo h1 {
+    font-size: 1.8em;
+    margin-top: 3em;
+    margin-left: 1em;
+  }
+  .bkgCircles {
+    top: 11%;
+    left: 55%;
+  }
+  .bkgCircles img {
+    transform: scale(0.5);
+  }
+  .contactInfo p {
+    font-size: 10px;
+    margin: 15em 0 0 -20em;
+  }
+  .contactInfo form {
+    margin-top: 8em;
+    margin-left: 1em;
+    width: 23em;
+  }
+  .contactInfo > form > input {
+    padding-left: 1em;
+    font-family: mier;
+    background-color: #aada85;
+    width: 11em;
+    height: 3.3em;
+    border-radius: 0.25em;
+  }
+  .madens input {
+    padding-left: 0.7em;
+    font-family: mier;
+    background-color: #aada85;
+    width: 9em;
+    height: 3.3em;
+    border-radius: 0.25em;
+  }
+  form > #textarea {
+    margin-top: 1em;
+    padding-left: 1em;
+    font-family: mier;
+    background-color: #aada85;
+    width: 100%;
+    height: 10em;
+    border-radius: 0.25em;
+    resize: none;
+  }
 }
