@@ -133,9 +133,10 @@ form > button:hover {
     margin: 15em 0 0 -20em;
   }
   .contactInfo form {
-    margin-top: 8em;
+    margin-top: 5em;
     margin-left: 1em;
     width: 23em;
+    transform: scale(0.9);
   }
   .contactInfo > form > input {
     padding-left: 1em;
@@ -162,5 +163,14 @@ form > button:hover {
     height: 10em;
     border-radius: 0.25em;
     resize: none;
+  }
+  form > button {
+    margin-top: 0.8em;
+    background-color: #5c8939;
+    border-radius: 2.75em;
+    padding: 0.4em 1.8em;
+    color: white;
+    font-family: mier;
+    transition: 0.2s;
   }
 }
