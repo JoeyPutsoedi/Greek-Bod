@@ -133,29 +133,77 @@ const Settings = () => {
   }, [user]);
 
   return (
-    <section className="settingCont">
-      {/*Left Column-------------------------------------------------*/}
-      <div className="imageSett">
-        <div className="imgSet">
-          {/*Header For User Name-------------------------------------------------*/}
-          <h1> {formData?.firstName + " " + formData?.lastName}</h1>
-          <div className="imgPLH">
-            {/* Image Section--------------------------------------- */}
-            <div className="imagePlaceholder">
+    <section className="settings-wrapper">
+      <div className="settings-container">
+        <div className="settings-left">
+          <div className="image-placeholder">
+            <div className="image-sec">
               <img src={preview} alt={user?.displayName} />
             </div>
           </div>
-          {/*Buttons Section-------------------------------------------------*/}
-          <div className="saveImg">
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-            {/* <button htmlFor="imgPicker ">Change Image</button> */}
-            <button onClick={handleUpload}>Upload Image</button>
-          </div>
+          <h1>{formData?.firstName + " " + formData?.lastName}</h1>
+          <p>Change profile picture</p>
+
+          <input
+            className="uploadImage"
+            type="file"
+            accept="/image*"
+            onChange={handleImageChange}
+          />
+          <button className="uploadBtn" onClick={handleUpload}>
+            Upload
+          </button>
+        </div>
+        <div className="settings-right">
+          <form>
+            <div className="form-left">
+              <h1>Personal Information</h1>
+
+              <label>First Name:</label>
+              <input
+                name="firstName"
+                type="text"
+                placeholder={formData?.firstName}
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-right"></div>
+          </form>
         </div>
       </div>
-      {/*Right Column-------------------------------------------------*/}
-      <div className="editInfo">
-        <h1>User Information: </h1>
+    </section>
+  );
+};
+
+export default Settings;
+{
+  /*Left Column-------------------------------------------------*/
+}
+//   <div className="imageSett">
+//   <div className="imgSet">
+//     {/*Header For User Name-------------------------------------------------*/}
+//     <h1> {formData?.firstName + " " + formData?.lastName}</h1>
+//     <div className="imgPLH">
+//       {/* Image Section--------------------------------------- */}
+//       <div className="imagePlaceholder">
+//         <img src={preview} alt={user?.displayName} />
+//       </div>
+//     </div>
+//     {/*Buttons Section-------------------------------------------------*/}
+//     <div className="saveImg">
+//       <input type="file" accept="image/*" onChange={handleImageChange} />
+//       {/* <button htmlFor="imgPicker ">Change Image</button> */}
+//       <button onClick={handleUpload}>Upload Image</button>
+//     </div>
+//   </div>
+// </div>
+{
+  /*Right Column-------------------------------------------------*/
+}
+<div className="editInfo"></div>;
+{
+  /* <h1> </h1>
         <div className="formSett">
           <form
             onSubmit={(e) => {
@@ -222,9 +270,13 @@ const Settings = () => {
                 <option value="medium">3-5 Days</option>
                 <option value="heavy">6-7 Days</option>
               </select>
-            </div>
-            {/*Right Column-------------------------------------------------*/}
-            <div className="rightForm">
+            </div> */
+}
+{
+  /*Right Column-------------------------------------------------*/
+}
+{
+  /* <div className="rightForm">
               <label htmlFor="">Current Weight</label>
               <br />
               <input
@@ -270,10 +322,5 @@ const Settings = () => {
               <button type="submit">Save</button>
             </div>
           </form>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Settings;
+        </div> */
+}
