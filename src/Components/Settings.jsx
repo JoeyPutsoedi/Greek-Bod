@@ -133,29 +133,176 @@ const Settings = () => {
   }, [user]);
 
   return (
-    <section className="settingCont">
-      {/*Left Column-------------------------------------------------*/}
-      <div className="imageSett">
-        <div className="imgSet">
-          {/*Header For User Name-------------------------------------------------*/}
-          <h1> {formData?.firstName + " " + formData?.lastName}</h1>
-          <div className="imgPLH">
-            {/* Image Section--------------------------------------- */}
-            <div className="imagePlaceholder">
+    <section className="settings-wrapper">
+      <div className="settings-container">
+        <div className="settings-left">
+          <div className="image-placeholder">
+            <div className="image-sec">
               <img src={preview} alt={user?.displayName} />
             </div>
           </div>
-          {/*Buttons Section-------------------------------------------------*/}
-          <div className="saveImg">
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-            {/* <button htmlFor="imgPicker ">Change Image</button> */}
-            <button onClick={handleUpload}>Upload Image</button>
-          </div>
+          <h1>{formData?.firstName + " " + formData?.lastName}</h1>
+          <p>Change profile picture</p>
+
+          <input
+            className="uploadImage"
+            type="file"
+            accept="/image*"
+            onChange={handleImageChange}
+          />
+          <button className="uploadBtn" onClick={handleUpload}>
+            Upload
+          </button>
+        </div>
+        {/*-------RIGHT COLUMN---------------------------------------------------------------------------*/}
+        <div className="settings-right">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSaveProfile();
+            }}
+          >
+            <div className="form-left">
+              <h1>Personal Information</h1>
+              {/*----------------Upper right--------------------- */}
+              <div className="upperRight">
+                <label>First Name:</label>
+                <label>Last Name:</label>
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder={formData?.firstName}
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder={formData?.lastName}
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div>
+              {/*----------------Middle right--------------------- */}
+              <div className="midRight">
+                <label>Email: </label>
+                <input
+                  name="email"
+                  type="text"
+                  placeholder={user?.email}
+                  readOnly
+                />
+              </div>
+              {/*----------------lower right--------------------- */}
+              <div className="lowRight">
+                <label htmlFor=""> Weight Goal</label>
+                <label htmlFor=""> Weekly Excersise</label>
+
+                <select
+                  name="goal"
+                  value={formData.goal}
+                  onChange={handleChange}
+                  required
+                >
+                  <option>{profile?.goal}</option>
+                  <option value="lose">Lose Weight</option>
+                  <option value="gain">Gain Muscle</option>
+                  <option value="maintain">Maintain </option>
+                </select>
+
+                <select
+                  name="activityLevel"
+                  value={profile?.activityLevel}
+                  onChange={handleChange}
+                  required
+                >
+                  <option>{profile?.activityLevel}</option>
+                  <option value="N/A">No exercise</option>
+                  <option value="light">1-3 Days</option>
+                  <option value="medium">3-5 Days</option>
+                  <option value="heavy">6-7 Days</option>
+                </select>
+
+                <label htmlFor="">Current Weight</label>
+                <label htmlFor="">Current Height</label>
+
+                <input
+                  name="weight"
+                  type="text"
+                  placeholder={profile?.weight + "  kg"}
+                  value={formData.weight}
+                  onChange={handleChange}
+                />
+
+                <input
+                  name="height"
+                  type="text"
+                  placeholder={profile?.height + "  cm"}
+                  value={formData.height}
+                  onChange={handleChange}
+                />
+
+                <label htmlFor="">Current Age</label>
+                <label htmlFor=""> Gender</label>
+
+                <input
+                  name="age"
+                  type="text"
+                  placeholder={profile?.age + "  yrs"}
+                  value={formData.age}
+                  onChange={handleChange}
+                />
+
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">What is your Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <button type="submit">Save changes</button>
+            </div>
+          </form>
         </div>
       </div>
-      {/*Right Column-------------------------------------------------*/}
-      <div className="editInfo">
-        <h1>User Information: </h1>
+    </section>
+  );
+};
+
+export default Settings;
+{
+  /*Left Column-------------------------------------------------*/
+}
+//   <div className="imageSett">
+//   <div className="imgSet">
+//     {/*Header For User Name-------------------------------------------------*/}
+//     <h1> {formData?.firstName + " " + formData?.lastName}</h1>
+//     <div className="imgPLH">
+//       {/* Image Section--------------------------------------- */}
+//       <div className="imagePlaceholder">
+//         <img src={preview} alt={user?.displayName} />
+//       </div>
+//     </div>
+//     {/*Buttons Section-------------------------------------------------*/}
+//     <div className="saveImg">
+//       <input type="file" accept="image/*" onChange={handleImageChange} />
+//       {/* <button htmlFor="imgPicker ">Change Image</button> */}
+//       <button onClick={handleUpload}>Upload Image</button>
+//     </div>
+//   </div>
+// </div>
+{
+  /*Right Column-------------------------------------------------*/
+}
+<div className="editInfo"></div>;
+{
+  /* <h1> </h1>
         <div className="formSett">
           <form
             onSubmit={(e) => {
@@ -222,9 +369,13 @@ const Settings = () => {
                 <option value="medium">3-5 Days</option>
                 <option value="heavy">6-7 Days</option>
               </select>
-            </div>
-            {/*Right Column-------------------------------------------------*/}
-            <div className="rightForm">
+            </div> */
+}
+{
+  /*Right Column-------------------------------------------------*/
+}
+{
+  /* <div className="rightForm">
               <label htmlFor="">Current Weight</label>
               <br />
               <input
@@ -270,10 +421,5 @@ const Settings = () => {
               <button type="submit">Save</button>
             </div>
           </form>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Settings;
+        </div> */
+}
