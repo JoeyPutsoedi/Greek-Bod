@@ -1,8 +1,11 @@
 import React from "react";
+
 import oatmeal from "../assets/images/oatmeal.png";
 // import choc from "../assets/images/chocolate.png";
 import Card from "./Card";
 import { motion, useScroll, useTransform } from "motion/react";
+
+
 
 const Cards = () => {
   const colors1 = "#e84457";

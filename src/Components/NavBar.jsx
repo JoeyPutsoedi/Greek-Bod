@@ -1,13 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../Components/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
 const NavBar = () => {
-  const { user } = useAuth();
-  const onClickEvent = (userLog) => {
-    if (userLog) {
-      window.location.href = "/Dashboard";
-    } else if (!userLog) {
-      window.location.href = "/Login";
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  // Track Firebase auth state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const onClickEvent = () => {
+    if (user) {
+      navigate("/Dashboard");
+    } else if (!user) {
+      navigate("/LoginPage");
     }
   };
   return (
@@ -17,13 +29,17 @@ const NavBar = () => {
           <Link to="/">
             <li>HOME</li>
           </Link>
-          <li>ABOUT</li>
+          <a href="#footer">
+            <li>NEWSLETTER</li>
+          </a>
           <Link to="/Contact">
             <li>CONTACT</li>
           </Link>
-          <button onClick={() => onClickEvent(user)}>
+
+          <button onClick={onClickEvent}>
             <p>GET STARTED</p>
           </button>
+
         </ul>
       </div>
     </nav>

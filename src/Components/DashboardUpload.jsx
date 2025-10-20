@@ -1,7 +1,7 @@
 import "../Styles/DashboardUpload.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../Context/AuthContext.jsx";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
 const DashboardUpload = () => {

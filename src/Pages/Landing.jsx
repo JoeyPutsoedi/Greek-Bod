@@ -1,12 +1,12 @@
 import React from "react";
-import Noise from "../Components/Noise";
-import NavBar from "../Components/NavBar";
-import Hero from "../Components/Hero";
+import Noise from "../Components/Noise.jsx";
+import NavBar from "../Components/NavBar.jsx";
+import Hero from "../Components/Hero.jsx";
 import Cards from "../Components/Cards";
-import Banner from "../Components/Banner";
-import Onboard from "../Components/Onboard";
-import Footer from "../Components/Footer";
-import Testimonials from "../Components/Testimonials";
+import Banner from "../Components/Banner.jsx";
+import Onboard from "../Components/Onboard.jsx";
+import Footer from "../Components/Footer.jsx";
+import Testimonials from "../Components/Testimonials.jsx";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 const Landing = () => {
   // const { scrollY } = useScroll();
