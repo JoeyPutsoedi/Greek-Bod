@@ -154,21 +154,120 @@ const Settings = () => {
             Upload
           </button>
         </div>
+        {/*-------RIGHT COLUMN---------------------------------------------------------------------------*/}
         <div className="settings-right">
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSaveProfile();
+            }}
+          >
             <div className="form-left">
               <h1>Personal Information</h1>
+              {/*----------------Upper right--------------------- */}
+              <div className="upperRight">
+                <label>First Name:</label>
+                <label>Last Name:</label>
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder={formData?.firstName}
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
 
-              <label>First Name:</label>
-              <input
-                name="firstName"
-                type="text"
-                placeholder={formData?.firstName}
-                value={formData.firstName}
-                onChange={handleChange}
-              />
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder={formData?.lastName}
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div>
+              {/*----------------Middle right--------------------- */}
+              <div className="midRight">
+                <label>Email: </label>
+                <input
+                  name="email"
+                  type="text"
+                  placeholder={user?.email}
+                  readOnly
+                />
+              </div>
+              {/*----------------lower right--------------------- */}
+              <div className="lowRight">
+                <label htmlFor=""> Weight Goal</label>
+                <label htmlFor=""> Weekly Excersise</label>
+
+                <select
+                  name="goal"
+                  value={formData.goal}
+                  onChange={handleChange}
+                  required
+                >
+                  <option>{profile?.goal}</option>
+                  <option value="lose">Lose Weight</option>
+                  <option value="gain">Gain Muscle</option>
+                  <option value="maintain">Maintain </option>
+                </select>
+
+                <select
+                  name="activityLevel"
+                  value={profile?.activityLevel}
+                  onChange={handleChange}
+                  required
+                >
+                  <option>{profile?.activityLevel}</option>
+                  <option value="N/A">No exercise</option>
+                  <option value="light">1-3 Days</option>
+                  <option value="medium">3-5 Days</option>
+                  <option value="heavy">6-7 Days</option>
+                </select>
+
+                <label htmlFor="">Current Weight</label>
+                <label htmlFor="">Current Height</label>
+
+                <input
+                  name="weight"
+                  type="text"
+                  placeholder={profile?.weight + "  kg"}
+                  value={formData.weight}
+                  onChange={handleChange}
+                />
+
+                <input
+                  name="height"
+                  type="text"
+                  placeholder={profile?.height + "  cm"}
+                  value={formData.height}
+                  onChange={handleChange}
+                />
+
+                <label htmlFor="">Current Age</label>
+                <label htmlFor=""> Gender</label>
+
+                <input
+                  name="age"
+                  type="text"
+                  placeholder={profile?.age + "  yrs"}
+                  value={formData.age}
+                  onChange={handleChange}
+                />
+
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">What is your Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <button type="submit">Save changes</button>
             </div>
-            <div className="form-right"></div>
           </form>
         </div>
       </div>

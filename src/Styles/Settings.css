@@ -240,6 +240,8 @@
 .settings-left .uploadBtn:hover {
   background-color: #217c42;
 }
+
+/*RIGHT COLOUMN-----------------------------------------------*/
 .settings-container .settings-right {
   background-color: rgb(247, 247, 247);
   border-radius: 0.75em;
@@ -248,30 +250,65 @@
 }
 .settings-right form {
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
+
   font-family: mier;
 }
 form .form-left {
   height: 100%;
   color: rgb(77, 77, 77);
+  font-size: 14px;
 }
 
 .form-left h1 {
-  font-size: 1.4em;
-  margin-bottom: 1.5em;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
 }
-
+.form-left .upperRight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1em;
+}
 .form-left input {
   display: block;
-  width: 19em;
-  height: 2.5em;
-  background-color: rgb(230, 230, 230);
-  border-radius: 0.25em;
-  padding-left: 1em;
+  width: 100%;
+  height: 3em;
+  padding-left: 0.7em;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.5em;
+  margin-bottom: 1.4em;
 }
-form .form-right {
-  background-color: #192b0b;
-  height: 100%;
+
+.midRight input {
+  width: 100%;
+  height: 3em;
+}
+
+.form-left .lowRight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1em;
+}
+.form-left select {
+  width: 100%;
+  height: 3em;
+  padding-left: 0.7em;
+  border-radius: 0.5em;
+  background-color: rgb(233, 233, 233);
+  margin-bottom: 1.4em;
+}
+.form-left button {
+  background-color: #31a35b;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4.6em;
+  width: 100%;
+  height: 3em;
+  font-family: mier;
+  font-weight: bolder;
+  color: white;
+  border-radius: 0.5em;
+  transition: 0.3s;
+}
+.form-left button:hover {
+  background-color: #217c42;
 }
