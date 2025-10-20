@@ -12,7 +12,7 @@ const Settings = () => {
   const [image, setImage] = useState(null);
   /* The editable version of user inputs should the user choose to change their information.*/
   const [preview, setPreview] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -53,17 +53,16 @@ const Settings = () => {
 
   const handleUpload = async () => {
     if (!image) return alert("Please select an image first"); //If No image is selected return message
-
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "unsigned_preset"); // my preset name
 
     try {
+      setLoading(true);
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dwnsz5sga/image/upload",
         formData
       );
-
       console.log("Uploaded Image URL:", response.data.secure_url);
 
       // Save this URL to Firestore as the user's profile picture
@@ -74,6 +73,7 @@ const Settings = () => {
       setProfile((prev) => ({ ...prev, photoURL: response.data.secure_url }));
 
       alert("Image uploaded successfully!");
+      setLoading(false);
     } catch (error) {
       console.error("Upload Error:", error);
       alert("Image upload failed!");
@@ -151,7 +151,7 @@ const Settings = () => {
             onChange={handleImageChange}
           />
           <button className="uploadBtn" onClick={handleUpload}>
-            Upload
+            {loading ? "Uploading..." : "Upload"}
           </button>
         </div>
         {/*-------RIGHT COLUMN---------------------------------------------------------------------------*/}
