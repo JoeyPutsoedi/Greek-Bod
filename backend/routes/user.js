@@ -1,17 +1,23 @@
 import express from "express";
+import {
+  signUp,
+  login,
+  updateUser,
+  fetchProfile,
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
 //signup a user
-router.post("/signup", () => {});
+router.post("/signup", signUp);
 
 //login a user
-router.post("/login", () => {});
+router.post("/login", login);
 
-//fetch user infor
-router.get("/:id,", () => {});
+//fetch user info
+router.get("/:id,", fetchProfile);
 
 //update user info
-router.patch("/:id", () => {});
+router.patch("/profile/:id", updateUser);
 
 export default router;
