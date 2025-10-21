@@ -12,35 +12,18 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    firstName: {
+    firstName: { type: String },
+    lastName: { type: String },
+    age: { type: Number },
+    height: { type: Number },
+    weight: { type: Number },
+    goal: {
       type: String,
+      required: true,
     },
     lastName: {
       type: String,
-    },
-    weight: {
-      type: Number,
-    },
-    height: {
-      type: Number,
-    },
-    age: {
-      type: Number,
-    },
-    goal: {
-      type: String,
-      enum: ["lose", "maintain", "gain"],
-    },
-    activityLevel: {
-      type: String,
-    },
-    profilePicture: {
-      type: String,
-    },
-
-    mealPlan: {
-      date: { type: String },
-      meals: { type: Array },
+      required: true,
     },
   },
   { timestamps: true }

@@ -1,43 +1,133 @@
 import User from "../models/userModel.js";
-import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import validator from "validator";
 
-//create user
-export const createUser = async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+//jwt template------------------------------------------------------------------------------------
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "10d" });
+};
+
+//signup user-------------------------------------------------------------------------------------
+export const signUp = async (req, res) => {
+  const { email, password } = req.body;
 
   try {
-    res.send(`User ${firstName} created....`);
+    if (!email || !password) {
+      res.status(400).json("Email and Password required!");
+    }
+
+    //check if email exists
+    const exists = await User.findOne({ email });
+
+    if (exists) {
+      res.status(400).json("Email already in use");
+    }
+
+    //validation
+    if (!validator.isEmail(email)) {
+      res.status(400).json("Not a valid email...");
+    }
+
+    if (!validator.isStrongPassword(password)) {
+      res.status(400).json("Not a valid password...");
+    }
+
+    //generate salt and hash
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+
+    //create user document
+    const user = await User.create({ email, password: hash });
+
+    //create token
+    const token = createToken(User._id);
+
+    res.status(200).json({ user, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
-//update user details
+
+//login user------------------------------------------------------------------------------------
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    if (!email || !password) {
+      res.status(400).json("Email and Password are required!");
+    }
+
+    //check if user exists
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      res.status(400).json("Not a valid email...");
+    }
+
+    //match password
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+      res.status(400).json("Not a valid password...");
+    }
+
+    //create a token
+    const token = createToken(user._id);
+
+    res.status(200).json({ email, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+//update user details---------------------------------------------------------------------------
 export const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const {
+    firstName,
+    lastName,
+    age,
+    height,
+    weight,
+    goal,
+    activityLevel,
+    profilePicture,
+  } = req.body;
+
   try {
-    res.send("User updated....");
+    const userProfile = await User.findByIdAndUpdate(id, {
+      firstName,
+      lastName,
+      age,
+      height,
+      weight,
+      goal,
+      activityLevel,
+      profilePicture,
+    });
+
+    if (!userProfile) {
+      res.status(400).json("Failed to update user profile...");
+    }
+    res.status(200).json(userProfile);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-//delete user
+//fetch user details
+export const fetchProfile = async (req, res) => {
+  const { id } = req.params;
 
-export const deleteUser = async (req, res) => {
-  const { firstName } = req.body;
   try {
-    res.send(`user ${firstName} deleted.....`);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
+    const user = await User.findById(id);
 
-//fetch user
+    if (!user) {
+      res.status(400).json("User does not exist...");
+    }
 
-export const fetchUser = async (req, res) => {
-  try {
-    const { email, password, firstName, lastName } = req.body;
-
-    res.send(`user: \n${firstName}\n${lastName}`);
+    res.status(200).json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
