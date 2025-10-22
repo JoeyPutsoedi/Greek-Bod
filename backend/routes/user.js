@@ -20,4 +20,7 @@ router.get("/", fetchProfile);
 //update user info
 router.patch("/profile/:id", updateUser);
 
+//upload image
+router.patch("/profilePicture/:id", uploadImage);
+
 export default router;
