@@ -562,151 +562,793 @@ body {
     top: -37%;
   }
 }
+/*------------------Media Queries----------------------------*/
+
+/* Tablets and smaller desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+  .navBox {
+    width: 35em;
+    font-size: 11px;
+  }
+
+  .navBox ul {
+    gap: 2.5em;
+  }
+
+  .mainText {
+    font-size: 14em;
+    letter-spacing: -8px;
+  }
+
+  .organic {
+    font-size: 0.9rem;
+    top: 18%;
+    left: 10%;
+  }
+
+  .badge2 {
+    font-size: 6rem;
+    top: 15%;
+    left: 8%;
+  }
+
+  .appleRed {
+    transform: scale(0.15) translate(100%);
+  }
+
+  .subtextsMain {
+    font-size: 14px;
+    padding: 0 2em;
+  }
+
+  /* Cards Section */
+  .cardsSection {
+    height: 55rem;
+  }
+
+  .cardsHeader {
+    font-size: 1.7em;
+    width: 12em;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    padding: 0 2em;
+  }
+
+  .card1 {
+    width: 22em;
+    height: 28em;
+  }
+
+  .card1 p {
+    font-size: 1.3em;
+  }
+
+  /* Banner Section */
+  .banner-wrapper {
+    width: 95%;
+    height: 32rem;
+  }
+
+  #bText1,
+  #bText2,
+  #bText3 {
+    font-size: 0.9em;
+    width: 12em;
+  }
+
+  #bText1 {
+    left: 15%;
+    margin-top: 5em;
+  }
+
+  #bText2 {
+    right: 15%;
+    margin-top: 14em;
+  }
+
+  #bText3 {
+    left: 12%;
+    margin-top: 22em;
+    width: 17em;
+  }
+
+  .imageBkg {
+    transform: scale(0.85) rotate(-12deg);
+  }
+
+  .bannerCont #features {
+    font-size: 3.5em;
+    left: 46%;
+  }
+
+  /* Testimonials */
+  .testimonial-cont {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .Testimonial-cards {
+    width: 22em;
+  }
+
+  /* Footer */
+  .footerCont {
+    padding: 3em;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+
+  .foot2 input {
+    width: 16em;
+  }
+}
+
+/* Tablets Portrait (600px - 768px) */
+@media (max-width: 768px) {
+  .navBox {
+    width: 32em;
+    font-size: 10px;
+    top: 4%;
+  }
+
+  .navBox ul {
+    gap: 2em;
+  }
+
+  .navItems p {
+    padding: 0.4em 0.8em;
+  }
+
+  .mainText {
+    font-size: 10em;
+    letter-spacing: -5px;
+    margin-top: 1em;
+  }
+
+  .organic {
+    font-size: 0.8rem;
+    top: 20%;
+    left: 12%;
+  }
+
+  .badge2 {
+    font-size: 5rem;
+    top: 17%;
+    left: 10%;
+  }
+
+  .appleRed {
+    top: -35%;
+    transform: scale(0.13) translate(110%);
+  }
+
+  .subtextsMain {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    font-size: 13px;
+    padding: 0 1.5em;
+  }
+
+  /* Cards Section */
+  .cardsSection {
+    height: auto;
+    padding-bottom: 3em;
+    border-top-left-radius: 15%;
+  }
+
+  .cardsHeader {
+    font-size: 1.5em;
+    width: 11em;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .card1 {
+    width: 85%;
+    max-width: 26em;
+    height: 30em;
+  }
+
+  /* Banner Section */
+  .banner {
+    height: 50rem;
+  }
+
+  .banner-wrapper {
+    width: 95%;
+    height: 38rem;
+    margin-top: 4em;
+  }
+
+  .bannerCont {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #bText1 {
+    left: 10%;
+    margin-top: 8em;
+    font-size: 0.85em;
+  }
+
+  #bText2 {
+    right: 10%;
+    margin-top: 30em;
+    font-size: 0.85em;
+  }
+
+  #bText3 {
+    left: 10%;
+    margin-top: 40em;
+    font-size: 0.85em;
+    width: 16em;
+  }
+
+  .imageBkg {
+    margin-top: 5em;
+    transform: scale(0.75) rotate(-12deg);
+  }
+
+  .bannerCont #features {
+    font-size: 3em;
+    left: 45%;
+    margin-top: 1em;
+  }
+
+  .banner-wrapper .star3,
+  .banner-wrapper .star4,
+  .banner-wrapper .star5 {
+    left: 65%;
+  }
+
+  /* Testimonials */
+  .testimonial-wrapper {
+    margin-top: -10em;
+    height: auto;
+    padding-bottom: 3em;
+  }
+
+  .testimonial-wrapper h1 {
+    font-size: 1.7em;
+    padding-top: 2em;
+  }
+
+  .testimonial-cont {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    gap: 2em;
+  }
+
+  .Testimonial-cards {
+    width: 85%;
+    max-width: 25em;
+  }
+
+  /* Onboard */
+  .onboard p {
+    font-size: 8em;
+  }
+
+  /* Footer */
+  .footer {
+    height: auto;
+    padding-bottom: 2em;
+  }
+
+  .footerCont {
+    flex-direction: column;
+    padding: 2em;
+    gap: 2em;
+    text-align: center;
+  }
+
+  .footerCont p {
+    font-size: 1.4em;
+  }
+
+  .footerCont ul {
+    font-size: 1.4em;
+  }
+
+  .foot2 input {
+    width: 90%;
+    max-width: 20em;
+  }
+
+  .icons {
+    justify-content: center;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (451px - 600px) */
+@media (max-width: 600px) {
+  .navBox {
+    width: 28em;
+    font-size: 9px;
+    left: 50%;
+  }
+
+  .navBox ul {
+    gap: 1.5em;
+  }
+
+  .mainText {
+    font-size: 7em;
+    letter-spacing: -3px;
+  }
+
+  .organic {
+    font-size: 0.7rem;
+    top: 18%;
+    left: 10%;
+  }
+
+  .badge2 {
+    font-size: 4rem;
+    top: 16%;
+    left: 8%;
+  }
+
+  .appleRed {
+    top: 80px;
+    left: -150px;
+    transform: scale(0.11) translate(100%);
+  }
+
+  .subtextsMain {
+    font-size: 11px;
+  }
+
+  /* Cards */
+  .cardsSection {
+    margin-top: 8em;
+    border-top-left-radius: 12%;
+  }
+
+  .cardsHeader {
+    font-size: 1.3em;
+  }
+
+  .card1 {
+    width: 90%;
+    height: 26em;
+  }
+
+  .card1 p {
+    font-size: 1.2em;
+  }
+
+  /* Banner */
+  .banner {
+    height: 45rem;
+  }
+
+  .banner-wrapper {
+    height: 35rem;
+  }
+
+  .bannerCont #features {
+    font-size: 2.5em;
+    left: 43%;
+  }
+
+  #bText1,
+  #bText2,
+  #bText3 {
+    font-size: 0.75em;
+  }
+
+  /* Onboard */
+  .onboard p {
+    font-size: 6em;
+  }
+
+  .onboard {
+    margin-top: 4em;
+  }
+}
+
+/* Mobile Portrait (max-width: 450px) */
 @media (max-width: 450px) {
   .navBox {
-    left: -5%;
-    transform: scale(0.7);
-    transform-style: preserve-3d;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    font-size: 9px;
   }
+
+  .navBox ul {
+    gap: 1em;
+  }
+
+  .navItems p {
+    padding: 0.4em 0.7em;
+    margin-right: 0;
+  }
+
+  .navItems p::before {
+    left: auto;
+    right: -2px;
+    width: calc(100% + 4px);
+  }
+
   .mainText {
     margin-top: 1.4em;
     font-size: 6em;
     letter-spacing: -1px;
   }
+
   .organic {
     top: 16%;
     left: 15%;
     transform: scale(0.5) rotate(23deg);
-    transform-style: preserve-3d;
   }
+
   .badge2 {
     transform: scale(0.5);
-    transform-style: preserve-3d;
+    top: 13%;
+    left: 13%;
   }
+
   .appleRed {
     top: 77px;
     left: -185px;
     transform: scale(0.1) translate(110%);
-    transform-style: preserve-3d;
   }
+
   .subtextsMain {
-    font-size: 8px;
+    font-size: 10px;
+    margin-top: 2em;
+    gap: 0.8em;
   }
-  /*CARD SECTION--------------------------------------------------*/
+
+  /* Cards Section */
   .cardsSection {
     margin-top: 10em;
     border-top-left-radius: 10rem;
+    padding-bottom: 2em;
   }
+
   .cardsHeader {
     font-size: 1.2em;
+    padding-top: 1.5em;
   }
+
   .cards {
-    gap: 0.5em;
+    padding-top: 1.5em;
+    gap: 1em;
   }
+
   .card1 {
-    height: 16em;
+    width: 90%;
+    height: 24em;
   }
+
   .card1 p {
-    font-size: 0.9em;
+    font-size: 1.1em;
+    padding-top: 1em;
   }
-  /*BANNER SECTION----------------------------------------------*/
+
+  .card1 img {
+    max-height: 300px;
+  }
+
+  /* Banner Section */
+  .banner {
+    height: 48rem;
+  }
+
+  .banner p {
+    font-size: 1.5em;
+    padding-top: 1.5em;
+  }
+
+  .banner-wrapper {
+    margin-top: 3em;
+    width: 90%;
+    height: 40rem;
+  }
 
   .bannerCont #features {
     font-size: 2em;
+    left: 40%;
+    margin-top: 1.6em;
+  }
+
+  .imageBkg {
+    transform: scale(0.6) rotate(-12deg);
+    margin-top: 9em;
+  }
+
+  #bText1 {
+    padding-top: 1em;
+    left: 8%;
+    margin-top: 13em;
+    width: 12em;
+    font-size: 0.65em;
+  }
+
+  #bText2 {
+    right: 8%;
+    margin-top: 38em;
+    width: 12em;
+    font-size: 0.65em;
+  }
+
+  #bText3 {
+    left: 8%;
+    margin-top: 46em;
+    width: 14em;
+    font-size: 0.65em;
+  }
+
+  .banner-wrapper .fa-star {
+    font-size: 1.5em;
+    margin-top: 4em;
+    left: 35%;
+  }
+
+  .banner-wrapper .star2 {
+    font-size: 1em;
+    margin-top: 8em;
+    left: 34%;
+  }
+
+  .banner-wrapper .star3 {
+    font-size: 1.4em;
+    margin-top: 13em;
+    left: 68%;
+  }
+
+  .banner-wrapper .star4 {
+    margin-top: 12.2em;
+    left: 72%;
+  }
+
+  .banner-wrapper .star5 {
+    font-size: 1.2em;
+    margin-top: 15.2em;
+    left: 72%;
+  }
+
+  /* Testimonials */
+  .testimonial-wrapper {
+    margin-top: -8em;
+  }
+
+  .testimonial-wrapper h1 {
+    font-size: 1.5em;
+    padding-top: 1.5em;
+  }
+
+  .testimonial-cont {
+    margin-top: 1.5em;
+    padding: 0 0.5em;
+  }
+
+  .Testimonial-cards {
+    width: 95%;
+    padding: 0.8em;
+  }
+
+  .imginfo {
+    gap: 1em;
+  }
+
+  .test-imgPlh,
+  .test-imgPlh img {
+    height: 7em;
+    width: 7em;
+  }
+
+  .imginfo p {
+    font-size: 14px;
+  }
+
+  .written-testimonial {
+    font-size: 14px;
+  }
+
+  /* Onboard */
+  .onboard {
+    margin-top: 3em;
+    height: 12rem;
+  }
+
+  .onboard p {
+    font-size: 5em;
+  }
+
+  .curved-loop-jacket {
+    margin-top: -2em;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 6em;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+  }
+
+  .footerCont {
+    padding: 1.5em;
+  }
+
+  .footerCont p {
+    font-size: 1.2em;
+  }
+
+  .footerCont ul {
+    font-size: 1.2em;
+    padding-top: 0.5em;
+  }
+
+  .footerCont li {
+    font-size: 13px;
+    margin-bottom: 0.5em;
+  }
+
+  .foot2 input {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .foot2 button {
+    width: 100%;
+  }
+
+  .foot3 i {
+    font-size: 1.4em;
+    padding: 6px;
   }
 }
+
+/* Extra Small Mobile (max-width: 390px) */
 @media (max-width: 390px) {
   .navBox {
-    left: -13%;
+    width: 95%;
+    transform: translate(-50%, -50%) scale(0.75);
   }
+
+  .mainText {
+    font-size: 5.5em;
+    margin-left: 0.1em;
+  }
+
   .organic {
     top: 20%;
     left: 7%;
     font-size: 12px;
   }
+
   .appleRed {
-    top: 54px;
-    transform: scale(0.25) translate(298%);
+    top: 60px;
+    left: -200px;
+    transform: scale(0.25) translate(308%);
   }
+
   .badge2 {
     top: 17%;
     left: 3%;
     font-size: 5em;
   }
-  .mainText {
-    transform: scale(1);
-    transform-style: preserve-3d;
-    margin-left: 0.1em;
-  }
+
   .subtextsMain {
-    margin-top: 9em;
+    margin-top: 3em;
+    font-size: 9px;
   }
+
   .cardsSection {
     margin-top: 14em;
-    height: 30em;
+    height: auto;
     border-top-left-radius: 7rem;
   }
+
   .cardsHeader {
     font-size: 1em;
   }
-  .cards {
-    gap: 0;
-  }
+
   .card1 {
-    transform: scale(0.9);
-    transform-style: preserve-3d;
-    height: 14em;
+    transform: scale(0.95);
+    height: 20em;
   }
+
   .card1 p {
-    font-size: 0.75em;
+    font-size: 0.95em;
   }
+
+  .card1 img {
+    max-height: 250px;
+  }
+
+  .banner-wrapper {
+    height: 38rem;
+  }
+
   .bannerCont #features {
     margin-top: 1.6em;
     font-size: 1.6em;
+    left: 38%;
   }
+
   .imageBkg {
-    transform: scale(0.6) rotate(-12deg);
-    transform-style: preserve-3d;
+    transform: scale(0.55) rotate(-12deg);
+    margin-top: 10em;
   }
+
   #bText1 {
-    padding-top: 1em;
-
-    left: 10%;
-    margin-top: 11em;
-
-    width: 14em;
-    height: 3em;
+    left: 6%;
+    margin-top: 14em;
     font-size: 0.6em;
-    font-weight: 500;
   }
+
   #bText2 {
-    right: 12%;
-    margin-top: 38em;
-
+    right: 6%;
+    margin-top: 40em;
     font-size: 0.6em;
   }
+
   #bText3 {
-    left: 10%;
-    margin-top: 46em;
-
+    left: 6%;
+    margin-top: 48em;
     font-size: 0.6em;
   }
 
-  .banner-wrapper .star4 {
-    margin-top: 12.2em;
-
-    left: 72%;
+  .onboard p {
+    font-size: 4.5em;
   }
-  .banner-wrapper .star5 {
-    font-size: 1.2em;
-    margin-top: 15.2em;
 
-    left: 72%;
+  .footerCont p {
+    font-size: 1.1em;
+  }
+
+  .footerCont ul {
+    font-size: 1.1em;
   }
 }
 
+/* Fix for iOS Safari transform issues */
 @supports (-webkit-touch-callout: none) {
-  .your-feature-container {
+  .your-feature-container,
+  .appleRed,
+  .organic,
+  .badge2,
+  .imageBkg,
+  .card1,
+  #bText1,
+  #bText2,
+  #bText3 {
     transform: translateZ(0);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mainText {
+    margin-top: 0.5em;
+    font-size: 5em;
+  }
+
+  .appleRed {
+    top: -20%;
+  }
+
+  .cardsSection {
+    margin-top: 6em;
+  }
+
+  .banner-wrapper {
+    margin-top: 2em;
   }
 }
