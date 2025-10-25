@@ -29,6 +29,8 @@ body {
   margin: 0%;
   padding: 0%;
   font-family: fonte;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .wrapper {
   width: 100%;
@@ -43,6 +45,7 @@ body {
   font-weight: 700;
   left: 50%;
   transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
   width: 40em;
   height: 3.2em;
   top: 5%;
@@ -90,6 +93,7 @@ body {
   z-index: -1;
   width: calc(22% + 4px);
   height: calc(100% + 4px);
+  -webkit-backdrop-filter: blur(8px);
   filter: blur(8px);
   animation: glowing 10s linear infinite;
   transition: opacity 0.3s ease;
@@ -119,6 +123,7 @@ body {
   left: 12%;
   text-align: center;
   transform: rotate(23deg);
+  transform-style: preserve-3d;
 }
 .badge2 {
   position: absolute;
@@ -134,6 +139,7 @@ body {
   z-index: 3;
   top: -42%;
   transform: scale(0.17) translate(123%);
+  transform-style: preserve-3d;
   /* filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.4)); */
 }
 .subtextsMain {
@@ -247,6 +253,7 @@ body {
   font-weight: 500;
   box-shadow: inset 0 0px 25px rgba(255, 255, 255, 0.8);
   transform: rotate(4deg);
+  transform-style: preserve-3d;
 }
 #bText2 {
   font-family: mier;
@@ -263,6 +270,7 @@ body {
   font-weight: 500;
   box-shadow: inset 0 0px 25px rgba(255, 255, 255, 0.8);
   transform: rotate(-8deg);
+  transform-style: preserve-3d;
 }
 #bText3 {
   font-family: mier;
@@ -279,6 +287,7 @@ body {
   font-weight: 500;
   box-shadow: inset 0 0px 25px rgba(255, 255, 255, 0.8);
   transform: rotate(-2deg);
+  transform-style: preserve-3d;
 }
 .imageBkg {
   z-index: 5;
@@ -291,6 +300,7 @@ body {
   height: 20em;
   outline: 1px solid rgba(245, 245, 245, 0.524);
   transform: scale(0.9) rotate(-12deg);
+  transform-style: preserve-3d;
   display: flex;
   justify-content: center;
   box-shadow: 6px 9px 7px rgba(0, 0, 0, 0.1),
@@ -299,6 +309,7 @@ body {
 .imageBkg img {
   width: 12em;
   transform: scale(0.9);
+  transform-style: preserve-3d;
   object-fit: cover;
 }
 
@@ -331,6 +342,7 @@ body {
 }
 .banner-wrapper .star3 {
   transform: rotate(7deg);
+  transform-style: preserve-3d;
   font-size: 1.7em;
   margin-top: 12.2em;
   color: #dde9c5;
@@ -338,6 +350,7 @@ body {
 }
 .banner-wrapper .star4 {
   transform: rotate(-9deg);
+  transform-style: preserve-3d;
   font-size: 1.7em;
   margin-top: 14.2em;
   color: #a4d249;
@@ -345,6 +358,7 @@ body {
 }
 .banner-wrapper .star5 {
   transform: rotate(-9deg);
+  transform-style: preserve-3d;
   font-size: 1.5em;
   margin-top: 15.2em;
   color: #b5f339;
@@ -355,6 +369,7 @@ body {
   left: 48%;
   margin-top: 0.6em;
   transform: rotate(4deg);
+  transform-style: preserve-3d;
   font-size: 4em;
   height: 1em;
   padding: 0%;
@@ -439,6 +454,7 @@ body {
   font-size: 11em;
   text-align: center;
   transform: rotate(-7deg);
+  transform-style: preserve-3d;
   stroke: 6px solid black;
 }
 .onboardBan {
@@ -550,6 +566,7 @@ body {
   .navBox {
     left: -5%;
     transform: scale(0.7);
+    transform-style: preserve-3d;
   }
   .mainText {
     margin-top: 1.4em;
@@ -560,14 +577,17 @@ body {
     top: 16%;
     left: 15%;
     transform: scale(0.5) rotate(23deg);
+    transform-style: preserve-3d;
   }
   .badge2 {
     transform: scale(0.5);
+    transform-style: preserve-3d;
   }
   .appleRed {
     top: 77px;
     left: -185px;
     transform: scale(0.1) translate(110%);
+    transform-style: preserve-3d;
   }
   .subtextsMain {
     font-size: 8px;
@@ -611,6 +631,7 @@ body {
   }
   .mainText {
     transform: scale(1);
+    transform-style: preserve-3d;
     margin-left: 0.1em;
   }
   .subtextsMain {
@@ -629,7 +650,7 @@ body {
   }
   .card1 {
     transform: scale(0.9);
-
+    transform-style: preserve-3d;
     height: 14em;
   }
   .card1 p {
@@ -641,6 +662,7 @@ body {
   }
   .imageBkg {
     transform: scale(0.6) rotate(-12deg);
+    transform-style: preserve-3d;
   }
   #bText1 {
     padding-top: 1em;
@@ -676,5 +698,11 @@ body {
     margin-top: 15.2em;
 
     left: 72%;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .your-feature-container {
+    transform: translateZ(0);
   }
 }
