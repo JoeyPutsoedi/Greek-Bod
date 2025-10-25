@@ -1,7 +1,7 @@
 import React from "react";
 import TestimonialCard from "./TestimonialCard.jsx";
-import img1 from "../assets/images/caleb.jpg";
-import img2 from "../assets/images/deborah.jpeg";
+import img1 from "../assets/images/buff.jpg";
+import img2 from "../assets/images/chubby.jpeg";
 import img3 from "../assets/images/black.jpeg";
 import {
   motion,
