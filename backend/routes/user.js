@@ -5,6 +5,7 @@ import {
   updateUser,
   fetchProfile,
 } from "../controllers/userController.js";
+import { uploadImage } from "../controllers/imageUploadController.js";
 
 const router = express.Router();
 
