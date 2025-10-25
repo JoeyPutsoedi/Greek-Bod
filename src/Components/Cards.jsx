@@ -21,15 +21,18 @@ const Cards = () => {
   const y = useTransform(scrollYProgress, [0, 0.2], [12, 0]);
   return (
     <section className="cardsSection">
-      <motion.p style={{ opacity, y, filter: blur }} className="cardsHeader">
+      <motion.p
+        // style={{ opacity, y, filter: blur }}
+        className="cardsHeader"
+      >
         A diet plan for whatever
         <br /> needs you may have.
       </motion.p>
       <motion.div
-        style={{
-          scale,
-          opacity,
-        }}
+        // style={{
+        //   scale,
+        //   opacity,
+        // }}
         className="cards"
       >
         <Card slogan="Whether you're looking to lose weight" bkg={colors1} />

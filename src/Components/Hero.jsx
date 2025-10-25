@@ -30,7 +30,7 @@ const hero = () => {
   return (
     <section className="heroCont">
       <motion.img
-        style={{ x, y, scale, rotate, filter: dropShadow }}
+        // style={{ x, y, scale, rotate, filter: dropShadow }}
         className="appleRed"
         src={APPLE}
       />

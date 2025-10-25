@@ -61,15 +61,24 @@ const Banner = () => {
     <section className="banner">
       <div className="banner-wrapper">
         <div className="bannerCont">
-          <motion.p style={{ scale: scaleA, rotate: rotateA }} id="bText1">
+          <motion.p
+            //  style={{ scale: scaleA, rotate: rotateA }}
+            id="bText1"
+          >
             Calculate your BMR
           </motion.p>
-          <motion.p style={{ scale: scaleB, rotate: rotateB }} id="bText2">
+          <motion.p
+            // style={{ scale: scaleB, rotate: rotateB }}
+            id="bText2"
+          >
             Find the amount of calories
             <br />
             you need daily
           </motion.p>
-          <motion.p style={{ scale: scaleC, rotate: rotateC }} id="bText3">
+          <motion.p
+            // style={{ scale: scaleC, rotate: rotateC }}
+            id="bText3"
+          >
             Get Meal Recommendations & Recipes
             <br />
             tailored for your weight goals
@@ -85,15 +94,15 @@ const Banner = () => {
             Features
           </p>
           <motion.div
-            style={{
-              opacity: opacityA,
-              scale: scaleF,
-              y: yA,
-              rotate: rotateD,
-              boxShadow,
-              backgroundColor: bkg,
-              outline,
-            }}
+            // style={{
+            //   opacity: opacityA,
+            //   scale: scaleF,
+            //   y: yA,
+            //   rotate: rotateD,
+            //   boxShadow,
+            //   backgroundColor: bkg,
+            //   outline,
+            // }}
             className="imageBkg"
           >
             <img src={chocw} alt="" />
