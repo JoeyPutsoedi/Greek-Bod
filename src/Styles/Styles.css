@@ -595,3 +595,86 @@ body {
     font-size: 2em;
   }
 }
+@media (max-width: 390px) {
+  .navBox {
+    left: -13%;
+  }
+  .organic {
+    top: 20%;
+    left: 7%;
+    font-size: 12px;
+  }
+  .badge2 {
+    top: 17%;
+    left: 3%;
+    font-size: 5em;
+  }
+  .mainText {
+    transform: scale(1);
+    margin-left: 0.1em;
+  }
+  .subtextsMain {
+    margin-top: 9em;
+  }
+  .cardsSection {
+    margin-top: 14em;
+    height: 30em;
+    border-top-left-radius: 7rem;
+  }
+  .cardsHeader {
+    font-size: 1em;
+  }
+  .cards {
+    gap: 0;
+  }
+  .card1 {
+    transform: scale(0.9);
+
+    height: 14em;
+  }
+  .card1 p {
+    font-size: 0.75em;
+  }
+  .bannerCont #features {
+    margin-top: 1.6em;
+    font-size: 1.6em;
+  }
+  .imageBkg {
+    transform: scale(0.6) rotate(-12deg);
+  }
+  #bText1 {
+    padding-top: 1em;
+
+    left: 10%;
+    margin-top: 11em;
+
+    width: 14em;
+    height: 3em;
+    font-size: 0.6em;
+    font-weight: 500;
+  }
+  #bText2 {
+    right: 12%;
+    margin-top: 38em;
+
+    font-size: 0.6em;
+  }
+  #bText3 {
+    left: 10%;
+    margin-top: 46em;
+
+    font-size: 0.6em;
+  }
+
+  .banner-wrapper .star4 {
+    margin-top: 12.2em;
+
+    left: 72%;
+  }
+  .banner-wrapper .star5 {
+    font-size: 1.2em;
+    margin-top: 15.2em;
+
+    left: 72%;
+  }
+}

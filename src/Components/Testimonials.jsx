@@ -40,7 +40,7 @@ const Testimonials = () => {
       <h1>Testimonials</h1>
       <div className="testimonial-cont">
         <MotionCard
-          style={{ x: xA, boxShadow: dA, rotate: rotateB }}
+          // style={{ x: xA, boxShadow: dA, rotate: rotateB }}
           name={"Caleb Ashvon"}
           age={"27"}
           goal={"Gain weight"}
@@ -50,7 +50,7 @@ const Testimonials = () => {
           img={img1}
         />
         <MotionCard
-          style={{ y: yA, opacity: oA, boxShadow: dA }}
+          // style={{ y: yA, opacity: oA, boxShadow: dA }}
           name={"Odessa Carlton"}
           age={"24"}
           goal={"Lose weight"}
@@ -60,7 +60,7 @@ const Testimonials = () => {
           img={img2}
         />
         <MotionCard
-          style={{ x: xB, boxShadow: dA, rotate: rotateA }}
+          // style={{ x: xB, boxShadow: dA, rotate: rotateA }}
           name={"Jarome White"}
           age={"31"}
           goal={"Maintain Weight"}
