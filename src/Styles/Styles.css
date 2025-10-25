@@ -604,6 +604,10 @@ body {
     left: 7%;
     font-size: 12px;
   }
+  .appleRed {
+    top: 54px;
+    transform: scale(0.25) translate(298%);
+  }
   .badge2 {
     top: 17%;
     left: 3%;
