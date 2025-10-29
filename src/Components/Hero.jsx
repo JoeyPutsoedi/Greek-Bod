@@ -3,7 +3,7 @@
 // useMotionValueEvent(scrollY, "change", (latest) => {
 //   console.log("Page scroll: ", latest);
 // });
-import React from "react";
+
 import APPLE from "../assets/images/Apple.png";
 import {
   motion,
