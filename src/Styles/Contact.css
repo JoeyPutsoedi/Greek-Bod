@@ -115,62 +115,238 @@ form > button:hover {
 }
 
 /*-----------------Media Queries--------------*/
-@media (max-width: 430px) {
+/* =============== CONTACT.CSS RESPONSIVE =============== */
+
+/* Base adjustments for consistency */
+.contactInfo > form > input,
+.madens input,
+form > #textarea {
+  font-size: 13px !important;
+}
+
+.contactInfo > form > input::placeholder,
+.madens input::placeholder,
+form > #textarea::placeholder {
+  font-size: 13px !important;
+}
+
+/* Tablets and smaller desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+  .bkgCircles {
+    left: 55%;
+    top: 18%;
+  }
+
+  .bkgCircles img {
+    transform: scale(0.75);
+  }
+
+  .headerTxt {
+    margin-left: 1em;
+  }
+
+  .contactInfo h1 {
+    font-size: 3em;
+  }
+
+  .contactInfo p {
+    margin: 2em 0 0 4em;
+    font-size: 13px;
+  }
+
+  .contactInfo form {
+    width: 90%;
+    max-width: 38em;
+  }
+}
+
+/* Tablets Portrait (600px - 768px) */
+@media (max-width: 768px) {
+  .contactCont {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .bkgCircles {
+    left: 52%;
+    top: 12%;
+  }
+
+  .bkgCircles img {
+    transform: scale(0.65);
+  }
+
+  .contactInfo {
+    height: auto;
+    padding-bottom: 3em;
+  }
+
+  .headerTxt {
+    flex-direction: column;
+    margin-top: 3em;
+    margin-left: 1.5em;
+  }
+
+  .contactInfo h1 {
+    font-size: 2.5em;
+    word-spacing: 0.5em;
+  }
+
+  .contactInfo p {
+    margin: 2em 0 0 0;
+    font-size: 13px;
+    line-height: 1.3em;
+  }
+
+  .contactInfo form {
+    margin-top: 3em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contactInfo > form > input {
+    width: 100%;
+  }
+
+  .madens {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .madens input {
+    width: 100%;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (451px - 600px) */
+@media (max-width: 600px) {
+  .bkgCircles {
+    left: 50%;
+    top: 10%;
+  }
+
+  .bkgCircles img {
+    transform: scale(0.55);
+  }
+
+  .headerTxt {
+    margin-left: 1em;
+    margin-top: 2.5em;
+  }
+
+  .contactInfo h1 {
+    font-size: 2.2em;
+  }
+
+  .contactInfo p {
+    font-size: 12px;
+  }
+
+  .contactInfo form {
+    width: 95%;
+    padding: 1.3em;
+  }
+}
+
+/* Mobile Portrait (max-width: 450px) */
+@media (max-width: 450px) {
+  .contactCont {
+    overflow-y: auto;
+  }
+
+  .bkgCircles {
+    top: 8%;
+    left: 48%;
+  }
+
+  .bkgCircles img {
+    transform: scale(0.48);
+  }
+
+  .contactInfo {
+    padding: 1em 0.5em 3em 0.5em;
+  }
+
+  .headerTxt {
+    margin-top: 3em;
+    margin-left: 0.5em;
+  }
+
   .contactInfo h1 {
     font-size: 1.8em;
+    word-spacing: 0.3em;
+  }
+
+  .contactInfo p {
+    font-size: 11px;
+    margin: 1.5em 0 0 0;
+    line-height: 1.2em;
+    padding-right: 1em;
+  }
+
+  .contactInfo form {
     margin-top: 3em;
-    margin-left: 1em;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.2em;
   }
+
+  .contactInfo > form > input {
+    width: 100%;
+    height: 3em;
+    font-size: 13px;
+  }
+
+  .madens {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  .madens input {
+    width: 100%;
+    height: 3em;
+    padding-left: 0.8em;
+    font-size: 13px;
+  }
+
+  form > #email {
+    margin-top: 0.8em;
+  }
+
+  form > #textarea {
+    margin-top: 0.8em;
+    height: 8em;
+  }
+
+  form > button {
+    width: 100%;
+    padding: 0.6em 1.5em;
+  }
+}
+
+/* Extra Small Mobile (max-width: 390px) */
+@media (max-width: 390px) {
   .bkgCircles {
-    top: 11%;
-    left: 55%;
+    top: 10%;
+    left: 50%;
   }
+
   .bkgCircles img {
-    transform: scale(0.5);
+    transform: scale(0.45);
   }
+
+  .contactInfo h1 {
+    font-size: 1.6em;
+  }
+
   .contactInfo p {
     font-size: 10px;
-    margin: 15em 0 0 -20em;
   }
+
   .contactInfo form {
-    margin-top: 5em;
-    margin-left: 1em;
-    width: 23em;
-    transform: scale(0.9);
-  }
-  .contactInfo > form > input {
-    padding-left: 1em;
-    font-family: mier;
-    background-color: #aada85;
-    width: 11em;
-    height: 3.3em;
-    border-radius: 0.25em;
-  }
-  .madens input {
-    padding-left: 0.7em;
-    font-family: mier;
-    background-color: #aada85;
-    width: 9em;
-    height: 3.3em;
-    border-radius: 0.25em;
-  }
-  form > #textarea {
-    margin-top: 1em;
-    padding-left: 1em;
-    font-family: mier;
-    background-color: #aada85;
-    width: 100%;
-    height: 10em;
-    border-radius: 0.25em;
-    resize: none;
-  }
-  form > button {
-    margin-top: 0.8em;
-    background-color: #5c8939;
-    border-radius: 2.75em;
-    padding: 0.4em 1.8em;
-    color: white;
-    font-family: mier;
-    transition: 0.2s;
+    padding: 1em;
   }
 }
