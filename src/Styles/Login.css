@@ -72,3 +72,111 @@
 }
 
 /*Media queries----------------------------------*/
+
+/* Tablets and smaller desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+  .login {
+    transform: translate(0%, 10%);
+  }
+
+  .loginCont {
+    width: 26em;
+  }
+}
+
+/* Tablets Portrait (600px - 768px) */
+@media (max-width: 768px) {
+  .login {
+    transform: translate(0%, 8%);
+  }
+
+  .loginCont {
+    width: 24em;
+  }
+
+  .loginCont h1 {
+    font-size: 1.9em;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (451px - 600px) */
+@media (max-width: 600px) {
+  .login {
+    transform: translate(0%, 5%);
+  }
+
+  .loginCont {
+    width: 22em;
+  }
+
+  .loginCont h1 {
+    font-size: 1.8em;
+  }
+
+  .loginCont input {
+    width: 15em;
+  }
+
+  .logbtn,
+  .signAcc button {
+    width: 18em;
+  }
+}
+
+/* Mobile Portrait (max-width: 450px) */
+@media (max-width: 450px) {
+  .login {
+    transform: translate(0%, 3%);
+    padding: 1em 0.5em;
+  }
+
+  .loginCont {
+    width: 20em;
+  }
+
+  .loginCont h1 {
+    font-size: 1.7em;
+  }
+
+  .loginCont input {
+    width: 14em;
+    height: 2.2em;
+  }
+
+  .logbtn,
+  .signAcc button {
+    width: 16em;
+    height: 2.8em;
+  }
+
+  .error {
+    font-size: 13px;
+    margin-bottom: -2em;
+  }
+}
+
+/* Extra Small Mobile (max-width: 390px) */
+@media (max-width: 390px) {
+  .login {
+    transform: translate(0%, 2%);
+  }
+
+  .loginCont {
+    width: 18em;
+  }
+
+  .loginCont h1 {
+    font-size: 1.6em;
+  }
+
+  .loginCont input {
+    width: 13em;
+    font-size: 13px;
+  }
+
+  .logbtn,
+  .signAcc button {
+    width: 14em;
+    font-size: 13px;
+  }
+}
