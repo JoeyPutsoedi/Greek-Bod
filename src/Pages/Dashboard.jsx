@@ -8,6 +8,7 @@ import Settings from "../Components/Settings.jsx";
 import DashboardHome from "../Components/DashboardHome.jsx";
 import DashboardMeals from "../Components/DashboardMeals.jsx";
 import DashboardUpload from "../Components/DashboardUpload.jsx";
+import "../Styles/DashboardResponsive.css";
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState();
   /*Sign out function-------------- */

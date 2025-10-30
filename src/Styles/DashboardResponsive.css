@@ -1,0 +1,888 @@
+/* Add these media queries to your existing CSS files */
+
+/* ============================================
+   TABLET LANDSCAPE (1024px - 1366px)
+   ============================================ */
+@media screen and (max-width: 1366px) {
+  .leftDash {
+    padding: 1em 1.5em;
+  }
+
+  .upperActivity .bmrCont {
+    width: 48%;
+  }
+
+  .upperActivity .calCont {
+    width: 52%;
+    padding: 1.5em 0.8em 0 0.8em;
+  }
+
+  .lowerActivity .lowerCont {
+    width: 13em;
+  }
+
+  .chart {
+    width: 18em;
+    height: 12em;
+  }
+}
+
+/* ============================================
+   TABLET PORTRAIT (768px - 1023px)
+   ============================================ */
+@media screen and (max-width: 1023px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .dashTools {
+    width: 100%;
+    height: auto;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 0.8em 1em;
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2em);
+    max-width: 600px;
+    background-color: #52a811;
+    border-radius: 0.95em;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+
+  .logoSec,
+  .navSec,
+  .logout {
+    width: auto;
+  }
+
+  .navSec {
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+  }
+
+  .navSec i {
+    padding: 0.7em 1.2em;
+    border-radius: 0.75em;
+  }
+
+  .leftDash {
+    width: 100%;
+    padding: 1em;
+    padding-bottom: 6em;
+  }
+
+  .rightDash {
+    width: 100%;
+    padding: 1em;
+    padding-bottom: 6em;
+  }
+
+  .upperActivity {
+    flex-direction: column;
+    height: auto;
+    gap: 1em;
+  }
+
+  .upperActivity .bmrCont {
+    width: 100%;
+  }
+
+  .upperActivity .calCont {
+    width: 100%;
+    padding: 1.5em 1em;
+  }
+
+  .lowerActivity {
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .lowerActivity .lowerCont {
+    width: calc(33.333% - 1em);
+    min-width: 200px;
+  }
+
+  .top-rightdash {
+    height: auto;
+    padding: 2em 0;
+  }
+
+  .bottom-rightDash {
+    padding-bottom: 2em;
+  }
+}
+
+/* ============================================
+   MOBILE LANDSCAPE (568px - 767px)
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .dashTools {
+    max-width: calc(100% - 2em);
+  }
+
+  .leftDash h1 {
+    font-size: 1.5em;
+  }
+
+  .leftDash .dashBanner {
+    height: auto;
+    padding: 1.5em 1em;
+  }
+
+  .dashBanner h2 {
+    font-size: 1.1em;
+  }
+
+  .upperActivity .bmrCont {
+    font-size: 1em;
+  }
+
+  .lowerActivity {
+    flex-direction: column;
+  }
+
+  .lowerActivity .lowerCont {
+    width: 100%;
+  }
+
+  .imgplacehld {
+    width: 8em;
+    height: 8em;
+  }
+
+  .imgplacehld img {
+    width: 8em;
+    height: 8em;
+  }
+
+  .imgplacehld p {
+    font-size: 2.5em;
+  }
+
+  .bottom-rightDash .popupStats {
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+
+  .chart {
+    width: 100%;
+    max-width: 20em;
+  }
+}
+
+/* ============================================
+   MOBILE PORTRAIT (320px - 567px)
+   ============================================ */
+@media screen and (max-width: 567px) {
+  .dashCont {
+    flex-direction: column;
+  }
+
+  .dashTools {
+    grid-template-columns: auto 1fr auto;
+    padding: 0.6em 1em;
+    bottom: 0.8em;
+    width: calc(100% - 1.6em);
+    border-radius: 0.95em;
+  }
+
+  .logoBox {
+    font-size: 1.8em;
+  }
+
+  .navSec {
+    gap: 0.3em;
+    justify-content: center;
+  }
+
+  .navSec i {
+    font-size: 1.2em;
+    padding: 0.6em 1em;
+    border-radius: 0.65em;
+  }
+
+  .logout i {
+    font-size: 1.2em;
+  }
+
+  .dashInfo {
+    height: auto;
+    min-height: calc(100vh - 60px);
+  }
+
+  .leftDash {
+    padding: 0.5em;
+  }
+
+  .leftDash h1 {
+    font-size: 1.3em;
+  }
+
+  .leftDash .dashBanner {
+    margin-top: 1em;
+    padding: 1em;
+  }
+
+  .dashBanner h2 {
+    font-size: 1em;
+  }
+
+  .dashBanner p {
+    font-size: 0.85em;
+  }
+
+  .activityDash {
+    margin-top: 1em;
+  }
+
+  .upperActivity .bmrCont {
+    font-size: 0.9em;
+    gap: 0.8em;
+  }
+
+  .bmrCont .upperBmr {
+    padding: 0.5em 0.8em;
+  }
+
+  .upperBmr .blok {
+    width: 3.5em;
+    height: 3.5em;
+    font-size: 0.75em;
+  }
+
+  .upperBmr p {
+    font-size: 12px;
+    margin-left: 0.5em;
+  }
+
+  .white-lines .line {
+    width: 3em;
+  }
+
+  .upperActivity .calCont {
+    padding: 1em 0.5em;
+  }
+
+  /* Make calendar more compact on mobile */
+  .react-calendar {
+    font-size: 0.85em;
+    max-width: 100%;
+  }
+
+  .lowerActivity .lowerCont {
+    height: auto;
+    padding: 0.8em;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: flex-start;
+  }
+
+  .lowerActivity .LInfo {
+    width: 100%;
+    height: auto;
+    font-size: 13px;
+  }
+
+  .lowerActivity button {
+    width: 100%;
+    height: 2.5em;
+  }
+
+  .rightDash {
+    border-radius: 0.75em;
+    padding: 0.5em;
+    padding-bottom: 5em;
+  }
+
+  .top-rightdash {
+    padding: 1.5em 0;
+  }
+
+  .imgplacehld {
+    width: 7em;
+    height: 7em;
+  }
+
+  .imgplacehld img {
+    width: 7em;
+    height: 7em;
+  }
+
+  .imgplacehld p {
+    font-size: 2em;
+  }
+
+  .top-rightdash h1 {
+    font-size: 1em;
+    margin-top: 0.5em;
+  }
+
+  .bottom-rightDash .popupStats {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 0.5em;
+    gap: 0.5em;
+  }
+
+  .popupLabel {
+    font-size: 1.1em;
+  }
+
+  .exerciseQuant {
+    font-size: 1.1em;
+    margin-top: 1em;
+  }
+
+  .exerciseQuant #activityQuant {
+    width: 90%;
+    max-width: 15em;
+    font-size: 0.75em;
+    padding: 0.6em 0;
+  }
+
+  .chart {
+    margin-top: 1.5em;
+    height: 12em;
+    width: 90%;
+  }
+
+  .chart svg {
+    transform: scale(0.7);
+  }
+
+  .chart p {
+    font-size: 0.9em;
+    margin-top: -1em;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE (max 374px)
+   ============================================ */
+@media screen and (max-width: 374px) {
+  .dashTools {
+    padding: 0.5em 0.8em;
+    border-radius: 1em;
+  }
+
+  .logoBox {
+    font-size: 1.5em;
+  }
+
+  .navSec i {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+  }
+
+  .leftDash h1 {
+    font-size: 1.2em;
+  }
+
+  .dashBanner h2 {
+    font-size: 0.9em;
+  }
+
+  .dashBanner p {
+    font-size: 0.8em;
+  }
+
+  .upperActivity .bmrCont {
+    font-size: 0.85em;
+  }
+
+  .upperBmr .blok {
+    width: 3em;
+    height: 3em;
+  }
+
+  .upperBmr p {
+    font-size: 11px;
+  }
+
+  .imgplacehld {
+    width: 6em;
+    height: 6em;
+  }
+
+  .imgplacehld img {
+    width: 6em;
+    height: 6em;
+  }
+
+  .chart svg {
+    transform: scale(0.6);
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION FIX
+   ============================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .dashTools {
+    grid-template-columns: auto 1fr auto;
+    height: auto;
+    padding: 0.5em 1em;
+  }
+
+  .navSec {
+    flex-direction: row;
+  }
+
+  .navSec i {
+    padding: 0.5em 0.9em;
+  }
+
+  .dashInfo {
+    height: auto;
+  }
+
+  .top-rightdash {
+    padding: 1em 0;
+  }
+
+  .imgplacehld {
+    width: 6em;
+    height: 6em;
+  }
+
+  .imgplacehld img {
+    width: 6em;
+    height: 6em;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES FOR OVERFLOW
+   ============================================ */
+@media screen and (max-width: 1023px) {
+  .dashHome {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* ============================================
+   SETTINGS RESPONSIVE STYLES
+   ============================================ */
+
+/* ============================================
+   TABLET LANDSCAPE (1024px - 1366px)
+   ============================================ */
+@media screen and (max-width: 1366px) {
+  .settings-wrapper {
+    padding: 1.5em;
+  }
+
+  .settings-container {
+    gap: 0.8em;
+  }
+
+  .image-placeholder .image-sec {
+    height: 10em;
+    width: 10em;
+  }
+
+  .image-sec img {
+    height: 10em;
+    width: 10em;
+  }
+
+  .settings-left h1 {
+    font-size: 1.5em;
+  }
+
+  .settings-left .uploadBtn {
+    margin-top: 8em;
+    width: 20em;
+  }
+}
+
+/* ============================================
+   TABLET PORTRAIT (768px - 1023px)
+   ============================================ */
+@media screen and (max-width: 1023px) {
+  .settings-wrapper {
+    padding: 1em;
+    padding-bottom: 6em;
+  }
+
+  .settings-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5em;
+  }
+
+  .settings-left {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 1em;
+    padding: 1.5em;
+    align-items: center;
+  }
+
+  .settings-left .image-placeholder {
+    grid-row: 1 / 3;
+    height: auto;
+  }
+
+  .image-placeholder .image-sec {
+    height: 9em;
+    width: 9em;
+    margin: 0;
+  }
+
+  .image-sec img {
+    height: 9em;
+    width: 9em;
+  }
+
+  .settings-left h1 {
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .settings-left p {
+    text-align: left;
+    margin-top: 0.5em;
+  }
+
+  .settings-left .uploadImage {
+    grid-column: 1 / 3;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .settings-left .uploadBtn {
+    grid-column: 1 / 3;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .settings-right {
+    padding: 1.5em;
+  }
+
+  .form-left .upperRight,
+  .form-left .lowRight {
+    grid-template-columns: 1fr;
+  }
+
+  .form-left button {
+    margin-top: 2em;
+  }
+}
+
+/* ============================================
+   MOBILE LANDSCAPE (568px - 767px)
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .settings-wrapper {
+    padding: 0.8em;
+  }
+
+  .settings-container {
+    gap: 1em;
+  }
+
+  .settings-left {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    padding: 1.2em;
+  }
+
+  .settings-left .image-placeholder {
+    grid-row: auto;
+  }
+
+  .image-placeholder .image-sec {
+    height: 8em;
+    width: 8em;
+    margin: 0 auto;
+  }
+
+  .image-sec img {
+    height: 8em;
+    width: 8em;
+  }
+
+  .settings-left h1 {
+    text-align: center;
+    font-size: 1.4em;
+    margin-top: 1em;
+  }
+
+  .settings-left p {
+    text-align: center;
+    margin-top: 0.8em;
+  }
+
+  .settings-left .uploadImage {
+    grid-column: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+  }
+
+  .settings-left .uploadBtn {
+    grid-column: auto;
+    margin-top: 1em;
+    width: 100%;
+    max-width: 20em;
+  }
+
+  .settings-right {
+    padding: 1.2em;
+  }
+
+  .form-left h1 {
+    font-size: 1.2em;
+  }
+
+  .form-left input,
+  .form-left select {
+    height: 2.8em;
+  }
+
+  .form-left button {
+    margin-top: 1.5em;
+    height: 2.8em;
+  }
+}
+
+/* ============================================
+   MOBILE PORTRAIT (320px - 567px)
+   ============================================ */
+@media screen and (max-width: 567px) {
+  .settings-wrapper {
+    padding: 0.5em;
+    padding-bottom: 5em;
+  }
+
+  .settings-container {
+    gap: 0.8em;
+  }
+
+  .settings-left {
+    padding: 1em;
+  }
+
+  .image-placeholder .image-sec {
+    height: 7em;
+    width: 7em;
+  }
+
+  .image-sec img {
+    height: 7em;
+    width: 7em;
+  }
+
+  .settings-left h1 {
+    font-size: 1.2em;
+    margin-top: 0.8em;
+  }
+
+  .settings-left p {
+    font-size: 0.9em;
+    margin-top: 0.6em;
+  }
+
+  .settings-left .uploadImage {
+    margin-top: 1.2em;
+    font-size: 0.9em;
+  }
+
+  .settings-left input[type="file"]::file-selector-button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+
+  .settings-left .uploadBtn {
+    margin-top: 0.8em;
+    height: 2.5em;
+    font-size: 0.95em;
+  }
+
+  .settings-right {
+    padding: 1em;
+  }
+
+  .form-left h1 {
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+  }
+
+  .form-left label {
+    font-size: 13px;
+  }
+
+  .form-left input,
+  .form-left select {
+    height: 2.6em;
+    font-size: 14px;
+    margin-bottom: 1em;
+  }
+
+  .form-left .upperRight,
+  .form-left .lowRight {
+    column-gap: 0.8em;
+  }
+
+  .form-left button {
+    margin-top: 1em;
+    height: 2.6em;
+    font-size: 0.95em;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE (max 374px)
+   ============================================ */
+@media screen and (max-width: 374px) {
+  .settings-wrapper {
+    padding: 0.4em;
+  }
+
+  .settings-left {
+    padding: 0.8em;
+  }
+
+  .image-placeholder .image-sec {
+    height: 6em;
+    width: 6em;
+  }
+
+  .image-sec img {
+    height: 6em;
+    width: 6em;
+  }
+
+  .settings-left h1 {
+    font-size: 1.1em;
+  }
+
+  .settings-left p {
+    font-size: 0.85em;
+  }
+
+  .settings-left .uploadImage {
+    font-size: 0.85em;
+  }
+
+  .settings-left input[type="file"]::file-selector-button {
+    padding: 5px 10px;
+    font-size: 0.85em;
+  }
+
+  .settings-left .uploadBtn {
+    font-size: 0.9em;
+  }
+
+  .settings-right {
+    padding: 0.8em;
+  }
+
+  .form-left h1 {
+    font-size: 1em;
+  }
+
+  .form-left label {
+    font-size: 12px;
+  }
+
+  .form-left input,
+  .form-left select {
+    font-size: 13px;
+    height: 2.5em;
+  }
+
+  .form-left button {
+    font-size: 0.9em;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION FIX
+   ============================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .settings-wrapper {
+    padding: 0.8em;
+  }
+
+  .settings-container {
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: auto;
+  }
+
+  .settings-left {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
+
+  .image-placeholder .image-sec {
+    height: 6em;
+    width: 6em;
+  }
+
+  .image-sec img {
+    height: 6em;
+    width: 6em;
+  }
+
+  .settings-left h1 {
+    font-size: 1em;
+    margin-top: 0.5em;
+  }
+
+  .settings-left p {
+    font-size: 0.85em;
+    margin-top: 0.3em;
+  }
+
+  .settings-left .uploadImage {
+    margin-top: 0.8em;
+  }
+
+  .settings-left .uploadBtn {
+    margin-top: 0.8em;
+    height: 2.2em;
+  }
+
+  .settings-right {
+    padding: 1em;
+  }
+
+  .form-left input,
+  .form-left select {
+    height: 2.4em;
+    margin-bottom: 0.8em;
+  }
+
+  .form-left button {
+    margin-top: 0.8em;
+    height: 2.4em;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES FOR OVERFLOW
+   ============================================ */
+@media screen and (max-width: 1023px) {
+  .settings-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+/* ============================================
+   DASHBOARD MEALS RESPONSIVE STYLES
+   ============================================ */
