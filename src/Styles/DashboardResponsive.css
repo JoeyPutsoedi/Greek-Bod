@@ -886,3 +886,281 @@
 /* ============================================
    DASHBOARD MEALS RESPONSIVE STYLES
    ============================================ */
+
+/* ============================================
+   TABLET LANDSCAPE (1024px - 1366px)
+   ============================================ */
+@media screen and (max-width: 1366px) {
+  .mealsCont {
+    padding: 1.5em;
+  }
+
+  .mealGrid {
+    gap: 1em;
+  }
+
+  .mealHold {
+    width: 18em;
+    height: 20em;
+  }
+
+  .mealHold img {
+    height: 13em;
+  }
+}
+
+/* ============================================
+   TABLET PORTRAIT (768px - 1023px)
+   ============================================ */
+@media screen and (max-width: 1023px) {
+  .mealsCont {
+    padding: 1em;
+    padding-bottom: 6em;
+  }
+
+  .upperMeals h2 {
+    font-size: 1.5em;
+  }
+
+  .midMeals h2 {
+    font-size: 1.4em;
+  }
+
+  .mealGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .mealType {
+    width: 100%;
+    max-width: 25em;
+  }
+
+  .mealHold {
+    width: 100%;
+    max-width: 25em;
+    height: auto;
+  }
+
+  .mealHold img {
+    height: 16em;
+  }
+}
+
+/* ============================================
+   MOBILE LANDSCAPE (568px - 767px)
+   ============================================ */
+@media screen and (max-width: 767px) {
+  .mealsCont {
+    padding: 0.8em;
+    padding-bottom: 6em;
+  }
+
+  .upperMeals h2 {
+    font-size: 1.4em;
+  }
+
+  .upperMeals p {
+    width: 9em;
+    height: 2.3em;
+    font-size: 0.65em;
+  }
+
+  .midMeals h2 {
+    font-size: 1.3em;
+    margin-top: 1em;
+  }
+
+  .mealGrid {
+    margin-top: 0.8em;
+    gap: 1.2em;
+  }
+
+  .mealType {
+    max-width: 22em;
+    font-size: 1em;
+    padding: 0.5em 0 0.5em 0.8em;
+  }
+
+  .mealHold {
+    max-width: 22em;
+    height: auto;
+  }
+
+  .mealHold img {
+    height: 14em;
+  }
+
+  .mealHold h3 {
+    font-size: 1em;
+  }
+
+  .mealHold a {
+    font-size: 11px;
+    padding: 0.5em 0.7em;
+  }
+
+  .lowerMeals h2 {
+    margin-top: 1.5em;
+    font-size: 1.3em;
+  }
+
+  .lowerGrid {
+    gap: 1.5em;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ============================================
+   MOBILE PORTRAIT (320px - 567px)
+   ============================================ */
+@media screen and (max-width: 567px) {
+  .mealsCont {
+    padding: 0.5em;
+    padding-bottom: 5em;
+  }
+
+  .upperMeals h2 {
+    font-size: 1.2em;
+  }
+
+  .upperMeals p {
+    margin-top: 1em;
+    width: 8em;
+    height: 2.2em;
+    font-size: 0.6em;
+  }
+
+  .midMeals h2 {
+    font-size: 1.1em;
+    margin-top: 0.8em;
+  }
+
+  .mealGrid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1em;
+    margin-top: 0.6em;
+  }
+
+  .mealType {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.95em;
+    padding: 0.5em 0 0.5em 0.7em;
+  }
+
+  .mealHold {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    grid-template-rows: auto auto auto;
+  }
+
+  .mealHold img {
+    width: 100%;
+    height: 12em;
+    padding: 0.4em;
+  }
+
+  .mealHold h3 {
+    font-size: 0.95em;
+    padding-left: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  .mealHold .linkHold {
+    padding-left: 0.8em;
+    padding-bottom: 0.5em;
+  }
+
+  .mealHold a {
+    font-size: 10px;
+    padding: 0.5em 0.6em;
+  }
+
+  .lowerMeals h2 {
+    margin-top: 1.2em;
+    font-size: 1.1em;
+  }
+
+  .lowerGrid {
+    gap: 1em;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0.8em;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE (max 374px)
+   ============================================ */
+@media screen and (max-width: 374px) {
+  .mealsCont {
+    padding: 0.4em;
+    padding-bottom: 5em;
+  }
+
+  .upperMeals h2 {
+    font-size: 1.1em;
+  }
+
+  .upperMeals p {
+    width: 7em;
+    height: 2em;
+    font-size: 0.55em;
+    margin-top: 0.8em;
+  }
+
+  .midMeals h2 {
+    font-size: 1em;
+  }
+
+  .mealType {
+    font-size: 0.9em;
+  }
+
+  .mealHold img {
+    height: 10em;
+  }
+
+  .mealHold h3 {
+    font-size: 0.9em;
+  }
+
+  .mealHold a {
+    font-size: 9px;
+  }
+
+  .lowerMeals h2 {
+    font-size: 1em;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION FIX
+   ============================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .mealsCont {
+    padding: 0.8em;
+    padding-bottom: 4em;
+  }
+
+  .mealGrid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1em;
+  }
+
+  .mealHold {
+    width: 30%;
+    min-width: 250px;
+  }
+
+  .mealHold img {
+    height: 10em;
+  }
+}
