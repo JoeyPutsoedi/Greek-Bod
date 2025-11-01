@@ -1372,6 +1372,16 @@ body {
   .footerCont ul {
     font-size: 1.1em;
   }
+  .footerCont input {
+    width: 24em;
+    height: 2em;
+  }
+  .foot2 button {
+    width: 20em;
+  }
+  .foot2 p {
+    font-size: 15px;
+  }
 }
 
 /* Fix for iOS Safari transform issues */
