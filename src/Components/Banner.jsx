@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import chocw from "../assets/images/chocolate2.png";
 import {
   motion,
@@ -6,10 +6,21 @@ import {
   useTransform,
   useMotionValueEvent,
 } from "motion/react";
+
 const Banner = () => {
   const { scrollY } = useScroll();
-
   const { scrollYProgress } = useScroll();
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth > 1024);
+    };
+
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
 
   const scaleF = useTransform(scrollYProgress, [0, 0.2], [0.5, 1]);
   const opacityA = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
@@ -61,15 +72,24 @@ const Banner = () => {
     <section className="banner">
       <div className="banner-wrapper">
         <div className="bannerCont">
-          <motion.p style={{ scale: scaleA, rotate: rotateA }} id="bText1">
+          <motion.p
+            style={isDesktop ? { scale: scaleA, rotate: rotateA } : {}}
+            id="bText1"
+          >
             Calculate your BMR
           </motion.p>
-          <motion.p style={{ scale: scaleB, rotate: rotateB }} id="bText2">
+          <motion.p
+            style={isDesktop ? { scale: scaleB, rotate: rotateB } : {}}
+            id="bText2"
+          >
             Find the amount of calories
             <br />
             you need daily
           </motion.p>
-          <motion.p style={{ scale: scaleC, rotate: rotateC }} id="bText3">
+          <motion.p
+            style={isDesktop ? { scale: scaleC, rotate: rotateC } : {}}
+            id="bText3"
+          >
             Get Meal Recommendations & Recipes
             <br />
             tailored for your weight goals
@@ -85,15 +105,19 @@ const Banner = () => {
             Features
           </p>
           <motion.div
-            style={{
-              opacity: opacityA,
-              scale: scaleF,
-              y: yA,
-              rotate: rotateD,
-              boxShadow,
-              backgroundColor: bkg,
-              outline,
-            }}
+            style={
+              isDesktop
+                ? {
+                    opacity: opacityA,
+                    scale: scaleF,
+                    y: yA,
+                    rotate: rotateD,
+                    boxShadow,
+                    backgroundColor: bkg,
+                    outline,
+                  }
+                : {}
+            }
             className="imageBkg"
           >
             <img src={chocw} alt="" />
