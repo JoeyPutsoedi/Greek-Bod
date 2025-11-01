@@ -4,6 +4,7 @@
 //   console.log("Page scroll: ", latest);
 // });
 
+import { useState, useEffect } from "react";
 import APPLE from "../assets/images/Apple.png";
 import {
   motion,
@@ -12,9 +13,21 @@ import {
   useTransform,
 } from "motion/react";
 
-const hero = () => {
+const Hero = () => {
   const { scrollYProgress } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Desktop animations only
   const x = useTransform(scrollYProgress, [0, 0.2], [280, -455]);
   const y = useTransform(scrollYProgress, [0, 0.2], [-45, 775]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [0.2, 0.25]);
@@ -27,10 +40,11 @@ const hero = () => {
       "drop-shadow(22px 24px 26px rgba(0,0,0,0))",
     ]
   );
+
   return (
     <section className="heroCont">
       <motion.img
-        style={{ x, y, scale, rotate, filter: dropShadow }}
+        style={isMobile ? {} : { x, y, scale, rotate, filter: dropShadow }}
         className="appleRed"
         src={APPLE}
       />
@@ -52,4 +66,4 @@ const hero = () => {
   );
 };
 
-export default hero;
+export default Hero;

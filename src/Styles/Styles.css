@@ -555,17 +555,24 @@ body {
     background-position: 0 0;
   }
 }
-
 /*------------------Media Queries----------------------------*/
 @media (min-height: 685px) {
   .appleRed {
     top: -37%;
   }
 }
-/*------------------Media Queries----------------------------*/
 
 /* Tablets and smaller desktops (768px - 1024px) */
 @media (max-width: 1024px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 15% !important;
+    left: 50% !important;
+    transform: scale(0.15) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
   .navBox {
     width: 35em;
     font-size: 11px;
@@ -590,10 +597,6 @@ body {
     font-size: 6rem;
     top: 15%;
     left: 8%;
-  }
-
-  .appleRed {
-    transform: scale(0.15) translate(100%);
   }
 
   .subtextsMain {
@@ -660,6 +663,11 @@ body {
     transform: scale(0.85) rotate(-12deg);
   }
 
+  .imageBkg img {
+    width: 9em;
+    transform: scale(0.75);
+  }
+
   .bannerCont #features {
     font-size: 3.5em;
     left: 46%;
@@ -690,6 +698,15 @@ body {
 
 /* Tablets Portrait (600px - 768px) */
 @media (max-width: 768px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 18% !important;
+    left: 50% !important;
+    transform: scale(0.12) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
   .navBox {
     width: 32em;
     font-size: 10px;
@@ -720,11 +737,6 @@ body {
     font-size: 5rem;
     top: 17%;
     left: 10%;
-  }
-
-  .appleRed {
-    top: -35%;
-    transform: scale(0.13) translate(110%);
   }
 
   .subtextsMain {
@@ -797,6 +809,11 @@ body {
   .imageBkg {
     margin-top: 5em;
     transform: scale(0.75) rotate(-12deg);
+  }
+
+  .imageBkg img {
+    width: 9em;
+    transform: scale(0.75);
   }
 
   .bannerCont #features {
@@ -900,12 +917,6 @@ body {
     left: 8%;
   }
 
-  .appleRed {
-    top: 80px;
-    left: -150px;
-    transform: scale(0.11) translate(100%);
-  }
-
   .subtextsMain {
     font-size: 11px;
   }
@@ -949,6 +960,11 @@ body {
     font-size: 0.75em;
   }
 
+  .imageBkg img {
+    width: 8em;
+    transform: scale(0.7);
+  }
+
   /* Onboard */
   .onboard p {
     font-size: 6em;
@@ -961,6 +977,15 @@ body {
 
 /* Mobile Portrait (max-width: 450px) */
 @media (max-width: 450px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 20% !important;
+    left: 50% !important;
+    transform: scale(0.1) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
   .navBox {
     width: 90%;
     left: 50%;
@@ -999,12 +1024,6 @@ body {
     transform: scale(0.5);
     top: 13%;
     left: 13%;
-  }
-
-  .appleRed {
-    top: 77px;
-    left: -185px;
-    transform: scale(0.1) translate(110%);
   }
 
   .subtextsMain {
@@ -1069,6 +1088,11 @@ body {
   .imageBkg {
     transform: scale(0.6) rotate(-12deg);
     margin-top: 9em;
+  }
+
+  .imageBkg img {
+    width: 8em;
+    transform: scale(0.7);
   }
 
   #bText1 {
@@ -1216,6 +1240,15 @@ body {
 
 /* Extra Small Mobile (max-width: 390px) */
 @media (max-width: 390px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 22% !important;
+    left: 50% !important;
+    transform: scale(0.09) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
   .navBox {
     width: 95%;
     transform: translate(-50%, -50%) scale(0.75);
@@ -1230,12 +1263,6 @@ body {
     top: 20%;
     left: 7%;
     font-size: 12px;
-  }
-
-  .appleRed {
-    top: 60px;
-    left: -200px;
-    transform: scale(0.25) translate(308%);
   }
 
   .badge2 {
@@ -1285,6 +1312,11 @@ body {
   .imageBkg {
     transform: scale(0.55) rotate(-12deg);
     margin-top: 10em;
+  }
+
+  .imageBkg img {
+    width: 8em;
+    transform: scale(0.7);
   }
 
   #bText1 {
