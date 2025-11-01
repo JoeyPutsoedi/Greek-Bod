@@ -230,6 +230,7 @@ body {
   height: 35rem;
 }
 .bannerCont {
+  overflow: hidden;
   width: 100%;
   height: inherit;
   background: linear-gradient(15deg, #b5d19f, #52a811, #c3e956, #f4fffc);
@@ -1243,10 +1244,10 @@ body {
   /* Disable apple animation on mobile - position statically */
   .appleRed {
     position: absolute !important;
-    top: 22% !important;
-    left: 50% !important;
-    transform: scale(0.09) translateX(-50%) !important;
-    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+    top: 6% !important;
+    left: 36% !important;
+    transform: scale(0.22) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.3)) !important;
   }
 
   .navBox {
@@ -1287,20 +1288,22 @@ body {
   }
 
   .card1 {
+    padding: 0 0.3em 0 0.3em;
+    width: 16em;
     transform: scale(0.95);
     height: 20em;
   }
 
   .card1 p {
-    font-size: 0.95em;
+    font-size: 1em;
   }
 
   .card1 img {
-    max-height: 250px;
+    max-height: 135px;
   }
 
   .banner-wrapper {
-    height: 38rem;
+    height: 29rem;
   }
 
   .bannerCont #features {
@@ -1311,36 +1314,57 @@ body {
 
   .imageBkg {
     transform: scale(0.55) rotate(-12deg);
-    margin-top: 10em;
+    margin-top: 5em;
   }
 
   .imageBkg img {
-    width: 8em;
+    object-fit: cover;
+    width: 20em;
     transform: scale(0.7);
   }
 
   #bText1 {
-    left: 6%;
-    margin-top: 14em;
+    left: 9%;
+    margin-top: 10em;
     font-size: 0.6em;
   }
 
   #bText2 {
-    right: 6%;
-    margin-top: 40em;
+    right: 8%;
+    width: 15em;
+    margin-top: 35em;
     font-size: 0.6em;
   }
 
   #bText3 {
-    left: 6%;
-    margin-top: 48em;
+    left: 9%;
+    width: 19em;
+    margin-top: 40em;
     font-size: 0.6em;
   }
-
+  .Testimonial-cards {
+    width: 25em;
+    height: 14em;
+    font-size: 12px;
+  }
+  .test-imgPlh {
+    border-radius: 0.25em;
+    object-fit: cover;
+    height: 6em;
+    width: 6em;
+  }
+  .test-imgPlh img {
+    border-radius: 0.25em;
+    object-fit: cover;
+    height: 6em;
+    width: 6em;
+  }
   .onboard p {
     font-size: 4.5em;
   }
-
+  .footer {
+    margin-top: -5em;
+  }
   .footerCont p {
     font-size: 1.1em;
   }
