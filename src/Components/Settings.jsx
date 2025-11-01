@@ -147,13 +147,14 @@ const Settings = () => {
           <input
             className="uploadImage"
             type="file"
-            accept="/image*"
+            accept="image/*"
             onChange={handleImageChange}
           />
           <button className="uploadBtn" onClick={handleUpload}>
             {loading ? "Uploading..." : "Upload"}
           </button>
         </div>
+
         {/*-------RIGHT COLUMN---------------------------------------------------------------------------*/}
         <div className="settings-right">
           <form
@@ -162,108 +163,140 @@ const Settings = () => {
               handleSaveProfile();
             }}
           >
-            <div className="form-left">
+            <div className="form-content">
               <h1>Personal Information</h1>
-              {/*----------------Upper right--------------------- */}
-              <div className="upperRight">
-                <label>First Name:</label>
-                <label>Last Name:</label>
-                <input
-                  name="firstName"
-                  type="text"
-                  placeholder={formData?.firstName}
-                  value={formData.firstName}
-                  onChange={handleChange}
-                />
 
-                <input
-                  name="firstName"
-                  type="text"
-                  placeholder={formData?.lastName}
-                  value={formData.lastName}
-                  onChange={handleChange}
-                />
+              {/*----------------Name Fields--------------------- */}
+              <div className="form-row">
+                <div className="input-group">
+                  <label>First Name:</label>
+                  <input
+                    name="firstName"
+                    type="text"
+                    placeholder={formData?.firstName}
+                    value={formData.firstName}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="input-group">
+                  <label>Last Name:</label>
+                  <input
+                    name="lastName"
+                    type="text"
+                    placeholder={formData?.lastName}
+                    value={formData.lastName}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-              {/*----------------Middle right--------------------- */}
-              <div className="midRight">
-                <label>Email: </label>
-                <input
-                  name="email"
-                  type="text"
-                  placeholder={user?.email}
-                  readOnly
-                />
+
+              {/*----------------Email Field--------------------- */}
+              <div className="form-row">
+                <div className="input-group full-width">
+                  <label>Email:</label>
+                  <input
+                    name="email"
+                    type="text"
+                    placeholder={user?.email}
+                    readOnly
+                  />
+                </div>
               </div>
-              {/*----------------lower right--------------------- */}
-              <div className="lowRight">
-                <label htmlFor=""> Weight Goal</label>
-                <label htmlFor=""> Weekly Excersise</label>
 
-                <select
-                  name="goal"
-                  value={formData.goal}
-                  onChange={handleChange}
-                  required
-                >
-                  <option>{profile?.goal}</option>
-                  <option value="lose">Lose Weight</option>
-                  <option value="gain">Gain Muscle</option>
-                  <option value="maintain">Maintain </option>
-                </select>
+              {/*----------------Goal & Activity--------------------- */}
+              <div className="form-row">
+                <div className="input-group">
+                  <label>Weight Goal</label>
+                  <select
+                    name="goal"
+                    value={formData.goal}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">{profile?.goal || "Select goal"}</option>
+                    <option value="lose">Lose Weight</option>
+                    <option value="gain">Gain Muscle</option>
+                    <option value="maintain">Maintain</option>
+                  </select>
+                </div>
 
-                <select
-                  name="activityLevel"
-                  value={profile?.activityLevel}
-                  onChange={handleChange}
-                  required
-                >
-                  <option>{profile?.activityLevel}</option>
-                  <option value="N/A">No exercise</option>
-                  <option value="light">1-3 Days</option>
-                  <option value="medium">3-5 Days</option>
-                  <option value="heavy">6-7 Days</option>
-                </select>
+                <div className="input-group">
+                  <label>Weekly Exercise</label>
+                  <select
+                    name="activityLevel"
+                    value={formData.activityLevel}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">
+                      {profile?.activityLevel || "Select activity"}
+                    </option>
+                    <option value="N/A">No exercise</option>
+                    <option value="light">1-3 Days</option>
+                    <option value="medium">3-5 Days</option>
+                    <option value="heavy">6-7 Days</option>
+                  </select>
+                </div>
+              </div>
 
-                <label htmlFor="">Current Weight</label>
-                <label htmlFor="">Current Height</label>
+              {/*----------------Weight & Height--------------------- */}
+              <div className="form-row">
+                <div className="input-group">
+                  <label>Current Weight</label>
+                  <input
+                    name="weight"
+                    type="text"
+                    placeholder={
+                      profile?.weight ? profile.weight + " kg" : "kg"
+                    }
+                    value={formData.weight}
+                    onChange={handleChange}
+                  />
+                </div>
 
-                <input
-                  name="weight"
-                  type="text"
-                  placeholder={profile?.weight + "  kg"}
-                  value={formData.weight}
-                  onChange={handleChange}
-                />
+                <div className="input-group">
+                  <label>Current Height</label>
+                  <input
+                    name="height"
+                    type="text"
+                    placeholder={
+                      profile?.height ? profile.height + " cm" : "cm"
+                    }
+                    value={formData.height}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
 
-                <input
-                  name="height"
-                  type="text"
-                  placeholder={profile?.height + "  cm"}
-                  value={formData.height}
-                  onChange={handleChange}
-                />
+              {/*----------------Age & Gender--------------------- */}
+              <div className="form-row">
+                <div className="input-group">
+                  <label>Current Age</label>
+                  <input
+                    name="age"
+                    type="text"
+                    placeholder={profile?.age ? profile.age + " yrs" : "years"}
+                    value={formData.age}
+                    onChange={handleChange}
+                  />
+                </div>
 
-                <label htmlFor="">Current Age</label>
-                <label htmlFor=""> Gender</label>
-
-                <input
-                  name="age"
-                  type="text"
-                  placeholder={profile?.age + "  yrs"}
-                  value={formData.age}
-                  onChange={handleChange}
-                />
-
-                <select
-                  name="gender"
-                  value={formData.gender}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">What is your Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
+                <div className="input-group">
+                  <label>Gender</label>
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">
+                      {profile?.gender || "Select gender"}
+                    </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
               </div>
 
               <button type="submit">Save changes</button>
@@ -276,150 +309,3 @@ const Settings = () => {
 };
 
 export default Settings;
-{
-  /*Left Column-------------------------------------------------*/
-}
-//   <div className="imageSett">
-//   <div className="imgSet">
-//     {/*Header For User Name-------------------------------------------------*/}
-//     <h1> {formData?.firstName + " " + formData?.lastName}</h1>
-//     <div className="imgPLH">
-//       {/* Image Section--------------------------------------- */}
-//       <div className="imagePlaceholder">
-//         <img src={preview} alt={user?.displayName} />
-//       </div>
-//     </div>
-//     {/*Buttons Section-------------------------------------------------*/}
-//     <div className="saveImg">
-//       <input type="file" accept="image/*" onChange={handleImageChange} />
-//       {/* <button htmlFor="imgPicker ">Change Image</button> */}
-//       <button onClick={handleUpload}>Upload Image</button>
-//     </div>
-//   </div>
-// </div>
-{
-  /*Right Column-------------------------------------------------*/
-}
-<div className="editInfo"></div>;
-{
-  /* <h1> </h1>
-        <div className="formSett">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSaveProfile();
-            }}
-          >
-            <div className="leftForm">
-              <label htmlFor="">First Name</label>
-              <br />
-              <input
-                name="firstName"
-                type="text"
-                placeholder={formData?.firstName}
-                value={formData.firstName}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="">Last Name</label>
-              <br />
-              <input
-                name="lastName"
-                type="text"
-                placeholder={formData?.lastName}
-                value={formData.lastName}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="">Email</label>
-              <br />
-              <input
-                name="email"
-                type="text"
-                placeholder={user?.email}
-                readOnly
-              />
-              <br />
-              <label htmlFor=""> Weight Goal</label>
-              <br />
-              <select
-                name="goal"
-                value={formData.goal}
-                onChange={handleChange}
-                required
-              >
-                <option>{profile?.goal}</option>
-                <option value="lose">Lose Weight</option>
-                <option value="gain">Gain Muscle</option>
-                <option value="maintain">Maintain </option>
-              </select>
-              <br />
-              <br />
-              <label htmlFor=""> Weekly Excersise</label>
-              <br />
-              <select
-                name="activityLevel"
-                value={profile?.activityLevel}
-                onChange={handleChange}
-                required
-              >
-                <option>{profile?.activityLevel}</option>
-                <option value="N/A">No exercise</option>
-                <option value="light">1-3 Days</option>
-                <option value="medium">3-5 Days</option>
-                <option value="heavy">6-7 Days</option>
-              </select>
-            </div> */
-}
-{
-  /*Right Column-------------------------------------------------*/
-}
-{
-  /* <div className="rightForm">
-              <label htmlFor="">Current Weight</label>
-              <br />
-              <input
-                name="weight"
-                type="text"
-                placeholder={profile?.weight + "  kg"}
-                value={formData.weight}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="">Current Height</label>
-              <br />
-              <input
-                name="height"
-                type="text"
-                placeholder={profile?.height + "  cm"}
-                value={formData.height}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="">Current Age</label>
-              <br />
-              <input
-                name="age"
-                type="text"
-                placeholder={profile?.age + "  yrs"}
-                value={formData.age}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor=""> Gender</label>
-              <br />
-              <select
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
-                required
-              >
-                <option value="">What is your Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-              <button type="submit">Save</button>
-            </div>
-          </form>
-        </div> */
-}

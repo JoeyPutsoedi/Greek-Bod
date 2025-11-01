@@ -1164,3 +1164,164 @@
     height: 10em;
   }
 }
+/*==========================================================
+  SETTINGS RESPONSIVE DESIGN
+==========================================================*/
+
+/*----------TABLET (768px - 1024px)---------------*/
+@media (max-width: 1024px) {
+  .settings-wrapper {
+    padding: 1.5em;
+  }
+
+  .settings-container {
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .settings-left h1 {
+    font-size: 1.4em;
+  }
+
+  .form-content h1 {
+    font-size: 1.2em;
+  }
+}
+
+/*----------MOBILE (max-width: 768px)---------------*/
+@media (max-width: 768px) {
+  .settings-wrapper {
+    padding: 1em;
+  }
+
+  .settings-container {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+
+  /*--- Left Column Mobile ---*/
+  .settings-left {
+    padding: 1.5em 1em;
+  }
+
+  .settings-left .image-placeholder {
+    height: 10em;
+  }
+
+  .image-placeholder .image-sec {
+    height: 10em;
+    width: 10em;
+  }
+
+  .image-sec img {
+    height: 10em;
+    width: 10em;
+  }
+
+  .settings-left h1 {
+    font-size: 1.5em;
+  }
+
+  .settings-left .uploadBtn {
+    max-width: 100%;
+  }
+
+  /*--- Right Column Mobile ---*/
+  .settings-right {
+    padding: 1.5em;
+  }
+
+  .form-content h1 {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+
+  /*--- Stack form fields vertically ---*/
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-row .full-width {
+    grid-column: 1;
+  }
+
+  .input-group {
+    margin-bottom: 1em;
+  }
+
+  .form-content button[type="submit"] {
+    margin-top: 1.5em;
+  }
+}
+
+/*----------SMALL MOBILE (max-width: 480px)---------------*/
+@media (max-width: 480px) {
+  .settings-wrapper {
+    padding: 0.5em;
+  }
+
+  .settings-container {
+    gap: 1em;
+  }
+
+  .settings-left,
+  .settings-right {
+    padding: 1em;
+  }
+  .settings-right {
+    margin-bottom: 4em;
+  }
+  .settings-left .image-placeholder {
+    height: 8em;
+  }
+
+  .image-placeholder .image-sec {
+    height: 8em;
+    width: 8em;
+  }
+
+  .image-sec img {
+    height: 8em;
+    width: 8em;
+  }
+
+  .settings-left h1 {
+    font-size: 1.3em;
+  }
+
+  .settings-left p {
+    font-size: 0.9em;
+  }
+
+  .form-content h1 {
+    font-size: 1.1em;
+  }
+
+  .form-content {
+    font-size: 13px;
+  }
+
+  .input-group input,
+  .input-group select {
+    height: 2.8em;
+    font-size: 14px;
+  }
+}
+
+/*----------SCROLLBAR STYLING---------------*/
+.settings-right::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+.settings-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.settings-right::-webkit-scrollbar-thumb {
+  background: #31a35b;
+  border-radius: 10px;
+}
+
+.settings-right::-webkit-scrollbar-thumb:hover {
+  background: #217c42;
+}

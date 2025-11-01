@@ -1,161 +1,10 @@
-/* * {
-  outline: 1px solid black;
-} */
-.settingCont {
-  padding: 1.5em;
-  /* outline: 2px solid blueviolet; */
-  /* background-color: green; */
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 0.7fr 1fr;
-}
-/*Left Column-------------------*/
-
-.imgSet {
-  /* background-color: aqua; */
-  height: 100%;
-  display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
-}
-.imgSet h1 {
-  /* background-color: red; */
-  text-align: center;
-  align-content: end;
-  font-weight: bolder;
-  font-size: 1.6em;
-}
-.imgSet .imgPLH {
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.imgSet .imagePlaceholder {
-  background-color: rgba(128, 128, 128, 0.079);
-  height: 20em;
-  width: 20em;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.imageSett img {
-  height: 18em;
-  width: 18em;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.imgSet .saveImg {
-  height: 100%;
-  padding-top: 1em;
-  /* background-color: pink; */
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-}
-.saveImg input {
-  width: 15em;
-  height: 4em;
-  /* outline: 1px solid black; */
-}
-.saveImg button {
-  height: 2.6em;
-  width: 8.4em;
-  background: linear-gradient(-23deg, #244b07c0, #4ac577);
-  color: white;
-  border-radius: 075em;
-  font-family: mier;
-  transition: 0.5s;
-}
-.saveImg button:hover {
-  outline: 1px solid #254b07;
-  background-color: #7fc54a;
-  color: #192b0b;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-/*Right Column-----------------*/
-.editInfo {
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-  padding: 1.5em;
-  border-left: 1px solid rgba(128, 128, 128, 0.303);
-}
-.editInfo h1 {
-  background-color: aqua;
-  font-size: 1.2em;
-  padding: 1em 0 0 1em;
-  align-content: end;
-  font-weight: 700;
-}
-/* .editInfo .formSett {
-  background-color: red;
-} */
-
-.editInfo form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1.5em;
-  font-weight: 500;
-}
-
-.editInfo input {
-  margin-top: 0.6em;
-  margin-bottom: 1.6em;
-  padding-left: 0.4em;
-  width: 17em;
-  height: 2.6em;
-  border-radius: 0.5em;
-  background-color: rgb(209, 209, 209);
-
-  transition: 0.3s;
-}
-.editInfo input:focus {
-  outline: none;
-  background-color: #7fc54a60;
-  color: black;
-  border-bottom: 3px solid #254b07;
-}
-.editInfo input:hover {
-  background-color: #7fc54a60;
-  color: black;
-}
-.editInfo label {
-  font-weight: 700;
-}
-.editInfo select {
-  border-radius: 0.25em;
-  width: 15em;
-  height: 2em;
-  color: white;
-  background-color: #31a35b;
-}
-.editInfo button {
-  border-radius: 2em;
-  height: 2.5em;
-  width: 6em;
-  margin-top: 5.5em;
-  font-family: mier;
-  font-weight: 400;
-  color: white;
-  background: linear-gradient(-23deg, #244b07c0, #4ac577);
-
-  transition: 0.3s;
-}
-.editInfo button:hover {
-  outline: 1px solid #254b07;
-  background-color: #7fc54a;
-  color: #192b0b;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-/*----------NEW---------------*/
+/*----------SETTINGS WRAPPER---------------*/
 .settings-wrapper {
   width: 100%;
   height: 100%;
   padding: 2em;
 }
+
 .settings-container {
   width: 100%;
   height: 100%;
@@ -163,14 +12,20 @@
   grid-template-columns: 4fr 7fr;
   gap: 1em;
 }
+
+/*----------LEFT COLUMN (Profile Picture)---------------*/
 .settings-container .settings-left {
   background-color: rgb(247, 247, 247);
   border-radius: 0.75em;
   height: 100%;
+  padding: 1.5em;
 }
+
 .settings-left .image-placeholder {
   height: 11em;
+  margin-bottom: 1em;
 }
+
 .image-placeholder .image-sec {
   background-color: rgb(218, 218, 218);
   height: 11em;
@@ -178,40 +33,44 @@
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2em;
+  overflow: hidden;
 }
+
 .image-sec img {
   height: 11em;
   width: 11em;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .settings-left h1 {
   font-family: mier;
   text-align: center;
   font-weight: bolder;
   color: rgb(77, 77, 77);
   font-size: 1.7em;
+  margin-top: 1em;
 }
+
 .settings-left p {
   font-family: mier;
   text-align: center;
   color: rgb(77, 77, 77);
   margin-top: 1em;
 }
+
 .settings-left .uploadImage {
   display: block;
-  margin-top: 2em;
-  justify-self: center;
+  margin: 2em auto 0;
   color: #444;
   padding: 5px;
   background: #fff;
   border-radius: 10px;
-  /* border: 1px solid #555; */
   font-family: mier;
   box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.05),
     3px -2px 10px rgba(0, 0, 0, 0.05);
 }
+
 .settings-left input[type="file"]::file-selector-button {
   font-family: mier;
   border: none;
@@ -222,93 +81,124 @@
   cursor: pointer;
   transition: background 0.2s ease-in-out;
 }
+
+.settings-left input[type="file"]::file-selector-button:hover {
+  background: #217c42;
+}
+
 .settings-left .uploadBtn {
   display: block;
   background-color: #31a35b;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10em;
-  width: 22em;
+  margin: 2em auto 0;
+  width: 100%;
+  max-width: 22em;
   height: 2.5em;
   font-family: mier;
   font-weight: bolder;
   color: white;
   border-radius: 0.5em;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .settings-left .uploadBtn:hover {
   background-color: #217c42;
 }
 
-/*RIGHT COLOUMN-----------------------------------------------*/
+/*----------RIGHT COLUMN (Form)---------------*/
 .settings-container .settings-right {
   background-color: rgb(247, 247, 247);
   border-radius: 0.75em;
   height: 100%;
-  padding: 1em;
+  padding: 2em;
+  overflow-y: auto;
 }
+
 .settings-right form {
   height: 100%;
-
   font-family: mier;
 }
-form .form-left {
-  height: 100%;
+
+.form-content {
   color: rgb(77, 77, 77);
   font-size: 14px;
 }
 
-.form-left h1 {
+.form-content h1 {
   font-size: 1.3em;
+  margin-bottom: 1.5em;
+  font-weight: 700;
+}
+
+/*----------FORM ROW (2 columns on desktop)---------------*/
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
   margin-bottom: 0.5em;
 }
-.form-left .upperRight {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1em;
+
+.form-row .full-width {
+  grid-column: 1 / -1;
 }
-.form-left input {
-  display: block;
+
+/*----------INPUT GROUP (label + input/select)---------------*/
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: 700;
+  margin-bottom: 0.4em;
+  color: rgb(77, 77, 77);
+}
+
+.input-group input,
+.input-group select {
   width: 100%;
   height: 3em;
   padding-left: 0.7em;
   background-color: rgb(233, 233, 233);
   border-radius: 0.5em;
-  margin-bottom: 1.4em;
+  border: none;
+  font-family: mier;
+  transition: 0.3s;
 }
 
-.midRight input {
-  width: 100%;
-  height: 3em;
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  background-color: #7fc54a60;
+  border-bottom: 3px solid #254b07;
 }
 
-.form-left .lowRight {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1em;
+.input-group input:hover,
+.input-group select:hover {
+  background-color: #7fc54a60;
 }
-.form-left select {
-  width: 100%;
-  height: 3em;
-  padding-left: 0.7em;
-  border-radius: 0.5em;
-  background-color: rgb(233, 233, 233);
-  margin-bottom: 1.4em;
+
+.input-group input[readonly] {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
-.form-left button {
+
+/*----------SAVE BUTTON---------------*/
+.form-content button[type="submit"] {
   background-color: #31a35b;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4.6em;
+  margin-top: 2em;
   width: 100%;
   height: 3em;
   font-family: mier;
   font-weight: bolder;
   color: white;
   border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
   transition: 0.3s;
 }
-.form-left button:hover {
+
+.form-content button[type="submit"]:hover {
   background-color: #217c42;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
