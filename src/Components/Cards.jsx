@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Apple from "../assets/images/apple-icon.png";
 import oatmeal from "../assets/images/Oatmeal.png";
-import choc from "../assets/images/chocolate.png";
+import choc from "../assets/images/chocolate2.png";
 import Card from "./Card.jsx";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 
@@ -51,8 +52,13 @@ const Cards = () => {
         }
         className="cards"
       >
-        <Card slogan="Whether you're looking to lose weight" bkg={colors1} />
         <Card
+          slogan="Whether you're looking to lose weight"
+          img={isDesktop ? null : Apple}
+          bkg={colors1}
+        />
+        <Card
+          img={isDesktop ? null : choc}
           slogan="Even if you're looking to gain some weight"
           bkg={colors2}
         />

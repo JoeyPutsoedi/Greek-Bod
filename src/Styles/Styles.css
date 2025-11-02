@@ -291,13 +291,14 @@ body {
   transform-style: preserve-3d;
 }
 .imageBkg {
-  z-index: 5;
+  position: absolute;
+  z-index: 1000;
   margin-left: auto;
   margin-right: auto;
   margin-top: 7em;
   background-color: rgba(255, 255, 255, 0.143);
   border-radius: 1.75em;
-  width: 14em;
+  width: 16.5em;
   height: 20em;
   outline: 1px solid rgba(245, 245, 245, 0.524);
   transform: scale(0.9) rotate(-12deg);
@@ -308,7 +309,7 @@ body {
     inset 0 0px 25px rgba(255, 255, 255, 0.3);
 }
 .imageBkg img {
-  width: 12em;
+  width: 18em;
   transform: scale(0.9);
   transform-style: preserve-3d;
   object-fit: cover;
@@ -1370,7 +1371,38 @@ body {
   }
 
   .footerCont ul {
+    margin-top: 1em;
+    display: block;
+    place-items: center;
+
     font-size: 1.1em;
+  }
+  .footerCont li {
+    font-size: 12px;
+
+    text-align: center;
+    margin-bottom: 0.7em;
+    border: 1px solid black;
+    border-radius: 1.75em;
+  }
+  .footerCont input {
+    width: 24em;
+    height: 2em;
+  }
+  .foot2 button {
+    width: 20em;
+  }
+  .foot2 p {
+    font-size: 15 px;
+  }
+  .foot3 {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+  }
+  .foot3 i {
+    width: 1.8em;
+    text-align: center;
   }
 }
 
