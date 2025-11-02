@@ -40,6 +40,7 @@ const Banner = () => {
   );
 
   const yA = useTransform(scrollYProgress, [0.2, 0.24, 0.4], [-870, -870, 0]);
+  const xA = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [470, 470, 470]);
   const rotateD = useTransform(scrollYProgress, [0.3, 0.4], [0, -12]);
   const boxShadow = useTransform(
     scrollYProgress,
@@ -111,6 +112,7 @@ const Banner = () => {
                     opacity: opacityA,
                     scale: scaleF,
                     y: yA,
+                    x: xA,
                     rotate: rotateD,
                     boxShadow,
                     backgroundColor: bkg,
