@@ -979,12 +979,11 @@ body {
 
 /* Mobile Portrait (max-width: 450px) */
 @media (max-width: 450px) {
-  /* Disable apple animation on mobile - position statically */
   .appleRed {
     position: absolute !important;
-    top: 20% !important;
-    left: 50% !important;
-    transform: scale(0.1) translateX(-50%) !important;
+    top: 5% !important;
+    left: 36% !important;
+    transform: scale(0.2) translateX(-50%) !important;
     filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
   }
 
@@ -1001,13 +1000,13 @@ body {
 
   .navItems p {
     padding: 0.4em 0.7em;
-    margin-right: 0;
+    margin-left: 1.5em;
   }
 
   .navItems p::before {
     left: auto;
-    right: -2px;
-    width: calc(100% + 4px);
+    right: 35px;
+    width: calc(22% + 4px);
   }
 
   .mainText {
@@ -1052,7 +1051,7 @@ body {
   }
 
   .card1 {
-    width: 90%;
+    width: 80%;
     height: 24em;
   }
 
@@ -1062,7 +1061,7 @@ body {
   }
 
   .card1 img {
-    max-height: 300px;
+    max-height: 175px;
   }
 
   /* Banner Section */
@@ -1078,7 +1077,8 @@ body {
   .banner-wrapper {
     margin-top: 3em;
     width: 90%;
-    height: 40rem;
+    height: 33rem;
+    outline: none;
   }
 
   .bannerCont #features {
@@ -1090,14 +1090,16 @@ body {
   .imageBkg {
     transform: scale(0.6) rotate(-12deg);
     margin-top: 9em;
+    width: 16em;
   }
 
   .imageBkg img {
-    width: 8em;
+    width: 16em;
     transform: scale(0.7);
   }
 
   #bText1 {
+    outline: none;
     padding-top: 1em;
     left: 8%;
     margin-top: 13em;
@@ -1106,16 +1108,18 @@ body {
   }
 
   #bText2 {
+    outline: none;
     right: 8%;
     margin-top: 38em;
-    width: 12em;
+    width: 14em;
     font-size: 0.65em;
   }
 
   #bText3 {
+    outline: none;
     left: 8%;
-    margin-top: 46em;
-    width: 14em;
+    margin-top: 42em;
+    width: 19em;
     font-size: 0.65em;
   }
 
@@ -1165,6 +1169,7 @@ body {
 
   .Testimonial-cards {
     width: 95%;
+    height: 11em;
     padding: 0.8em;
   }
 
@@ -1174,8 +1179,8 @@ body {
 
   .test-imgPlh,
   .test-imgPlh img {
-    height: 7em;
-    width: 7em;
+    height: 5em;
+    width: 5em;
   }
 
   .imginfo p {
@@ -1216,8 +1221,11 @@ body {
   }
 
   .footerCont ul {
-    font-size: 1.2em;
-    padding-top: 0.5em;
+    margin-top: 1em;
+    display: block;
+    place-items: center;
+
+    font-size: 1.1em;
   }
 
   .footerCont li {
@@ -1225,18 +1233,25 @@ body {
     margin-bottom: 0.5em;
   }
 
-  .foot2 input {
-    width: 100%;
-    font-size: 13px;
+  .footerCont input {
+    width: 24em;
+    height: 2em;
   }
-
   .foot2 button {
-    width: 100%;
+    width: 24em;
   }
 
+  .foot2 p {
+    font-size: 15 px;
+  }
+  .foot3 {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+  }
   .foot3 i {
-    font-size: 1.4em;
-    padding: 6px;
+    width: 1.8em;
+    text-align: center;
   }
 }
 
