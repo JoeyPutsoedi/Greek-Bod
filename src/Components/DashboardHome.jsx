@@ -8,9 +8,13 @@ import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates.jsx";
 import { db } from "./firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import useUserStore from "../Context/userStore.jsx";
 
 const DashboardHome = () => {
-  const { user, profile } = useAuth();
+  // const { user, profile } = useAuth();
+  const user = useUserStore((state) => state.user);
+  const userId = user?._id;
+
   const [breakfastStatus, setBreakfastStatus] = useState(false);
   const [lunchStatus, setLunchStatus] = useState(false);
   const [dinnerStatus, setDinnerStatus] = useState(false);
@@ -38,96 +42,96 @@ const DashboardHome = () => {
 
   //Call BMR Function
   const bmr = Bmr({
-    weight: profile?.weight,
-    height: profile?.height,
-    age: profile?.age,
-    gender: profile?.gender,
+    weight: user?.weight,
+    height: user?.height,
+    age: user?.age,
+    gender: user?.gender,
   });
   //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
-    weight: profile?.weight,
-    height: profile?.height,
-    age: profile?.age,
-    gender: profile?.gender,
-    goal: profile?.goal,
-    activityLevel: profile?.activityLevel,
+    weight: user?.weight,
+    height: user?.height,
+    age: user?.age,
+    gender: user?.gender,
+    goal: user?.goal,
+    activityLevel: user?.activityLevel,
   });
 
   //FUNCTIONS------------------------------------------------------------------------------------------
   //Function to store meal task status on firebase
-  useEffect(() => {
-    const loadMeals = async () => {
-      const mealStatusRef = doc(db, "users", user.uid);
-      const mealStatusSnap = await getDoc(mealStatusRef);
-      if (mealStatusSnap.exists()) {
-        const data = mealStatusSnap.data().mealStatus?.[today];
-        if (data) {
-          setBreakfastStatus(data.breakfast);
-          setLunchStatus(data.lunch);
-          setDinnerStatus(data.dinner);
-        } else {
-          await updateDoc(mealStatusRef, {
-            [`mealStatus.${today}`]: {
-              breakfast: false,
-              lunch: false,
-              dinner: false,
-            },
-          });
-        }
-      } else {
-        await setDoc(mealStatusRef, {
-          mealStatus: {
-            [today]: {
-              breakfast: false,
-              lunch: false,
-              dinner: false,
-            },
-          },
-        });
-      }
-    };
+  // useEffect(() => {
+  //   const loadMeals = async () => {
+  //     const mealStatusRef = doc(db, "users", user.uid);
+  //     const mealStatusSnap = await getDoc(mealStatusRef);
+  //     if (mealStatusSnap.exists()) {
+  //       const data = mealStatusSnap.data().mealStatus?.[today];
+  //       if (data) {
+  //         setBreakfastStatus(data.breakfast);
+  //         setLunchStatus(data.lunch);
+  //         setDinnerStatus(data.dinner);
+  //       } else {
+  //         await updateDoc(mealStatusRef, {
+  //           [`mealStatus.${today}`]: {
+  //             breakfast: false,
+  //             lunch: false,
+  //             dinner: false,
+  //           },
+  //         });
+  //       }
+  //     } else {
+  //       await setDoc(mealStatusRef, {
+  //         mealStatus: {
+  //           [today]: {
+  //             breakfast: false,
+  //             lunch: false,
+  //             dinner: false,
+  //           },
+  //         },
+  //       });
+  //     }
+  //   };
 
-    loadMeals();
-  }, [user.uid, today]);
+  //   loadMeals();
+  // }, [user.uid, today]);
 
   //Function to handle the change when a task button is clicked
-  const handleStatusUpdate = async (meal, value) => {
-    const ref = doc(db, "users", user.uid);
-    await updateDoc(ref, {
-      [`mealStatus.${today}.${meal}`]: value,
-    });
-    if (meal === "breakfast") setBreakfastStatus(value);
-    if (meal === "lunch") setLunchStatus(value);
-    if (meal === "dinner") setDinnerStatus(value);
-  };
+  // const handleStatusUpdate = async (meal, value) => {
+  //   const ref = doc(db, "users", user.uid);
+  //   await updateDoc(ref, {
+  //     [`mealStatus.${today}.${meal}`]: value,
+  //   });
+  //   if (meal === "breakfast") setBreakfastStatus(value);
+  //   if (meal === "lunch") setLunchStatus(value);
+  //   if (meal === "dinner") setDinnerStatus(value);
+  // };
   //get user log-in log to display on calendar
-  useEffect(() => {
-    const fetchLogins = async () => {
-      if (user) {
-        const dates = await getLoginDates(user.uid);
-        setLoginDates(dates);
-      }
-    };
-    fetchLogins();
-  }, [user]);
+  // useEffect(() => {
+  //   const fetchLogins = async () => {
+  //     if (user) {
+  //       const dates = await getLoginDates(user.uid);
+  //       setLoginDates(dates);
+  //     }
+  //   };
+  //   fetchLogins();
+  // }, [user]);
 
   //Function to display the amount of exercise weekly----------------------------
-  const ActivityQuantity = () => {
-    let activityStatus;
+  // const ActivityQuantity = () => {
+  //   let activityStatus;
 
-    if (!profile?.activityLevel) return;
+  //   if (!profile?.activityLevel) return;
 
-    if (profile?.activityLevel === "N/A") {
-      activityStatus = "0 Days Of exercise weekly";
-    } else if (profile?.activityLevel === "light") {
-      activityStatus = "1-3 Days of exercise weekly";
-    } else if (profile?.activityLevel === "medium") {
-      activityStatus = "3-5 Days of exercise weekly";
-    } else {
-      activityStatus = "5-6 Days of exercise weekly";
-    }
-    return activityStatus;
-  };
+  //   if (profile?.activityLevel === "N/A") {
+  //     activityStatus = "0 Days Of exercise weekly";
+  //   } else if (profile?.activityLevel === "light") {
+  //     activityStatus = "1-3 Days of exercise weekly";
+  //   } else if (profile?.activityLevel === "medium") {
+  //     activityStatus = "3-5 Days of exercise weekly";
+  //   } else {
+  //     activityStatus = "5-6 Days of exercise weekly";
+  //   }
+  //   return activityStatus;
+  // };
   //Return-----------------------------------------------------------------------------------------------
   return (
     <div className="dashboard-container">
@@ -138,7 +142,7 @@ const DashboardHome = () => {
           {/*Top left column----------------------------------------------------------------------------*/}
 
           <div className="dashBanner">
-            <h2>Hello{", " + profile?.firstName}</h2>
+            <h2>Hello{", " + user?.firstName}</h2>
             <p>The Best way to get consistency is to track your stats</p>
           </div>
         </div>
@@ -152,7 +156,7 @@ const DashboardHome = () => {
                 style={{ backgroundColor: "#4ac577ad" }}
               >
                 <div className="upperBmrUpper">
-                  <div className="blok">{profile?.activityLevel || 0}</div>
+                  <div className="blok">{user?.activityLevel || 0}</div>
                   <p>
                     Weekly Exercise Level <br />
                   </p>
@@ -260,32 +264,29 @@ const DashboardHome = () => {
         <div className="top-rightdash">
           <div className="imgplacehld">
             {/*if there is no profile picture return a placeholder of the first letter of user's name*/}
-            {!profile?.photoURL ? (
-              <p>{profile?.firstName.substring(0, 1)}</p>
+            {!user?.photoURL ? (
+              <p>{user?.firstName.substring(0, 1)}</p>
             ) : (
-              <img
-                src={profile?.photoURL}
-                alt={profile?.firstName.substring(0, 1)}
-              />
+              <img src={user?.photoURL} alt={user?.firstName.substring(0, 1)} />
             )}
           </div>
-          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>
-          <p>{profile?.gender}</p>
+          <h1>{user?.firstName + "  " + user?.lastName}</h1>
+          <p>{user?.gender}</p>
         </div>
 
         {/*below right column----------------------------------------------------------------------------*/}
         <div className="bottom-rightDash">
           <div className="popupStats">
             <div className="height">
-              <p className="popupLabel">{profile?.height || " 0 "} cm</p>
+              <p className="popupLabel">{user?.height || " 0 "} cm</p>
               <p>Height</p>
             </div>
             <div className="weight">
-              <p className="popupLabel">{profile?.weight || " 0 "} kg</p>
+              <p className="popupLabel">{user?.weight || " 0 "} kg</p>
               <p>Weight</p>
             </div>
             <div className="age">
-              <p className="popupLabel">{profile?.age || " 0 "} yrs</p>
+              <p className="popupLabel">{user?.age || " 0 "} yrs</p>
 
               <p>Age</p>
             </div>

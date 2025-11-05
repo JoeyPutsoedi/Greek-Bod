@@ -10,27 +10,27 @@ const createToken = (_id) => {
 
 //signup user-------------------------------------------------------------------------------------
 export const signUp = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, firstName, lastName } = req.body;
 
   try {
     if (!email || !password) {
-      res.status(400).json("Email and Password required!");
+      return res.status(400).json({ error: "Email and Password required!" });
     }
 
     //check if email exists
     const exists = await User.findOne({ email });
 
     if (exists) {
-      res.status(400).json("Email already in use");
+      return res.status(400).json({ error: "Email already in use" });
     }
 
     //validation
     if (!validator.isEmail(email)) {
-      res.status(400).json("Not a valid email...");
+      return res.status(400).json({ error: "Not a valid email..." });
     }
 
     if (!validator.isStrongPassword(password)) {
-      res.status(400).json("Not a valid password...");
+      return res.status(400).json({ error: "Not a valid password..." });
     }
 
     //generate salt and hash
@@ -38,14 +38,20 @@ export const signUp = async (req, res) => {
     const hash = await bcrypt.hash(password, salt);
 
     //create user document
-    const user = await User.create({ email, password: hash });
+    const user = await User.create({
+      email,
+      password: hash,
+      firstName,
+      lastName,
+    });
 
-    //create token
-    const token = createToken(User._id);
+    //create token - FIXED: use user._id not User._id
+    const token = createToken(user._id);
 
-    res.status(200).json({ user, token });
+    return res.status(200).json({ user, token });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.log("Sign up error!!!", error);
+    return res.status(400).json({ error: error.message });
   }
 };
 
@@ -55,29 +61,31 @@ export const login = async (req, res) => {
 
   try {
     if (!email || !password) {
-      res.status(400).json("Email and Password are required!");
+      return res
+        .status(400)
+        .json({ error: "Email and Password are required!" });
     }
 
     //check if user exists
     const user = await User.findOne({ email });
 
     if (!user) {
-      res.status(400).json("Not a valid email...");
+      return res.status(400).json({ error: "Not a valid email..." });
     }
 
     //match password
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
-      res.status(400).json("Not a valid password...");
+      return res.status(400).json({ error: "Not a valid password..." });
     }
 
     //create a token
     const token = createToken(user._id);
 
-    res.status(200).json({ email, token });
+    return res.status(200).json({ email, token });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message });
   }
 };
 
@@ -108,11 +116,13 @@ export const updateUser = async (req, res) => {
     });
 
     if (!userProfile) {
-      res.status(400).json("Failed to update user profile...");
+      return res
+        .status(400)
+        .json({ error: "Failed to update user profile..." });
     }
-    res.status(200).json(userProfile);
+    return res.status(200).json(userProfile);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message });
   }
 };
 
@@ -124,11 +134,11 @@ export const fetchProfile = async (req, res) => {
     const user = await User.findById(id);
 
     if (!user) {
-      res.status(400).json("User does not exist...");
+      return res.status(400).json({ error: "User does not exist..." });
     }
 
-    res.status(200).json(user);
+    return res.status(200).json(user);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message });
   }
 };

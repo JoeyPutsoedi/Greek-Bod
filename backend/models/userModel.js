@@ -19,12 +19,10 @@ const userSchema = new mongoose.Schema(
     weight: { type: Number },
     goal: {
       type: String,
-      required: true,
     },
-    lastName: {
-      type: String,
-      required: true,
-    },
+    gender: { type: String },
+    activityLevel: { type: String },
+    photoURL: { type: String },
   },
   { timestamps: true }
 );

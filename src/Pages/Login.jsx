@@ -6,11 +6,14 @@ import { auth } from "../Components/firebase";
 import { toast } from "react-toastify";
 import Google from "../Components/signInWithGoogle";
 import { useNavigate } from "react-router-dom";
+import useUserStore from "../Context/userStore";
 
 /*FUNCTIONS---------------------------------------------------------------------- */
 
 const Login = () => {
+  //navigation
   const navigate = useNavigate();
+  const login = useUserStore((state) => state.loginUser);
 
   /*USE STATE DEFINING------------------------------- */
   const [email, setEmail] = useState("");
@@ -52,7 +55,8 @@ const Login = () => {
 
     if (!validateForm()) return;
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      // await signInWithEmailAndPassword(auth, email, password);
+      await login({ email, password });
       console.log("User login successful");
       navigate("/Dashboard");
       toast.success("User Logged in successfully!!!!", {
@@ -60,7 +64,7 @@ const Login = () => {
       });
     } catch (error) {
       console.log(error.message);
-      toast.success(error.message, {
+      toast.error(error.message, {
         position: "bottom-left",
       });
     }

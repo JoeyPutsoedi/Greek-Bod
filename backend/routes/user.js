@@ -16,7 +16,7 @@ router.post("/signup", signUp);
 router.post("/login", login);
 
 //fetch user info
-router.get("/", fetchProfile);
+router.get("/profile/:id", fetchProfile);
 
 //update user info
 router.patch("/profile/:id", updateUser);

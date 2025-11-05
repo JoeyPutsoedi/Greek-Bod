@@ -1,12 +1,13 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../Components/firebase";
+import { setDoc, doc } from "firebase/firestore";
 import { React, useState } from "react";
 import "../Styles/Signin.css";
 import { Link } from "react-router-dom";
 import NavBar from "../Components/NavBar";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../Components/firebase";
-import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import useUserStore from "../Context/userStore";
 const Signin = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,6 +16,8 @@ const Signin = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  //call zustand signup user action
+  const signUpUser = useUserStore((state) => state.signUpUser);
   //FUNCTION FOR VALIDATION---------------------------------------------------
   const handleValidation = () => {
     let formErrors = {};
@@ -57,16 +60,8 @@ const Signin = () => {
     if (!handleValidation()) return;
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      console.log(user);
-      if (user) {
-        await setDoc(doc(db, "users", user.uid), {
-          email: user.email,
-          firstName: firstName,
-          lastName: lastName,
-        });
-      }
+      await signUpUser({ email, password, firstName, lastName });
+
       console.log("User Registered successfully");
       toast.success("User registered successfully!!!!", {
         position: "top-left",
@@ -74,7 +69,7 @@ const Signin = () => {
       navigate("/LoginPage");
     } catch (error) {
       console.log(error.message);
-      toast.success(error.message, {
+      toast.error(error.message, {
         position: "bottom-left",
       });
     }
@@ -170,3 +165,14 @@ const Signin = () => {
 };
 
 export default Signin;
+//firebase code
+// await createUserWithEmailAndPassword(auth, email, password);
+// const user = auth.currentUser;
+// console.log(user);
+// if (user) {
+//   await setDoc(doc(db, "users", user.uid), {
+//     email: user.email,
+//     firstName: firstName,
+//     lastName: lastName,
+//   });
+//}
