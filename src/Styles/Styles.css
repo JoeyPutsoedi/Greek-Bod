@@ -1004,6 +1004,7 @@ body {
   }
 
   .navItems p::before {
+    display: none;
     left: auto;
     right: 35px;
     width: calc(22% + 4px);

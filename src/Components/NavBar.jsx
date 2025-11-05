@@ -39,7 +39,6 @@ const NavBar = () => {
           <button onClick={onClickEvent}>
             <p>GET STARTED</p>
           </button>
-
         </ul>
       </div>
     </nav>
