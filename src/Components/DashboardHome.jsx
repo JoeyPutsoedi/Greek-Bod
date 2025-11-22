@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext.jsx";
 import Bmr from "../Utils/Bmr.jsx";
 import "../Styles/DashboardHome.css";
 import calculateDailyCalories from "../Utils/DailyCalories.jsx";
 import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
 import { getLoginDates } from "../Utils/LogDates.jsx";
-import { db } from "./firebase";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import useUserStore from "../Context/userStore.jsx";
 
 const DashboardHome = () => {
-  // const { user, profile } = useAuth();
   const user = useUserStore((state) => state.user);
-  const userId = user?._id;
+  const loginDates = user?.loginDates;
 
   const [breakfastStatus, setBreakfastStatus] = useState(false);
   const [lunchStatus, setLunchStatus] = useState(false);
   const [dinnerStatus, setDinnerStatus] = useState(false);
 
-  const today = new Date().toISOString().split("T")[0];
+  //Variable that displays the days a user was logged-in on the calendar
 
   const circumference = 450;
   //counts how many meals are true.
@@ -35,10 +31,6 @@ const DashboardHome = () => {
 
   //variable that displays complete if all tasks are done and Incomplete
   const overallTasksStatus = strokeDashoffset === 0 ? "Complete" : "Incomplete";
-  const [loginDates, setLoginDates] = useState([]);
-
-  //Variable that displays the days a user was logged-in on the calendar
-  const highlightedDates = loginDates.map((date) => new Date(date));
 
   //Call BMR Function
   const bmr = Bmr({
@@ -202,11 +194,8 @@ const DashboardHome = () => {
             <div className="calCont">
               <Calendar
                 tileClassName={({ date }) => {
-                  if (
-                    highlightedDates.find(
-                      (d) => d.toDateString() === date.toDateString()
-                    )
-                  ) {
+                  const dateString = date.toISOString().split("T")[0];
+                  if (loginDates.includes(dateString)) {
                     return "highlight";
                   }
                   return null;
@@ -293,9 +282,7 @@ const DashboardHome = () => {
           </div>
           <div className="exerciseQuant">
             <p>Activity </p>
-            <p id="activityQuant">
-              {ActivityQuantity() || "N/A Days of Exercise weekly"}
-            </p>
+            <p id="activityQuant">{"N/A Days of Exercise weekly"}</p>
           </div>
           <div className="chart">
             {/*-------------------Circular Progress bar-------------------------*/}

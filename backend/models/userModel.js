@@ -23,6 +23,8 @@ const userSchema = new mongoose.Schema(
     gender: { type: String },
     activityLevel: { type: String },
     photoURL: { type: String },
+    loginDates: [{ type: String }],
+    lastLogin: { type: Date },
   },
   { timestamps: true }
 );

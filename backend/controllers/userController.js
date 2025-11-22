@@ -83,7 +83,18 @@ export const login = async (req, res) => {
     //create a token
     const token = createToken(user._id);
 
-    return res.status(200).json({ email, token });
+    //log log-in date
+    const today = new Date().toISOString().split("T")[0];
+    const logDate = await User.findByIdAndUpdate(
+      user._id,
+      {
+        $addToSet: { loginDates: today },
+        lastLogin: new Date(),
+      },
+      { new: true }
+    );
+
+    return res.status(200).json({ user: logDate, token });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
@@ -104,16 +115,20 @@ export const updateUser = async (req, res) => {
   } = req.body;
 
   try {
-    const userProfile = await User.findByIdAndUpdate(id, {
-      firstName,
-      lastName,
-      age,
-      height,
-      weight,
-      goal,
-      activityLevel,
-      profilePicture,
-    });
+    const userProfile = await User.findByIdAndUpdate(
+      id,
+      {
+        firstName,
+        lastName,
+        age,
+        height,
+        weight,
+        goal,
+        activityLevel,
+        profilePicture,
+      },
+      { new: true }
+    );
 
     if (!userProfile) {
       return res
