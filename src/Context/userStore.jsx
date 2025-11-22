@@ -7,6 +7,7 @@ const useUserStore = create(
     //set initialState-----------------------------------------------------------
     user: null,
     error: null,
+    token: null,
 
     //actions--------------------------------------------------------------------
 
@@ -24,7 +25,8 @@ const useUserStore = create(
         //if the request was successful then set user state to the response data
         if (res.data) {
           set({
-            user: res.data,
+            user: res.data.user,
+            token: res.data.token,
             error: null,
           });
 
@@ -50,7 +52,8 @@ const useUserStore = create(
         //if request is successful then set user to the response data
         if (res.data) {
           set({
-            user: res.data,
+            user: res.data.user,
+            token: res.data.token,
             error: null,
           });
 
