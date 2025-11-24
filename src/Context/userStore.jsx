@@ -108,6 +108,25 @@ const useUserStore = create(
         throw new Error(errorMessage);
       }
     },
+    uploadImage: async (id, formData) => {
+      try {
+        const res = await api.patch(`/user/profilePicture/${id}`, formData);
+
+        if (res.data) {
+          set({
+            user: res.data.user,
+            error: null,
+          });
+        }
+      } catch (err) {
+        const errorMessage =
+          err.response?.data?.error ||
+          err.message ||
+          "Failed to update user!!!";
+        set({ error: errorMessage });
+        throw new Error(errorMessage);
+      }
+    },
   }))
 );
 

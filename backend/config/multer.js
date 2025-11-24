@@ -1,11 +1,8 @@
 import multer from "multer";
 
-const storage = multer.diskStorage({
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
+// store files in memory, then send buffer to Cloudinary
+const storage = multer.memoryStorage();
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 export default upload;
