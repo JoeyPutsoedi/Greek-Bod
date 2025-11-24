@@ -4,7 +4,7 @@ import "../Styles/DashboardHome.css";
 import calculateDailyCalories from "../Utils/DailyCalories.jsx";
 import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
-import { getLoginDates } from "../Utils/LogDates.jsx";
+
 import useUserStore from "../Context/userStore.jsx";
 
 const DashboardHome = () => {
@@ -15,7 +15,13 @@ const DashboardHome = () => {
   const [lunchStatus, setLunchStatus] = useState(false);
   const [dinnerStatus, setDinnerStatus] = useState(false);
 
-  //Variable that displays the days a user was logged-in on the calendar
+  //function that coverts time to local time
+  const formatLocalDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
 
   const circumference = 450;
   //counts how many meals are true.
@@ -194,7 +200,7 @@ const DashboardHome = () => {
             <div className="calCont">
               <Calendar
                 tileClassName={({ date }) => {
-                  const dateString = date.toISOString().split("T")[0];
+                  const dateString = formatLocalDate(date);
                   if (loginDates.includes(dateString)) {
                     return "highlight";
                   }

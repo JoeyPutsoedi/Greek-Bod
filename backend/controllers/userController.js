@@ -111,7 +111,7 @@ export const updateUser = async (req, res) => {
     weight,
     goal,
     activityLevel,
-    profilePicture,
+    gender,
   } = req.body;
 
   try {
@@ -124,8 +124,8 @@ export const updateUser = async (req, res) => {
         height,
         weight,
         goal,
+        gender,
         activityLevel,
-        profilePicture,
       },
       { new: true }
     );
