@@ -1,11 +1,37 @@
+import React, { useState, useEffect } from "react";
 import MealCont from "./MealCont.jsx";
 import "../Styles/DashboardMeals.css";
+import useUserStore from "../Context/userStore.jsx";
 
 const DashboardMeals = () => {
+  const user = useUserStore((state) => state.user);
+  const getMeals = useUserStore((state) => state.fetchMeals);
+  const [meals, setMeals] = useState([]);
+  const [loading, setLoading] = useState(true);
   //Variables that hold the colours being sent to the reuseable meal card that generates meals cards.
   const green = "#31a35b";
   const transparent = "transparent";
   const white = "white";
+
+  useEffect(() => {
+    if (user) {
+      const getMealRecommendations = async () => {
+        try {
+          const mealsData = await getMeals(user._id);
+          setMeals(mealsData || []);
+        } catch (error) {
+          console.error("Error fetching meals:", error);
+          setMeals([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      getMealRecommendations();
+    }
+  }, [user]);
+
+  if (loading) return <div>Loading meals...</div>;
   return (
     <div className="mealsCont">
       {/*Meal header section----------------------------------------*/}
@@ -18,13 +44,31 @@ const DashboardMeals = () => {
         <h2>What's On The Menu Today </h2>
         <div className="mealGrid">
           <div className="mgrid">
-            <MealCont num={0} type={"Breakfast"} bkg={green} cl={white} />
+            <MealCont
+              meals={meals}
+              num={0}
+              type={"Breakfast"}
+              bkg={green}
+              cl={white}
+            />
           </div>
           <div className="mgrid">
-            <MealCont num={1} type={"Lunch"} bkg={transparent} cl={green} />
+            <MealCont
+              meals={meals}
+              num={1}
+              type={"Lunch"}
+              bkg={transparent}
+              cl={green}
+            />
           </div>
           <div className="mgrid">
-            <MealCont num={2} type={"Dinner"} bkg={transparent} cl={green} />
+            <MealCont
+              meals={meals}
+              num={2}
+              type={"Dinner"}
+              bkg={transparent}
+              cl={green}
+            />
           </div>
         </div>
       </div>

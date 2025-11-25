@@ -33,10 +33,12 @@ const userSchema = new mongoose.Schema(
         dinner: { type: Boolean, default: false },
       },
     },
-    mealPlan: {
-      date: [{ type: String }],
-      meals: [{ type: String }],
-    },
+    meals: [
+      {
+        date: { type: String, required: true },
+        mealData: [mongoose.Schema.Types.Mixed],
+      },
+    ],
   },
   { timestamps: true }
 );
