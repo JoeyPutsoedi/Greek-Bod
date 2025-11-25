@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -10,12 +10,19 @@ import DashboardMeals from "../Components/DashboardMeals.jsx";
 import DashboardUpload from "../Components/DashboardUpload.jsx";
 import "../Styles/DashboardResponsive.css";
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState();
+  const [activeTab, setActiveTab] = useState(() => {
+    return localStorage.getItem("activeTab") || "home";
+  });
   /*Sign out function-------------- */
   const signOutUser = () => {
     signOut(auth);
     window.location.href = "/";
   };
+
+  // Save activeTab to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]);
 
   /*Access to user information--------------- */
 
