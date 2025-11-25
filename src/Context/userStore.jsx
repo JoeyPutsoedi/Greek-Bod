@@ -146,6 +146,22 @@ const useUserStore = create(
         throw new Error(errorMessage);
       }
     },
+    fetchMeals: async (id) => {
+      try {
+        const res = await api.patch(`/user/fetchMeals/${id}`);
+
+        if (res.data) {
+          return res.data.meals;
+        }
+      } catch (err) {
+        const errorMessage =
+          err.response?.data?.error ||
+          err.message ||
+          "Failed to update meal status!!!";
+        set({ error: errorMessage });
+        throw new Error(errorMessage);
+      }
+    },
   }))
 );
 

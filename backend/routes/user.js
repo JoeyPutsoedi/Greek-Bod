@@ -8,6 +8,7 @@ import {
 import { uploadImage } from "../controllers/imageUploadController.js";
 import upload from "../config/multer.js";
 import { updateMealStatus } from "../controllers/mealStatusController.js";
+import { fetchMeals } from "../controllers/mealsController.js";
 const router = express.Router();
 
 //signup a user
@@ -27,4 +28,7 @@ router.patch("/profilePicture/:id", upload.single("image"), uploadImage);
 
 //update meals status
 router.patch("/mealStatus/:id", updateMealStatus);
+
+//update meals
+router.patch("/fetchMeals/:id", fetchMeals);
 export default router;
