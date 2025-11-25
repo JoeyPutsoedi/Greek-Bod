@@ -9,11 +9,19 @@ import useUserStore from "../Context/userStore.jsx";
 
 const DashboardHome = () => {
   const user = useUserStore((state) => state.user);
+  const updateMealStatus = useUserStore((state) => state.updateMealStatus);
   const loginDates = user?.loginDates;
 
-  const [breakfastStatus, setBreakfastStatus] = useState(false);
-  const [lunchStatus, setLunchStatus] = useState(false);
-  const [dinnerStatus, setDinnerStatus] = useState(false);
+  const today = new Date().toISOString().split("T")[0];
+
+  const todayMeals = user?.mealStatus?.[today] || {
+    breakfast: false,
+    lunch: false,
+    dinner: false,
+  };
+  const breakfastStatus = todayMeals.breakfast;
+  const lunchStatus = todayMeals.lunch;
+  const dinnerStatus = todayMeals.dinner;
 
   //function that coverts time to local time
   const formatLocalDate = (date) => {
@@ -55,63 +63,14 @@ const DashboardHome = () => {
     activityLevel: user?.activityLevel,
   });
 
-  //FUNCTIONS------------------------------------------------------------------------------------------
-  //Function to store meal task status on firebase
-  // useEffect(() => {
-  //   const loadMeals = async () => {
-  //     const mealStatusRef = doc(db, "users", user.uid);
-  //     const mealStatusSnap = await getDoc(mealStatusRef);
-  //     if (mealStatusSnap.exists()) {
-  //       const data = mealStatusSnap.data().mealStatus?.[today];
-  //       if (data) {
-  //         setBreakfastStatus(data.breakfast);
-  //         setLunchStatus(data.lunch);
-  //         setDinnerStatus(data.dinner);
-  //       } else {
-  //         await updateDoc(mealStatusRef, {
-  //           [`mealStatus.${today}`]: {
-  //             breakfast: false,
-  //             lunch: false,
-  //             dinner: false,
-  //           },
-  //         });
-  //       }
-  //     } else {
-  //       await setDoc(mealStatusRef, {
-  //         mealStatus: {
-  //           [today]: {
-  //             breakfast: false,
-  //             lunch: false,
-  //             dinner: false,
-  //           },
-  //         },
-  //       });
-  //     }
-  //   };
-
-  //   loadMeals();
-  // }, [user.uid, today]);
-
-  //Function to handle the change when a task button is clicked
-  // const handleStatusUpdate = async (meal, value) => {
-  //   const ref = doc(db, "users", user.uid);
-  //   await updateDoc(ref, {
-  //     [`mealStatus.${today}.${meal}`]: value,
-  //   });
-  //   if (meal === "breakfast") setBreakfastStatus(value);
-  //   if (meal === "lunch") setLunchStatus(value);
-  //   if (meal === "dinner") setDinnerStatus(value);
-  // };
-  //get user log-in log to display on calendar
-  // useEffect(() => {
-  //   const fetchLogins = async () => {
-  //     if (user) {
-  //       const dates = await getLoginDates(user.uid);
-  //       setLoginDates(dates);
-  //     }
-  //   };
-  //   fetchLogins();
-  // }, [user]);
+  const handleStatusUpdate = async (meal) => {
+    try {
+      await updateMealStatus(user._id, { meal, status: true });
+    } catch (error) {
+      console.error("failed to update meal status:", error);
+      alert("Failed to update meal status");
+    }
+  };
 
   //Function to display the amount of exercise weekly----------------------------
   // const ActivityQuantity = () => {

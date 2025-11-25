@@ -127,6 +127,25 @@ const useUserStore = create(
         throw new Error(errorMessage);
       }
     },
+    updateMealStatus: async (id, updatedData) => {
+      try {
+        const res = await api.patch(`/user/mealStatus/${id}`, updatedData);
+
+        if (res.data) {
+          set({
+            user: res.data,
+            error: null,
+          });
+        }
+      } catch (err) {
+        const errorMessage =
+          err.response?.data?.error ||
+          err.message ||
+          "Failed to update meal status!!!";
+        set({ error: errorMessage });
+        throw new Error(errorMessage);
+      }
+    },
   }))
 );
 
