@@ -25,6 +25,18 @@ const userSchema = new mongoose.Schema(
     photoURL: { type: String },
     loginDates: [{ type: String }],
     lastLogin: { type: Date },
+    mealStatus: {
+      type: Map,
+      of: {
+        breakfast: { type: Boolean, default: false },
+        lunch: { type: Boolean, default: false },
+        dinner: { type: Boolean, default: false },
+      },
+    },
+    mealPlan: {
+      date: [{ type: String }],
+      meals: [{ type: String }],
+    },
   },
   { timestamps: true }
 );
