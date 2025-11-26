@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL:
     window.location.hostname === "localhost"
       ? "http://localhost:5000/api"
-      : "https://backend-little-tree-1198.fly.dev/",
+      : "https://backend-little-tree-1198.fly.dev/api",
 });
 
 export default api;
