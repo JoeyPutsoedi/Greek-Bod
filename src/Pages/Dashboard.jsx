@@ -6,7 +6,7 @@ import PopUp from "../Components/PopUp.jsx";
 import Settings from "../Components/Settings.jsx";
 import DashboardHome from "../Components/DashboardHome.jsx";
 import DashboardMeals from "../Components/DashboardMeals.jsx";
-import DashboardUpload from "../Components/DashboardUpload.jsx";
+
 import "../Styles/DashboardResponsive.css";
 import useUserStore from "../Context/userStore.jsx";
 const Dashboard = () => {
@@ -17,7 +17,6 @@ const Dashboard = () => {
   /*Sign out function-------------- */
   const signOutUser = () => {
     try {
-
       if (user == null) {
         alert("log out sucesssful");
         window.location.href = "/";
