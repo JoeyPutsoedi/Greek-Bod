@@ -12,7 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://greek-bod.vercel.app/", "http://localhost:3000/"],
+    origin: [
+      "https://greek-bod.vercel.app/",
+      "http://localhost:3000/",
+      "https://backend-little-tree-1198.fly.dev/",
+    ],
     credentials: true,
   })
 );
