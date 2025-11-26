@@ -1,8 +1,7 @@
 import { React, useState } from "react";
 import "../Styles/Login.css";
 import NavBar from "../Components/NavBar";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Components/firebase";
+
 import { toast } from "react-toastify";
 import Google from "../Components/signInWithGoogle";
 import { useNavigate } from "react-router-dom";
@@ -130,7 +129,6 @@ const Login = () => {
             </button>
           </form>
           {/*SIGN IN WITH GOOOGLE BUTTON----------------------- */}
-          <Google />
         </div>
       </section>
     </>
