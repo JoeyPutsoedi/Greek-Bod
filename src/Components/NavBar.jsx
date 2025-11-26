@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../Components/firebase";
-import { onAuthStateChanged } from "firebase/auth";
+
+import useUserStore from "../Context/userStore";
 
 const NavBar = () => {
-  const [user, setUser] = useState(null);
+  const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
-
-  // Track Firebase auth state
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
 
   const onClickEvent = () => {
     if (user) {
