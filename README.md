@@ -1,4 +1,4 @@
-# GrrekBod
+# GreekBod
 Greekbod Meal Planner
 <h1>Description</h1>
 <p>A Meal planner designed to for inclusitivity.<br>
