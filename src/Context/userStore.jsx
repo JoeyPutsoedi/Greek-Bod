@@ -162,6 +162,7 @@ const useUserStore = create(
         throw new Error(errorMessage);
       }
     },
+    signOutUser: () => set((state) => ({ user: state.user == null })),
   }))
 );
 

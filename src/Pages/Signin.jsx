@@ -147,10 +147,6 @@ const Signin = () => {
             </button>
           </form>
           <div className="createAcc">
-            {/* <button style={{ backgroundColor: "white" }} type="submit">
-              <Link to="/Login">Sign In</Link>
-            </button> */}
-
             <Link to="/LoginPage">
               <p>Already have an account?</p>
             </Link>

@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Dashboard.css";
 import { Link } from "react-router-dom";
-
 import PopUp from "../Components/PopUp.jsx";
 import Settings from "../Components/Settings.jsx";
 import DashboardHome from "../Components/DashboardHome.jsx";
 import DashboardMeals from "../Components/DashboardMeals.jsx";
-
-import "../Styles/DashboardResponsive.css";
 import useUserStore from "../Context/userStore.jsx";
+import "../Styles/DashboardResponsive.css";
+
 const Dashboard = () => {
-  let user = useUserStore((state) => state.user);
+  const user = useUserStore((state) => state.user);
+  const signOut = useUserStore((state) => state.signOutUser);
+
   const [activeTab, setActiveTab] = useState(() => {
     return localStorage.getItem("activeTab") || "home";
   });
+
   /*Sign out function-------------- */
   const signOutUser = () => {
     try {
-      if (user == null) {
-        alert("log out sucesssful");
-        window.location.href = "/";
-      }
+      signOut();
+      // alert("log out sucesssful");
+      window.location.href = "/";
     } catch (error) {
       alert("failed to signOut");
     }
