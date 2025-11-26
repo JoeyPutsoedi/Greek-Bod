@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "../Styles/Login.css";
 import NavBar from "../Components/NavBar";
-
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -128,7 +128,11 @@ const Login = () => {
               Login
             </button>
           </form>
-          {/*SIGN IN WITH GOOOGLE BUTTON----------------------- */}
+          <div className="signAcc">
+            <Link to="/Signin">
+              <p>Don't have an account?</p>
+            </Link>
+          </div>
         </div>
       </section>
     </>
