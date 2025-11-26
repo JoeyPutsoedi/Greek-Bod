@@ -1,6 +1,3 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../Components/firebase";
-import { setDoc, doc } from "firebase/firestore";
 import { React, useState } from "react";
 import "../Styles/Signin.css";
 import { Link } from "react-router-dom";
@@ -165,14 +162,3 @@ const Signin = () => {
 };
 
 export default Signin;
-//firebase code
-// await createUserWithEmailAndPassword(auth, email, password);
-// const user = auth.currentUser;
-// console.log(user);
-// if (user) {
-//   await setDoc(doc(db, "users", user.uid), {
-//     email: user.email,
-//     firstName: firstName,
-//     lastName: lastName,
-//   });
-//}

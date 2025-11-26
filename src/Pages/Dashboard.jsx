@@ -17,7 +17,7 @@ const Dashboard = () => {
   /*Sign out function-------------- */
   const signOutUser = () => {
     try {
-      user == null;
+
       if (user == null) {
         alert("log out sucesssful");
         window.location.href = "/";
