@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://greek-bod.vercel.app/",
-      "http://localhost:3000/",
+      "https://greek-bod.vercel.app",
+      "http://localhost:3000",
       "https://backend-little-tree-1198.fly.dev",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
