@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Dashboard.css";
 import { Link } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "../Components/firebase.jsx";
+
 import PopUp from "../Components/PopUp.jsx";
 import Settings from "../Components/Settings.jsx";
 import DashboardHome from "../Components/DashboardHome.jsx";
 import DashboardMeals from "../Components/DashboardMeals.jsx";
 import DashboardUpload from "../Components/DashboardUpload.jsx";
 import "../Styles/DashboardResponsive.css";
+import useUserStore from "../Context/userStore.jsx";
 const Dashboard = () => {
+  let user = useUserStore((state) => state.user);
   const [activeTab, setActiveTab] = useState(() => {
     return localStorage.getItem("activeTab") || "home";
   });
   /*Sign out function-------------- */
   const signOutUser = () => {
-    signOut(auth);
-    window.location.href = "/";
+    try {
+      user == null;
+      if (user == null) {
+        alert("log out sucesssful");
+        window.location.href = "/";
+      }
+    } catch (error) {
+      alert("failed to signOut");
+    }
   };
 
   // Save activeTab to localStorage whenever it changes

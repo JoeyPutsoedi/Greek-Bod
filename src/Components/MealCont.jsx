@@ -1,5 +1,3 @@
-import { useAuth } from "../Context/AuthContext.jsx";
-import { getMealRecommendations } from "../Utils/mealsServics.jsx";
 import "../Styles/DashboardMeals.css";
 
 const MealCont = ({ meals, num, type, cl, bkg }) => {
