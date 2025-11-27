@@ -34,12 +34,14 @@
 .signinCont .label {
   margin-top: 2em;
 }
-.signinCont button {
-  background-color: black;
-  color: #e3e3e3;
-  width: 7em;
-  padding: 0.2em 0.8em;
-  border-radius: 1.75em;
+.signinCont .signin-button {
+  margin-top: -1em;
+  background-color: white;
+  width: 19em;
+  height: 3em;
+  border-radius: 6px;
+  color: black;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 .createAcc {
   margin-top: 0.2em;
@@ -59,4 +61,120 @@
 .createAcc p {
   color: blueviolet;
   text-decoration: underline;
+}
+
+/*Media queries----------------------------------*/
+
+/* Tablets and smaller desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+  .signin {
+    transform: translate(0%, 10%);
+  }
+
+  .signinCont {
+    width: 26em;
+  }
+}
+
+/* Tablets Portrait (600px - 768px) */
+@media (max-width: 768px) {
+  .signin {
+    transform: translate(0%, 8%);
+  }
+
+  .siginCont {
+    width: 24em;
+  }
+
+  .signinCont h1 {
+    font-size: 1.9em;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (451px - 600px) */
+@media (max-width: 600px) {
+  .signin {
+    transform: translate(0%, 5%);
+  }
+
+  .signinCont {
+    width: 22em;
+  }
+
+  .signinCont h1 {
+    font-size: 1.8em;
+  }
+
+  .signinCont input {
+    width: 15em;
+  }
+
+  .signinbtn,
+  .signAcc button {
+    width: 18em;
+  }
+}
+
+/* Mobile Portrait (max-width: 450px) */
+@media (max-width: 450px) {
+  .signin {
+    transform: translate(0%, 3%);
+    padding: 1em 0.5em;
+  }
+
+  .signinCont {
+    width: 20em;
+  }
+
+  .signinCont h1 {
+    font-size: 1.7em;
+  }
+
+  .signinCont input {
+    width: 14em;
+    height: 2.2em;
+  }
+  .signinCont .signin-button {
+    width: 14em;
+    height: 3em;
+  }
+  .signinbtn,
+  .signinAcc button {
+    width: 16em;
+    height: 2.8em;
+  }
+
+  .error {
+    font-size: 13px;
+    margin-bottom: -2em;
+  }
+}
+
+/* Extra Small Mobile (max-width: 390px) */
+@media (max-width: 390px) {
+  .signin {
+    transform: translate(0%, 2%);
+  }
+
+  .signinCont {
+    width: 18em;
+  }
+
+  .signinCont h1 {
+    font-size: 1.6em;
+  }
+
+  .signinCont input {
+    width: 13em;
+    font-size: 13px;
+  }
+  .signinCont .signin-button {
+    width: 11em;
+    height: 3em;
+  }
+  .signinbtn,
+  .signAcc button {
+    width: 14em;
+    font-size: 13px;
+  }
 }

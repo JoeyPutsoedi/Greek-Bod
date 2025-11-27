@@ -113,18 +113,7 @@ const Login = () => {
             <br />
 
             {/*LOGIN BUTTON-------------------------------------- */}
-            <button
-              style={{
-                marginTop: "3em",
-                backgroundColor: "white",
-                width: "19em",
-                height: "3em",
-                borderRadius: "6px",
-                color: "black",
-                boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)",
-              }}
-              type="submit"
-            >
+            <button class="login-button" type="submit">
               Login
             </button>
           </form>

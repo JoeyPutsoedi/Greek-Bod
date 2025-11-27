@@ -31,12 +31,14 @@
   border: 1px solid grey;
   border-radius: 0.25em;
 }
-.loginCont button {
-  background-color: black;
-  color: #e3e3e3;
-  width: 7em;
-  padding: 0.2em 0.8em;
-  border-radius: 1.75em;
+.loginCont .login-button {
+  margin-top: 3em;
+  background-color: white;
+  width: 19em;
+  height: 3em;
+  border-radius: 6px;
+  color: black;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 .signAcc {
   margin-top: 1em;
@@ -142,7 +144,10 @@
     width: 14em;
     height: 2.2em;
   }
-
+  .loginCont .login-button {
+    width: 14em;
+    height: 3em;
+  }
   .logbtn,
   .signAcc button {
     width: 16em;
@@ -173,7 +178,10 @@
     width: 13em;
     font-size: 13px;
   }
-
+  .loginCont .login-button {
+    width: 11em;
+    height: 3em;
+  }
   .logbtn,
   .signAcc button {
     width: 14em;
