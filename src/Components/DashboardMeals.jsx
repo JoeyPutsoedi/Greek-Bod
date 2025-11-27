@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MealCont from "./MealCont.jsx";
 import "../Styles/DashboardMeals.css";
 import useUserStore from "../Context/userStore.jsx";
+import { motion } from "motion/react";
 
 const DashboardMeals = () => {
   const user = useUserStore((state) => state.user);
@@ -31,7 +32,18 @@ const DashboardMeals = () => {
     }
   }, [user]);
 
-  if (loading) return <div>Loading meals...</div>;
+  if (loading) {
+    return (
+      <div className="loadingScreen">
+        <h1>Loading meals</h1>
+        <div className="circles">
+          <div className="circle c1"></div>
+          <div className="circle c2"></div>
+          <div className="circle c3"></div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="mealsCont">
       {/*Meal header section----------------------------------------*/}

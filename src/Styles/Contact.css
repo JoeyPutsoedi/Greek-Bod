@@ -138,6 +138,7 @@ form > #textarea::placeholder {
   }
 
   .bkgCircles img {
+    display: none;
     transform: scale(0.75);
   }
 
