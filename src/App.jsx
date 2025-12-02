@@ -6,6 +6,7 @@ import Signin from "./Pages/Signin.jsx";
 import Login from "./Pages/Login.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 import Contact from "./Pages/Contact.jsx";
+import NotFound404 from "./Pages/404.jsx";
 import {
   Route,
   createBrowserRouter,
@@ -24,6 +25,7 @@ function App() {
         <Route path="/LoginPage" element={<Login />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NotFound404 />} />
       </>
     )
   );
