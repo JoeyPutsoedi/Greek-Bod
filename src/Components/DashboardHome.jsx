@@ -4,14 +4,14 @@ import "../Styles/DashboardHome.css";
 import calculateDailyCalories from "../Utils/DailyCalories.jsx";
 import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
-
+import milestone from "../assets/images/milestone.png";
 import useUserStore from "../Context/userStore.jsx";
 
 const DashboardHome = () => {
   const user = useUserStore((state) => state.user);
   const updateMealStatus = useUserStore((state) => state.updateMealStatus);
   const loginDates = user?.loginDates;
-
+  const percentage = 40;
   const today = new Date().toISOString().split("T")[0];
 
   const todayMeals = user?.mealStatus?.[today] || {
@@ -92,196 +92,374 @@ const DashboardHome = () => {
   //Return-----------------------------------------------------------------------------------------------
   return (
     <div className="dashboard-container">
-      {/*,Left column----------------------------------------------------------------------------*/}
-      <section className="leftDash">
-        <div className="upperLeftDash">
-          <h1>Dashboard</h1>
-          {/*Top left column----------------------------------------------------------------------------*/}
+      {/*Upper Container Content ------------------------------------------------------------------------ */}
 
-          <div className="dashBanner">
-            <h2>Hello{", " + user?.firstName}</h2>
-            <p>The Best way to get consistency is to track your stats</p>
-          </div>
+      <div className="upper-container">
+        <div className="intro">
+          <h2>Hello There, {"  " + user?.firstName}</h2>
         </div>
+      </div>
 
-        <div className="activityDash">
-          <div className="upperActivity">
-            <div className="bmrCont">
-              {/*Activity---------------------------------- */}
-              <div
-                className="upperBmr"
-                style={{ backgroundColor: "#4ac577ad" }}
-              >
-                <div className="upperBmrUpper">
-                  <div className="blok">{user?.activityLevel || 0}</div>
-                  <p>
-                    Weekly Exercise Level <br />
-                  </p>
-                </div>
+      {/*Inner Container Content------------------------------------------------------------------------- */}
+      <div className="inner-container">
+        {/*Streaks Content---------------------------- */}
+        <div className="streak-section">
+          {/* Streak Days*/}
 
-                <div className="white-lines">
-                  <div className="line"></div>
-                  <div className="line" style={{ opacity: "0.5" }}></div>
-                </div>
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p>21</p>
               </div>
-              {/*BMR---------------------------------- */}
-              <div className="upperBmr" style={{ backgroundColor: "#4ac577" }}>
-                <div className="upperBmrUpper">
-                  <div className="blok">{bmr || 0}</div>
-                  <p>Your Basal Metabolic Rate (kcal)</p>
-                </div>
-
-                <div className="white-lines">
-                  <div className="line"></div>
-                  <div className="line" style={{ opacity: "0.5" }}></div>
-                </div>
-              </div>
-
-              {/*Calorie Target---------------------------------- */}
-              <div className="upperBmr" style={{ backgroundColor: "#31a35b" }}>
-                <div className="upperBmrUpper">
-                  <div className="blok">{dailyCalories || 0}</div>
-                  <p>
-                    {" "}
-                    Daily Calorie Target <br />
-                    (kcal)
-                  </p>
-                </div>
-
-                <div className="white-lines">
-                  <div className="line"></div>
-                  <div className="line" style={{ opacity: "0.5" }}></div>
-                </div>
-              </div>
-            </div>
-
-            {/*Calender Section------------------------------------------*/}
-            <div className="calCont">
-              <Calendar
-                tileClassName={({ date }) => {
-                  const dateString = formatLocalDate(date);
-                  if (loginDates.includes(dateString)) {
-                    return "highlight";
-                  }
-                  return null;
-                }}
-              />
+              <p id="day">Days Streak</p>
             </div>
           </div>
-          <div className="lowerActivity">
-            <div className="breakfastCont lowerCont">
-              <div className="LInfo">
-                Breakfast Status:
-                <br />
-                {breakfastStatus ? "complete" : "Incomplete"}
-              </div>
-              <button
-                className="Lbutton"
-                onClick={() => handleStatusUpdate("breakfast", true)}
-              >
-                Done
-              </button>
-            </div>
+          {/* Activity level*/}
 
-            <div className="lunchCont lowerCont">
-              <div className="LInfo">
-                Lunch Status: <br />
-                {lunchStatus ? "complete" : "Incomplete"}
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p id="activity">{user?.activityLevel}</p>
               </div>
-              <button
-                className="Lbutton"
-                onClick={() => handleStatusUpdate("lunch", true)}
-              >
-                Done
-              </button>
+              <p id="days">Weekly Activity Level</p>
             </div>
+          </div>
+          {/* BMR level*/}
 
-            <div className="dinnerCont lowerCont">
-              <div className="LInfo">
-                Dinner Status: <br />
-                {dinnerStatus ? "complete" : "Incomplete"}
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p>{bmr || 0}</p>
               </div>
-              <button
-                className="Lbutton"
-                onClick={() => handleStatusUpdate("dinner", true)}
-              >
-                Done
-              </button>
+              <p id="days">Basal Metabolic Rate </p>
+            </div>
+          </div>
+          {/* Daily Calories level*/}
+
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p>{dailyCalories || 0}</p>
+              </div>
+              <p id="days">Daily Calories (kcal)</p>
             </div>
           </div>
         </div>
-      </section>
+        {/* Inner Section*/}
 
-      {/*Right column----------------------------------------------------------------------------*/}
-      <section className="rightDash">
-        {/*Top right column----------------------------------------------------------------------------*/}
-        <div className="top-rightdash">
-          <div className="imgplacehld">
-            {/*if there is no profile picture return a placeholder of the first letter of user's name*/}
+        <div className="innerInfo">
+          {/* user image*/}
+          <div className="userImg userImg1">
             {!user?.photoURL ? (
               <p>{user?.firstName.substring(0, 1)}</p>
             ) : (
               <img src={user?.photoURL} alt={user?.firstName.substring(0, 1)} />
             )}
+            <div className="userTitle">
+              <p>{user?.firstName + " " + user?.lastName}</p>
+              <p id="userMail">{user?.email}</p>
+            </div>
           </div>
-          <h1>{user?.firstName + "  " + user?.lastName}</h1>
-          <p>{user?.gender}</p>
-        </div>
-
-        {/*below right column----------------------------------------------------------------------------*/}
-        <div className="bottom-rightDash">
-          <div className="popupStats">
-            <div className="height">
-              <p className="popupLabel">{user?.height || " 0 "} cm</p>
+          {/* attributes*/}
+          <div className="userImg userImg2">
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-arrows-up-down"></i>
+              </div>
               <p>Height</p>
+              <p id="attribute">{user?.height || 0}</p>
             </div>
-            <div className="weight">
-              <p className="popupLabel">{user?.weight || " 0 "} kg</p>
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-weight-scale"></i>
+              </div>
               <p>Weight</p>
+              <p id="attribute">{user?.weight}</p>
             </div>
-            <div className="age">
-              <p className="popupLabel">{user?.age || " 0 "} yrs</p>
-
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-mars-and-venus"></i>
+              </div>
+              <p>Gender</p>
+              <p id="attribute">{user?.gender}</p>
+            </div>
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-user-clock"></i>
+              </div>
               <p>Age</p>
+              <p id="attribute">{user?.age}</p>
             </div>
           </div>
-          <div className="exerciseQuant">
-            <p>Activity </p>
-            <p id="activityQuant">{"N/A Days of Exercise weekly"}</p>
+          {/*calendar*/}
+          <div className="userImg userImg3">
+            <Calendar
+              tileClassName={({ date }) => {
+                const dateString = formatLocalDate(date);
+                if (loginDates.includes(dateString)) {
+                  return "highlight";
+                }
+                return null;
+              }}
+            />
           </div>
-          <div className="chart">
-            {/*-------------------Circular Progress bar-------------------------*/}
-            <svg
-              xmlns="https://www.w3.0rg/2000/svg"
-              version="1.1"
-              width="160px"
-              height="160px"
-            >
-              <defs>
-                <linearGradient id="GradientColor">
-                  <stop offset="0%" stopColor="#4ac577" />
-                  <stop offset="100%" stopColor="#0f5d6fcc" />
-                </linearGradient>
-              </defs>
-
-              <circle
-                cx="80"
-                cy="80"
-                r="70"
-                strokeLinecap="round"
-                strokeWidth="20px"
-                strokeDasharray={circumference}
-                strokeDashoffset={strokeDashoffset}
-                style={{ transition: "stroke-dashoffset 1s ease" }}
-              />
-            </svg>
-
-            <p>Daily Tasks: {overallTasksStatus} !</p>
+          {/* Milestone*/}
+          <div className="milestone userImg4">
+            <img src={milestone} alt="" />
+            <div className="milestone-info">
+              <p id="percentage">90%</p>
+              <p id="milestone">Milestone</p>
+              <p id="description">
+                You've come 90% close to accomplishing your goal!
+              </p>
+            </div>
           </div>
+          <div className="Stats userImg5">
+            <p id="dailytasks">Daily Tasks: {overallTasksStatus} </p>
+            <div className="chart">
+              {/*-------------------Circular Progress bar-------------------------*/}
+              <svg
+                xmlns="https://www.w3.0rg/2000/svg"
+                version="1.1"
+                width="160px"
+                height="160px"
+              >
+                <defs>
+                  <linearGradient id="GradientColor">
+                    <stop offset="0%" stopColor="#4ac577" />
+                    <stop offset="100%" stopColor=" #77c84eb7" />
+                  </linearGradient>
+                </defs>
+
+                <circle
+                  cx="80"
+                  cy="80"
+                  r="70"
+                  strokeLinecap="round"
+                  strokeWidth="20px"
+                  strokeDasharray={circumference}
+                  strokeDashoffset={strokeDashoffset}
+                  style={{ transition: "stroke-dashoffset 1s ease" }}
+                />
+
+                <text
+                  x="50%"
+                  y="50%"
+                  textAnchor="middle"
+                  dy=".3em"
+                  fontSize="24"
+                  fill="#333"
+                >
+                  {Math.round(percentage)}%
+                </text>
+              </svg>
+            </div>
+            <div className="buttons">
+              <button onClick={() => handleStatusUpdate("breakfast", true)}>
+                Breakfast
+              </button>
+              <button onClick={() => handleStatusUpdate("lunch", true)}>
+                Lunch
+              </button>
+              <button onClick={() => handleStatusUpdate("dinner", true)}>
+                Dinner
+              </button>
+            </div>
+          </div>
+          <div className="Stats userImg6"></div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
 
 export default DashboardHome;
+
+// {/*,Left column----------------------------------------------------------------------------*/}
+//     <section className="leftDash">
+//       <div className="upperLeftDash">
+//         <h1>Dashboard</h1>
+//         {/*Top left column----------------------------------------------------------------------------*/}
+
+//         <div className="dashBanner">
+//           <h2>Hello{", " + user?.firstName}</h2>
+//           <p>The Best way to get consistency is to track your stats</p>
+//         </div>
+//       </div>
+
+//       <div className="activityDash">
+//         <div className="upperActivity">
+//           <div className="bmrCont">
+//             {/*Activity---------------------------------- */}
+//             <div
+//               className="upperBmr"
+//               style={{ backgroundColor: "#4ac577ad" }}
+//             >
+//               <div className="upperBmrUpper">
+//                 <div className="blok">{user?.activityLevel || 0}</div>
+//                 <p>
+//                   Weekly Exercise Level <br />
+//                 </p>
+//               </div>
+
+//               <div className="white-lines">
+//                 <div className="line"></div>
+//                 <div className="line" style={{ opacity: "0.5" }}></div>
+//               </div>
+//             </div>
+//             {/*BMR---------------------------------- */}
+//             <div className="upperBmr" style={{ backgroundColor: "#4ac577" }}>
+//               <div className="upperBmrUpper">
+//                 <div className="blok">{bmr || 0}</div>
+//                 <p>Your Basal Metabolic Rate (kcal)</p>
+//               </div>
+
+//               <div className="white-lines">
+//                 <div className="line"></div>
+//                 <div className="line" style={{ opacity: "0.5" }}></div>
+//               </div>
+//             </div>
+
+//             {/*Calorie Target---------------------------------- */}
+//             <div className="upperBmr" style={{ backgroundColor: "#31a35b" }}>
+//               <div className="upperBmrUpper">
+//                 <div className="blok">{dailyCalories || 0}</div>
+//                 <p>
+//                   {" "}
+//                   Daily Calorie Target <br />
+//                   (kcal)
+//                 </p>
+//               </div>
+
+//               <div className="white-lines">
+//                 <div className="line"></div>
+//                 <div className="line" style={{ opacity: "0.5" }}></div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/*Calender Section------------------------------------------*/}
+//           <div className="calCont">
+//             <Calendar
+//               tileClassName={({ date }) => {
+//                 const dateString = formatLocalDate(date);
+//                 if (loginDates.includes(dateString)) {
+//                   return "highlight";
+//                 }
+//                 return null;
+//               }}
+//             />
+//           </div>
+//         </div>
+//         <div className="lowerActivity">
+//           <div className="breakfastCont lowerCont">
+//             <div className="LInfo">
+//               Breakfast Status:
+//               <br />
+//               {breakfastStatus ? "complete" : "Incomplete"}
+//             </div>
+//             <button
+//               className="Lbutton"
+//               onClick={() => handleStatusUpdate("breakfast", true)}
+//             >
+//               Done
+//             </button>
+//           </div>
+
+//           <div className="lunchCont lowerCont">
+//             <div className="LInfo">
+//               Lunch Status: <br />
+//               {lunchStatus ? "complete" : "Incomplete"}
+//             </div>
+//             <button
+//               className="Lbutton"
+//               onClick={() => handleStatusUpdate("lunch", true)}
+//             >
+//               Done
+//             </button>
+//           </div>
+
+//           <div className="dinnerCont lowerCont">
+//             <div className="LInfo">
+//               Dinner Status: <br />
+//               {dinnerStatus ? "complete" : "Incomplete"}
+//             </div>
+//             <button
+//               className="Lbutton"
+//               onClick={() => handleStatusUpdate("dinner", true)}
+//             >
+//               Done
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+
+//     {/*Right column----------------------------------------------------------------------------*/}
+//     <section className="rightDash">
+//       {/*Top right column----------------------------------------------------------------------------*/}
+//       <div className="top-rightdash">
+//         <div className="imgplacehld">
+//           {/*if there is no profile picture return a placeholder of the first letter of user's name*/}
+//           {!user?.photoURL ? (
+//             <p>{user?.firstName.substring(0, 1)}</p>
+//           ) : (
+//             <img src={user?.photoURL} alt={user?.firstName.substring(0, 1)} />
+//           )}
+//         </div>
+//         <h1>{user?.firstName + "  " + user?.lastName}</h1>
+//         <p>{user?.gender}</p>
+//       </div>
+
+//       {/*below right column----------------------------------------------------------------------------*/}
+//       <div className="bottom-rightDash">
+//         <div className="popupStats">
+//           <div className="height">
+//             <p className="popupLabel">{user?.height || " 0 "} cm</p>
+//             <p>Height</p>
+//           </div>
+//           <div className="weight">
+//             <p className="popupLabel">{user?.weight || " 0 "} kg</p>
+//             <p>Weight</p>
+//           </div>
+//           <div className="age">
+//             <p className="popupLabel">{user?.age || " 0 "} yrs</p>
+
+//             <p>Age</p>
+//           </div>
+//         </div>
+//         <div className="exerciseQuant">
+//           <p>Activity </p>
+//           <p id="activityQuant">{"N/A Days of Exercise weekly"}</p>
+//         </div>
+//         <div className="chart">
+//           {/*-------------------Circular Progress bar-------------------------*/}
+//           <svg
+//             xmlns="https://www.w3.0rg/2000/svg"
+//             version="1.1"
+//             width="160px"
+//             height="160px"
+//           >
+//             <defs>
+//               <linearGradient id="GradientColor">
+//                 <stop offset="0%" stopColor="#4ac577" />
+//                 <stop offset="100%" stopColor="#0f5d6fcc" />
+//               </linearGradient>
+//             </defs>
+
+//             <circle
+//               cx="80"
+//               cy="80"
+//               r="70"
+//               strokeLinecap="round"
+//               strokeWidth="20px"
+//               strokeDasharray={circumference}
+//               strokeDashoffset={strokeDashoffset}
+//               style={{ transition: "stroke-dashoffset 1s ease" }}
+//             />
+//           </svg>
+
+//           <p>Daily Tasks: {overallTasksStatus} !</p>
+//         </div>
+//       </div>
+//     </section>

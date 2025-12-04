@@ -3,7 +3,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .dashTools {
   height: 100vh;
