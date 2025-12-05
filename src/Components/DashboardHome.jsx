@@ -6,7 +6,6 @@ import Calendar from "react-calendar";
 import "../Styles/Calendar.css";
 import milestone from "../assets/images/milestone.png";
 import useUserStore from "../Context/userStore.jsx";
-import "../Utils/color.js";
 
 const DashboardHome = () => {
   const user = useUserStore((state) => state.user);
