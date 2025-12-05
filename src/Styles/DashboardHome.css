@@ -318,6 +318,34 @@ svg {
   border-radius: 3em;
 }
 
+/*-----------------------------Bar chart--------------------------*/
+
+.userImg6 {
+  width: 100%;
+  padding: 0.8em 0em;
+}
+
+.userImg6 #weeklytitle {
+  font-family: mier;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: left;
+  color: #303030;
+  margin-bottom: 0em;
+  margin-left: 1.5em;
+}
+.recharts-responsive-container {
+}
+.recharts-surface {
+  transform: scale(0.73);
+}
+.recharts-tooltip-wrapper {
+  z-index: 9999 !important;
+}
+
+.recharts-default-tooltip {
+  z-index: 9999 !important;
+}
 /*------------------------------Scrollbar--------------------------*/
 ::-webkit-scrollbar {
   width: 10px;
