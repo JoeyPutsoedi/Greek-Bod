@@ -14,6 +14,7 @@ app.use(
   cors({
     origin: [
       "https://greek-bod.vercel.app",
+      "https://greek-bod.netlify.app",
       "http://localhost:3000",
       "https://backend-little-tree-1198.fly.dev",
     ],

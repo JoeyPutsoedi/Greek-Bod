@@ -162,7 +162,7 @@
 .attribute #attribute {
   margin-top: -0.3em;
   font-size: 1.7em;
-  color: rgb(166, 166, 166);
+  color: #a6a6a6;
 }
 .innerInfo .milestone {
   position: relative;
@@ -252,6 +252,7 @@ circle {
 }
 text {
   font-family: mier;
+  font-size: 2em;
 }
 svg {
   transform: scale(0.7);
@@ -262,6 +263,16 @@ svg {
   justify-content: space-evenly;
 }
 .userImg5 .buttons button {
+  font-family: mier;
+  font-size: 0.8em;
+  background-color: #c7c7c7;
+  color: #565656;
+  height: 2.2em;
+  width: 7em;
+  border-radius: 3em;
+  transition: 0.7s ease;
+}
+.userImg5 .buttons button.active {
   font-family: mier;
   font-size: 0.8em;
   background-color: #77c84eb7;
