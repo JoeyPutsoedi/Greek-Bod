@@ -45,7 +45,8 @@ const PopUp = () => {
         activityLevel: profile.activityLevel,
         age: profile.age,
         height: profile.height,
-        weight: profile.weight,
+        currentWeight: profile.weight,
+        startingWeight: profile.weight,
         gender: profile.gender,
         goal: profile.goal,
       };

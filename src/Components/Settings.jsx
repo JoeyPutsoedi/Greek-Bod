@@ -19,7 +19,9 @@ const Settings = () => {
     firstName: "",
     lastName: "",
     email: "",
-    weight: "",
+    currentWeight: "",
+    startingWeight: "",
+    targetWeight: "",
     height: "",
     age: "",
     goal: "",
@@ -35,7 +37,9 @@ const Settings = () => {
         firstName: user?.firstName || "",
         lastName: user?.lastName || "",
         email: user?.email || "",
-        weight: user?.weight || "",
+        currentWeight: user?.currentWeight || "",
+        startingWeight: user?.startingWeight || "",
+        targetWeight: user?.targetWeight || "",
         height: user?.height || "",
         age: user?.age || "",
         goal: user?.goal || "",
@@ -197,12 +201,38 @@ const Settings = () => {
               {/*----------------Weight & Height--------------------- */}
               <div className="form-row">
                 <div className="input-group">
+                  <label>Starting Weight</label>
+                  <input
+                    name="startingWeight"
+                    type="text"
+                    placeholder={
+                      user?.startingWeight ? user?.startingWeight + " kg" : "kg"
+                    }
+                    readOnly
+                  />
+                </div>
+
+                <div className="input-group">
                   <label>Current Weight</label>
                   <input
-                    name="weight"
+                    name="currentWeight"
                     type="text"
-                    placeholder={user?.weight ? user?.weight + " kg" : "kg"}
-                    value={formData.weight}
+                    placeholder={
+                      user?.currentWeight ? user?.currentWeight + " kg" : "kg"
+                    }
+                    value={formData.currentWeight + "kg"}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="input-group">
+                  <label>Target Weight</label>
+                  <input
+                    name="targetWeight"
+                    type="text"
+                    placeholder={
+                      user?.targetWeight ? user?.targetWeight + " kg" : "kg"
+                    }
+                    value={formData.targetWeight + "kg"}
                     onChange={handleChange}
                   />
                 </div>
@@ -213,7 +243,7 @@ const Settings = () => {
                     name="height"
                     type="text"
                     placeholder={user?.height ? user?.height + " cm" : "cm"}
-                    value={formData.height}
+                    value={formData.height + "cm"}
                     onChange={handleChange}
                   />
                 </div>
@@ -227,7 +257,7 @@ const Settings = () => {
                     name="age"
                     type="text"
                     placeholder={user?.age ? user?.age + " yrs" : "years"}
-                    value={formData.age}
+                    value={formData.age + "yrs"}
                     onChange={handleChange}
                   />
                 </div>

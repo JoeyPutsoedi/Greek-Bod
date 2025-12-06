@@ -17,7 +17,7 @@ export const fetchMeals = async (req, res) => {
 
     // Check if user has required fields for calorie calculation
     if (
-      !user.weight ||
+      !user.currentWeight ||
       !user.height ||
       !user.age ||
       !user.gender ||
@@ -42,13 +42,13 @@ export const fetchMeals = async (req, res) => {
     }
 
     // Calculate target calories
-    const { weight, height, age, gender, goal, activityLevel } = user;
+    const { currentWeight, height, age, gender, goal, activityLevel } = user;
 
     let bmr;
     if (gender === "Male") {
-      bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+      bmr = 10 * currentWeight + 6.25 * height - 5 * age + 5;
     } else {
-      bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+      bmr = 10 * currentWeight + 6.25 * height - 5 * age - 161;
     }
 
     let tdee;

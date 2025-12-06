@@ -16,7 +16,9 @@ const userSchema = new mongoose.Schema(
     lastName: { type: String },
     age: { type: Number },
     height: { type: Number },
-    weight: { type: Number },
+    startingWeight: { type: Number },
+    currentWeight: { type: Number },
+    targetWeight: { type: Number },
     goal: {
       type: String,
     },
