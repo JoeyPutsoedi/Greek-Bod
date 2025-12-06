@@ -1,8 +1,6 @@
 /* Add these media queries to your existing CSS files */
 
-/* ============================================
-   TABLET LANDSCAPE (1024px - 1366px)
-   ============================================ */
+/*TABLET LANDSCAPE (1024px - 1366px)*/
 @media screen and (max-width: 1366px) {
   .leftDash {
     padding: 1em 1.5em;

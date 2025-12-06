@@ -196,19 +196,19 @@ const DashboardHome = () => {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={weeklyData}
-                margin={{ top: 0, right: 0, left: 10, bottom: 40 }}
+                margin={{ top: 10, right: 0, left: 10, bottom: 30 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                 <XAxis
                   dataKey="day"
-                  tick={{ fill: "#666", fontSize: 12, fontFamily: "mier" }}
+                  tick={{ fill: "#666", fontSize: 8, fontFamily: "mier" }}
                   axisLine={{ stroke: "#ccc" }}
-                  height={40}
+                  height={20}
                 />
                 <YAxis
-                  tick={{ fill: "#666", fontSize: 12, fontFamily: "mier" }}
+                  tick={{ fill: "#666", fontSize: 8, fontFamily: "mier" }}
                   axisLine={{ stroke: "#ccc" }}
-                  width={50}
+                  width={20}
                 />
                 <Tooltip
                   contentStyle={{

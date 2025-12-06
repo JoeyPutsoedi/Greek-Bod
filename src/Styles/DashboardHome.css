@@ -334,10 +334,10 @@ svg {
   margin-bottom: 0em;
   margin-left: 1.5em;
 }
-.recharts-responsive-container {
-}
+
 .recharts-surface {
-  transform: scale(0.73);
+  transform: scale(0.85);
+  font-size: 7px;
 }
 .recharts-tooltip-wrapper {
   z-index: 9999 !important;
@@ -346,8 +346,14 @@ svg {
 .recharts-default-tooltip {
   z-index: 9999 !important;
 }
+
+.recharts-yAxis .recharts-cartesian-axis-tick text {
+  fill: #666;
+  font-size: 7px;
+  font-family: mier;
+}
 /*------------------------------Scrollbar--------------------------*/
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
   z-index: 18;
   position: relative;
@@ -358,4 +364,4 @@ svg {
   background-color: #77c84eb7;
   z-index: 18;
   position: absolute;
-}
+} */
