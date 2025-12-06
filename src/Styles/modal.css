@@ -29,7 +29,27 @@
   margin-bottom: 16px;
   text-align: center;
 }
+.popup .targetImage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.popup .targetImage img {
+  position: relative;
+  width: 24em;
+  height: 16em;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.popup #targetText {
+  line-height: 0.9em;
+  position: absolute;
+  font-family: mier;
+  color: #768e7d;
+  bottom: 3%;
 
+  font-size: 1.4em;
+}
 /* Form fields */
 .popup form {
   display: flex;

@@ -27,6 +27,8 @@ const userSchema = new mongoose.Schema(
     photoURL: { type: String },
     loginDates: [{ type: String }],
     lastLogin: { type: Date },
+    streakCount: { type: Number, default: 0 },
+    lastStreakDate: { type: String },
     mealStatus: {
       type: Map,
       of: {

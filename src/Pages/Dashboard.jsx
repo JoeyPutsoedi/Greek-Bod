@@ -6,8 +6,9 @@ import Settings from "../Components/Settings.jsx";
 import DashboardHome from "../Components/DashboardHome.jsx";
 import DashboardMeals from "../Components/DashboardMeals.jsx";
 import useUserStore from "../Context/userStore.jsx";
-import "../Styles/DashboardResponsive.css";
+import TargetPopUp from "../Components/TargetPopUp.jsx";
 
+import "../Styles/DashboardResponsive.css";
 const Dashboard = () => {
   const user = useUserStore((state) => state.user);
   const signOut = useUserStore((state) => state.signOutUser);
@@ -51,6 +52,7 @@ const Dashboard = () => {
   return (
     <>
       <PopUp />
+      <TargetPopUp />
       <section className="dashCont">
         <div className="dashTools">
           {/*--------------logo----------------------*/}

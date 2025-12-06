@@ -29,7 +29,7 @@ const PopUp = () => {
     const checkProfile = async () => {
       if (!user) return; //if there's no user return nothing
 
-      if (!user.age) {
+      if (!user.age || user.age === 0) {
         setOpen(true); //open pop up if profile is incomplete
       }
     };

@@ -20,7 +20,12 @@ import {
 } from "recharts";
 const DashboardHome = () => {
   const user = useUserStore((state) => state.user);
-
+  //Milestone Calculations
+  const milestoneCalc = Math.round(
+    ((user?.startingWeight - user?.currentWeight) /
+      (user?.startingWeight - user?.targetWeight)) *
+      100
+  );
   //Call BMR Function
   const bmr = Bmr({
     weight: user?.weight,
@@ -159,7 +164,7 @@ const DashboardHome = () => {
                 <i class="fa-solid fa-weight-scale"></i>
               </div>{" "}
               <p>Weight</p>
-              <p id="attribute">{user?.weight}</p>
+              <p id="attribute">{user?.currentWeight}</p>
             </div>
             <div className="attribute">
               <div className="attri-icons">
@@ -184,10 +189,10 @@ const DashboardHome = () => {
           <div className="milestone userImg4">
             <img src={milestone} alt="" />
             <div className="milestone-info">
-              <p id="percentage">90%</p>
+              <p id="percentage">{milestoneCalc}%</p>
               <p id="milestone">Milestone</p>
               <p id="description">
-                You've come 90% close to accomplishing your goal!
+                You've come {milestoneCalc}% close to accomplishing your goal!
               </p>
             </div>
           </div>

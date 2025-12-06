@@ -220,7 +220,7 @@ const Settings = () => {
                     placeholder={
                       user?.currentWeight ? user?.currentWeight + " kg" : "kg"
                     }
-                    value={formData.currentWeight + "kg"}
+                    value={formData.currentWeight}
                     onChange={handleChange}
                   />
                 </div>
@@ -232,7 +232,7 @@ const Settings = () => {
                     placeholder={
                       user?.targetWeight ? user?.targetWeight + " kg" : "kg"
                     }
-                    value={formData.targetWeight + "kg"}
+                    value={formData.targetWeight}
                     onChange={handleChange}
                   />
                 </div>
@@ -243,7 +243,7 @@ const Settings = () => {
                     name="height"
                     type="text"
                     placeholder={user?.height ? user?.height + " cm" : "cm"}
-                    value={formData.height + "cm"}
+                    value={formData.height}
                     onChange={handleChange}
                   />
                 </div>
@@ -257,7 +257,7 @@ const Settings = () => {
                     name="age"
                     type="text"
                     placeholder={user?.age ? user?.age + " yrs" : "years"}
-                    value={formData.age + "yrs"}
+                    value={formData.age}
                     onChange={handleChange}
                   />
                 </div>
