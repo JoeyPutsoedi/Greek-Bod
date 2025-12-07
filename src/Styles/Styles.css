@@ -7,10 +7,7 @@
   font-family: fonte;
   src: url(../assets/fonts/Monts.ttf);
 }
-@font-face {
-  font-family: tt;
-  src: url(../assets/fonts/TTCommonsBold.otf);
-}
+
 @font-face {
   font-family: mier;
   src: url(../assets/fonts/MierA-DemiBold.ttf);

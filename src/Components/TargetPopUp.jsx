@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import useUserStore from "../Context/userStore";
-import destination from "../assets/images/destination.PNG";
+import destination from "../assets/images/destination.png";
 import "../Styles/modal.css";
 
 const TargetPopUp = () => {
