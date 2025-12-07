@@ -83,7 +83,18 @@ const Settings = () => {
   const handleSaveProfile = async () => {
     if (!user) return;
     try {
-      await updateInfo(user._id, formData);
+      //create a copy of formData
+      const updatedData = { ...formData };
+
+      //create a variable that checks if target weight has changed
+      const targetWeightChanged =
+        formData.targetWeight && formData.targetWeight !== user?.targetWeight;
+
+      //if target weight is changed then set the starting weight to the current weight
+      if (targetWeightChanged) {
+        updatedData.startingWeight = user?.currentWeight;
+      }
+      await updateInfo(user._id, updatedData);
       alert("Details Updated successfully!");
     } catch (err) {
       console.error("Failed to save profile:", err);
@@ -174,7 +185,7 @@ const Settings = () => {
                   >
                     <option value="">{user?.goal || "Select goal"}</option>
                     <option value="lose">Lose Weight</option>
-                    <option value="gain">Gain Muscle</option>
+                    <option value="gain">Gain Weight</option>
                     <option value="maintain">Maintain</option>
                   </select>
                 </div>

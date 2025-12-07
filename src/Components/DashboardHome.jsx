@@ -28,14 +28,14 @@ const DashboardHome = () => {
   );
   //Call BMR Function
   const bmr = Bmr({
-    weight: user?.weight,
+    weight: user?.currentWeight,
     height: user?.height,
     age: user?.age,
     gender: user?.gender,
   });
   //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
-    weight: user?.weight,
+    weight: user?.currentWeight,
     height: user?.height,
     age: user?.age,
     gender: user?.gender,
@@ -99,7 +99,7 @@ const DashboardHome = () => {
           <div className="streak-container">
             <div className="streakInfo">
               <div className="streakNumber">
-                <p>21</p>
+                <p>{user?.streakCount}</p>
               </div>
               <p id="day">Days Streak</p>
             </div>
@@ -189,10 +189,11 @@ const DashboardHome = () => {
           <div className="milestone userImg4">
             <img src={milestone} alt="" />
             <div className="milestone-info">
-              <p id="percentage">{milestoneCalc}%</p>
+              <p id="percentage">{milestoneCalc || 0}%</p>
               <p id="milestone">Milestone</p>
               <p id="description">
-                You've come {milestoneCalc}% close to accomplishing your goal!
+                You've come {milestoneCalc || 0}% close to accomplishing your
+                goal!
               </p>
             </div>
           </div>
