@@ -74,7 +74,7 @@
 .settings-left input[type="file"]::file-selector-button {
   font-family: mier;
   border: none;
-  background: #31a35b;
+  background: #4b9b0f;
   padding: 8px 15px;
   border-radius: 10px;
   color: #fff;
@@ -88,7 +88,7 @@
 
 .settings-left .uploadBtn {
   display: block;
-  background-color: #31a35b;
+  background-color: #4b9b0f;
   margin: 2em auto 0;
   width: 100%;
   max-width: 22em;
@@ -185,7 +185,7 @@
 
 /*----------SAVE BUTTON---------------*/
 .form-content button[type="submit"] {
-  background-color: #31a35b;
+  background-color: #4b9b0f;
   margin-top: 2em;
   width: 100%;
   height: 3em;

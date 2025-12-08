@@ -1,180 +1,103 @@
-.signin {
-  min-width: 100%;
-  min-height: 100%;
-  background-color: #52a811;
+.sign-wrapper {
+  width: 100%;
+  height: 100vh;
+
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
-  transform: translate(0%, 15%);
 }
-.signinCont {
-  width: 25em;
-  height: 35em;
-  background-color: #e3e3e3;
-  font-family: mier;
+.signin {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.signin .left-section {
+  display: flex;
+  place-items: center;
+  width: 50%;
+}
+.signin .left-section img {
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+  height: 98%;
+  border-radius: 2em;
+}
+.signin .right-section {
+  width: 50%;
   display: grid;
-  grid-template-rows: 0.5fr 1fr 0.5fr;
+  grid-template-rows: 3fr 7fr;
 }
-.signinCont h1 {
-  padding-top: 1.6em;
+
+.signin .upper-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
   text-align: center;
-  font-weight: 700;
-  font-size: 2em;
+  font-family: mier;
+  padding-top: 2em;
 }
-.signinCont form {
-  margin-top: 1em;
-  text-align: center;
+.signin .upper-right h1 {
+  font-size: 2.2em;
 }
-.signinCont input {
-  padding: 0.5em;
-  width: 16em;
-  height: 2em;
-  border: 1px solid grey;
-  border-radius: 0.25em;
+.signin .upper-right p {
+  font-size: 13px;
+  color: gray;
+  line-height: 1.1em;
 }
-.signinCont .label {
-  margin-top: 2em;
+.signin form {
+  width: 65%;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  font-family: mier;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
-.signinCont .signin-button {
+.signin form .label {
+  width: 82%;
+  font-size: 14px;
+  color: #5a5a5a;
+}
+.signin form input {
+  position: relative;
+  display: block;
+  width: 22em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  padding-left: 0.7em;
+  margin-top: 0.3em;
+  margin-bottom: 1.5em;
+  border: 1px solid #b8b8b8;
+}
+.signin form i {
+  position: absolute;
+}
+.signin form button {
+  width: 22em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  background-color: #4b9b0f;
+}
+
+.signin form .error {
   margin-top: -1em;
-  background-color: white;
-  width: 19em;
-  height: 3em;
-  border-radius: 6px;
-  color: black;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-.createAcc {
-  margin-top: 0.2em;
+  margin-bottom: 1.5em;
+  color: #ff0051da;
   text-align: center;
-}
-.createAcc button {
-  color: black;
-  width: 19em;
+  place-content: center;
+  border: 1px solid #ff0051;
+  background-color: #ffd9e0;
   height: 3em;
-  border-radius: 6px;
-  background-color: greenyellow;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  width: 22em;
 }
-.createAcc i {
-  padding-left: 0.3em;
-}
-.createAcc p {
-  color: blueviolet;
-  text-decoration: underline;
-}
-
-/*Media queries----------------------------------*/
-
-/* Tablets and smaller desktops (768px - 1024px) */
-@media (max-width: 1024px) {
-  .signin {
-    transform: translate(0%, 10%);
-  }
-
-  .signinCont {
-    width: 26em;
-  }
-}
-
-/* Tablets Portrait (600px - 768px) */
-@media (max-width: 768px) {
-  .signin {
-    transform: translate(0%, 8%);
-  }
-
-  .siginCont {
-    width: 24em;
-  }
-
-  .signinCont h1 {
-    font-size: 1.9em;
-  }
-}
-
-/* Mobile Landscape & Small Tablets (451px - 600px) */
-@media (max-width: 600px) {
-  .signin {
-    transform: translate(0%, 5%);
-  }
-
-  .signinCont {
-    width: 22em;
-  }
-
-  .signinCont h1 {
-    font-size: 1.8em;
-  }
-
-  .signinCont input {
-    width: 15em;
-  }
-
-  .signinbtn,
-  .signAcc button {
-    width: 18em;
-  }
-}
-
-/* Mobile Portrait (max-width: 450px) */
-@media (max-width: 450px) {
-  .signin {
-    transform: translate(0%, 3%);
-    padding: 1em 0.5em;
-  }
-
-  .signinCont {
-    width: 20em;
-  }
-
-  .signinCont h1 {
-    font-size: 1.7em;
-  }
-
-  .signinCont input {
-    width: 14em;
-    height: 2.2em;
-  }
-  .signinCont .signin-button {
-    width: 14em;
-    height: 3em;
-  }
-  .signinbtn,
-  .signinAcc button {
-    width: 16em;
-    height: 2.8em;
-  }
-
-  .error {
-    font-size: 13px;
-    margin-bottom: -2em;
-  }
-}
-
-/* Extra Small Mobile (max-width: 390px) */
-@media (max-width: 390px) {
-  .signin {
-    transform: translate(0%, 2%);
-  }
-
-  .signinCont {
-    width: 18em;
-  }
-
-  .signinCont h1 {
-    font-size: 1.6em;
-  }
-
-  .signinCont input {
-    width: 13em;
-    font-size: 13px;
-  }
-  .signinCont .signin-button {
-    width: 11em;
-    height: 3em;
-  }
-  .signinbtn,
-  .signAcc button {
-    width: 14em;
-    font-size: 13px;
-  }
+.signin .createAcc {
+  margin: 1.5em;
+  display: flex;
+  gap: 0.2em;
+  color: #5a5a5a;
 }
