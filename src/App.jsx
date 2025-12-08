@@ -1,11 +1,12 @@
 import "./Styles/Styles.css";
 import "../src/assets/fontawesome/css/all.css";
 import "../src/assets/boxicons/css/boxicons.css";
-import Landing from "./Pages/Landing";
-import Signin from "./Pages/signin";
-import Login from "./Pages/Login";
-import Dashboard from "./Pages/Dashboard";
-import Contact from "./Pages/Contact";
+import Landing from "./Pages/Landing.jsx";
+import Signin from "./Pages/Signin.jsx";
+import Login from "./Pages/Login.jsx";
+import Dashboard from "./Pages/Dashboard.jsx";
+import Contact from "./Pages/Contact.jsx";
+import NotFound404 from "./Pages/404.jsx";
 import {
   Route,
   createBrowserRouter,
@@ -21,9 +22,10 @@ function App() {
       <>
         <Route path="/" element={<Landing />} />
         <Route path="/Signin" element={<Signin />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/LoginPage" element={<Login />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NotFound404 />} />
       </>
     )
   );

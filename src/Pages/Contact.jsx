@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "../Styles/Contact.css";
 import emailjs from "@emailjs/browser";
-import NavBar from "../Components/NavBar";
+import NavBar from "../Components/NavBar.jsx";
 import img1 from "../assets/images/-business-communication.png";
 
 const Contact = () => {
@@ -41,10 +41,11 @@ const Contact = () => {
               <br /> IN<i class="fa-solid fa-arrow-right"></i>TOUCH
             </h1>
             <p>
-              We care about more than just you keeping up with your weight goals
+              We care about more than just you keeping up with your weight
+              goals,
               <br />
               we want to ensure that you also receive the best service <br />
-              we can offer so reach out with your queries and
+              -we can offer, so reach out with your queries and
               <br />
               we'll make sure to contact you.
             </p>
@@ -73,7 +74,7 @@ const Contact = () => {
             <textarea
               name="message"
               id="textarea"
-              placeholder="your message"
+              placeholder="Your message"
             ></textarea>
             <button type="submit">Submit</button>
           </form>

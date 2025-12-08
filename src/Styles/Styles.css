@@ -7,10 +7,7 @@
   font-family: fonte;
   src: url(../assets/fonts/Monts.ttf);
 }
-@font-face {
-  font-family: tt;
-  src: url(../assets/fonts/TTCommonsBold.otf);
-}
+
 @font-face {
   font-family: mier;
   src: url(../assets/fonts/MierA-DemiBold.ttf);
@@ -26,26 +23,26 @@
 html,
 body {
   background-color: #52a811;
-  width: 100%;
-  height: 100%;
   margin: 0%;
   padding: 0%;
-  position: relative;
   font-family: fonte;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
-.container {
-  min-width: 100%;
-  height: 100vh;
-  /* background-color: #52a811; */
-}
+
 .navBox {
-  z-index: 5;
+  z-index: 8;
   position: fixed;
   font-size: 12px;
   font-weight: 700;
   left: 50%;
   transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
   width: 40em;
   height: 3.2em;
   top: 5%;
@@ -64,14 +61,14 @@ body {
 }
 
 .navItems p {
-  margin-right: -6.8em;
+  margin-right: -3.4em;
   font-weight: 700;
   padding: 0.5em 1em;
   border-radius: 1.75em;
   color: #e3e3e3;
   background-color: black;
   cursor: pointer;
-  font-family: Roboto;
+  font-family: Roboto, Helvetica;
 }
 .navItems p::before {
   content: "";
@@ -93,6 +90,7 @@ body {
   z-index: -1;
   width: calc(22% + 4px);
   height: calc(100% + 4px);
+  -webkit-backdrop-filter: blur(8px);
   filter: blur(8px);
   animation: glowing 10s linear infinite;
   transition: opacity 0.3s ease;
@@ -122,6 +120,7 @@ body {
   left: 12%;
   text-align: center;
   transform: rotate(23deg);
+  transform-style: preserve-3d;
 }
 .badge2 {
   position: absolute;
@@ -134,10 +133,11 @@ body {
 
 .appleRed {
   position: absolute;
-
+  z-index: 3;
   top: -42%;
   transform: scale(0.17) translate(123%);
-  filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.4));
+  transform-style: preserve-3d;
+  /* filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.4)); */
 }
 .subtextsMain {
   display: flex;
@@ -151,7 +151,7 @@ body {
 .cardsSection {
   background-color: #e3e3e3;
   border-top-left-radius: 23%;
-  min-width: 100%;
+  width: inherit;
   height: 60rem;
   margin-top: 6em;
 }
@@ -161,6 +161,10 @@ body {
   text-align: center;
   font-weight: 700;
   font-size: 1.9em;
+  width: 14em;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 .cards {
   padding-top: 2em;
@@ -170,7 +174,7 @@ body {
 }
 .card1 {
   width: 26em;
-  height: 35em;
+  height: 32em;
   display: grid;
   grid-template-rows: auto 1fr auto; /* slogan, image, stars */
   border-radius: 5%;
@@ -186,7 +190,7 @@ body {
 }
 .card1 img {
   padding-top: 1.3em;
-  /* transform: scale(0.8); */
+
   align-self: center;
   max-width: 80%; /* keeps images uniform but responsive */
   max-height: 390px; /* fixes image area height */
@@ -213,17 +217,101 @@ body {
   font-weight: 700;
   font-size: 1.9em;
 }
-.bannerCont {
+.banner-wrapper {
+  outline: 1px solid white;
   margin-top: 6em;
   margin-left: auto;
   margin-right: auto;
-  background-color: #e3e3e3;
-  height: 35rem;
+  border-radius: 0.75em;
   width: 90%;
-  border-radius: 0.75%;
+  height: 35rem;
+}
+.bannerCont {
+  overflow: hidden;
+  width: 100%;
+  height: inherit;
+  background: linear-gradient(15deg, #b5d19f, #52a811, #c3e956, #f4fffc);
+  border-radius: 0.75em;
   padding: 0.6em;
+  z-index: 4;
   display: flex;
 }
+#bText1 {
+  font-family: mier;
+  outline: 1px solid white;
+  padding-top: 1em;
+  border-radius: 5em;
+  left: 20%;
+  margin-top: 6em;
+  z-index: 6;
+  position: absolute;
+  width: 14em;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: inset 0 0px 25px rgba(255, 255, 255, 0.8);
+  transform: rotate(4deg);
+  transform-style: preserve-3d;
+}
+#bText2 {
+  font-family: mier;
+  outline: 1px solid white;
+  padding-top: 0.6em;
+  border-radius: 5em;
+  right: 20%;
+  margin-top: 16em;
+  z-index: 6;
+  position: absolute;
+  width: 14em;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: inset 0 0px 25px rgba(255, 255, 255, 0.8);
+  transform: rotate(-8deg);
+  transform-style: preserve-3d;
+}
+#bText3 {
+  font-family: mier;
+  outline: 1px solid white;
+  padding-top: 0.6em;
+  border-radius: 5em;
+  left: 17%;
+  margin-top: 25em;
+  z-index: 6;
+  position: absolute;
+  width: 19em;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: inset 0 0px 25px rgba(255, 255, 255, 0.8);
+  transform: rotate(-2deg);
+  transform-style: preserve-3d;
+}
+.imageBkg {
+  position: absolute;
+  z-index: 1000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7em;
+  background-color: rgba(255, 255, 255, 0.143);
+  border-radius: 1.75em;
+  width: 16.5em;
+  height: 20em;
+  outline: 1px solid rgba(245, 245, 245, 0.524);
+  transform: scale(0.9) rotate(-12deg);
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  box-shadow: 6px 9px 7px rgba(0, 0, 0, 0.1),
+    inset 0 0px 25px rgba(255, 255, 255, 0.3);
+}
+.imageBkg img {
+  width: 18em;
+  transform: scale(0.9);
+  transform-style: preserve-3d;
+  object-fit: cover;
+}
+
 .bannerImg {
   background-color: #cbcbcbfa;
   width: 40em;
@@ -233,12 +321,65 @@ body {
   font-weight: 700;
   font-size: 1.5em;
   line-height: 1.1em;
-  /* font-family: mier; */
   padding: 0.4em;
+}
+.banner-wrapper .fa-solid {
+  color: #52a811;
+  position: absolute;
+}
+.banner-wrapper .fa-star {
+  font-size: 1.9em;
+  margin-top: 3.2em;
+  color: #79aa16;
+  left: 40%;
+}
+.banner-wrapper .star2 {
+  font-size: 1.2em;
+  margin-top: 7.2em;
+  color: #dde9c5;
+  left: 39%;
+}
+.banner-wrapper .star3 {
+  transform: rotate(7deg);
+  transform-style: preserve-3d;
+  font-size: 1.7em;
+  margin-top: 12.2em;
+  color: #dde9c5;
+  left: 60%;
+}
+.banner-wrapper .star4 {
+  transform: rotate(-9deg);
+  transform-style: preserve-3d;
+  font-size: 1.7em;
+  margin-top: 14.2em;
+  color: #a4d249;
+  left: 60%;
+}
+.banner-wrapper .star5 {
+  transform: rotate(-9deg);
+  transform-style: preserve-3d;
+  font-size: 1.5em;
+  margin-top: 15.2em;
+  color: #b5f339;
+  left: 62%;
+}
+.bannerCont #features {
+  position: absolute;
+  left: 48%;
+  margin-top: 0.6em;
+  transform: rotate(4deg);
+  transform-style: preserve-3d;
+  font-size: 4em;
+  height: 1em;
+  padding: 0%;
+  line-height: 0.7em;
+  color: #f6ffd3;
+
+  /* outline: 1px solid black; */
 }
 /*Testimonials------------------------*/
 .testimonial-wrapper {
-  margin-top: -9em;
+  margin-top: -19em;
   height: 30em;
   width: 100%;
   font-family: mier;
@@ -269,6 +410,7 @@ body {
   flex-direction: column;
   position: relative;
   box-shadow: 0 0 20px #fff;
+  z-index: 1;
 }
 
 .Testimonial-cards:hover {
@@ -311,6 +453,7 @@ body {
   font-size: 11em;
   text-align: center;
   transform: rotate(-7deg);
+  transform-style: preserve-3d;
   stroke: 6px solid black;
 }
 .onboardBan {
@@ -411,11 +554,902 @@ body {
     background-position: 0 0;
   }
 }
-/*Scroller----------*/
-/* ::-webkit-scrollbar {
-  width: 0;
+/*------------------Media Queries----------------------------*/
+@media (min-height: 685px) {
+  .appleRed {
+    top: -37%;
+  }
 }
-::-webkit-scrollbar-thumb {
-  width: 4px;
-  background-color: #002bff;
-} */
+
+/* Tablets and smaller desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 15% !important;
+    left: 50% !important;
+    transform: scale(0.15) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
+  .navBox {
+    width: 35em;
+    font-size: 11px;
+  }
+
+  .navBox ul {
+    gap: 2.5em;
+  }
+
+  .mainText {
+    font-size: 14em;
+    letter-spacing: -8px;
+  }
+
+  .organic {
+    font-size: 0.9rem;
+    top: 18%;
+    left: 10%;
+  }
+
+  .badge2 {
+    font-size: 6rem;
+    top: 15%;
+    left: 8%;
+  }
+
+  .subtextsMain {
+    font-size: 14px;
+    padding: 0 2em;
+  }
+
+  /* Cards Section */
+  .cardsSection {
+    height: 55rem;
+  }
+
+  .cardsHeader {
+    font-size: 1.7em;
+    width: 12em;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    padding: 0 2em;
+  }
+
+  .card1 {
+    width: 22em;
+    height: 28em;
+  }
+
+  .card1 p {
+    font-size: 1.3em;
+  }
+
+  /* Banner Section */
+  .banner-wrapper {
+    width: 95%;
+    height: 32rem;
+  }
+
+  #bText1,
+  #bText2,
+  #bText3 {
+    font-size: 0.9em;
+    width: 12em;
+  }
+
+  #bText1 {
+    left: 15%;
+    margin-top: 5em;
+  }
+
+  #bText2 {
+    right: 15%;
+    margin-top: 14em;
+  }
+
+  #bText3 {
+    left: 12%;
+    margin-top: 22em;
+    width: 17em;
+  }
+
+  .imageBkg {
+    transform: scale(0.85) rotate(-12deg);
+  }
+
+  .imageBkg img {
+    width: 9em;
+    transform: scale(0.75);
+  }
+
+  .bannerCont #features {
+    font-size: 3.5em;
+    left: 46%;
+  }
+
+  /* Testimonials */
+  .testimonial-cont {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .Testimonial-cards {
+    width: 22em;
+  }
+
+  /* Footer */
+  .footerCont {
+    padding: 3em;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+
+  .foot2 input {
+    width: 16em;
+  }
+}
+
+/* Tablets Portrait (600px - 768px) */
+@media (max-width: 768px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 18% !important;
+    left: 50% !important;
+    transform: scale(0.12) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
+  .navBox {
+    width: 32em;
+    font-size: 10px;
+    top: 4%;
+  }
+
+  .navBox ul {
+    gap: 2em;
+  }
+
+  .navItems p {
+    padding: 0.4em 0.8em;
+  }
+
+  .mainText {
+    font-size: 10em;
+    letter-spacing: -5px;
+    margin-top: 1em;
+  }
+
+  .organic {
+    font-size: 0.8rem;
+    top: 20%;
+    left: 12%;
+  }
+
+  .badge2 {
+    font-size: 5rem;
+    top: 17%;
+    left: 10%;
+  }
+
+  .subtextsMain {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    font-size: 13px;
+    padding: 0 1.5em;
+  }
+
+  /* Cards Section */
+  .cardsSection {
+    height: auto;
+    padding-bottom: 3em;
+    border-top-left-radius: 15%;
+  }
+
+  .cardsHeader {
+    font-size: 1.5em;
+    width: 11em;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .card1 {
+    width: 85%;
+    max-width: 26em;
+    height: 30em;
+  }
+
+  /* Banner Section */
+  .banner {
+    height: 50rem;
+  }
+
+  .banner-wrapper {
+    width: 95%;
+    height: 38rem;
+    margin-top: 4em;
+  }
+
+  .bannerCont {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #bText1 {
+    left: 10%;
+    margin-top: 8em;
+    font-size: 0.85em;
+  }
+
+  #bText2 {
+    right: 10%;
+    margin-top: 30em;
+    font-size: 0.85em;
+  }
+
+  #bText3 {
+    left: 10%;
+    margin-top: 40em;
+    font-size: 0.85em;
+    width: 16em;
+  }
+
+  .imageBkg {
+    margin-top: 5em;
+    transform: scale(0.75) rotate(-12deg);
+  }
+
+  .imageBkg img {
+    width: 9em;
+    transform: scale(0.75);
+  }
+
+  .bannerCont #features {
+    font-size: 3em;
+    left: 45%;
+    margin-top: 1em;
+  }
+
+  .banner-wrapper .star3,
+  .banner-wrapper .star4,
+  .banner-wrapper .star5 {
+    left: 65%;
+  }
+
+  /* Testimonials */
+  .testimonial-wrapper {
+    margin-top: -10em;
+    height: auto;
+    padding-bottom: 3em;
+  }
+
+  .testimonial-wrapper h1 {
+    font-size: 1.7em;
+    padding-top: 2em;
+  }
+
+  .testimonial-cont {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    gap: 2em;
+  }
+
+  .Testimonial-cards {
+    width: 85%;
+    max-width: 25em;
+  }
+
+  /* Onboard */
+  .onboard p {
+    font-size: 8em;
+  }
+
+  /* Footer */
+  .footer {
+    height: auto;
+    padding-bottom: 2em;
+  }
+
+  .footerCont {
+    flex-direction: column;
+    padding: 2em;
+    gap: 2em;
+    text-align: center;
+  }
+
+  .footerCont p {
+    font-size: 1.4em;
+  }
+
+  .footerCont ul {
+    font-size: 1.4em;
+  }
+
+  .foot2 input {
+    width: 90%;
+    max-width: 20em;
+  }
+
+  .icons {
+    justify-content: center;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (451px - 600px) */
+@media (max-width: 600px) {
+  .navBox {
+    width: 28em;
+    font-size: 9px;
+    left: 50%;
+  }
+
+  .navBox ul {
+    gap: 1.5em;
+  }
+
+  .mainText {
+    font-size: 7em;
+    letter-spacing: -3px;
+  }
+
+  .organic {
+    font-size: 0.7rem;
+    top: 18%;
+    left: 10%;
+  }
+
+  .badge2 {
+    font-size: 4rem;
+    top: 16%;
+    left: 8%;
+  }
+
+  .subtextsMain {
+    font-size: 11px;
+  }
+
+  /* Cards */
+  .cardsSection {
+    margin-top: 8em;
+    border-top-left-radius: 12%;
+  }
+
+  .cardsHeader {
+    font-size: 1.3em;
+  }
+
+  .card1 {
+    width: 90%;
+    height: 26em;
+  }
+
+  .card1 p {
+    font-size: 1.2em;
+  }
+
+  /* Banner */
+  .banner {
+    height: 45rem;
+  }
+
+  .banner-wrapper {
+    height: 35rem;
+  }
+
+  .bannerCont #features {
+    font-size: 2.5em;
+    left: 43%;
+  }
+
+  #bText1,
+  #bText2,
+  #bText3 {
+    font-size: 0.75em;
+  }
+
+  .imageBkg img {
+    width: 8em;
+    transform: scale(0.7);
+  }
+
+  /* Onboard */
+  .onboard p {
+    font-size: 6em;
+  }
+
+  .onboard {
+    margin-top: 4em;
+  }
+}
+
+/* Mobile Portrait (max-width: 450px) */
+@media (max-width: 450px) {
+  .appleRed {
+    position: absolute !important;
+    top: 5% !important;
+    left: 36% !important;
+    transform: scale(0.2) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.5)) !important;
+  }
+
+  .navBox {
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    font-size: 9px;
+  }
+
+  .navBox ul {
+    gap: 1em;
+  }
+
+  .navItems p {
+    padding: 0.4em 0.7em;
+    margin-left: 1.5em;
+  }
+
+  .navItems p::before {
+    display: none;
+    left: auto;
+    right: 35px;
+    width: calc(22% + 4px);
+  }
+
+  .mainText {
+    margin-top: 1.4em;
+    font-size: 6em;
+    letter-spacing: -1px;
+  }
+
+  .organic {
+    top: 16%;
+    left: 15%;
+    transform: scale(0.5) rotate(23deg);
+  }
+
+  .badge2 {
+    transform: scale(0.5);
+    top: 13%;
+    left: 13%;
+  }
+
+  .subtextsMain {
+    font-size: 10px;
+    margin-top: 2em;
+    gap: 0.8em;
+  }
+
+  /* Cards Section */
+  .cardsSection {
+    margin-top: 10em;
+    border-top-left-radius: 10rem;
+    padding-bottom: 2em;
+  }
+
+  .cardsHeader {
+    font-size: 1.2em;
+    padding-top: 1.5em;
+  }
+
+  .cards {
+    padding-top: 1.5em;
+    gap: 1em;
+  }
+
+  .card1 {
+    width: 80%;
+    height: 24em;
+  }
+
+  .card1 p {
+    font-size: 1.1em;
+    padding-top: 1em;
+  }
+
+  .card1 img {
+    max-height: 175px;
+  }
+
+  /* Banner Section */
+  .banner {
+    height: 48rem;
+  }
+
+  .banner p {
+    font-size: 1.5em;
+    padding-top: 1.5em;
+  }
+
+  .banner-wrapper {
+    margin-top: 3em;
+    width: 90%;
+    height: 33rem;
+    outline: none;
+  }
+
+  .bannerCont #features {
+    font-size: 2em;
+    left: 40%;
+    margin-top: 1.6em;
+  }
+
+  .imageBkg {
+    transform: scale(0.6) rotate(-12deg);
+    margin-top: 9em;
+    width: 16em;
+  }
+
+  .imageBkg img {
+    width: 16em;
+    transform: scale(0.7);
+  }
+
+  #bText1 {
+    outline: none;
+    padding-top: 1em;
+    left: 8%;
+    margin-top: 13em;
+    width: 12em;
+    font-size: 0.65em;
+  }
+
+  #bText2 {
+    outline: none;
+    right: 8%;
+    margin-top: 38em;
+    width: 14em;
+    font-size: 0.65em;
+  }
+
+  #bText3 {
+    outline: none;
+    left: 8%;
+    margin-top: 42em;
+    width: 19em;
+    font-size: 0.65em;
+  }
+
+  .banner-wrapper .fa-star {
+    font-size: 1.5em;
+    margin-top: 4em;
+    left: 35%;
+  }
+
+  .banner-wrapper .star2 {
+    font-size: 1em;
+    margin-top: 8em;
+    left: 34%;
+  }
+
+  .banner-wrapper .star3 {
+    font-size: 1.4em;
+    margin-top: 13em;
+    left: 68%;
+  }
+
+  .banner-wrapper .star4 {
+    margin-top: 12.2em;
+    left: 72%;
+  }
+
+  .banner-wrapper .star5 {
+    font-size: 1.2em;
+    margin-top: 15.2em;
+    left: 72%;
+  }
+
+  /* Testimonials */
+  .testimonial-wrapper {
+    margin-top: -8em;
+  }
+
+  .testimonial-wrapper h1 {
+    font-size: 1.5em;
+    padding-top: 1.5em;
+  }
+
+  .testimonial-cont {
+    margin-top: 1.5em;
+    padding: 0 0.5em;
+  }
+
+  .Testimonial-cards {
+    width: 95%;
+    height: 11em;
+    padding: 0.8em;
+  }
+
+  .imginfo {
+    gap: 1em;
+  }
+
+  .test-imgPlh,
+  .test-imgPlh img {
+    height: 5em;
+    width: 5em;
+  }
+
+  .imginfo p {
+    font-size: 14px;
+  }
+
+  .written-testimonial {
+    font-size: 14px;
+  }
+
+  /* Onboard */
+  .onboard {
+    margin-top: 3em;
+    height: 12rem;
+  }
+
+  .onboard p {
+    font-size: 5em;
+  }
+
+  .curved-loop-jacket {
+    margin-top: -2em;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 6em;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+  }
+
+  .footerCont {
+    padding: 1.5em;
+  }
+
+  .footerCont p {
+    font-size: 1.2em;
+  }
+
+  .footerCont ul {
+    margin-top: 1em;
+    display: block;
+    place-items: center;
+
+    font-size: 1.1em;
+  }
+
+  .footerCont li {
+    font-size: 13px;
+    margin-bottom: 0.5em;
+  }
+
+  .footerCont input {
+    width: 24em;
+    height: 2em;
+  }
+  .foot2 button {
+    width: 24em;
+  }
+
+  .foot2 p {
+    font-size: 15 px;
+  }
+  .foot3 {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+  }
+  .foot3 i {
+    width: 1.8em;
+    text-align: center;
+  }
+}
+
+/* Extra Small Mobile (max-width: 390px) */
+@media (max-width: 390px) {
+  /* Disable apple animation on mobile - position statically */
+  .appleRed {
+    position: absolute !important;
+    top: 6% !important;
+    left: 36% !important;
+    transform: scale(0.22) translateX(-50%) !important;
+    filter: drop-shadow(22px 24px 26px rgba(0, 0, 0, 0.3)) !important;
+  }
+
+  .navBox {
+    width: 95%;
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+
+  .mainText {
+    font-size: 5.5em;
+    margin-left: 0.1em;
+  }
+
+  .organic {
+    top: 20%;
+    left: 7%;
+    font-size: 12px;
+  }
+
+  .badge2 {
+    top: 17%;
+    left: 3%;
+    font-size: 5em;
+  }
+
+  .subtextsMain {
+    margin-top: 3em;
+    font-size: 9px;
+  }
+
+  .cardsSection {
+    margin-top: 14em;
+    height: auto;
+    border-top-left-radius: 7rem;
+  }
+
+  .cardsHeader {
+    font-size: 1em;
+  }
+
+  .card1 {
+    padding: 0 0.3em 0 0.3em;
+    width: 16em;
+    transform: scale(0.95);
+    height: 20em;
+  }
+
+  .card1 p {
+    font-size: 1em;
+  }
+
+  .card1 img {
+    max-height: 135px;
+  }
+
+  .banner-wrapper {
+    height: 29rem;
+  }
+
+  .bannerCont #features {
+    margin-top: 1.6em;
+    font-size: 1.6em;
+    left: 38%;
+  }
+
+  .imageBkg {
+    transform: scale(0.55) rotate(-12deg);
+    margin-top: 5em;
+  }
+
+  .imageBkg img {
+    object-fit: cover;
+    width: 20em;
+    transform: scale(0.7);
+  }
+
+  #bText1 {
+    left: 9%;
+    margin-top: 10em;
+    font-size: 0.6em;
+  }
+
+  #bText2 {
+    right: 8%;
+    width: 15em;
+    margin-top: 35em;
+    font-size: 0.6em;
+  }
+
+  #bText3 {
+    left: 9%;
+    width: 19em;
+    margin-top: 40em;
+    font-size: 0.6em;
+  }
+  .Testimonial-cards {
+    width: 25em;
+    height: 14em;
+    font-size: 12px;
+  }
+  .test-imgPlh {
+    border-radius: 0.25em;
+    object-fit: cover;
+    height: 6em;
+    width: 6em;
+  }
+  .test-imgPlh img {
+    border-radius: 0.25em;
+    object-fit: cover;
+    height: 6em;
+    width: 6em;
+  }
+  .onboard p {
+    font-size: 4.5em;
+  }
+  .footer {
+    margin-top: -5em;
+  }
+  .footerCont p {
+    font-size: 1.1em;
+  }
+
+  .footerCont ul {
+    margin-top: 1em;
+    display: block;
+    place-items: center;
+
+    font-size: 1.1em;
+  }
+  .footerCont li {
+    font-size: 12px;
+
+    text-align: center;
+    margin-bottom: 0.7em;
+    border: 1px solid black;
+    border-radius: 1.75em;
+  }
+  .footerCont input {
+    width: 24em;
+    height: 2em;
+  }
+  .foot2 button {
+    width: 20em;
+  }
+  .foot2 p {
+    font-size: 15 px;
+  }
+  .foot3 {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+  }
+  .foot3 i {
+    width: 1.8em;
+    text-align: center;
+  }
+}
+
+/* Fix for iOS Safari transform issues */
+@supports (-webkit-touch-callout: none) {
+  .your-feature-container,
+  .appleRed,
+  .organic,
+  .badge2,
+  .imageBkg,
+  .card1,
+  #bText1,
+  #bText2,
+  #bText3 {
+    transform: translateZ(0);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mainText {
+    margin-top: 0.5em;
+    font-size: 5em;
+  }
+
+  .appleRed {
+    top: -20%;
+  }
+
+  .cardsSection {
+    margin-top: 6em;
+  }
+
+  .banner-wrapper {
+    margin-top: 2em;
+  }
+}

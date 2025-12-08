@@ -1,11 +1,16 @@
+// import { useAuth } from "../Context/AuthContext.jsx";
+// import { doc, getDoc, setDoc } from "firebase/firestore";
+// import { db } from "./firebase";
 import { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "./firebase";
-import "../styles/popup.css";
+import "../Styles/modal.css";
+import useUserStore from "../Context/userStore";
 
 const PopUp = () => {
-  const { user } = useAuth();
+  const user = useUserStore((state) => state.user);
+  const userId = user._id;
+  const updateUser = useUserStore((state) => state.updateUserInfo);
+  const fetchUserData = useUserStore((state) => state.fetchUserInfo);
+
   const [open, setOpen] = useState(false);
   const [profile, setProfile] = useState({
     height: "",
@@ -22,35 +27,35 @@ const PopUp = () => {
 
   useEffect(() => {
     const checkProfile = async () => {
-      if (!user) return;
-      const userRef = doc(db, "users", user.uid);
-      const snap = await getDoc(userRef);
-      if (!snap.exists() || !snap.data().profileComplete) {
-        setOpen(true); // open popup if profile not complete
-      } else {
-        // Prefill if already exists
-        setProfile(snap.data().profile || profile);
+      if (!user) return; //if there's no user return nothing
+
+      if (!user.age || user.age === 0) {
+        setOpen(true); //open pop up if profile is incomplete
       }
     };
+
     checkProfile();
   }, [user]);
 
   const handleSave = async () => {
-    if (!user) return;
-    const userRef = doc(db, "users", user.uid);
-    await setDoc(
-      userRef,
-      {
-        height: profile.height || "",
-        weight: profile.weight || "",
-        age: profile.age || "",
-        goal: profile.goal || "",
-        gender: profile.gender || "",
-        activityLevel: profile.activityLevel || "",
-        profileComplete: true,
-      },
-      { merge: true }
-    );
+    if (!user) return; //if there's no user signed in return nothing
+
+    try {
+      const updatedData = {
+        activityLevel: profile.activityLevel,
+        age: profile.age,
+        height: profile.height,
+        currentWeight: profile.weight,
+        startingWeight: profile.weight,
+        gender: profile.gender,
+        goal: profile.goal,
+      };
+
+      await updateUser(userId, updatedData);
+    } catch (error) {
+      alert("failed updating user information");
+    }
+
     setOpen(false);
   };
 

@@ -1,192 +1,246 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext";
-import Bmr from "../Utils/Bmr";
+import Bmr from "../Utils/Bmr.jsx";
 import "../Styles/DashboardHome.css";
-import calculateDailyCalories from "../Utils/DailyCalories";
-import Calendar from "react-calendar";
-import "../Styles/Calendar.css";
-import { getLoginDates } from "../Utils/LogDates";
-
+import calculateDailyCalories from "../Utils/DailyCalories.jsx";
+import milestone from "../assets/images/milestone.png";
+import useUserStore from "../Context/userStore.jsx";
+import Calendar from "./Calendar.jsx";
+import MealStatus from "./MealStatus.jsx";
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 const DashboardHome = () => {
-  const { user, profile } = useAuth();
-  const [loginDates, setLoginDates] = useState([]);
-
+  const user = useUserStore((state) => state.user);
+  //Milestone Calculations
+  const milestoneCalc = Math.round(
+    ((user?.startingWeight - user?.currentWeight) /
+      (user?.startingWeight - user?.targetWeight)) *
+      100
+  );
+  //Call BMR Function
+  const bmr = Bmr({
+    weight: user?.currentWeight,
+    height: user?.height,
+    age: user?.age,
+    gender: user?.gender,
+  });
+  //Call Daily calories function
   const dailyCalories = calculateDailyCalories({
-    weight: profile?.weight,
-    height: profile?.height,
-    age: profile?.age,
-    gender: profile?.gender,
-    goal: profile?.goal,
-    activityLevel: profile?.activityLevel,
+    weight: user?.currentWeight,
+    height: user?.height,
+    age: user?.age,
+    gender: user?.gender,
+    goal: user?.goal,
+    activityLevel: user?.activityLevel,
   });
 
-  //get user log-in log to display on calendar
-  useEffect(() => {
-    const fetchLogins = async () => {
-      if (user) {
-        const dates = await getLoginDates(user.uid);
-        setLoginDates(dates);
-      }
-    };
-    fetchLogins();
-  }, [user]);
+  // Prepare data for weekly meal completion chart
+  const getWeeklyData = () => {
+    const data = [];
+    const mealStatusMap = user?.mealStatus || {};
 
-  const highlightedDates = loginDates.map((date) => new Date(date));
+    // Get last 7 days
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const dateString = date.toISOString().split("T")[0];
 
-  const ActivityQuantity = () => {
-    let activityStatus;
+      const dayMeals = mealStatusMap[dateString] || {
+        breakfast: false,
+        lunch: false,
+        dinner: false,
+      };
 
-    if (!profile?.activityLevel) return;
+      const mealsCompleted =
+        (dayMeals.breakfast ? 1 : 0) +
+        (dayMeals.lunch ? 1 : 0) +
+        (dayMeals.dinner ? 1 : 0);
 
-    if (profile?.activityLevel === "N/A") {
-      activityStatus = "0 Days Of exercise weekly";
-    } else if (profile?.activityLevel === "light") {
-      activityStatus = "1-3 Days of exercise weekly";
-    } else if (profile?.activityLevel === "medium") {
-      activityStatus = "3-5 Days of exercise weekly";
-    } else {
-      activityStatus = "5-6 Days of exercise weekly";
+      const completionRate = Math.round((mealsCompleted / 3) * 100);
+
+      // Format date as short day name
+      const dayName = date.toLocaleDateString("en-US", { weekday: "short" });
+
+      data.push({
+        day: dayName,
+        completion: completionRate,
+        meals: mealsCompleted,
+        target: dailyCalories || 2000,
+      });
     }
-    return activityStatus;
+
+    return data;
   };
 
+  const weeklyData = getWeeklyData();
+  //Return-----------------------------------------------------------------------------------------------
   return (
     <div className="dashboard-container">
-      {/*,Left column----------------------------------------------------------------------------*/}
-      <section className="leftDash">
-        <div className="upperLeftDash">
-          <h1>Dashboard</h1>
-          {/*Top left column----------------------------------------------------------------------------*/}
-
-          <div className="dashBanner">
-            <h2>Hello{", " + profile?.firstName}</h2>
-            <p>The Best way to get consistency is to track your stats</p>
-          </div>
+      <div className="IntroSection">
+        <div className="intro">
+          <h2>Hello There, {"  " + user?.firstName}</h2>
         </div>
+      </div>
+      <div className="StreakSection">
+        {/*Streaks Content---------------------------- */}
 
-        <div className="activityDash">
-          <div className="upperActivity">
-            <div className="bmrCont">
-              {/*Activity---------------------------------- */}
-              <div
-                className="upperBmr"
-                style={{ backgroundColor: "#4ac577ad" }}
-              >
-                <div className="upperBmrUpper">
-                  <div className="blok">{profile?.activityLevel || 0}</div>
-                  <p>
-                    Weekly Exercise Level <br />
-                  </p>
-                </div>
+        <div className="streak-section">
+          {/* Streak Days*/}
 
-                <div className="white-lines">
-                  <div className="line"></div>
-                  <div className="line" style={{ opacity: "0.5" }}></div>
-                </div>
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p>{user?.streakCount}</p>
               </div>
-              {/*BMR---------------------------------- */}
-              <div className="upperBmr" style={{ backgroundColor: "#4ac577" }}>
-                <div className="upperBmrUpper">
-                  <div className="blok">
-                    {(
-                      <Bmr
-                        weight={profile?.weight}
-                        height={profile?.height}
-                        age={profile?.age}
-                        gender={profile?.gender}
-                      />
-                    ) || 0}
-                  </div>
-                  <p>Your Basal Metabolic Rate (kcal)</p>
-                </div>
-
-                <div className="white-lines">
-                  <div className="line"></div>
-                  <div className="line" style={{ opacity: "0.5" }}></div>
-                </div>
-              </div>
-
-              {/*Calorie Target---------------------------------- */}
-              <div className="upperBmr" style={{ backgroundColor: "#31a35b" }}>
-                <div className="upperBmrUpper">
-                  <div className="blok">{dailyCalories || 0}</div>
-                  <p>
-                    {" "}
-                    Daily Calorie Target <br />
-                    (kcal)
-                  </p>
-                </div>
-
-                <div className="white-lines">
-                  <div className="line"></div>
-                  <div className="line" style={{ opacity: "0.5" }}></div>
-                </div>
-              </div>
-            </div>
-
-            {/*Calender Section------------------------------------------*/}
-            <div className="calCont">
-              <Calendar
-                tileClassName={({ date }) => {
-                  if (
-                    highlightedDates.find(
-                      (d) => d.toDateString() === date.toDateString()
-                    )
-                  ) {
-                    return "highlight";
-                  }
-                  return null;
-                }}
-              />
+              <p id="day">Days Streak</p>
             </div>
           </div>
-          <div className="lowerActivity"></div>
-        </div>
-      </section>
+          {/* Activity level*/}
 
-      {/*Right column----------------------------------------------------------------------------*/}
-      <section className="rightDash">
-        {/*Top right column----------------------------------------------------------------------------*/}
-        <div className="top-rightdash">
-          <div className="imgplacehld">
-            {/*if there is no profile picture return a placeholder of the first letter of user's name*/}
-            {!profile?.photoURL ? (
-              <p>{profile?.firstName.substring(0, 1)}</p>
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p id="activity">{user?.activityLevel}</p>
+              </div>
+              <p id="days">Weekly Activity Level</p>
+            </div>
+          </div>
+          {/* BMR level*/}
+
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p>{bmr || 0}</p>
+              </div>
+              <p id="days">Basal Metabolic Rate </p>
+            </div>
+          </div>
+          {/* Daily Calories level*/}
+
+          <div className="streak-container">
+            <div className="streakInfo">
+              <div className="streakNumber">
+                <p>{dailyCalories || 0}</p>
+              </div>
+              <p id="days">Daily Calories (kcal)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="ContentSection">
+        <div className="innerInfo">
+          {/* user image*/}
+          <div className=" userImg1">
+            {!user?.photoURL ? (
+              <p>{user?.firstName.substring(0, 1)}</p>
             ) : (
-              <img
-                src={profile?.photoURL}
-                alt={profile?.firstName.substring(0, 1)}
-              />
+              <img src={user?.photoURL} alt={user?.firstName.substring(0, 1)} />
             )}
+            <div className="userTitle">
+              <p>{user?.firstName + " " + user?.lastName}</p>
+              <p id="userMail">{user?.email}</p>
+            </div>
           </div>
-          <h1>{profile?.firstName + "  " + profile?.lastName}</h1>{" "}
-          <p>{profile?.gender}</p>
-        </div>
-
-        {/*below right column----------------------------------------------------------------------------*/}
-        <div className="bottom-rightDash">
-          <div className="popupStats">
-            <div className="height">
-              <p className="popupLabel">{profile?.height || " 0 "} cm</p>
+          {/* attributes*/}
+          <div className="userImg userImg2">
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-arrows-up-down"></i>
+              </div>
               <p>Height</p>
+              <p id="attribute">{user?.height || 0}</p>
             </div>
-            <div className="weight">
-              <p className="popupLabel">{profile?.weight || " 0 "} kg</p>
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-weight-scale"></i>
+              </div>{" "}
               <p>Weight</p>
+              <p id="attribute">{user?.currentWeight}</p>
             </div>
-            <div className="age">
-              <p className="popupLabel">{profile?.age || " 0 "} yrs</p>
-
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-mars-and-venus"></i>
+              </div>
+              <p>Gender</p>
+              <p id="attribute">{user?.gender}</p>
+            </div>
+            <div className="attribute">
+              <div className="attri-icons">
+                <i class="fa-solid fa-user-clock"></i>
+              </div>
               <p>Age</p>
+              <p id="attribute">{user?.age}</p>
             </div>
           </div>
-          <div className="exerciseQuant">
-            <p>Activity </p>
-            <p id="activityQuant">{ActivityQuantity()}</p>
+          {/*calendar*/}
+          <Calendar />
+          {/*meal satus*/}
+          <MealStatus />
+          {/* Milestone*/}
+          <div className="milestone userImg4">
+            <img src={milestone} alt="" />
+            <div className="milestone-info">
+              <p id="percentage">{milestoneCalc || 0}%</p>
+              <p id="milestone">Milestone</p>
+              <p id="description">
+                You've come {milestoneCalc || 0}% close to accomplishing your
+                goal!
+              </p>
+            </div>
           </div>
-          <div className="chart"></div>
+          <div className="Stats userImg6">
+            <p id="weeklytitle">Weekly Meal Tracking</p>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={weeklyData}
+                margin={{ top: 10, right: 0, left: 10, bottom: 30 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+                <XAxis
+                  dataKey="day"
+                  tick={{ fill: "#666", fontSize: 8, fontFamily: "mier" }}
+                  axisLine={{ stroke: "#ccc" }}
+                  height={20}
+                />
+                <YAxis
+                  tick={{ fill: "#666", fontSize: 8, fontFamily: "mier" }}
+                  axisLine={{ stroke: "#ccc" }}
+                  width={20}
+                />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#fff",
+                    border: "1px solid #ccc",
+                    borderRadius: "8px",
+                    fontFamily: "mier",
+                    fontSize: "0.9em",
+                  }}
+                  formatter={(value, name) => {
+                    if (name === "completion")
+                      return [`${value}%`, "Completion"];
+                    return [value, name];
+                  }}
+                />
+                <Bar
+                  dataKey="completion"
+                  fill="#77c84eb7"
+                  radius={[8, 8, 0, 0]}
+                  maxBarSize={40}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

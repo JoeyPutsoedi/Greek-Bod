@@ -121,7 +121,6 @@ const Onboard = ({
           Why
           <br /> Wait?
         </p>
-        {/* <div className="onboardBan"></div> */}
       </section>
       <div
         className="curved-loop-jacket"

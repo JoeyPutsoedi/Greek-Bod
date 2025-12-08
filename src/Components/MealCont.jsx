@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useAuth } from "../Context/AuthContext";
-import { getMealRecommendations } from "../Utils/mealsServics";
 import "../Styles/DashboardMeals.css";
 
-const MealCont = ({ num, type, cl, bkg }) => {
-  const { profile, user } = useAuth();
-  const [meals, setMeals] = useState([]);
+const MealCont = ({ meals, num, type, cl, bkg }) => {
+  const meal = meals[num];
 
-  useEffect(() => {
-    if (profile) {
-      getMealRecommendations(profile, user.uid).then(setMeals);
-    }
-  }, [profile]);
   //Menu image------------------------------------------------------------------
   const MealCard = ({ meal }) => {
     if (!meal) return null;
@@ -62,9 +53,9 @@ const MealCont = ({ num, type, cl, bkg }) => {
         {type}
       </div>
       <div className="mealHold">
-        <MealCard meal={meals[num]} />
-        <MealTitle meal={meals[num]} />
-        <MealRecipe meal={meals[num]} />
+        <MealCard meal={meal} />
+        <MealTitle meal={meal} />
+        <MealRecipe meal={meal} />
       </div>
     </div>
   );

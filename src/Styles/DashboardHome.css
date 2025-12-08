@@ -1,189 +1,367 @@
 .dashboard-container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  display: flex;
+  overflow-x: hidden;
+  padding: 0em 0em 1em 0.8em;
+
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 3.5fr;
+  gap: 1em;
 }
-.leftDash {
-  padding: 1em 2em 1em 2em;
-  width: 70%;
-  /* background-color: yellowgreen; */
+
+.dashboard-container .IntroSection {
+  height: 100%;
+  place-content: center;
 }
-.leftDash h1 {
+.dashboard-container .intro {
+  /* border: 1px solid grey; */
+  width: 18em;
+}
+.dashboard-container .intro h2 {
   font-weight: 700;
   font-size: 1.8em;
   font-family: mier;
 }
-.leftDash .dashBanner {
-  width: 100%;
-  height: 8em;
-  margin-top: 3em;
-  border-radius: 0.75em;
-  background-color: #4ac57748;
-  padding: 1em;
-  align-content: end;
-}
-.dashBanner h2 {
-  font-weight: 500;
-  font-size: 1.3em;
-}
-.dashBanner p {
-  margin-top: 1em;
-  font-size: 0.9em;
-  margin-bottom: 0.5em;
-  color: #509367ef;
-}
-.activityDash {
-  margin-top: 2em;
-}
-.upperActivity {
-  height: 20em;
+
+/*--------------------------------STREAK---------------------------------------------------*/
+
+.StreakSection .streak-section {
+  height: 100%;
   display: flex;
-  gap: 2.4em;
+  gap: 1em;
+  place-items: center;
 }
 
-.upperActivity .bmrCont {
-  font-size: 1.2em;
-  font-weight: 500;
-  color: white;
-  width: 45%;
+.streak-section .streak-container {
+  border: 1px solid white;
+  background: linear-gradient(150deg, white, white, rgba(180, 180, 180, 0.085));
+  height: 5em;
+  width: 15em;
+  border-radius: 1.15em;
+  place-items: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.bmrCont .upperBmr {
-  border-radius: 0.75em;
-  background-color: #fffb00;
-  padding: 0.6em 1em 0.5em 1em;
-}
-.upperBmrUpper {
-  display: flex;
-}
-.upperBmr .blok {
   font-family: mier;
-  background: linear-gradient(45deg, white, rgb(204, 245, 127));
-  border-radius: 0.25em;
+  padding: 0.8em;
+}
+.streak-container .streakInfo {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  place-items: center;
+}
+.streak-container .streakNumber {
+  background-color: rgb(238, 238, 238);
   width: 4em;
   height: 4em;
-  text-align: center;
-  align-content: center;
-  color: black;
-  font-size: 0.8em;
-}
-.upperBmr p {
-  color: rgba(0, 0, 0, 0.803);
-  margin-left: 1em;
-  font-size: 14px;
-  line-height: 1.3em;
-  font-weight: 500;
-}
-.white-lines {
-  padding-top: 0.4em;
-  display: flex;
-  gap: 0.5em;
-}
-.white-lines .line {
-  width: 4em;
-  height: 0.3em;
-  background-color: white;
-  border-top-right-radius: 0.75em;
-}
-.upperActivity .calCont {
-  padding: 2.5em 01.1em 0 1.1em;
-  display: flex;
-  border-radius: 0.75em;
-  background: linear-gradient(rgba(255, 255, 255, 0.791), #4ac57767);
-  width: 55%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 0 1px white, 0 0 30px #fff;
-}
-/*---------------------right column----------------------------------*/
-
-.rightDash {
-  width: 30%;
-  background-color: #4ac57748;
-}
-.top-rightdash {
-  height: 18em;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
+  place-items: center;
 }
-.imgplacehld {
-  margin-top: 3.5em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 10em;
-  height: 10em;
-  border-radius: 0.75em;
-  background-color: rgb(33, 89, 33);
+.streakNumber p {
+  font-size: 1.3em;
 }
-.top-rightdash h1 {
-  font-family: mier;
-  margin-top: 1em;
+
+.streak-container #days {
+  line-height: 1em;
+  margin-left: 0.9em;
   font-size: 1.2em;
 }
-.imgplacehld img {
-  width: 10em;
-  height: 10em;
-  border-radius: 0.75em;
+
+.streak-container #day {
+  font-size: 1.2em;
+  margin-left: -1em;
+}
+.streak-container #activity {
+  font-size: 1em;
+}
+.userImg1 {
+  grid-area: box1;
+}
+.userImg2 {
+  grid-area: box2;
+}
+.userImg3 {
+  grid-area: box3;
+  padding: 0.4em 01.1em 0 1.1em;
+}
+.userImg4 {
+  grid-area: box4;
+}
+.userImg5 {
+  grid-area: box5;
+}
+.userImg6 {
+  grid-area: box6;
+}
+
+/*--------------------------------USER PROFILE---------------------------------------------------*/
+.innerInfo {
+  height: 100%;
+  display: grid;
+  grid-template-areas: "box1 box2 box3 box4" "box5 box6 box6 box4";
+  row-gap: 2.6em;
+  column-gap: 1em;
+}
+
+.innerInfo .userImg {
+  height: 15em;
+  width: 17em;
+
+  background: linear-gradient(170deg, white, white, rgba(180, 180, 180, 0.085));
+  border: 1px solid white;
+  border-radius: 1em;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  place-content: center;
+  place-items: center;
+}
+.userImg1 {
+  height: 15em;
+  width: 19.7em;
+
+  background: linear-gradient(170deg, white, white, rgba(180, 180, 180, 0.085));
+  border: 1px solid white;
+  border-radius: 1em;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  place-content: center;
+  place-items: center;
+}
+.userImg1 img {
+  width: 6em;
+  height: 6em;
+  border-radius: 0.6em;
   object-fit: cover;
 }
-.imgplacehld p {
-  margin-top: 1em;
-  color: white;
-  font-weight: 600;
-  font-size: 3em;
-}
-.bottom-rightDash .popupStats {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2em;
-  text-align: center;
-  line-height: 2.3em;
-}
-.genderDisplay {
-  padding: 1em;
-  margin-top: 1.7em;
-  display: flex;
-  justify-content: space-around;
+.userImg1 .userTitle {
+  margin-top: -2.6em;
   text-align: center;
 }
-.genderDisplay p {
-  font-weight: 400;
-}
-.popupLabel {
-  font-size: 1.3em;
-  color: #254b07;
-  font-weight: 700;
-}
-.exerciseQuant {
-  margin-top: 1em;
-  text-align: center;
-  font-size: 1.3em;
-  color: #254b07;
-  font-weight: 700;
-}
-.exerciseQuant #activityQuant {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0.2em;
-  font-weight: 500;
-  font-size: 0.8em;
-  border-radius: 5rem;
-  width: 15em;
-  color: white;
+.userImg1 p {
   font-family: mier;
-  background-color: #254b07;
-  padding: 0.7em 0;
+  font-size: 1.7em;
 }
-.chart {
-  margin-top: 1em;
+.userImg1 #userMail {
+  margin-top: -0.2em;
+  font-size: 0.9em;
+  color: rgb(166, 166, 166);
+}
+.userImg p {
+  font-family: mier;
+  font-size: 1.7em;
+}
+.userImg #userMail {
+  margin-top: -0.2em;
+  font-size: 0.9em;
+  color: rgb(166, 166, 166);
+}
+
+/*--------------------------------USER ATTRIBUTES---------------------------------------------------*/
+
+.innerInfo .userImg2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 0em;
+  text-align: center;
+}
+.userImg2 .attribute {
+  width: 100%;
+  height: 100%;
+}
+.userImg2 .attri-icons {
+  height: 2.5em;
+  width: 2.5em;
+  border: 1px solid rgb(222, 222, 222);
+  background-color: #77c84eb7;
+  /* background-color: rgb(222, 222, 222); */
+  border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #4ac57740;
-  border-radius: 0.75em;
-  height: 14em;
-  width: 20em;
+  margin-top: 0.8em;
+  text-align: center;
+  place-content: center;
+  color: #254b07;
+  /* color: rgb(210, 210, 210); */
 }
+.userImg2 .attribute p {
+  font-size: 1em;
+}
+.attribute #attribute {
+  margin-top: -0.3em;
+  font-size: 1.7em;
+  color: #a6a6a6;
+}
+
+/*--------------------------------MILESTONE---------------------------------------------------*/
+
+.innerInfo .milestone {
+  position: relative;
+  width: 16em;
+  height: 34em;
+  margin-left: -0.2em;
+  border-radius: 2em;
+}
+.milestone img {
+  position: relative;
+  object-fit: cover;
+  width: 16em;
+  height: 34em;
+  border-radius: 2em;
+}
+.milestone .milestone-info {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(0deg, black, transparent);
+}
+.milestone .milestone-info p {
+  position: absolute;
+}
+.milestone .milestone-info #percentage {
+  color: rgb(126, 219, 157);
+  top: 1%;
+  font-size: 5em;
+  font-family: mier;
+  margin-left: 0.3em;
+}
+.milestone .milestone-info #description {
+  color: #ecf3ee;
+  bottom: 10%;
+  font-size: 1.1em;
+  line-height: 1.1em;
+  font-family: mier;
+}
+.milestone .milestone-info #milestone {
+  color: rgb(236, 243, 238);
+  bottom: 20%;
+  font-size: 3em;
+  line-height: 1.1em;
+  font-family: mier;
+}
+.innerInfo .Stats {
+  margin-top: -2em;
+  height: 18em;
+  background: linear-gradient(170deg, white, white, rgba(180, 180, 180, 0.085));
+  border-radius: 1em;
+}
+
+/*--------------------------------MEAL STATUS---------------------------------------------------*/
+
+.userImg5 {
+  width: 98%;
+
+  padding: 0.8em;
+}
+.userImg5 p {
+  font-family: mier;
+  text-align: center;
+  place-content: center;
+}
+.userImg5 #dailytasks {
+  margin-top: 1em;
+  margin-left: auto;
+  font-size: 0.9em;
+  margin-right: auto;
+  color: white;
+  background-color: #303030;
+  border-radius: 3em;
+  width: 13em;
+  height: 2.3em;
+}
+.userImg5 .chart {
+  margin-top: -1em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.75em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  z-index: 4;
+}
+text {
+  font-family: mier;
+  font-size: 2em;
+}
+svg {
+  transform: scale(0.7);
+}
+.userImg5 .buttons {
+  margin-top: -0.5em;
+  display: flex;
+  justify-content: space-evenly;
+}
+.userImg5 .buttons button {
+  font-family: mier;
+  font-size: 0.8em;
+  background-color: #c7c7c7;
+  color: #565656;
+  height: 2.2em;
+  width: 7em;
+  border-radius: 3em;
+  transition: 0.7s ease;
+}
+.userImg5 .buttons button.active {
+  font-family: mier;
+  font-size: 0.8em;
+  background-color: #77c84eb7;
+  color: #254b07;
+  height: 2.2em;
+  width: 7em;
+  border-radius: 3em;
+}
+
+/*-----------------------------Bar chart--------------------------*/
+
+.userImg6 {
+  width: 100%;
+  padding: 0.8em 0em;
+}
+
+.userImg6 #weeklytitle {
+  font-family: mier;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: left;
+  color: #303030;
+  margin-bottom: 0em;
+  margin-left: 1.5em;
+}
+
+.recharts-surface {
+  transform: scale(0.85);
+  font-size: 7px;
+}
+.recharts-tooltip-wrapper {
+  z-index: 9999 !important;
+}
+
+.recharts-default-tooltip {
+  z-index: 9999 !important;
+}
+
+.recharts-yAxis .recharts-cartesian-axis-tick text {
+  fill: #666;
+  font-size: 7px;
+  font-family: mier;
+}
+/*------------------------------Scrollbar--------------------------*/
+/* ::-webkit-scrollbar {
+  width: 10px;
+  z-index: 18;
+  position: relative;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2em;
+  background-color: #77c84eb7;
+  z-index: 18;
+  position: absolute;
+} */

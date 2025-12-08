@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+
+import useUserStore from "../Context/userStore";
+
 const NavBar = () => {
-  const { user } = useAuth();
-  const onClickEvent = (userLog) => {
-    if (userLog) {
-      window.location.href = "/Dashboard";
-    } else if (!userLog) {
-      window.location.href = "/Login";
+  const user = useUserStore((state) => state.user);
+  const navigate = useNavigate();
+
+  const onClickEvent = () => {
+    if (user) {
+      navigate("/Dashboard");
+    } else if (!user) {
+      navigate("/LoginPage");
     }
   };
   return (
@@ -17,11 +20,14 @@ const NavBar = () => {
           <Link to="/">
             <li>HOME</li>
           </Link>
-          <li>ABOUT</li>
+          <a href="#footer">
+            <li>NEWSLETTER</li>
+          </a>
           <Link to="/Contact">
             <li>CONTACT</li>
           </Link>
-          <button onClick={() => onClickEvent(user)}>
+
+          <button onClick={onClickEvent}>
             <p>GET STARTED</p>
           </button>
         </ul>

@@ -1,14 +1,19 @@
 import { React, useState } from "react";
 import "../Styles/Login.css";
 import NavBar from "../Components/NavBar";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Components/firebase";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import Google from "../Components/signInWithGoogle";
+
+import { useNavigate } from "react-router-dom";
+import useUserStore from "../Context/userStore";
 
 /*FUNCTIONS---------------------------------------------------------------------- */
 
 const Login = () => {
+  //navigation
+  const navigate = useNavigate();
+  const login = useUserStore((state) => state.loginUser);
+
   /*USE STATE DEFINING------------------------------- */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,15 +54,16 @@ const Login = () => {
 
     if (!validateForm()) return;
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      // await signInWithEmailAndPassword(auth, email, password);
+      await login({ email, password });
       console.log("User login successful");
-      window.location.href = "/Dashboard";
+      navigate("/Dashboard");
       toast.success("User Logged in successfully!!!!", {
         position: "top-left",
       });
     } catch (error) {
       console.log(error.message);
-      toast.success(error.message, {
+      toast.error(error.message, {
         position: "bottom-left",
       });
     }
@@ -107,23 +113,15 @@ const Login = () => {
             <br />
 
             {/*LOGIN BUTTON-------------------------------------- */}
-            <button
-              style={{
-                marginTop: "3em",
-                backgroundColor: "white",
-                width: "19em",
-                height: "3em",
-                borderRadius: "6px",
-                color: "black",
-                boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)",
-              }}
-              type="submit"
-            >
+            <button class="login-button" type="submit">
               Login
             </button>
           </form>
-          {/*SIGN IN WITH GOOOGLE BUTTON----------------------- */}
-          <Google />
+          <div className="signAcc">
+            <Link to="/Signin">
+              <p>Don't have an account?</p>
+            </Link>
+          </div>
         </div>
       </section>
     </>

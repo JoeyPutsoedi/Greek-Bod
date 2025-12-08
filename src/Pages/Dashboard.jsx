@@ -1,20 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Styles/Dashboard.css";
 import { Link } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth } from "../Components/firebase";
-import PopUp from "../Components/PopUp";
-import Settings from "../Components/Settings";
-import DashboardHome from "../Components/DashboardHome";
-import DashboardMeals from "../Components/DashboardMeals";
-import DashboardUpload from "../Components/DashboardUpload";
+import PopUp from "../Components/PopUp.jsx";
+import Settings from "../Components/Settings.jsx";
+import DashboardHome from "../Components/DashboardHome.jsx";
+import DashboardMeals from "../Components/DashboardMeals.jsx";
+import useUserStore from "../Context/userStore.jsx";
+import TargetPopUp from "../Components/TargetPopUp.jsx";
+
+import "../Styles/DashboardResponsive.css";
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState();
+  const user = useUserStore((state) => state.user);
+  const signOut = useUserStore((state) => state.signOutUser);
+
+  const [activeTab, setActiveTab] = useState(() => {
+    return localStorage.getItem("activeTab") || "home";
+  });
+
   /*Sign out function-------------- */
   const signOutUser = () => {
-    signOut(auth);
-    window.location.href = "/";
+    try {
+      signOut();
+      // alert("log out sucesssful");
+      window.location.href = "/";
+    } catch (error) {
+      alert("failed to signOut");
+    }
   };
+
+  // Save activeTab to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]);
 
   /*Access to user information--------------- */
 
@@ -35,6 +52,7 @@ const Dashboard = () => {
   return (
     <>
       <PopUp />
+      <TargetPopUp />
       <section className="dashCont">
         <div className="dashTools">
           {/*--------------logo----------------------*/}
@@ -55,10 +73,10 @@ const Dashboard = () => {
               onClick={() => setActiveTab("meals")}
               class="fa-solid fa-utensils"
             ></i>
-            <i
+            {/* <i
               onClick={() => setActiveTab("upload")}
               class="fa-solid fa-camera"
-            ></i>
+            ></i> */}
             <Link to="/Contact">
               <i class="fa-solid fa-envelope"></i>
             </Link>
