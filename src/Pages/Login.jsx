@@ -3,6 +3,7 @@ import "../Styles/Login.css";
 import NavBar from "../Components/NavBar";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import loginImg from "../assets/images/login.jpg";
 
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../Context/userStore";
@@ -71,60 +72,63 @@ const Login = () => {
 
   /*RETURN------------------------------ */
   return (
-    <>
+    <div className="login-wrapper">
       <NavBar />
       <section className="login">
-        <div className="loginCont">
-          <h1>Login</h1>
-          {/*FORM------------------------------------------ */}
+        <div className="left-section">
+          <div className="upper-left">
+            <h1>WELCOME BACK</h1>
+            <p>
+              Cherished wanderer we've awaited your return since <br /> last we
+              saw you. It's good to have you back with us!
+            </p>
+          </div>
+          <div className="lower-left">
+            <form onSubmit={handleLogin}>
+              {/*EMAIL INPUT---------------------------------- */}
+              <label className="label" htmlFor="email">
+                Email:
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-          <form onSubmit={handleLogin}>
-            {/*EMAIL INPUT---------------------------------- */}
-            <label className="label" htmlFor="email">
-              Email:
-            </label>
-            <br />
+              {errors.email && <p className="error">{errors.email}</p>}
+              {/*if errors.email exists render <p> with error text */}
+              {/*PASSWORD INPUT---------------------------------- */}
+              <label className="label" htmlFor="password">
+                Password:
+              </label>
+              <input
+                type="password"
+                placeholder="Enter your Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {errors.password && <p className="error">{errors.password}</p>}
+              {/*if errors.password exists render <p> with error text */}
+              {/*LOGIN BUTTON-------------------------------------- */}
 
-            <input
-              type="text"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-            {/*if errors.email exists render <p> with error text */}
-            <br />
-            <br />
-
-            {/*PASSWORD INPUT---------------------------------- */}
-            <label className="label" htmlFor="password">
-              Password:
-            </label>
-            <br />
-            <input
-              type="password"
-              placeholder="Enter your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {errors.password && <p className="error">{errors.password}</p>}
-            {/*if errors.password exists render <p> with error text */}
-            <br />
-            <br />
-
-            {/*LOGIN BUTTON-------------------------------------- */}
-            <button class="login-button" type="submit">
-              Login
-            </button>
-          </form>
-          <div className="signAcc">
-            <Link to="/Signin">
-              <p>Don't have an account?</p>
-            </Link>
+              <button class="login-button" type="submit">
+                Login
+              </button>
+              <div className="signAcc">
+                <p>Don't have an account?</p>
+                <Link to="/Signin">
+                  <p style={{ color: "#52a811" }}>sign up</p>
+                </Link>
+              </div>
+            </form>
           </div>
         </div>
+        <div className="right-section">
+          <img src={loginImg} alt="" />
+        </div>
       </section>
-    </>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import NavBar from "../Components/NavBar";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../Context/userStore";
+import signinImg from "../assets/images/sign.jpg";
 const Signin = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -72,78 +73,85 @@ const Signin = () => {
     }
   };
   return (
-    <>
+    <div className="sign-wrapper">
       <NavBar />
       <section className="signin">
-        <div className="signinCont">
-          <h1>SIGN IN</h1>
-
+        <div className="left-section">
+          <img src={signinImg} alt="" />
+        </div>
+        <div className="right-section">
+          <div className="upper-right">
+            <h1>SIGN IN</h1>
+            <p>
+              Hello there wandarer, we're pleased to have you! <br />
+              we hope that this is the beginning of a productive friendship.
+            </p>
+          </div>
           {/*FORM--------------------------------------------------*/}
-          <form onSubmit={handleSignIn}>
-            <label className="label" htmlFor="email">
-              First Name:
-            </label>
-            <br />
-            <input
-              type="text"
-              placeholder="Enter your first name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-            {errors.firstName && <p className="error">{errors.firstName}</p>}
-            <br /> <br />
-            <label className="label" htmlFor="email">
-              Last Name:
-            </label>
-            <br />
-            <input
-              type="text"
-              placeholder="Enter your last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-            {errors.lastName && <p className="error">{errors.lastName}</p>}
-            <br />
-            <br />
-            <label className="label" htmlFor="password">
-              Email Address:
-            </label>
-            <br />
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-            <br />
-            <br />
-            <label className="label" htmlFor="password">
-              Password:
-            </label>
-            <br />
-            <input
-              type="password"
-              placeholder="Enter your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {errors.password && <p className="error">{errors.password}</p>}
-            <br />
-            <br />
-            <br />
-            <button class="signin-button" type="submit">
-              Sign In
-            </button>
-          </form>
-          <div className="createAcc">
-            <Link to="/LoginPage">
-              <p>Already have an account?</p>
-            </Link>
+          <div className="lower-right">
+            <form onSubmit={handleSignIn}>
+              <label className="label" htmlFor="email">
+                First Name:
+              </label>
+
+              <input
+                type="text"
+                placeholder="Enter your first name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              {errors.firstName && <p className="error">{errors.firstName}</p>}
+
+              <label className="label" htmlFor="email">
+                Last Name:
+              </label>
+
+              <input
+                type="text"
+                placeholder="Enter your last name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              {errors.lastName && <p className="error">{errors.lastName}</p>}
+
+              <label className="label" htmlFor="password">
+                Email Address:
+              </label>
+
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              {errors.email && <p className="error">{errors.email}</p>}
+
+              <label className="label" htmlFor="password">
+                Password:
+              </label>
+
+              <input
+                type="password"
+                placeholder="Enter your Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {errors.password && <p className="error">{errors.password}</p>}
+
+              <button class="signin-button" type="submit">
+                Sign In
+              </button>
+              <div className="createAcc">
+                <p>Already have an account?</p>
+                <Link to="/LoginPage">
+                  <p style={{ color: "#52a811" }}>login</p>
+                </Link>
+              </div>
+            </form>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

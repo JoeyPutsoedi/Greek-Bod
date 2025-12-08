@@ -1,190 +1,100 @@
-.login {
-  min-width: 100%;
-  min-height: 100%;
-  background-color: #52a811;
+.login-wrapper {
+  width: 100%;
+  height: 100vh;
+
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
-  transform: translate(0%, 15%);
 }
-.loginCont {
-  width: 25em;
-  height: 35em;
-  background-color: #e3e3e3;
-  font-family: mier;
+.login {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.login .left-section {
+  width: 50%;
   display: grid;
-  grid-template-rows: 0.5fr 1fr 1fr;
+  grid-template-rows: 3fr 7fr;
 }
-.loginCont h1 {
-  padding-top: 1.6em;
+.login .right-section {
+  display: flex;
+  place-items: center;
+  width: 50%;
+}
+.login .right-section img {
+  object-fit: cover;
+  width: 98%;
+  height: 98%;
+  border-radius: 2em;
+}
+.login .upper-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
   text-align: center;
-  font-weight: 700;
-  font-size: 2em;
+  font-family: mier;
+  padding-top: 2em;
 }
-.loginCont form {
-  margin-top: 3.5em;
+.login .upper-left h1 {
+  font-size: 2.2em;
+}
+.login .upper-left p {
+  font-size: 13px;
+  color: gray;
+  line-height: 1.1em;
+}
+.login form {
+  width: 65%;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  font-family: mier;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+.login form .label {
+  width: 82%;
+  font-size: 14px;
+  color: #5a5a5a;
+}
+.login form input {
+  position: relative;
+  display: block;
+  width: 22em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  padding-left: 0.7em;
+  margin-top: 0.3em;
+  margin-bottom: 1.5em;
+  border: 1px solid #b8b8b8;
+}
+.login form i {
+  position: absolute;
+}
+.login form button {
+  width: 22em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  background-color: #4b9b0f;
+}
+
+.login form .error {
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+  color: #ff0051da;
   text-align: center;
-}
-.loginCont input {
-  padding: 0.5em;
-  width: 16em;
-  height: 2em;
-  border: 1px solid grey;
-  border-radius: 0.25em;
-}
-.loginCont .login-button {
-  margin-top: 3em;
-  background-color: white;
-  width: 19em;
+  place-content: center;
+  border: 1px solid #ff0051;
+  background-color: #ffd9e0;
   height: 3em;
-  border-radius: 6px;
-  color: black;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  width: 22em;
 }
-.signAcc {
-  margin-top: 1em;
-  text-align: center;
-}
-.logbtn {
-  color: black;
-  width: 19em;
-  height: 3em;
-  border-radius: 6px;
-  background-color: white;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-.signAcc button {
-  color: black;
-  width: 19em;
-  height: 3em;
-  border-radius: 6px;
-  background-color: greenyellow;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-.signAcc i {
-  padding-left: 0.3em;
-}
-.signAcc p {
-  color: blueviolet;
-  text-decoration: underline;
-  padding-top: 1em;
-}
-.error {
-  color: red;
-  margin-bottom: -3em;
-}
-
-/*Media queries----------------------------------*/
-
-/* Tablets and smaller desktops (768px - 1024px) */
-@media (max-width: 1024px) {
-  .login {
-    transform: translate(0%, 10%);
-  }
-
-  .loginCont {
-    width: 26em;
-  }
-}
-
-/* Tablets Portrait (600px - 768px) */
-@media (max-width: 768px) {
-  .login {
-    transform: translate(0%, 8%);
-  }
-
-  .loginCont {
-    width: 24em;
-  }
-
-  .loginCont h1 {
-    font-size: 1.9em;
-  }
-}
-
-/* Mobile Landscape & Small Tablets (451px - 600px) */
-@media (max-width: 600px) {
-  .login {
-    transform: translate(0%, 5%);
-  }
-
-  .loginCont {
-    width: 22em;
-  }
-
-  .loginCont h1 {
-    font-size: 1.8em;
-  }
-
-  .loginCont input {
-    width: 15em;
-  }
-
-  .logbtn,
-  .signAcc button {
-    width: 18em;
-  }
-}
-
-/* Mobile Portrait (max-width: 450px) */
-@media (max-width: 450px) {
-  .login {
-    transform: translate(0%, 3%);
-    padding: 1em 0.5em;
-  }
-
-  .loginCont {
-    width: 20em;
-  }
-
-  .loginCont h1 {
-    font-size: 1.7em;
-  }
-
-  .loginCont input {
-    width: 14em;
-    height: 2.2em;
-  }
-  .loginCont .login-button {
-    width: 14em;
-    height: 3em;
-  }
-  .logbtn,
-  .signAcc button {
-    width: 16em;
-    height: 2.8em;
-  }
-
-  .error {
-    font-size: 13px;
-    margin-bottom: -2em;
-  }
-}
-
-/* Extra Small Mobile (max-width: 390px) */
-@media (max-width: 390px) {
-  .login {
-    transform: translate(0%, 2%);
-  }
-
-  .loginCont {
-    width: 18em;
-  }
-
-  .loginCont h1 {
-    font-size: 1.6em;
-  }
-
-  .loginCont input {
-    width: 13em;
-    font-size: 13px;
-  }
-  .loginCont .login-button {
-    width: 11em;
-    height: 3em;
-  }
-  .logbtn,
-  .signAcc button {
-    width: 14em;
-    font-size: 13px;
-  }
+.login .signAcc {
+  margin: 1.5em;
+  display: flex;
+  gap: 0.2em;
+  color: #5a5a5a;
 }
