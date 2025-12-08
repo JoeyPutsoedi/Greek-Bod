@@ -112,7 +112,7 @@ const Login = () => {
               {/*if errors.password exists render <p> with error text */}
               {/*LOGIN BUTTON-------------------------------------- */}
 
-              <button class="login-button" type="submit">
+              <button className="login-button" type="submit">
                 Login
               </button>
               <div className="signAcc">

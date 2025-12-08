@@ -101,3 +101,99 @@
   gap: 0.2em;
   color: #5a5a5a;
 }
+
+/* Responsive Design - Media Queries */
+@media screen and (max-width: 1024px) {
+  .signin .upper-right h1 {
+    font-size: 1.8em;
+  }
+
+  .signin .upper-right p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Hide left section (image) on smaller screens */
+  .signin .left-section {
+    display: none;
+  }
+
+  .signin .right-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0em 1em;
+
+    margin-top: 3em;
+  }
+
+  .signin .upper-right {
+    padding: 2em 1em 1em 1em;
+  }
+
+  .signin .upper-right h1 {
+    font-size: 1.8em;
+  }
+
+  .signin .lower-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .signin form {
+    width: 90%;
+    max-width: 400px;
+    padding: 1em;
+  }
+
+  .signin form input,
+  .signin form button,
+  .signin form .error {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .signin form .label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sign-wrapper {
+    overflow-y: auto;
+  }
+
+  .signin .upper-right {
+    padding: 1.5em 1em 1em 1em;
+  }
+
+  .signin .upper-right h1 {
+    font-size: 1.5em;
+  }
+
+  .signin .upper-right p {
+    font-size: 11px;
+  }
+
+  .signin .upper-right p br {
+    display: none;
+  }
+  .signin form input {
+    height: 3.7em;
+  }
+  .signin form {
+    width: 95%;
+    padding: 0.5em;
+  }
+
+  .signin .createAcc {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3em;
+  }
+}
