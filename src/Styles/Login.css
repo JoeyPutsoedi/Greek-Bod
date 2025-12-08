@@ -98,3 +98,94 @@
   gap: 0.2em;
   color: #5a5a5a;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .login .upper-left h1 {
+    font-size: 1.8em;
+  }
+
+  .login .upper-left p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Hide right section on smaller screens */
+  .login .right-section {
+    display: none;
+  }
+
+  .login .left-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0em 1em;
+  }
+
+  .login .upper-left {
+    padding: 2em 1em 1em 1em;
+  }
+
+  .login .upper-left h1 {
+    font-size: 1.8em;
+  }
+
+  .login .lower-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login form {
+    width: 90%;
+    max-width: 400px;
+    padding: 1em;
+  }
+
+  .login form input,
+  .password-wrapper,
+  .login form .login-button,
+  .login form .error {
+    width: 100%;
+    max-width: 100%;
+  }
+  .login form .label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login .upper-left {
+    padding: 1.5em 1em 1em 1em;
+  }
+
+  .login .upper-left h1 {
+    font-size: 1.5em;
+  }
+
+  .login .upper-left p {
+    font-size: 11px;
+  }
+
+  .login form input {
+    height: 3.7em;
+  }
+  .login .upper-left p br {
+    display: none;
+  }
+
+  .login form {
+    width: 95%;
+    padding: 0.5em;
+  }
+
+  .login .signAcc {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3em;
+  }
+}
