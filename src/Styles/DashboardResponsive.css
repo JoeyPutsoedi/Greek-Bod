@@ -1,38 +1,6 @@
-/* Add these media queries to your existing CSS files */
-
-/*TABLET LANDSCAPE (1024px - 1366px)*/
-@media screen and (max-width: 1366px) {
-  .leftDash {
-    padding: 1em 1.5em;
-  }
-
-  .upperActivity .bmrCont {
-    width: 48%;
-  }
-
-  .upperActivity .calCont {
-    width: 52%;
-    padding: 1.5em 0.8em 0 0.8em;
-  }
-
-  .lowerActivity .lowerCont {
-    width: 13em;
-  }
-
-  .chart {
-    width: 18em;
-    height: 12em;
-  }
-}
-
-/* ============================================
-   TABLET PORTRAIT (768px - 1023px)
-   ============================================ */
+/*-------------------------------Nav bar responsiveness---------------------------------*/
+/*TABLET  POTRAIT (1024px - 1366px)*/
 @media screen and (max-width: 1023px) {
-  .dashboard-container {
-    flex-direction: column;
-  }
-
   .dashTools {
     width: 100%;
     height: auto;
@@ -67,115 +35,15 @@
     padding: 0.7em 1.2em;
     border-radius: 0.75em;
   }
-
-  .leftDash {
-    width: 100%;
-    padding: 1em;
-    padding-bottom: 6em;
-  }
-
-  .rightDash {
-    width: 100%;
-    padding: 1em;
-    padding-bottom: 6em;
-  }
-
-  .upperActivity {
-    flex-direction: column;
-    height: auto;
-    gap: 1em;
-  }
-
-  .upperActivity .bmrCont {
-    width: 100%;
-  }
-
-  .upperActivity .calCont {
-    width: 100%;
-    padding: 1.5em 1em;
-  }
-
-  .lowerActivity {
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-
-  .lowerActivity .lowerCont {
-    width: calc(33.333% - 1em);
-    min-width: 200px;
-  }
-
-  .top-rightdash {
-    height: auto;
-    padding: 2em 0;
-  }
-
-  .bottom-rightDash {
-    padding-bottom: 2em;
-  }
 }
-
-/* ============================================
-   MOBILE LANDSCAPE (568px - 767px)
-   ============================================ */
+/*    MOBILE LANDSCAPE (568px - 767px) */
 @media screen and (max-width: 767px) {
   .dashTools {
     max-width: calc(100% - 2em);
   }
-
-  .leftDash h1 {
-    font-size: 1.5em;
-  }
-
-  .leftDash .dashBanner {
-    height: auto;
-    padding: 1.5em 1em;
-  }
-
-  .dashBanner h2 {
-    font-size: 1.1em;
-  }
-
-  .upperActivity .bmrCont {
-    font-size: 1em;
-  }
-
-  .lowerActivity {
-    flex-direction: column;
-  }
-
-  .lowerActivity .lowerCont {
-    width: 100%;
-  }
-
-  .imgplacehld {
-    width: 8em;
-    height: 8em;
-  }
-
-  .imgplacehld img {
-    width: 8em;
-    height: 8em;
-  }
-
-  .imgplacehld p {
-    font-size: 2.5em;
-  }
-
-  .bottom-rightDash .popupStats {
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-
-  .chart {
-    width: 100%;
-    max-width: 20em;
-  }
 }
 
-/* ============================================
-   MOBILE PORTRAIT (320px - 567px)
-   ============================================ */
+/*   MOBILE PORTRAIT (320px - 567px) */
 @media screen and (max-width: 567px) {
   .dashCont {
     flex-direction: column;
@@ -207,161 +75,8 @@
   .logout i {
     font-size: 1.2em;
   }
-
-  .dashInfo {
-    height: auto;
-    min-height: calc(100vh - 60px);
-  }
-
-  .leftDash {
-    padding: 0.5em;
-  }
-
-  .leftDash h1 {
-    font-size: 1.3em;
-  }
-
-  .leftDash .dashBanner {
-    margin-top: 1em;
-    padding: 1em;
-  }
-
-  .dashBanner h2 {
-    font-size: 1em;
-  }
-
-  .dashBanner p {
-    font-size: 0.85em;
-  }
-
-  .activityDash {
-    margin-top: 1em;
-  }
-
-  .upperActivity .bmrCont {
-    font-size: 0.9em;
-    gap: 0.8em;
-  }
-
-  .bmrCont .upperBmr {
-    padding: 0.5em 0.8em;
-  }
-
-  .upperBmr .blok {
-    width: 3.5em;
-    height: 3.5em;
-    font-size: 0.75em;
-  }
-
-  .upperBmr p {
-    font-size: 12px;
-    margin-left: 0.5em;
-  }
-
-  .white-lines .line {
-    width: 3em;
-  }
-
-  .upperActivity .calCont {
-    padding: 1em 0.5em;
-  }
-
-  /* Make calendar more compact on mobile */
-  .react-calendar {
-    font-size: 0.85em;
-    max-width: 100%;
-  }
-
-  .lowerActivity .lowerCont {
-    height: auto;
-    padding: 0.8em;
-    flex-direction: column;
-    gap: 0.5em;
-    align-items: flex-start;
-  }
-
-  .lowerActivity .LInfo {
-    width: 100%;
-    height: auto;
-    font-size: 13px;
-  }
-
-  .lowerActivity button {
-    width: 100%;
-    height: 2.5em;
-  }
-
-  .rightDash {
-    border-radius: 0.75em;
-    padding: 0.5em;
-    padding-bottom: 5em;
-  }
-
-  .top-rightdash {
-    padding: 1.5em 0;
-  }
-
-  .imgplacehld {
-    width: 7em;
-    height: 7em;
-  }
-
-  .imgplacehld img {
-    width: 7em;
-    height: 7em;
-  }
-
-  .imgplacehld p {
-    font-size: 2em;
-  }
-
-  .top-rightdash h1 {
-    font-size: 1em;
-    margin-top: 0.5em;
-  }
-
-  .bottom-rightDash .popupStats {
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 0.5em;
-    gap: 0.5em;
-  }
-
-  .popupLabel {
-    font-size: 1.1em;
-  }
-
-  .exerciseQuant {
-    font-size: 1.1em;
-    margin-top: 1em;
-  }
-
-  .exerciseQuant #activityQuant {
-    width: 90%;
-    max-width: 15em;
-    font-size: 0.75em;
-    padding: 0.6em 0;
-  }
-
-  .chart {
-    margin-top: 1.5em;
-    height: 12em;
-    width: 90%;
-  }
-
-  .chart svg {
-    transform: scale(0.7);
-  }
-
-  .chart p {
-    font-size: 0.9em;
-    margin-top: -1em;
-  }
 }
-
-/* ============================================
-   EXTRA SMALL MOBILE (max 374px)
-   ============================================ */
+/*   EXTRA SMALL MOBILE (max 374px)*/
 @media screen and (max-width: 374px) {
   .dashTools {
     padding: 0.5em 0.8em;
@@ -376,50 +91,8 @@
     font-size: 1em;
     padding: 0.5em 0.8em;
   }
-
-  .leftDash h1 {
-    font-size: 1.2em;
-  }
-
-  .dashBanner h2 {
-    font-size: 0.9em;
-  }
-
-  .dashBanner p {
-    font-size: 0.8em;
-  }
-
-  .upperActivity .bmrCont {
-    font-size: 0.85em;
-  }
-
-  .upperBmr .blok {
-    width: 3em;
-    height: 3em;
-  }
-
-  .upperBmr p {
-    font-size: 11px;
-  }
-
-  .imgplacehld {
-    width: 6em;
-    height: 6em;
-  }
-
-  .imgplacehld img {
-    width: 6em;
-    height: 6em;
-  }
-
-  .chart svg {
-    transform: scale(0.6);
-  }
 }
-
-/* ============================================
-   LANDSCAPE ORIENTATION FIX
-   ============================================ */
+/*    LANDSCAPE ORIENTATION FIX*/
 @media screen and (max-height: 500px) and (orientation: landscape) {
   .dashTools {
     grid-template-columns: auto 1fr auto;
@@ -434,47 +107,778 @@
   .navSec i {
     padding: 0.5em 0.9em;
   }
+}
+/*-------------------------------Dashboard Home responsiveness---------------------------------*/
 
-  .dashInfo {
+/* Large screens (1440px and above) */
+@media screen and (min-width: 1440px) {
+  .dashboard-container {
+    padding: 0em 2em 1em 2em;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .streak-section .streak-container {
+    width: 17em;
+  }
+
+  .innerInfo {
+    column-gap: 1.5em;
+    row-gap: 3em;
+  }
+
+  .innerInfo .userImg {
+    width: 19em;
+  }
+
+  .userImg1 {
+    width: 21.5em;
+  }
+
+  .innerInfo .milestone {
+    width: 18em;
+    height: 38em;
+  }
+
+  .milestone img {
+    width: 18em;
+    height: 38em;
+  }
+}
+
+/* Desktop (1200px - 1439px) */
+@media screen and (max-width: 1439px) and (min-width: 1200px) {
+  .dashboard-container {
+    padding: 0em 1em 1em 1em;
+  }
+
+  .streak-section .streak-container {
+    width: 14em;
+  }
+
+  .innerInfo {
+    column-gap: 1.2em;
+  }
+
+  .innerInfo .userImg {
+    width: 16em;
+  }
+
+  .userImg1 {
+    width: 18em;
+  }
+}
+
+/* Laptop (1024px - 1199px) */
+@media screen and (max-width: 1199px) and (min-width: 1024px) {
+  .dashboard-container {
+    padding: 0em 0.8em 1em 0.8em;
+  }
+
+  .StreakSection .streak-section {
+    gap: 0.8em;
+    overflow-x: auto;
+  }
+
+  .streak-section .streak-container {
+    width: 13.5em;
+    min-width: 13.5em;
+  }
+
+  .innerInfo {
+    grid-template-areas:
+      "box1 box2 box3"
+      "box4 box5 box6";
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 2em;
+    column-gap: 1em;
+  }
+
+  .innerInfo .userImg,
+  .userImg1 {
+    width: 100%;
+    height: 15em;
+  }
+
+  .innerInfo .milestone {
+    width: 100%;
+    height: 32em;
+    margin-left: 0;
+  }
+
+  .milestone img {
+    width: 100%;
+    height: 32em;
+  }
+
+  .innerInfo .Stats {
+    height: 15em;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .dashboard-container {
+    padding: 0.5em;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .dashboard-container .intro h2 {
+    font-size: 1.6em;
+  }
+
+  .StreakSection .streak-section {
+    flex-wrap: wrap;
+    gap: 0.8em;
+  }
+
+  .streak-section .streak-container {
+    width: calc(50% - 0.4em);
+    min-width: 180px;
+    height: 4.8em;
+  }
+
+  .innerInfo {
+    grid-template-areas:
+      "box1 box1 box2 box2"
+      "box3 box3 box4 box4"
+      "box5 box5 box6 box6";
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.5em;
+    column-gap: 1em;
+  }
+
+  .innerInfo .userImg,
+  .userImg1 {
+    width: 100%;
+    height: 14em;
+  }
+
+  .innerInfo .milestone {
+    width: 100%;
+    height: 25em;
+    margin-left: 0;
+  }
+
+  .milestone img {
+    width: 100%;
+    height: 25em;
+  }
+
+  .milestone .milestone-info #percentage {
+    font-size: 4em;
+  }
+
+  .milestone .milestone-info #milestone {
+    font-size: 2.5em;
+  }
+
+  .innerInfo .Stats {
+    height: 18em;
+    margin-top: 0;
+  }
+}
+
+/* Mobile landscape and small tablets (600px - 767px) */
+@media screen and (max-width: 767px) and (min-width: 600px) {
+  .dashboard-container {
+    height: auto;
+    min-height: 100vh;
+    padding: 0.5em;
+    grid-template-rows: auto auto auto;
+    gap: 0.8em;
+  }
+
+  .dashboard-container .intro {
+    width: 100%;
+  }
+
+  .dashboard-container .intro h2 {
+    font-size: 1.5em;
+  }
+
+  .StreakSection .streak-section {
+    flex-wrap: wrap;
+    gap: 0.8em;
+  }
+
+  .streak-section .streak-container {
+    width: calc(50% - 0.4em);
+    height: 4.5em;
+  }
+
+  .innerInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "box1 box2"
+      "box3 box4"
+      "box5 box6";
+    gap: 1em;
+  }
+
+  .innerInfo .userImg,
+  .userImg1,
+  .userImg2,
+  .userImg3,
+  .userImg4,
+  .userImg5,
+  .userImg6 {
+    width: 100%;
+    height: auto;
+    min-height: 14em;
+  }
+
+  .innerInfo .milestone {
+    width: 100%;
+    height: 22em;
+    margin-left: 0;
+  }
+
+  .milestone img {
+    width: 100%;
+    height: 22em;
+  }
+
+  .milestone .milestone-info #percentage {
+    font-size: 3.5em;
+  }
+
+  .milestone .milestone-info #milestone {
+    font-size: 2em;
+  }
+
+  .innerInfo .Stats {
+    margin-top: 0;
+    height: 18em;
+  }
+}
+
+/* Mobile devices (max-width: 599px) */
+@media screen and (max-width: 599px) {
+  .dashboard-container {
+    height: auto;
+    min-height: 100vh;
+    padding: 0.5em 0.4em;
+    grid-template-rows: auto auto auto;
+    gap: 0.8em;
+    overflow-y: auto;
+    margin-bottom: 4em;
+  }
+
+  .dashboard-container .intro {
+    width: 100%;
+  }
+
+  .dashboard-container .intro h2 {
+    font-size: 1.4em;
+  }
+
+  .StreakSection .streak-section {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  .streak-section .streak-container {
+    width: 100%;
+    height: 4.5em;
+  }
+
+  .streak-container #days,
+  .streak-container #day {
+    font-size: 1em;
+  }
+
+  .innerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .innerInfo .userImg,
+  .userImg1,
+  .userImg2,
+  .userImg3,
+  .userImg4,
+  .userImg5,
+  .userImg6 {
+    width: 100%;
+    height: auto;
+    min-height: 12em;
+  }
+
+  .userImg1 {
+    min-height: 15em;
+  }
+
+  .userImg1 p {
+    font-size: 1.4em;
+  }
+
+  .userImg1 #userMail {
+    font-size: 0.8em;
+  }
+
+  .innerInfo .userImg2 {
+    min-height: 18em;
+    padding: 1em;
+  }
+
+  .userImg3 {
+    padding: 1em;
+    min-height: 20em;
+  }
+
+  .innerInfo .milestone {
+    width: 100%;
+    height: 20em;
+    margin-left: 0;
+  }
+
+  .milestone img {
+    width: 100%;
+    height: 20em;
+  }
+
+  .milestone .milestone-info #percentage {
+    font-size: 3.5em;
+  }
+
+  .milestone .milestone-info #milestone {
+    font-size: 2em;
+  }
+
+  .milestone .milestone-info #description {
+    font-size: 0.95em;
+    padding: 0 1em;
+  }
+
+  .userImg5 {
+    width: 100%;
+    min-height: 20em;
+  }
+
+  .innerInfo .Stats {
+    margin-top: 0;
+    height: 20em;
+    width: 100%;
+  }
+
+  .userImg6 {
+    width: 100%;
+    padding: 1em;
+  }
+
+  .userImg6 #weeklytitle {
+    margin-left: 0.5em;
+    font-size: 0.95em;
+  }
+
+  .recharts-surface {
+    transform: scale(1);
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .dashboard-container {
+    padding: 0.5em 1em;
+  }
+
+  .dashboard-container .intro h2 {
+    font-size: 1.3em;
+  }
+
+  .streak-section .streak-container {
+    height: 4em;
+    padding: 0.6em;
+  }
+
+  .streak-container .streakNumber {
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  .streakNumber p {
+    font-size: 1.1em;
+  }
+
+  .streak-container #days,
+  .streak-container #day {
+    font-size: 0.9em;
+    margin-left: 0.5em;
+  }
+
+  .streak-container #activity {
+    font-size: 0.85em;
+  }
+
+  .userImg1 img {
+    width: 5em;
+    height: 5em;
+  }
+
+  .userImg1 p {
+    font-size: 1.2em;
+  }
+
+  .userImg2 .attri-icons {
+    width: 2em;
+    height: 2em;
+    font-size: 1.3em;
+  }
+
+  .userImg2 .attribute p {
+    font-size: 1.3em;
+  }
+
+  .attribute #attribute {
+    font-size: 1.4em;
+  }
+
+  .milestone .milestone-info #percentage {
+    font-size: 3em;
+  }
+
+  .milestone .milestone-info #milestone {
+    font-size: 1.8em;
+  }
+
+  .userImg5 .buttons button,
+  .userImg5 .buttons button.active {
+    width: 6em;
+    font-size: 0.75em;
+  }
+
+  svg {
+    transform: scale(0.6);
+  }
+}
+
+/* Extra small devices (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .dashboard-container .intro h2 {
+    font-size: 1.2em;
+  }
+
+  .streak-section .streak-container {
+    height: 3.8em;
+    padding: 0.5em;
+  }
+
+  .streak-container .streakNumber {
+    width: 3em;
+    height: 3em;
+  }
+
+  .streakNumber p {
+    font-size: 1em;
+  }
+
+  .streak-container #days,
+  .streak-container #day {
+    font-size: 0.85em;
+  }
+
+  .userImg1 img {
+    width: 4.5em;
+    height: 4.5em;
+  }
+
+  .userImg1 p {
+    font-size: 1.1em;
+  }
+
+  .userImg1 #userMail {
+    font-size: 0.75em;
+  }
+
+  .milestone .milestone-info #percentage {
+    font-size: 2.5em;
+  }
+
+  .milestone .milestone-info #milestone {
+    font-size: 1.5em;
+  }
+
+  .milestone .milestone-info #description {
+    font-size: 0.85em;
+  }
+}
+
+/*-------------------------------Dashboard Meals responsiveness---------------------------------*/
+
+/*   TABLET LANDSCAPE (1024px - 1366px)*/
+@media screen and (max-width: 1366px) {
+  .mealsCont {
+    padding: 1.5em;
+  }
+
+  .mealGrid {
+    gap: 1em;
+  }
+
+  .mealHold {
+    width: 18em;
+    height: 20em;
+  }
+
+  .mealHold img {
+    height: 13em;
+  }
+}
+/*    TABLET PORTRAIT (768px - 1023px)   */
+@media screen and (max-width: 1023px) {
+  .mealsCont {
+    padding: 1em;
+    padding-bottom: 6em;
+  }
+
+  .upperMeals h2 {
+    font-size: 1.5em;
+  }
+
+  .midMeals h2 {
+    font-size: 1.4em;
+  }
+
+  .mealGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .mealType {
+    width: 100%;
+    max-width: 25em;
+  }
+
+  .mealHold {
+    width: 100%;
+    max-width: 25em;
     height: auto;
   }
 
-  .top-rightdash {
-    padding: 1em 0;
-  }
-
-  .imgplacehld {
-    width: 6em;
-    height: 6em;
-  }
-
-  .imgplacehld img {
-    width: 6em;
-    height: 6em;
+  .mealHold img {
+    height: 16em;
   }
 }
 
-/* ============================================
-   UTILITY CLASSES FOR OVERFLOW
-   ============================================ */
-@media screen and (max-width: 1023px) {
-  .dashHome {
-    overflow-y: auto;
-    overflow-x: hidden;
+/*    MOBILE LANDSCAPE (568px - 767px)   */
+@media screen and (max-width: 767px) {
+  .mealsCont {
+    padding: 0.8em;
+    padding-bottom: 6em;
   }
 
-  body {
-    overflow-x: hidden;
+  .upperMeals h2 {
+    font-size: 1.4em;
+  }
+
+  .upperMeals p {
+    width: 9em;
+    height: 2.3em;
+    font-size: 0.65em;
+  }
+
+  .midMeals h2 {
+    font-size: 1.3em;
+    margin-top: 1em;
+  }
+
+  .mealGrid {
+    margin-top: 0.8em;
+    gap: 1.2em;
+  }
+
+  .mealType {
+    max-width: 22em;
+    font-size: 1em;
+    padding: 0.5em 0 0.5em 0.8em;
+  }
+
+  .mealHold {
+    max-width: 22em;
+    height: auto;
+  }
+
+  .mealHold img {
+    height: 14em;
+  }
+
+  .mealHold h3 {
+    font-size: 1em;
+  }
+
+  .mealHold a {
+    font-size: 11px;
+    padding: 0.5em 0.7em;
+  }
+
+  .lowerMeals h2 {
+    margin-top: 1.5em;
+    font-size: 1.3em;
+  }
+
+  .lowerGrid {
+    gap: 1.5em;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-/* ============================================
-   SETTINGS RESPONSIVE STYLES
-   ============================================ */
+/*   MOBILE PORTRAIT (320px - 567px)   */
+@media screen and (max-width: 567px) {
+  .mealsCont {
+    padding: 0.5em;
+    padding-bottom: 5em;
+  }
 
-/* ============================================
-   TABLET LANDSCAPE (1024px - 1366px)
-   ============================================ */
+  .upperMeals h2 {
+    font-size: 1.2em;
+  }
+
+  .upperMeals p {
+    margin-top: 1em;
+    width: 8em;
+    height: 2.2em;
+    font-size: 0.6em;
+  }
+
+  .midMeals h2 {
+    font-size: 1.1em;
+    margin-top: 0.8em;
+  }
+
+  .mealGrid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1em;
+    margin-top: 0.6em;
+  }
+
+  .mealType {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.95em;
+    padding: 0.5em 0 0.5em 0.7em;
+  }
+
+  .mealHold {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    grid-template-rows: auto auto auto;
+  }
+
+  .mealHold img {
+    width: 100%;
+    height: 12em;
+    padding: 0.4em;
+  }
+
+  .mealHold h3 {
+    font-size: 0.95em;
+    padding-left: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  .mealHold .linkHold {
+    padding-left: 0.8em;
+    padding-bottom: 0.5em;
+  }
+
+  .mealHold a {
+    font-size: 10px;
+    padding: 0.5em 0.6em;
+  }
+
+  .lowerMeals h2 {
+    margin-top: 1.2em;
+    font-size: 1.1em;
+  }
+
+  .lowerGrid {
+    gap: 1em;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0.8em;
+  }
+}
+
+/*    EXTRA SMALL MOBILE (max 374px)  */
+@media screen and (max-width: 374px) {
+  .mealsCont {
+    padding: 0.4em;
+    padding-bottom: 5em;
+  }
+
+  .upperMeals h2 {
+    font-size: 1.1em;
+  }
+
+  .upperMeals p {
+    width: 7em;
+    height: 2em;
+    font-size: 0.55em;
+    margin-top: 0.8em;
+  }
+
+  .midMeals h2 {
+    font-size: 1em;
+  }
+
+  .mealType {
+    font-size: 0.9em;
+  }
+
+  .mealHold img {
+    height: 10em;
+  }
+
+  .mealHold h3 {
+    font-size: 0.9em;
+  }
+
+  .mealHold a {
+    font-size: 9px;
+  }
+
+  .lowerMeals h2 {
+    font-size: 1em;
+  }
+}
+
+/* 
+   LANDSCAPE ORIENTATION FIX   */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .mealsCont {
+    padding: 0.8em;
+    padding-bottom: 4em;
+  }
+
+  .mealGrid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1em;
+  }
+
+  .mealHold {
+    width: 30%;
+    min-width: 250px;
+  }
+
+  .mealHold img {
+    height: 10em;
+  }
+}
+
+/*-------------------------------Settings responsiveness---------------------------------*/
+
+/*    TABLET LANDSCAPE (1024px - 1366px)  */
 @media screen and (max-width: 1366px) {
   .settings-wrapper {
     padding: 1.5em;
@@ -504,10 +908,8 @@
   }
 }
 
-/* ============================================
-   TABLET PORTRAIT (768px - 1023px)
-   ============================================ */
-@media screen and (max-width: 1023px) {
+/*    TABLET PORTRAIT (768px - 1023px)*/
+@media screen and (max-width: 1024px) {
   .settings-wrapper {
     padding: 1em;
     padding-bottom: 6em;
@@ -580,15 +982,14 @@
   }
 }
 
-/* ============================================
-   MOBILE LANDSCAPE (568px - 767px)
-   ============================================ */
-@media screen and (max-width: 767px) {
+/*    MOBILE LANDSCAPE (568px - 767px)    */
+@media screen and (max-width: 768px) {
   .settings-wrapper {
     padding: 0.8em;
   }
 
   .settings-container {
+    grid-template-columns: 1fr;
     gap: 1em;
   }
 
@@ -658,9 +1059,7 @@
   }
 }
 
-/* ============================================
-   MOBILE PORTRAIT (320px - 567px)
-   ============================================ */
+/*    MOBILE PORTRAIT (320px - 567px)    */
 @media screen and (max-width: 567px) {
   .settings-wrapper {
     padding: 0.5em;
@@ -741,11 +1140,25 @@
     height: 2.6em;
     font-size: 0.95em;
   }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-row .full-width {
+    grid-column: 1;
+  }
+
+  .input-group {
+    margin-bottom: 1em;
+  }
+
+  .form-content button[type="submit"] {
+    margin-top: 1.5em;
+  }
 }
 
-/* ============================================
-   EXTRA SMALL MOBILE (max 374px)
-   ============================================ */
+/*    EXTRA SMALL MOBILE (max 374px)    */
 @media screen and (max-width: 374px) {
   .settings-wrapper {
     padding: 0.4em;
@@ -809,9 +1222,7 @@
   }
 }
 
-/* ============================================
-   LANDSCAPE ORIENTATION FIX
-   ============================================ */
+/*    LANDSCAPE ORIENTATION FIX    */
 @media screen and (max-height: 500px) and (orientation: landscape) {
   .settings-wrapper {
     padding: 0.8em;
@@ -872,440 +1283,13 @@
   }
 }
 
-/* ============================================
-   UTILITY CLASSES FOR OVERFLOW
-   ============================================ */
+/*    UTILITY CLASSES FOR OVERFLOW    */
 @media screen and (max-width: 1023px) {
   .settings-wrapper {
     overflow-y: auto;
     overflow-x: hidden;
   }
 }
-/* ============================================
-   DASHBOARD MEALS RESPONSIVE STYLES
-   ============================================ */
-
-/* ============================================
-   TABLET LANDSCAPE (1024px - 1366px)
-   ============================================ */
-@media screen and (max-width: 1366px) {
-  .mealsCont {
-    padding: 1.5em;
-  }
-
-  .mealGrid {
-    gap: 1em;
-  }
-
-  .mealHold {
-    width: 18em;
-    height: 20em;
-  }
-
-  .mealHold img {
-    height: 13em;
-  }
-}
-
-/* ============================================
-   TABLET PORTRAIT (768px - 1023px)
-   ============================================ */
-@media screen and (max-width: 1023px) {
-  .mealsCont {
-    padding: 1em;
-    padding-bottom: 6em;
-  }
-
-  .upperMeals h2 {
-    font-size: 1.5em;
-  }
-
-  .midMeals h2 {
-    font-size: 1.4em;
-  }
-
-  .mealGrid {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5em;
-  }
-
-  .mealType {
-    width: 100%;
-    max-width: 25em;
-  }
-
-  .mealHold {
-    width: 100%;
-    max-width: 25em;
-    height: auto;
-  }
-
-  .mealHold img {
-    height: 16em;
-  }
-}
-
-/* ============================================
-   MOBILE LANDSCAPE (568px - 767px)
-   ============================================ */
-@media screen and (max-width: 767px) {
-  .mealsCont {
-    padding: 0.8em;
-    padding-bottom: 6em;
-  }
-
-  .upperMeals h2 {
-    font-size: 1.4em;
-  }
-
-  .upperMeals p {
-    width: 9em;
-    height: 2.3em;
-    font-size: 0.65em;
-  }
-
-  .midMeals h2 {
-    font-size: 1.3em;
-    margin-top: 1em;
-  }
-
-  .mealGrid {
-    margin-top: 0.8em;
-    gap: 1.2em;
-  }
-
-  .mealType {
-    max-width: 22em;
-    font-size: 1em;
-    padding: 0.5em 0 0.5em 0.8em;
-  }
-
-  .mealHold {
-    max-width: 22em;
-    height: auto;
-  }
-
-  .mealHold img {
-    height: 14em;
-  }
-
-  .mealHold h3 {
-    font-size: 1em;
-  }
-
-  .mealHold a {
-    font-size: 11px;
-    padding: 0.5em 0.7em;
-  }
-
-  .lowerMeals h2 {
-    margin-top: 1.5em;
-    font-size: 1.3em;
-  }
-
-  .lowerGrid {
-    gap: 1.5em;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* ============================================
-   MOBILE PORTRAIT (320px - 567px)
-   ============================================ */
-@media screen and (max-width: 567px) {
-  .mealsCont {
-    padding: 0.5em;
-    padding-bottom: 5em;
-  }
-
-  .upperMeals h2 {
-    font-size: 1.2em;
-  }
-
-  .upperMeals p {
-    margin-top: 1em;
-    width: 8em;
-    height: 2.2em;
-    font-size: 0.6em;
-  }
-
-  .midMeals h2 {
-    font-size: 1.1em;
-    margin-top: 0.8em;
-  }
-
-  .mealGrid {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1em;
-    margin-top: 0.6em;
-  }
-
-  .mealType {
-    width: 100%;
-    max-width: 100%;
-    font-size: 0.95em;
-    padding: 0.5em 0 0.5em 0.7em;
-  }
-
-  .mealHold {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    grid-template-rows: auto auto auto;
-  }
-
-  .mealHold img {
-    width: 100%;
-    height: 12em;
-    padding: 0.4em;
-  }
-
-  .mealHold h3 {
-    font-size: 0.95em;
-    padding-left: 0.5em;
-    margin-top: 0.5em;
-  }
-
-  .mealHold .linkHold {
-    padding-left: 0.8em;
-    padding-bottom: 0.5em;
-  }
-
-  .mealHold a {
-    font-size: 10px;
-    padding: 0.5em 0.6em;
-  }
-
-  .lowerMeals h2 {
-    margin-top: 1.2em;
-    font-size: 1.1em;
-  }
-
-  .lowerGrid {
-    gap: 1em;
-    flex-direction: column;
-    align-items: stretch;
-    margin-top: 0.8em;
-  }
-}
-
-/* ============================================
-   EXTRA SMALL MOBILE (max 374px)
-   ============================================ */
-@media screen and (max-width: 374px) {
-  .mealsCont {
-    padding: 0.4em;
-    padding-bottom: 5em;
-  }
-
-  .upperMeals h2 {
-    font-size: 1.1em;
-  }
-
-  .upperMeals p {
-    width: 7em;
-    height: 2em;
-    font-size: 0.55em;
-    margin-top: 0.8em;
-  }
-
-  .midMeals h2 {
-    font-size: 1em;
-  }
-
-  .mealType {
-    font-size: 0.9em;
-  }
-
-  .mealHold img {
-    height: 10em;
-  }
-
-  .mealHold h3 {
-    font-size: 0.9em;
-  }
-
-  .mealHold a {
-    font-size: 9px;
-  }
-
-  .lowerMeals h2 {
-    font-size: 1em;
-  }
-}
-
-/* ============================================
-   LANDSCAPE ORIENTATION FIX
-   ============================================ */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-  .mealsCont {
-    padding: 0.8em;
-    padding-bottom: 4em;
-  }
-
-  .mealGrid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 1em;
-  }
-
-  .mealHold {
-    width: 30%;
-    min-width: 250px;
-  }
-
-  .mealHold img {
-    height: 10em;
-  }
-}
-/*==========================================================
-  SETTINGS RESPONSIVE DESIGN
-==========================================================*/
-
-/*----------TABLET (768px - 1024px)---------------*/
-@media (max-width: 1024px) {
-  .settings-wrapper {
-    padding: 1.5em;
-  }
-
-  .settings-container {
-    grid-template-columns: 1fr 1.5fr;
-  }
-
-  .settings-left h1 {
-    font-size: 1.4em;
-  }
-
-  .form-content h1 {
-    font-size: 1.2em;
-  }
-}
-
-/*----------MOBILE (max-width: 768px)---------------*/
-@media (max-width: 768px) {
-  .settings-wrapper {
-    padding: 1em;
-  }
-
-  .settings-container {
-    grid-template-columns: 1fr;
-    gap: 1.5em;
-  }
-
-  /*--- Left Column Mobile ---*/
-  .settings-left {
-    padding: 1.5em 1em;
-  }
-
-  .settings-left .image-placeholder {
-    height: 10em;
-  }
-
-  .image-placeholder .image-sec {
-    height: 10em;
-    width: 10em;
-  }
-
-  .image-sec img {
-    height: 10em;
-    width: 10em;
-  }
-
-  .settings-left h1 {
-    font-size: 1.5em;
-  }
-
-  .settings-left .uploadBtn {
-    max-width: 100%;
-  }
-
-  /*--- Right Column Mobile ---*/
-  .settings-right {
-    padding: 1.5em;
-  }
-
-  .form-content h1 {
-    font-size: 1.2em;
-    margin-bottom: 1em;
-  }
-
-  /*--- Stack form fields vertically ---*/
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .form-row .full-width {
-    grid-column: 1;
-  }
-
-  .input-group {
-    margin-bottom: 1em;
-  }
-
-  .form-content button[type="submit"] {
-    margin-top: 1.5em;
-  }
-}
-
-/*----------SMALL MOBILE (max-width: 480px)---------------*/
-@media (max-width: 480px) {
-  .settings-wrapper {
-    padding: 0.5em;
-  }
-
-  .settings-container {
-    gap: 1em;
-  }
-
-  .settings-left,
-  .settings-right {
-    padding: 1em;
-  }
-  .settings-right {
-    margin-bottom: 4em;
-  }
-  .settings-left .image-placeholder {
-    height: 8em;
-  }
-
-  .image-placeholder .image-sec {
-    height: 8em;
-    width: 8em;
-  }
-
-  .image-sec img {
-    height: 8em;
-    width: 8em;
-  }
-
-  .settings-left h1 {
-    font-size: 1.3em;
-  }
-
-  .settings-left p {
-    font-size: 0.9em;
-  }
-
-  .form-content h1 {
-    font-size: 1.1em;
-  }
-
-  .form-content {
-    font-size: 13px;
-  }
-
-  .input-group input,
-  .input-group select {
-    height: 2.8em;
-    font-size: 14px;
-  }
-}
-
 /*----------SCROLLBAR STYLING---------------*/
 .settings-right::-webkit-scrollbar {
   width: 0.4em;
