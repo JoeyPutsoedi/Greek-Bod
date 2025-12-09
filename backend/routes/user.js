@@ -9,6 +9,7 @@ import { uploadImage } from "../controllers/imageUploadController.js";
 import upload from "../config/multer.js";
 import { updateMealStatus } from "../controllers/mealStatusController.js";
 import { fetchMeals } from "../controllers/mealsController.js";
+import { requireAuth } from "../middleware/requireAuth.js";
 const router = express.Router();
 
 //signup a user
@@ -16,6 +17,10 @@ router.post("/signup", signUp);
 
 //login a user
 router.post("/login", login);
+
+//protect routes (auth required)
+
+router.use(requireAuth); // Apply to all route below
 
 //fetch user info
 router.get("/profile/:id", fetchProfile);

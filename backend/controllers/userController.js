@@ -103,6 +103,11 @@ export const login = async (req, res) => {
 //update user details---------------------------------------------------------------------------
 export const updateUser = async (req, res) => {
   const { id } = req.params;
+
+  //verify the authenticated user matches the id being updated
+  if (req.user.id.toString() !== id) {
+    return res.status(403).json({ error: "Not autorized to update this user" });
+  }
   const {
     firstName,
     lastName,
