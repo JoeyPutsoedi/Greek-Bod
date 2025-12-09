@@ -118,7 +118,6 @@
 .userImg1 {
   height: 15em;
   width: 19.7em;
-
   background: linear-gradient(170deg, white, white, rgba(180, 180, 180, 0.085));
   border: 1px solid white;
   border-radius: 1em;
@@ -126,6 +125,12 @@
   grid-template-rows: 2fr 1fr;
   place-content: center;
   place-items: center;
+}
+.userImg1 #imgPlh {
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  background-color: #d8d8d8;
+  color: #565656;
 }
 .userImg1 img {
   width: 6em;
@@ -136,12 +141,14 @@
 .userImg1 .userTitle {
   margin-top: -2.6em;
   text-align: center;
+  text-transform: capitalize;
 }
 .userImg1 p {
   font-family: mier;
   font-size: 1.7em;
 }
 .userImg1 #userMail {
+  text-transform: none;
   margin-top: -0.2em;
   font-size: 0.9em;
   color: rgb(166, 166, 166);
