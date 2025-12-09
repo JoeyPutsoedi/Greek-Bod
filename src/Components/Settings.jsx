@@ -83,6 +83,7 @@ const Settings = () => {
   const handleSaveProfile = async () => {
     if (!user) return;
     try {
+      setLoading(true);
       //create a copy of formData
       const updatedData = { ...formData };
 
@@ -96,6 +97,7 @@ const Settings = () => {
       }
       await updateInfo(user._id, updatedData);
       alert("Details Updated successfully!");
+      setLoading(false);
     } catch (err) {
       console.error("Failed to save profile:", err);
     }
@@ -288,7 +290,9 @@ const Settings = () => {
                 </div>
               </div>
 
-              <button type="submit">Save changes</button>
+              <button type="submit">
+                {loading ? "Saving..." : "Save changes"}
+              </button>
             </div>
           </form>
         </div>

@@ -638,15 +638,18 @@ body {
   }
 
   .organic {
+    display: none;
     font-size: 0.9rem;
     top: 18%;
     left: 10%;
   }
 
   .badge2 {
+    display: none;
     font-size: 6rem;
     top: 15%;
     left: 8%;
+    opacity: 0;
   }
 
   .subtextsMain {
@@ -770,7 +773,10 @@ body {
   .navItems p {
     padding: 0.4em 0.8em;
   }
-
+  .navItems p::before {
+    opacity: 0;
+    display: none;
+  }
   .mainText {
     font-size: 10em;
     letter-spacing: -5px;
@@ -784,6 +790,7 @@ body {
   }
 
   .badge2 {
+    display: none;
     font-size: 5rem;
     top: 17%;
     left: 10%;
@@ -949,6 +956,9 @@ body {
   .navBox ul {
     gap: 1.5em;
   }
+  .navItems p {
+    margin-right: -11em;
+  }
 
   .mainText {
     font-size: 7em;
@@ -1049,6 +1059,7 @@ body {
   .navItems p {
     padding: 0.4em 0.7em;
     margin-left: 1.5em;
+    margin-right: -11.3em;
   }
 
   .navItems p::before {
@@ -1100,17 +1111,18 @@ body {
   }
 
   .card1 {
-    width: 80%;
-    height: 24em;
+    width: 70%;
+    height: 21em;
   }
 
   .card1 p {
-    font-size: 1.1em;
+    font-size: 0.9em;
     padding-top: 1em;
+    padding: 1em 1em 0em 1em;
   }
 
   .card1 img {
-    max-height: 175px;
+    max-height: 135px;
   }
 
   /* Banner Section */
@@ -1148,7 +1160,6 @@ body {
   }
 
   #bText1 {
-    outline: none;
     padding-top: 1em;
     left: 8%;
     margin-top: 13em;
@@ -1157,7 +1168,6 @@ body {
   }
 
   #bText2 {
-    outline: none;
     right: 8%;
     margin-top: 38em;
     width: 14em;
@@ -1165,7 +1175,6 @@ body {
   }
 
   #bText3 {
-    outline: none;
     left: 8%;
     margin-top: 42em;
     width: 19em;
@@ -1319,7 +1328,9 @@ body {
     width: 95%;
     transform: translate(-50%, -50%) scale(0.75);
   }
-
+  .navItems p {
+    margin-right: -10em;
+  }
   .mainText {
     font-size: 5.5em;
     margin-left: 0.1em;
