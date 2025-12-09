@@ -7,6 +7,7 @@ import Banner from "../Components/Banner.jsx";
 import Onboard from "../Components/Onboard.jsx";
 import Footer from "../Components/Footer.jsx";
 import Testimonials from "../Components/Testimonials.jsx";
+
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 const Landing = () => {
   return (
@@ -24,6 +25,7 @@ const Landing = () => {
 
       <Cards />
       <Banner />
+
       <Testimonials />
       <Onboard
         marqueeText="Now✦ Is ✦ Always ✦ The Best ✦ Time ✦"

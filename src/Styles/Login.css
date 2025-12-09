@@ -21,12 +21,17 @@
   place-items: center;
   width: 50%;
 }
+.login .right-section {
+  position: relative;
+}
 .login .right-section img {
+  position: relative;
   object-fit: cover;
   width: 98%;
   height: 98%;
   border-radius: 2em;
 }
+
 .login .upper-left {
   display: flex;
   flex-direction: column;
