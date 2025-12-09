@@ -15,7 +15,7 @@ const DashboardMeals = () => {
   const white = "white";
 
   useEffect(() => {
-    if (user) {
+    if (user?._id) {
       const getMealRecommendations = async () => {
         try {
           const mealsData = await getMeals(user._id);
@@ -30,7 +30,7 @@ const DashboardMeals = () => {
 
       getMealRecommendations();
     }
-  }, [user]);
+  }, [user?._id]);
 
   if (loading) {
     return (
