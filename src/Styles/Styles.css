@@ -90,7 +90,7 @@ body {
   z-index: -1;
   width: calc(22% + 4px);
   height: calc(100% + 4px);
-  -webkit-backdrop-filter: blur(8px);
+  --webkit-backdrop-filter: blur(8px);
   filter: blur(8px);
   animation: glowing 10s linear infinite;
   transition: opacity 0.3s ease;
@@ -100,7 +100,7 @@ body {
 .navItems p:hover::before {
   opacity: 1;
 }
-/*HERO-----------------------*/
+/*--------------------------------------------------HERO----------------------------------------------------*/
 
 .mainText {
   padding-top: 0.5em;
@@ -147,7 +147,7 @@ body {
   line-height: 1em;
   justify-content: space-around;
 }
-/*Cards section--------------------*/
+/*---------------------------------------------Cards section-------------------------------------------------------*/
 .cardsSection {
   background-color: #e3e3e3;
   border-top-left-radius: 23%;
@@ -202,7 +202,7 @@ body {
   color: #e3e3e3;
   margin-bottom: 1em;
 }
-/*Banner Section------------------------------------------------*/
+/*---------------------------------------------Banner Section------------------------------------------------*/
 .banner {
   /* background-color: #449be8; */
   border-top-left-radius: 20%;
@@ -377,9 +377,60 @@ body {
 
   /* outline: 1px solid black; */
 }
-/*Testimonials------------------------*/
+/*-------------------------------------------------------How it works-----------------------------------------------*/
+.how-wrapper {
+  background-color: #e3e3e3;
+  margin-top: -17em;
+  height: 65em;
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.how-wrapper h1 {
+  text-align: center;
+  padding-top: 2em;
+  line-height: 0.9em;
+  font-weight: 600;
+  font-size: 1.9em;
+}
+.how-wrapper .how-anims {
+  margin-top: 2.5em;
+  width: 50%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-left: auto;
+  margin-right: auto;
+}
+.how-wrapper .how-anims .form-ani {
+  border: 2px solid white;
+  background: linear-gradient(white, #dedede);
+  width: 20em;
+  height: 25em;
+  border-radius: 2.8em;
+  box-shadow: 2px 5px 15px rgba(196, 196, 196, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+.how-wrapper .form-ani .videoPlh {
+  height: 80%;
+}
+
+.how-wrapper .how-anims .form-ani p {
+  font-family: mier;
+
+  color: rgb(129, 129, 129);
+  height: 20%;
+  line-height: 0.9em;
+  font-weight: 700;
+  font-size: 1.4em;
+  padding-left: 1em;
+}
+/*-------------------------------------------------------Testimonials-----------------------------------------------*/
 .testimonial-wrapper {
-  margin-top: -19em;
+  margin-top: -15em;
   height: 30em;
   width: 100%;
   font-family: mier;
