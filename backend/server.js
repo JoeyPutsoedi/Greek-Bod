@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://greek-bod.vercel.app",
+      "https://greekbod.onrender.com",
       "https://greekbod.netlify.app",
       "http://localhost:3000",
       "https://backend-little-tree-1198.fly.dev",
