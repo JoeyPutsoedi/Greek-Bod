@@ -13,8 +13,8 @@ const Settings = () => {
   const [image, setImage] = useState(null);
   /* The editable version of user inputs should the user choose to change their information.*/
   const [preview, setPreview] = useState(null);
+  const [upload, setUpload] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -63,12 +63,12 @@ const Settings = () => {
     imageFormData.append("image", image);
 
     try {
-      setLoading(true);
+      setUpload(true);
       const response = await uploadImg(user._id, imageFormData);
       console.log("Uploaded Image URL:", response);
 
       alert("Image uploaded successfully!");
-      setLoading(false);
+      setUpload(false);
     } catch (error) {
       console.error("Upload Error:", error);
       alert("Image upload failed!");
@@ -122,7 +122,7 @@ const Settings = () => {
             onChange={handleImageChange}
           />
           <button className="uploadBtn" onClick={handleUpload}>
-            {loading ? "Uploading..." : "Upload"}
+            {upload ? "Uploading..." : "Upload"}
           </button>
         </div>
 
