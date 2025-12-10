@@ -45,7 +45,7 @@ export const signUp = async (req, res) => {
       lastName,
     });
 
-    //create token - FIXED: use user._id not User._id
+    //create token
     const token = createToken(user._id);
 
     return res.status(200).json({ user, token });
@@ -104,10 +104,10 @@ export const login = async (req, res) => {
 export const updateUser = async (req, res) => {
   const { id } = req.params;
 
-  //verify the authenticated user matches the id being updated
-  if (req.user.id.toString() !== id) {
-    return res.status(403).json({ error: "Not autorized to update this user" });
-  }
+  // //verify the authenticated user matches the id being updated
+  // if (req.user.id.toString() !== id) {
+  //   return res.status(403).json({ error: "Not autorized to update this user" });
+  // }
   const {
     firstName,
     lastName,
