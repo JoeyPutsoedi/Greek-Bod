@@ -11,16 +11,22 @@
 
 .dashboard-container .IntroSection {
   height: 100%;
+  width: 100%;
+
   place-content: center;
 }
 .dashboard-container .intro {
   /* border: 1px solid grey; */
-  width: 18em;
+  width: 100%;
 }
 .dashboard-container .intro h2 {
   font-weight: 700;
   font-size: 1.8em;
   font-family: mier;
+}
+.dashboard-container .intro p {
+  font-family: mier;
+  color: rgb(166, 166, 166);
 }
 
 /*--------------------------------STREAK---------------------------------------------------*/

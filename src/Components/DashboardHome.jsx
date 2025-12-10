@@ -18,6 +18,10 @@ const DashboardHome = () => {
       <div className="IntroSection">
         <div className="intro">
           <h2>Hello There, {"  " + user?.firstName}</h2>
+          <p>
+            Remember to update your current weight to keep track of your
+            milestone progress
+          </p>
         </div>
       </div>
       {/* Streaks*/}
