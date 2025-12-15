@@ -12,7 +12,7 @@ export const requireAuth = async (req, res, next) => {
 
   //extract toke (format: "Bearer TOKEN")
 
-  const token = authorisation.split("")[1];
+  const token = authorization.split(" ")[1];
 
   try {
     //verify token

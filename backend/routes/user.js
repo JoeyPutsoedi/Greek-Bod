@@ -19,6 +19,8 @@ router.post("/signup", signUp);
 router.post("/login", login);
 
 //protect routes (auth required)
+// Apply to all route below
+router.use(requireAuth);
 
 //fetch user info
 router.get("/profile/:id", fetchProfile);
@@ -34,6 +36,4 @@ router.patch("/mealStatus/:id", updateMealStatus);
 
 //update meals
 router.patch("/fetchMeals/:id", fetchMeals);
-// Apply to all route below
-//router.use(requireAuth);
 export default router;
